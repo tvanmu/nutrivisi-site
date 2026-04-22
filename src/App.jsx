@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import NutrivisiSite from './NutrivisiSite';
 
 /* =====================================================================
@@ -98,6 +99,7 @@ export default function App() {
         />
         <Route path="*" element={<Navigate to="/nl" replace />} />
       </Routes>
+      <SpeedInsights />
     </BrowserRouter>
   );
 }
