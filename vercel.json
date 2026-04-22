@@ -1,8 +1,30 @@
 {
   "redirects": [
-    { "source": "/nl",         "destination": "/", "permanent": true },
-    { "source": "/nl/:path*",  "destination": "/", "permanent": true },
-    { "source": "/fr",         "destination": "/", "permanent": true },
-    { "source": "/fr/:path*",  "destination": "/", "permanent": true }
+    {
+      "source": "/nl/(.*)",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/fr/(.*)",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/over-ons/(.*)",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/diensten/(.*)",
+      "destination": "/",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/"
+    }
   ]
 }
