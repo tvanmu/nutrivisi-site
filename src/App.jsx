@@ -21,8 +21,7 @@ import {
   ClipboardCheck,
   Activity,
   Send,
-  Eye,
-  Lock
+  Eye
 } from 'lucide-react';
 
 // --- 1. Programmatisch SVG Logo ---
@@ -205,7 +204,6 @@ const PrecisionScanner = () => (
 const services = [
   {
     id: 'expertadvies',
-    keyword: 'EXPERTISE',
     title: 'Expertadvies',
     icon: Lightbulb,
     description: 'Gericht advies over voedselveiligheid, kwaliteitssystemen en wettelijke vereisten, afgestemd op uw sector en uw concrete situatie.',
@@ -213,7 +211,6 @@ const services = [
   },
   {
     id: 'coaching',
-    keyword: 'CULTUUR',
     title: 'Coaching en training',
     icon: Users,
     description: 'Wij maken voedselveiligheid begrijpelijk voor management en medewerkers, met visuele hulpmiddelen die op de werkvloer blijven hangen.',
@@ -221,7 +218,6 @@ const services = [
   },
   {
     id: 'certificatie',
-    keyword: 'BORGING',
     title: 'Certificatiebegeleiding',
     icon: Award,
     description: 'Begeleiding bij de opbouw, verbetering en borging van kwaliteitssystemen, tot en met auditvoorbereiding en certificatie.',
@@ -229,7 +225,6 @@ const services = [
   },
   {
     id: 'risico',
-    keyword: 'DEFENSIE',
     title: 'Risicobeheersing',
     icon: ShieldAlert,
     description: 'Ondersteuning bij risicoanalyse, voedselverdediging, voedselfraude, incidenten en corrigerende acties.',
@@ -237,7 +232,6 @@ const services = [
   },
   {
     id: 'etikettering',
-    keyword: 'PRECISIE',
     title: 'Etikettering en specificaties',
     icon: Tag,
     description: 'Opmaak en controle van productlabels en productspecificaties volgens Belgische en Europese wetgeving.',
@@ -411,13 +405,6 @@ export default function App() {
             
             {/* Left Side */}
             <div>
-              <FadeInSection delay={100}>
-                <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#012330]/80 text-[#F5A623] border border-[#F5A623]/20 text-sm font-semibold mb-8 backdrop-blur-md shadow-[0_2px_10px_rgba(0,0,0,0.3)]">
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#F5A623] animate-pulse shadow-[0_0_8px_#F5A623]"></span>
-                  Voor voedingsbedrijven die duidelijkheid willen, geen ruis
-                </div>
-              </FadeInSection>
-              
               <FadeInSection delay={200}>
                 <h1 className="max-w-4xl text-6xl font-extrabold leading-[1.05] tracking-tighter text-white sm:text-7xl lg:text-8xl">
                   Veiligheid zonder <br/>
@@ -513,14 +500,26 @@ export default function App() {
       <section className="bg-gradient-to-b from-[#023A4E] via-[#012a38] to-[#012330] pt-12 pb-32 relative overflow-visible">
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-5xl h-64 bg-gradient-to-t from-[#F5A623]/5 to-transparent blur-[100px] pointer-events-none z-0"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="flex items-center justify-center gap-4 mb-16">
-            <div className="w-12 h-px bg-gradient-to-r from-transparent to-teal-500/50"></div>
+          
+          <div className="flex items-center justify-center mb-20">
             <p className="text-center text-xs font-bold text-teal-400 uppercase tracking-[0.3em]">Verankerde expertise in uw sector</p>
-            <div className="w-12 h-px bg-gradient-to-l from-transparent to-teal-500/50"></div>
           </div>
-          <div className="relative">
-            <div className="absolute top-[38px] left-[10%] right-[10%] h-[1px] bg-gradient-to-r from-transparent via-teal-600/30 to-transparent hidden md:block"></div>
-            <div className="flex flex-wrap justify-center gap-8 md:gap-24 relative z-10">
+          
+          <div className="relative py-10">
+            {/* Intertwined Aesthetic Wave Animation */}
+            <div className="absolute top-1/2 left-0 w-full -translate-y-1/2 h-32 pointer-events-none hidden md:block z-0">
+              <svg className="w-full h-full opacity-60" viewBox="0 0 1000 100" preserveAspectRatio="none">
+                {/* Wave 1: Teal */}
+                <path d="M0,50 C125,150 125,-50 250,50 C375,150 375,-50 500,50 C625,150 625,-50 750,50 C875,150 875,-50 1000,50" fill="none" stroke="#4BB8D4" strokeWidth="1" strokeOpacity="0.2" />
+                <path d="M0,50 C125,150 125,-50 250,50 C375,150 375,-50 500,50 C625,150 625,-50 750,50 C875,150 875,-50 1000,50" fill="none" stroke="#4BB8D4" strokeWidth="2" strokeOpacity="0.8" strokeDasharray="40 1000" style={{ animation: 'flowLight 8s linear infinite' }} />
+                
+                {/* Wave 2: Gold */}
+                <path d="M0,50 C125,-50 125,150 250,50 C375,-50 375,150 500,50 C625,-50 625,150 750,50 C875,-50 875,150 1000,50" fill="none" stroke="#F5A623" strokeWidth="1" strokeOpacity="0.2" />
+                <path d="M0,50 C125,-50 125,150 250,50 C375,-50 375,150 500,50 C625,-50 625,150 750,50 C875,-50 875,150 1000,50" fill="none" stroke="#F5A623" strokeWidth="2" strokeOpacity="0.8" strokeDasharray="60 1000" style={{ animation: 'flowLight 6s linear infinite reverse' }} />
+              </svg>
+            </div>
+            
+            <div className="flex flex-wrap justify-center gap-8 md:gap-24 relative z-10 w-full">
               {sectors.map((sector, index) => {
                 const Icon = sector.icon;
                 return (
@@ -555,20 +554,23 @@ export default function App() {
             
             {/* Left Menu */}
             <div className="lg:col-span-4 border-r border-teal-800/40 bg-[#012330]/80 relative z-20">
-              <div className="p-8 border-b border-teal-800/40 flex items-center justify-between">
-                <p className="text-teal-400/60 text-xs font-bold uppercase tracking-[0.2em]">Selecteer Protocol</p>
-                <Activity className="w-4 h-4 text-[#F5A623] animate-pulse" />
-              </div>
-              <div className="flex flex-col h-full max-h-[700px] overflow-y-auto no-scrollbar pb-8">
+              <div className="flex flex-col h-full max-h-[700px] overflow-y-auto no-scrollbar py-6">
                 {services.map((service) => {
                   const isActive = activeService.id === service.id;
                   return (
                     <button key={service.id} onClick={() => setActiveServiceId(service.id)}
-                      className={`w-full text-left p-6 flex items-center gap-5 transition-all duration-500 interactive-card relative overflow-hidden group ${isActive ? 'bg-[#034259]/50 text-white' : 'bg-transparent text-teal-100/50 hover:bg-[#034259]/20 hover:text-white'}`}>
+                      className={`w-full text-left p-6 md:p-8 flex items-center gap-5 transition-all duration-500 interactive-card relative overflow-hidden group ${isActive ? 'bg-[#034259]/60 text-white' : 'bg-transparent text-teal-100/50 hover:bg-[#034259]/20 hover:text-white'}`}>
+                      
+                      {/* Active Indicator Line */}
+                      {isActive && (
+                        <div className="absolute left-0 top-0 w-1 h-full bg-[#F5A623] shadow-[0_0_15px_#F5A623]"></div>
+                      )}
+
                       <div className="relative flex items-center justify-center w-6 h-6 shrink-0">
                         <div className={`absolute w-2 h-2 rounded-full transition-all duration-500 ${isActive ? 'bg-[#F5A623] scale-100 shadow-[0_0_10px_#F5A623]' : 'bg-teal-700 group-hover:bg-teal-500 scale-75'}`}></div>
                         {isActive && <div className="absolute w-full h-full border border-[#F5A623] rounded-full animate-ping opacity-50"></div>}
                       </div>
+                      
                       <span className={`font-bold text-lg tracking-wide transition-transform duration-300 ${isActive ? 'translate-x-1' : ''}`}>{service.title}</span>
                       {isActive && <ChevronRight className="ml-auto w-5 h-5 text-[#F5A623]" />}
                     </button>
@@ -579,15 +581,31 @@ export default function App() {
 
             {/* Right Display */}
             <div className="lg:col-span-8 relative bg-gradient-to-br from-[#023A4E]/30 to-[#012330]/90 p-12 lg:p-20 flex items-center min-h-[700px] overflow-hidden">
-              <div className="absolute right-[-5%] top-1/2 -translate-y-1/2 text-[100px] md:text-[140px] font-black text-[#4BB8D4]/5 leading-none select-none pointer-events-none z-0 tracking-tighter uppercase" key={`watermark-${activeService.id}`}>
-                {activeService.keyword}
+              
+              {/* Enhanced Tech Visuals for the Right Panel */}
+              <div className="absolute inset-0 z-0 opacity-30 pointer-events-none">
+                 <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-[#F5A623]/20 to-transparent rounded-full blur-[100px] animate-pulse" style={{animationDuration: '6s'}}></div>
+                 <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-[#4BB8D4]/20 to-transparent rounded-full blur-[100px] animate-pulse" style={{ animationDelay: '2s', animationDuration: '8s' }}></div>
+              </div>
+              
+              {/* Scanning light beam effect */}
+              <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0 opacity-20">
+                <div className="w-[200%] h-[1px] bg-gradient-to-r from-transparent via-[#F5A623] to-transparent absolute top-1/2 left-[-50%] animate-[shuttle_6s_ease-in-out_infinite] shadow-[0_0_15px_#F5A623]"></div>
               </div>
               
               <div className="relative z-10 w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center" key={activeService.id}>
                 <div>
-                  <div className="w-16 h-16 bg-[#012330] text-[#F5A623] rounded-2xl flex items-center justify-center mb-8 border border-[#F5A623]/30 shadow-[0_0_30px_rgba(245,166,35,0.15)] animate-[blockReveal_0.5s_ease-out]"><ActiveServiceIcon className="w-8 h-8" /></div>
-                  <h3 className="text-4xl lg:text-5xl font-extrabold text-white mb-6 leading-tight tracking-tight animate-[blockReveal_0.6s_ease-out]">{activeService.title}</h3>
-                  <p className="text-teal-100/70 text-lg font-light leading-relaxed mb-8 animate-[blockReveal_0.7s_ease-out]">{activeService.description}</p>
+                  <div className="w-16 h-16 bg-[#012330] text-[#F5A623] rounded-2xl flex items-center justify-center mb-8 border border-[#F5A623]/30 shadow-[0_0_30px_rgba(245,166,35,0.15)] animate-[blockReveal_0.5s_ease-out]">
+                    <ActiveServiceIcon className="w-8 h-8" />
+                  </div>
+                  
+                  <h3 className="text-4xl lg:text-5xl font-extrabold text-white mb-6 leading-tight tracking-tight animate-[blockReveal_0.6s_ease-out]">
+                    {activeService.title}
+                  </h3>
+                  
+                  <p className="text-teal-100/70 text-lg font-light leading-relaxed mb-8 animate-[blockReveal_0.7s_ease-out]">
+                    {activeService.description}
+                  </p>
                   
                   {/* Bullets */}
                   <div className="space-y-3 mb-10 animate-[blockReveal_0.8s_ease-out]">
@@ -604,6 +622,7 @@ export default function App() {
                   </button>
                 </div>
                 
+                {/* Right side animated visual */}
                 <div className="relative h-[400px] w-full items-center justify-center hidden md:flex pointer-events-none animate-[blockReveal_1s_ease-out]">
                   <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-[#4BB8D4] rounded-full blur-[120px] opacity-10"></div>
                   <PrecisionScanner />
@@ -624,7 +643,6 @@ export default function App() {
           <SectionTitle 
             eyebrow="Werkwijze" 
             title="Een duidelijke methode, van analyse tot borging"
-            description=
             center
           />
 
@@ -666,9 +684,8 @@ export default function App() {
             <FadeInSection delay={100} className="space-y-12">
               <div>
                 <SectionTitle 
-                  eyebrow="Contact" 
                   title="Klaar voor een heldere aanpak?"
-                  description="Vertel kort waar u tegenaan loopt. Dan bekijken we samen wat nodig is voor uw bedrijf, uw team en uw auditrealiteit."
+                  description="Start vandaag."
                 />
               </div>
 
@@ -706,67 +723,70 @@ export default function App() {
             </FadeInSection>
 
             <FadeInSection delay={300}>
-              <div className="bg-[#023142]/30 backdrop-blur-xl p-10 md:p-14 rounded-[3rem] border border-teal-800/50 shadow-[0_0_50px_rgba(0,0,0,0.4)] relative overflow-hidden group/form">
-                <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#F5A623]/50 to-transparent -translate-y-full group-hover/form:animate-[scan_3s_ease-in-out_infinite]"></div>
+              <div className="bg-gradient-to-br from-[#023A4E]/60 to-[#011a24]/90 backdrop-blur-2xl p-10 md:p-14 rounded-[3rem] border border-teal-700/30 shadow-[0_20px_60px_rgba(0,0,0,0.5)] relative overflow-hidden group/form">
+                
+                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#F5A623]/40 to-transparent"></div>
+                <div className="absolute -top-20 -right-20 w-64 h-64 bg-[#F5A623]/5 rounded-full blur-[80px] pointer-events-none"></div>
 
-                <div className="mb-10">
-                  <h3 className="text-2xl font-bold text-white mb-2 flex items-center gap-3">
-                    <Lock className="w-5 h-5 text-[#F5A623]" />
-                    Beveiligde Gegevensinvoer
+                <div className="mb-10 relative z-10">
+                  <h3 className="text-3xl font-extrabold text-white mb-3 tracking-tight flex items-center gap-3">
+                    Neem contact op
                   </h3>
-                  <p className="text-teal-500/70 text-sm">Laat uw gegevens achter. Dan kan Nutrivisi snel en gericht reageren.</p>
+                  <p className="text-teal-100/60 text-sm leading-relaxed">
+                    Laat uw gegevens achter. Dan kan Nutrivisi snel en gericht reageren.
+                  </p>
                 </div>
 
-                <form onSubmit={handleSubmit} className="space-y-8">
-                  <div className="relative">
+                <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
+                  <div className="relative bg-[#011a24]/40 border border-teal-800/50 rounded-2xl focus-within:border-[#F5A623]/60 focus-within:bg-[#012330]/60 transition-all duration-300 shadow-inner">
                     <input 
                       type="text" name="name" value={formData.name} onChange={handleInputChange} required
-                      className="w-full bg-[#011a24]/50 border-b-2 border-teal-800/80 px-4 py-4 text-white focus:outline-none focus:border-[#F5A623] focus:bg-[#011a24]/80 transition-all peer placeholder-transparent"
+                      className="w-full bg-transparent px-5 pt-6 pb-2 text-white focus:outline-none peer placeholder-transparent"
                       placeholder="Uw naam"
                     />
-                    <label className="absolute left-4 top-4 text-teal-600/80 text-base pointer-events-none transition-all peer-focus:-translate-y-7 peer-focus:text-[#F5A623] peer-focus:text-xs peer-focus:font-bold peer-focus:tracking-widest peer-[:not(:placeholder-shown)]:-translate-y-7 peer-[:not(:placeholder-shown)]:text-[#F5A623] peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:font-bold peer-[:not(:placeholder-shown)]:tracking-widest">
+                    <label className="absolute left-5 top-4 text-teal-600/80 text-sm pointer-events-none transition-all peer-focus:-translate-y-2 peer-focus:text-[#F5A623] peer-focus:text-[10px] peer-focus:font-bold peer-focus:tracking-widest peer-[:not(:placeholder-shown)]:-translate-y-2 peer-[:not(:placeholder-shown)]:text-[#F5A623] peer-[:not(:placeholder-shown)]:text-[10px] peer-[:not(:placeholder-shown)]:font-bold peer-[:not(:placeholder-shown)]:tracking-widest">
                       Naam
                     </label>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div className="relative">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="relative bg-[#011a24]/40 border border-teal-800/50 rounded-2xl focus-within:border-[#F5A623]/60 focus-within:bg-[#012330]/60 transition-all duration-300 shadow-inner">
                       <input 
                         type="text" name="company" value={formData.company} onChange={handleInputChange} required
-                        className="w-full bg-[#011a24]/50 border-b-2 border-teal-800/80 px-4 py-4 text-white focus:outline-none focus:border-[#F5A623] focus:bg-[#011a24]/80 transition-all peer placeholder-transparent"
+                        className="w-full bg-transparent px-5 pt-6 pb-2 text-white focus:outline-none peer placeholder-transparent"
                         placeholder="Bedrijf"
                       />
-                      <label className="absolute left-4 top-4 text-teal-600/80 text-base pointer-events-none transition-all peer-focus:-translate-y-7 peer-focus:text-[#F5A623] peer-focus:text-xs peer-focus:font-bold peer-focus:tracking-widest peer-[:not(:placeholder-shown)]:-translate-y-7 peer-[:not(:placeholder-shown)]:text-[#F5A623] peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:font-bold peer-[:not(:placeholder-shown)]:tracking-widest">
+                      <label className="absolute left-5 top-4 text-teal-600/80 text-sm pointer-events-none transition-all peer-focus:-translate-y-2 peer-focus:text-[#F5A623] peer-focus:text-[10px] peer-focus:font-bold peer-focus:tracking-widest peer-[:not(:placeholder-shown)]:-translate-y-2 peer-[:not(:placeholder-shown)]:text-[#F5A623] peer-[:not(:placeholder-shown)]:text-[10px] peer-[:not(:placeholder-shown)]:font-bold peer-[:not(:placeholder-shown)]:tracking-widest">
                         Bedrijfsnaam
                       </label>
                     </div>
 
-                    <div className="relative">
+                    <div className="relative bg-[#011a24]/40 border border-teal-800/50 rounded-2xl focus-within:border-[#F5A623]/60 focus-within:bg-[#012330]/60 transition-all duration-300 shadow-inner">
                       <input 
                         type="email" name="email" value={formData.email} onChange={handleInputChange} required
-                        className="w-full bg-[#011a24]/50 border-b-2 border-teal-800/80 px-4 py-4 text-white focus:outline-none focus:border-[#F5A623] focus:bg-[#011a24]/80 transition-all peer placeholder-transparent"
+                        className="w-full bg-transparent px-5 pt-6 pb-2 text-white focus:outline-none peer placeholder-transparent"
                         placeholder="Email"
                       />
-                      <label className="absolute left-4 top-4 text-teal-600/80 text-base pointer-events-none transition-all peer-focus:-translate-y-7 peer-focus:text-[#F5A623] peer-focus:text-xs peer-focus:font-bold peer-focus:tracking-widest peer-[:not(:placeholder-shown)]:-translate-y-7 peer-[:not(:placeholder-shown)]:text-[#F5A623] peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:font-bold peer-[:not(:placeholder-shown)]:tracking-widest">
+                      <label className="absolute left-5 top-4 text-teal-600/80 text-sm pointer-events-none transition-all peer-focus:-translate-y-2 peer-focus:text-[#F5A623] peer-focus:text-[10px] peer-focus:font-bold peer-focus:tracking-widest peer-[:not(:placeholder-shown)]:-translate-y-2 peer-[:not(:placeholder-shown)]:text-[#F5A623] peer-[:not(:placeholder-shown)]:text-[10px] peer-[:not(:placeholder-shown)]:font-bold peer-[:not(:placeholder-shown)]:tracking-widest">
                         E-mailadres
                       </label>
                     </div>
                   </div>
 
-                  <div className="relative">
+                  <div className="relative bg-[#011a24]/40 border border-teal-800/50 rounded-2xl focus-within:border-[#F5A623]/60 focus-within:bg-[#012330]/60 transition-all duration-300 shadow-inner">
                     <textarea 
                       name="message" value={formData.message} onChange={handleInputChange} rows="4" required
-                      className="w-full bg-[#011a24]/50 border-b-2 border-teal-800/80 px-4 py-4 text-white focus:outline-none focus:border-[#F5A623] focus:bg-[#011a24]/80 transition-all peer placeholder-transparent resize-none"
+                      className="w-full bg-transparent px-5 pt-7 pb-3 text-white focus:outline-none peer placeholder-transparent resize-none"
                       placeholder="Omschrijf kort uw vraag, audit, labeltraject of uitdaging."
                     ></textarea>
-                    <label className="absolute left-4 top-4 text-teal-600/80 text-base pointer-events-none transition-all peer-focus:-translate-y-7 peer-focus:text-[#F5A623] peer-focus:text-xs peer-focus:font-bold peer-focus:tracking-widest peer-[:not(:placeholder-shown)]:-translate-y-7 peer-[:not(:placeholder-shown)]:text-[#F5A623] peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:font-bold peer-[:not(:placeholder-shown)]:tracking-widest">
+                    <label className="absolute left-5 top-4 text-teal-600/80 text-sm pointer-events-none transition-all peer-focus:-translate-y-2 peer-focus:text-[#F5A623] peer-focus:text-[10px] peer-focus:font-bold peer-focus:tracking-widest peer-[:not(:placeholder-shown)]:-translate-y-2 peer-[:not(:placeholder-shown)]:text-[#F5A623] peer-[:not(:placeholder-shown)]:text-[10px] peer-[:not(:placeholder-shown)]:font-bold peer-[:not(:placeholder-shown)]:tracking-widest">
                       Vraag of project
                     </label>
                   </div>
 
-                  <button type="submit" className="w-full bg-[#F5A623] hover:bg-[#FFC35C] text-[#012330] px-8 py-5 rounded-2xl text-lg font-bold transition-all duration-300 shadow-[0_4px_15px_rgba(245,166,35,0.2)] hover:shadow-[0_8px_30px_rgba(245,166,35,0.4)] flex items-center justify-center gap-3 mt-4 interactive-card">
+                  <button type="submit" className="w-full bg-gradient-to-r from-[#F5A623] to-[#FFC35C] hover:from-[#FFC35C] hover:to-[#F5A623] text-[#012330] px-8 py-5 rounded-2xl text-lg font-bold transition-all duration-300 shadow-[0_4px_20px_rgba(245,166,35,0.25)] hover:shadow-[0_8px_30px_rgba(245,166,35,0.4)] flex items-center justify-center gap-3 mt-8 group interactive-card">
                     <span>Verstuur aanvraag</span>
-                    <Send className="w-5 h-5" />
+                    <Send className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                   </button>
                 </form>
               </div>
@@ -804,6 +824,7 @@ export default function App() {
         @keyframes spin-slow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
         @keyframes scan { 0% { transform: translateY(-100%); opacity: 0;} 10% { opacity: 1; } 90% { opacity: 1; } 100% { transform: translateY(1000%); opacity: 0; } }
         @keyframes blockReveal { 0% { opacity: 0; transform: translateY(15px); filter: blur(8px); } 100% { opacity: 1; transform: translateY(0); filter: blur(0px); } }
+        @keyframes flowLight { from { stroke-dashoffset: 1040; } to { stroke-dashoffset: 0; } }
 
         .animate-breathe { animation: breathe 6s ease-in-out infinite; }
         .animate-drift-slow { animation: drift-slow 12s ease-in-out infinite; }
