@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* This forces the entire website to use the premium Inter font */
+    --font-sans: "Inter", sans-serif;
+  }
+}
