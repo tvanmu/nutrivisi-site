@@ -1,27 +1,8 @@
 import React, { useMemo, useState, useEffect, useRef } from 'react';
 import {
-  Menu,
-  X,
-  ChevronRight,
-  ArrowRight,
-  ShieldCheck,
-  Users,
-  Award,
-  ShieldAlert,
-  Tag,
-  Wheat,
-  Beef,
-  UtensilsCrossed,
-  Store,
-  CheckCircle2,
-  Mail,
-  Phone,
-  MapPin,
-  Lightbulb,
-  ClipboardCheck,
-  Activity,
-  Send,
-  Eye
+  Menu, X, ChevronRight, ArrowRight, ShieldCheck, Users, Award, ShieldAlert,
+  Tag, Wheat, Beef, UtensilsCrossed, Store, CheckCircle2, Mail, Phone, MapPin,
+  Lightbulb, ClipboardCheck, Activity, Send, Eye
 } from 'lucide-react';
 
 // --- 1. Programmatisch SVG Logo ---
@@ -200,84 +181,6 @@ const PrecisionScanner = () => (
   </div>
 );
 
-// --- 3. Gebruikers Data ---
-const services = [
-  {
-    id: 'expertadvies',
-    title: 'Expertadvies',
-    icon: Lightbulb,
-    description: 'Gericht advies over voedselveiligheid, kwaliteitssystemen en wettelijke vereisten, afgestemd op uw sector en uw concrete situatie.',
-    bullets: ['Praktisch en sectorspecifiek', 'Heldere prioriteiten', 'Snel inzetbaar'],
-  },
-  {
-    id: 'coaching',
-    title: 'Coaching en training',
-    icon: Users,
-    description: 'Wij maken voedselveiligheid begrijpelijk voor management en medewerkers, met visuele hulpmiddelen die op de werkvloer blijven hangen.',
-    bullets: ['Food Safety Culture', 'Visuele instructies', 'Draagvlak in het team'],
-  },
-  {
-    id: 'certificatie',
-    title: 'Certificatiebegeleiding',
-    icon: Award,
-    description: 'Begeleiding bij de opbouw, verbetering en borging van kwaliteitssystemen, tot en met auditvoorbereiding en certificatie.',
-    bullets: ['Autocontrolegidsen', 'GFSI-trajecten', 'Auditvoorbereiding'],
-  },
-  {
-    id: 'risico',
-    title: 'Risicobeheersing',
-    icon: ShieldAlert,
-    description: 'Ondersteuning bij risicoanalyse, voedselverdediging, voedselfraude, incidenten en corrigerende acties.',
-    bullets: ['Preventie en opvolging', 'Interne en externe risico’s', 'Concreet actieplan'],
-  },
-  {
-    id: 'etikettering',
-    title: 'Etikettering en specificaties',
-    icon: Tag,
-    description: 'Opmaak en controle van productlabels en productspecificaties volgens Belgische en Europese wetgeving.',
-    bullets: ['Wettelijke controle', 'Vertaling en lay-out', 'Minder risico op fouten'],
-  },
-];
-
-const sectors = [
-  { title: 'Bakkerij', icon: Wheat },
-  { title: 'Vleessector', icon: Beef },
-  { title: 'Horeca', icon: UtensilsCrossed },
-  { title: 'Retail', icon: Store },
-];
-
-const methodSteps = [
-  {
-    title: 'Analyse',
-    text: 'We bekijken uw huidige werking, risico’s, documentatie en doelstellingen.',
-    icon: ClipboardCheck,
-  },
-  {
-    title: 'Vertaling naar actie',
-    text: 'We zetten complexe regelgeving om in duidelijke instructies, tools en prioriteiten.',
-    icon: Lightbulb,
-  },
-  {
-    title: 'Begeleiding en borging',
-    text: 'We ondersteunen uw team tot de aanpak werkt in de praktijk en auditklaar is.',
-    icon: ShieldCheck,
-  },
-];
-
-const trustPoints = [
-  'Praktische begeleiding voor voedingsbedrijven',
-  'Visuele tools die medewerkers echt begrijpen',
-  'Ondersteuning bij audits, labels en kwaliteitssystemen',
-  'Sectorfocus: bakkerij, vlees, horeca en retail',
-];
-
-const navItems = [
-  { label: 'Home', href: '#home' },
-  { label: 'Diensten', href: '#diensten' },
-  { label: 'Werkwijze', href: '#werkwijze' },
-  { label: 'Contact', href: '#contact' },
-];
-
 function SectionTitle({ eyebrow, title, description, center = false }) {
   return (
     <div className={`mb-16 ${center ? 'mx-auto max-w-3xl text-center' : 'max-w-3xl'}`}>
@@ -300,18 +203,191 @@ function SectionTitle({ eyebrow, title, description, center = false }) {
   );
 }
 
+// --- 3. Language Dictionary (NL/FR) ---
+const translations = {
+  NL: {
+    nav: { tag: "Voedselveiligheid helder gemaakt", home: "Home", services: "Diensten", method: "Werkwijze", contact: "Contact", cta: "Contact" },
+    hero: {
+      title1: "Veiligheid zonder", title2: "complexiteit.",
+      subtitle: "Nutrivisi vertaalt complexe wetgeving naar heldere visuele acties, zodat uw team begrijpt wat nodig is en sneller auditklaar werkt.",
+      btn1: "Bekijk diensten", btn2: "Bespreek uw vraag",
+      trust: [
+        "Praktische begeleiding voor voedingsbedrijven",
+        "Visuele tools die medewerkers echt begrijpen",
+        "Ondersteuning bij audits, labels en kwaliteitssystemen",
+        "Sectorfocus: bakkerij, vlees, horeca en retail"
+      ],
+      focusEyebrow: "Onze focus",
+      focus1: { title: "Van wet naar werkvloer", text: "Geen abstracte theory, maar duidelijke richtlijnen en visuele hulpmiddelen." },
+      focus2: { title: "Auditvoorbereiding", text: "Richting een beter systeem en rustiger audittraject." },
+      focus3: { title: "Visuele tools", text: "Begrijpelijk en beter te onthouden voor medewerkers." },
+      focus4: { title: "Etikettering", text: "Controle van labels volgens de geldende wetgeving." },
+      focus5: { title: "Sectorgericht", text: "Ervaring in bakkerij, vlees, horeca en retail." }
+    },
+    sectorsSection: {
+      eyebrow: "Verankerde expertise in uw sector",
+      items: ["Bakkerij", "Vleessector", "Horeca", "Retail"]
+    },
+    servicesSection: {
+      eyebrow: "Diensten", title: "Gerichte ondersteuning voor voedselveiligheid",
+      discuss: "Bespreek deze dienst",
+      items: [
+        {
+          id: 'expertadvies', title: 'Expertadvies',
+          description: 'Gericht advies over voedselveiligheid, kwaliteitssystemen en wettelijke vereisten, afgestemd op uw sector en uw concrete situatie.',
+          bullets: ['Praktisch en sectorspecifiek', 'Heldere prioriteiten', 'Snel inzetbaar']
+        },
+        {
+          id: 'coaching', title: 'Coaching en training',
+          description: 'Wij maken voedselveiligheid begrijpelijk voor management en medewerkers, met visuele hulpmiddelen die op de werkvloer blijven hangen.',
+          bullets: ['Food Safety Culture', 'Visuele instructies', 'Draagvlak in het team']
+        },
+        {
+          id: 'certificatie', title: 'Certificatiebegeleiding',
+          description: 'Begeleiding bij de opbouw, verbetering en borging van kwaliteitssystemen, tot en met auditvoorbereiding en certificatie.',
+          bullets: ['Autocontrolegidsen', 'GFSI-trajecten', 'Auditvoorbereiding']
+        },
+        {
+          id: 'risico', title: 'Risicobeheersing',
+          description: 'Ondersteuning bij risicoanalyse, voedselverdediging, voedselfraude, incidenten en corrigerende acties.',
+          bullets: ['Preventie en opvolging', 'Interne en externe risico’s', 'Concreet actieplan']
+        },
+        {
+          id: 'etikettering', title: 'Etikettering en specificaties',
+          description: 'Opmaak en controle van productlabels en productspecificaties volgens Belgische en Europese wetgeving.',
+          bullets: ['Wettelijke controle', 'Vertaling en lay-out', 'Minder risico op fouten']
+        }
+      ]
+    },
+    methodSection: {
+      eyebrow: "Werkwijze", title: "Een duidelijke methode, van analyse tot borging",
+      items: [
+        { title: 'Analyse', text: 'We bekijken uw huidige werking, risico’s, documentatie en doelstellingen.' },
+        { title: 'Vertaling naar actie', text: 'We zetten complexe regelgeving om in duidelijke instructies, tools en prioriteiten.' },
+        { title: 'Begeleiding en borging', text: 'We ondersteunen uw team tot de aanpak werkt in de praktijk en auditklaar is.' }
+      ]
+    },
+    contactSection: {
+      title: "Klaar voor een heldere aanpak?", subtitle: "Start vandaag.",
+      emailText: "E-mail", phoneText: "Telefoon", addressText: "Adres",
+      formTitle: "Neem contact op", formSubtitle: "Laat uw gegevens achter. Dan kan Nutrivisi snel en gericht reageren.",
+      placeholders: { name: "Uw naam", company: "Bedrijf", email: "Email", message: "Omschrijf kort uw vraag, audit, labeltraject of uitdaging." },
+      labels: { name: "Naam", company: "Bedrijfsnaam", email: "E-mailadres", message: "Vraag of project" },
+      submit: "Verstuur aanvraag"
+    },
+    footer: "Praktische begeleiding in voedselveiligheid en kwaliteit."
+  },
+  FR: {
+    nav: { tag: "La sécurité alimentaire simplifiée", home: "Accueil", services: "Services", method: "Méthode", contact: "Contact", cta: "Contact" },
+    hero: {
+      title1: "La sécurité sans", title2: "complexité.",
+      subtitle: "Nutrivisi traduit la législation complexe en actions visuelles claires, pour que votre équipe comprenne ce qui est nécessaire et soit plus rapidement prête pour l'audit.",
+      btn1: "Voir les services", btn2: "Discuter de votre projet",
+      trust: [
+        "Accompagnement pratique pour les entreprises agroalimentaires",
+        "Outils visuels vraiment compris par les collaborateurs",
+        "Soutien pour les audits, labels et systèmes de qualité",
+        "Focus sectoriel : boulangerie, viande, horeca et retail"
+      ],
+      focusEyebrow: "Notre objectif",
+      focus1: { title: "De la loi au terrain", text: "Pas de théorie abstraite, mais des directives claires et des outils visuels." },
+      focus2: { title: "Préparation aux audits", text: "Vers un meilleur système et un parcours d'audit plus serein." },
+      focus3: { title: "Outils visuels", text: "Compréhensibles et plus faciles à mémoriser pour le personnel." },
+      focus4: { title: "Étiquetage", text: "Vérification des étiquettes selon la législation en vigueur." },
+      focus5: { title: "Secteurs", text: "Expérience en boulangerie, viande, horeca et retail." }
+    },
+    sectorsSection: {
+      eyebrow: "Une expertise ancrée dans votre secteur",
+      items: ["Boulangerie", "Secteur de la viande", "Horeca", "Retail"]
+    },
+    servicesSection: {
+      eyebrow: "Services", title: "Un accompagnement ciblé pour la sécurité alimentaire",
+      discuss: "Discuter de ce service",
+      items: [
+        {
+          id: 'expertadvies', title: 'Conseil d\'expert',
+          description: 'Des conseils ciblés sur la sécurité alimentaire, les systèmes de qualité et les exigences légales, adaptés à votre secteur et à votre situation concrète.',
+          bullets: ['Pratique et spécifique au secteur', 'Priorités claires', 'Rapidement applicable']
+        },
+        {
+          id: 'coaching', title: 'Coaching et formation',
+          description: 'Nous rendons la sécurité alimentaire compréhensible pour la direction et les employés, avec des outils visuels qui s\'ancrent sur le lieu de travail.',
+          bullets: ['Culture de la sécurité alimentaire', 'Instructions visuelles', 'Adhésion de l\'équipe']
+        },
+        {
+          id: 'certificatie', title: 'Accompagnement à la certification',
+          description: 'Accompagnement dans la mise en place, l\'amélioration et la garantie des systèmes de qualité, jusqu\'à la préparation de l\'audit et la certification.',
+          bullets: ['Guides d\'autocontrôle', 'Parcours GFSI', 'Préparation aux audits']
+        },
+        {
+          id: 'risico', title: 'Gestion des risques',
+          description: 'Soutien dans l\'analyse des risques, la défense alimentaire, la fraude alimentaire, les incidents et les actions correctives.',
+          bullets: ['Prévention et suivi', 'Risques internes et externes', 'Plan d\'action concret']
+        },
+        {
+          id: 'etikettering', title: 'Étiquetage et spécifications',
+          description: 'Création et vérification des étiquettes et des spécifications de produits conformément à la législation belge et européenne.',
+          bullets: ['Contrôle légal', 'Traduction et mise en page', 'Moins de risques d\'erreurs']
+        }
+      ]
+    },
+    methodSection: {
+      eyebrow: "Méthodologie", title: "Une méthode claire, de l'analyse à l'intégration",
+      items: [
+        { title: 'Analyse', text: 'Nous examinons votre fonctionnement actuel, vos risques, votre documentation et vos objectifs.' },
+        { title: 'Traduction en actions', text: 'Nous transformons les réglementations complexes en instructions claires, outils et priorités.' },
+        { title: 'Accompagnement et garantie', text: 'Nous soutenons votre équipe jusqu\'à ce que l\'approche fonctionne en pratique et soit prête pour l\'audit.' }
+      ]
+    },
+    contactSection: {
+      title: "Prêt pour une approche claire ?", subtitle: "Commencez aujourd'hui.",
+      emailText: "E-mail", phoneText: "Téléphone", addressText: "Adresse",
+      formTitle: "Contactez-nous", formSubtitle: "Laissez vos coordonnées. Nutrivisi réagira rapidement et de manière ciblée.",
+      placeholders: { name: "Votre nom", company: "Entreprise", email: "Email", message: "Décrivez brièvement votre question, audit, projet d'étiquetage ou défi." },
+      labels: { name: "Nom", company: "Nom de l'entreprise", email: "Adresse e-mail", message: "Question ou projet" },
+      submit: "Envoyer la demande"
+    },
+    footer: "Accompagnement pratique en sécurité et qualité alimentaire."
+  }
+};
+
 // --- 4. Main App Component ---
 export default function App() {
+  const [lang, setLang] = useState('NL'); // Language State
+  const t = translations[lang];
+
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [scrollRotation, setScrollRotation] = useState(0);
-  const [activeServiceId, setActiveServiceId] = useState(services[0].id);
+  const [activeServiceId, setActiveServiceId] = useState('expertadvies');
   const [formData, setFormData] = useState({ name: '', company: '', email: '', message: '' });
 
+  // Dynamic Arrays based on Language
+  const currentNavItems = [
+    { label: t.nav.home, href: '#home' },
+    { label: t.nav.services, href: '#diensten' },
+    { label: t.nav.method, href: '#werkwijze' },
+    { label: t.nav.contact, href: '#contact' },
+  ];
+
+  const currentServices = useMemo(() => t.servicesSection.items.map(s => ({
+    ...s,
+    icon: { expertadvies: Lightbulb, coaching: Users, certificatie: Award, risico: ShieldAlert, etikettering: Tag }[s.id]
+  })), [t]);
+
+  const currentSectors = useMemo(() => t.sectorsSection.items.map((title, i) => ({
+    title, icon: [Wheat, Beef, UtensilsCrossed, Store][i]
+  })), [t]);
+
+  const currentMethodSteps = useMemo(() => t.methodSection.items.map((step, i) => ({
+    ...step, icon: [ClipboardCheck, Lightbulb, ShieldCheck][i]
+  })), [t]);
+
   const activeService = useMemo(
-    () => services.find((service) => service.id === activeServiceId) ?? services[0],
-    [activeServiceId]
+    () => currentServices.find((service) => service.id === activeServiceId) ?? currentServices[0],
+    [activeServiceId, currentServices]
   );
+  
   const ActiveServiceIcon = activeService.icon;
 
   useEffect(() => {
@@ -342,6 +418,8 @@ export default function App() {
     }
   };
 
+  const toggleLang = () => setLang(lang === 'NL' ? 'FR' : 'NL');
+
   return (
     <div className="min-h-screen bg-[#012330] font-sans text-slate-200 overflow-x-hidden">
       <CustomCursor />
@@ -353,33 +431,46 @@ export default function App() {
             <NutriLogo className="h-12 w-12 text-[#F5A623]" cutoutColor={scrolled ? "#023142" : "#023A4E"} />
             <div>
               <p className="font-bold text-2xl tracking-tight text-white group-hover:text-[#F5A623] transition-colors">Nutrivisi</p>
-              <p className="text-[10px] uppercase tracking-[0.2em] text-teal-400">Voedselveiligheid helder gemaakt</p>
+              <p className="text-[10px] uppercase tracking-[0.2em] text-teal-400">{t.nav.tag}</p>
             </div>
           </a>
 
-          <div className="hidden items-center space-x-10 md:flex">
-            {navItems.map((item) => (
+          {/* Desktop Nav */}
+          <div className="hidden items-center space-x-8 md:flex">
+            {currentNavItems.map((item) => (
               <a key={item.href} href={item.href} onClick={(e) => { e.preventDefault(); scrollToSection(item.href.replace('#', '')); }} className="relative text-sm font-bold tracking-wider text-teal-100/80 hover:text-[#F5A623] transition-colors group py-2 uppercase interactive-card">
                 {item.label}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#F5A623] transition-all duration-300 group-hover:w-full"></span>
               </a>
             ))}
-            <a href="#contact" onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }} className="inline-flex items-center gap-2 rounded-full bg-[#F5A623] px-6 py-2.5 text-sm font-bold uppercase tracking-widest text-[#012330] transition hover:bg-[#FFC35C] hover:shadow-[0_0_15px_rgba(245,166,35,0.4)] interactive-card">
-              Contact
-              <ArrowRight className="h-4 w-4" />
-            </a>
+            <div className="flex items-center gap-4 pl-4 border-l border-teal-800/50">
+              {/* Language Toggle Desktop */}
+              <button onClick={toggleLang} className="w-10 h-10 rounded-full border border-[#F5A623] text-[#F5A623] font-bold text-sm hover:bg-[#F5A623] hover:text-[#012330] transition-colors interactive-card flex items-center justify-center">
+                {lang === 'NL' ? 'FR' : 'NL'}
+              </button>
+              <a href="#contact" onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }} className="inline-flex items-center gap-2 rounded-full bg-[#F5A623] px-6 py-2.5 text-sm font-bold uppercase tracking-widest text-[#012330] transition hover:bg-[#FFC35C] hover:shadow-[0_0_15px_rgba(245,166,35,0.4)] interactive-card">
+                {t.nav.cta}
+                <ArrowRight className="h-4 w-4" />
+              </a>
+            </div>
           </div>
 
-          <button onClick={() => setMobileOpen(!mobileOpen)} className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-teal-800/50 bg-[#011a24] text-white transition hover:border-[#F5A623]/40 hover:text-[#F5A623] md:hidden">
-            {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
+          {/* Mobile Buttons */}
+          <div className="flex items-center gap-3 md:hidden">
+            <button onClick={toggleLang} className="w-10 h-10 rounded-full border border-[#F5A623] text-[#F5A623] font-bold text-sm flex items-center justify-center">
+              {lang === 'NL' ? 'FR' : 'NL'}
+            </button>
+            <button onClick={() => setMobileOpen(!mobileOpen)} className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-teal-800/50 bg-[#011a24] text-white transition hover:border-[#F5A623]/40 hover:text-[#F5A623]">
+              {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
+          </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu Dropdown */}
         {mobileOpen && (
           <div className="absolute top-full left-0 w-full border-t border-teal-800/50 bg-[#011a24] p-4 md:hidden backdrop-blur-xl">
             <div className="flex flex-col gap-2">
-              {navItems.map((item) => (
+              {currentNavItems.map((item) => (
                 <a key={item.href} href={item.href} onClick={(e) => { e.preventDefault(); setMobileOpen(false); scrollToSection(item.href.replace('#', '')); }} className="rounded-xl px-4 py-3 text-sm font-bold uppercase tracking-wider text-slate-200 transition hover:bg-[#023142] hover:text-[#F5A623]">
                   {item.label}
                 </a>
@@ -407,34 +498,34 @@ export default function App() {
             <div>
               <FadeInSection delay={200}>
                 <h1 className="max-w-4xl text-6xl font-extrabold leading-[1.05] tracking-tighter text-white sm:text-7xl lg:text-8xl">
-                  Veiligheid zonder <br/>
+                  {t.hero.title1} <br/>
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F5A623] via-[#FFD07A] to-[#F5A623] bg-[length:200%_auto] animate-gradient">
-                    complexiteit.
+                    {t.hero.title2}
                   </span>
                 </h1>
               </FadeInSection>
               
               <FadeInSection delay={300}>
                 <p className="mt-8 max-w-2xl text-xl leading-relaxed text-teal-100/80">
-                  Nutrivisi vertaalt complexe wetgeving naar heldere visuele acties, zodat uw team begrijpt wat nodig is en sneller auditklaar werkt.
+                  {t.hero.subtitle}
                 </p>
               </FadeInSection>
 
               <FadeInSection delay={400}>
                 <div className="mt-10 flex flex-col sm:flex-row gap-5">
                   <button onClick={() => scrollToSection('diensten')} className="inline-flex items-center justify-center gap-3 rounded-full bg-[#F5A623] px-8 py-4 text-lg font-bold text-[#012330] transition-all hover:bg-[#FFC35C] hover:shadow-[0_4px_20px_rgba(245,166,35,0.3)] interactive-card group">
-                    Bekijk diensten
+                    {t.hero.btn1}
                     <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                   </button>
                   <button onClick={() => scrollToSection('contact')} className="inline-flex items-center justify-center rounded-full border border-[#F5A623]/30 bg-[#011a24]/50 px-8 py-4 text-lg font-bold text-white transition-all hover:border-[#F5A623] hover:bg-[#F5A623]/10 interactive-card">
-                    Bespreek uw vraag
+                    {t.hero.btn2}
                   </button>
                 </div>
               </FadeInSection>
 
               <FadeInSection delay={500}>
                 <div className="mt-16 grid gap-4 sm:grid-cols-2">
-                  {trustPoints.map((point) => (
+                  {t.hero.trust.map((point) => (
                     <div key={point} className="flex items-start gap-3 rounded-2xl border border-teal-800/40 bg-[#011a24]/60 p-4 backdrop-blur-sm group hover:border-[#F5A623]/30 transition-colors">
                       <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#F5A623] group-hover:scale-110 transition-transform" />
                       <p className="text-sm leading-6 text-teal-100/70">{point}</p>
@@ -449,7 +540,7 @@ export default function App() {
               <div className="absolute inset-0 bg-[#F5A623]/5 rounded-[3rem] blur-2xl"></div>
               <div className="relative overflow-hidden rounded-[3rem] border border-teal-800/50 bg-[#023142]/40 backdrop-blur-xl shadow-[0_0_50px_rgba(0,0,0,0.4)]">
                 <div className="border-b border-teal-800/40 bg-[#011a24]/80 px-8 py-6 flex items-center justify-between">
-                  <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#F5A623]">Onze focus</p>
+                  <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#F5A623]">{t.hero.focusEyebrow}</p>
                   <Activity className="w-5 h-5 text-teal-500 animate-pulse" />
                 </div>
                 
@@ -460,8 +551,8 @@ export default function App() {
                         <ShieldCheck className="h-8 w-8 text-[#F5A623]" />
                       </div>
                       <div>
-                        <h3 className="text-lg font-bold text-white">Van wet naar werkvloer</h3>
-                        <p className="mt-1 text-sm text-teal-100/60 leading-relaxed">Geen abstracte theorie, maar duidelijke richtlijnen en visuele hulpmiddelen.</p>
+                        <h3 className="text-lg font-bold text-white">{t.hero.focus1.title}</h3>
+                        <p className="mt-1 text-sm text-teal-100/60 leading-relaxed">{t.hero.focus1.text}</p>
                       </div>
                     </div>
                   </div>
@@ -469,23 +560,23 @@ export default function App() {
                   <div className="grid grid-cols-2 gap-4">
                     <div className="rounded-3xl border border-teal-800/30 bg-[#011a24]/50 p-5 group hover:border-teal-500/40 transition-colors">
                       <Award className="h-6 w-6 text-teal-400 mb-3" />
-                      <p className="text-sm font-bold text-white mb-1">Auditvoorbereiding</p>
-                      <p className="text-xs text-teal-100/50 leading-relaxed">Richting een beter systeem en rustiger audittraject.</p>
+                      <p className="text-sm font-bold text-white mb-1">{t.hero.focus2.title}</p>
+                      <p className="text-xs text-teal-100/50 leading-relaxed">{t.hero.focus2.text}</p>
                     </div>
                     <div className="rounded-3xl border border-teal-800/30 bg-[#011a24]/50 p-5 group hover:border-teal-500/40 transition-colors">
                       <Eye className="h-6 w-6 text-teal-400 mb-3" />
-                      <p className="text-sm font-bold text-white mb-1">Visuele tools</p>
-                      <p className="text-xs text-teal-100/50 leading-relaxed">Begrijpelijk en beter te onthouden voor medewerkers.</p>
+                      <p className="text-sm font-bold text-white mb-1">{t.hero.focus3.title}</p>
+                      <p className="text-xs text-teal-100/50 leading-relaxed">{t.hero.focus3.text}</p>
                     </div>
                     <div className="rounded-3xl border border-teal-800/30 bg-[#011a24]/50 p-5 group hover:border-teal-500/40 transition-colors">
                       <Tag className="h-6 w-6 text-teal-400 mb-3" />
-                      <p className="text-sm font-bold text-white mb-1">Etikettering</p>
-                      <p className="text-xs text-teal-100/50 leading-relaxed">Controle van labels volgens de geldende wetgeving.</p>
+                      <p className="text-sm font-bold text-white mb-1">{t.hero.focus4.title}</p>
+                      <p className="text-xs text-teal-100/50 leading-relaxed">{t.hero.focus4.text}</p>
                     </div>
                     <div className="rounded-3xl border border-teal-800/30 bg-[#011a24]/50 p-5 group hover:border-teal-500/40 transition-colors">
                       <Store className="h-6 w-6 text-teal-400 mb-3" />
-                      <p className="text-sm font-bold text-white mb-1">Sectorgericht</p>
-                      <p className="text-xs text-teal-100/50 leading-relaxed">Ervaring in bakkerij, vlees, horeca en retail.</p>
+                      <p className="text-sm font-bold text-white mb-1">{t.hero.focus5.title}</p>
+                      <p className="text-xs text-teal-100/50 leading-relaxed">{t.hero.focus5.text}</p>
                     </div>
                   </div>
                 </div>
@@ -502,25 +593,22 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
           <div className="flex items-center justify-center mb-20">
-            <p className="text-center text-xs font-bold text-teal-400 uppercase tracking-[0.3em]">Verankerde expertise in uw sector</p>
+            <p className="text-center text-xs font-bold text-teal-400 uppercase tracking-[0.3em]">{t.sectorsSection.eyebrow}</p>
           </div>
           
           <div className="relative py-10">
             {/* Intertwined Aesthetic Wave Animation */}
             <div className="absolute top-1/2 left-0 w-full -translate-y-1/2 h-32 pointer-events-none hidden md:block z-0">
               <svg className="w-full h-full opacity-60" viewBox="0 0 1000 100" preserveAspectRatio="none">
-                {/* Wave 1: Teal */}
                 <path d="M0,50 C125,150 125,-50 250,50 C375,150 375,-50 500,50 C625,150 625,-50 750,50 C875,150 875,-50 1000,50" fill="none" stroke="#4BB8D4" strokeWidth="1" strokeOpacity="0.2" />
                 <path d="M0,50 C125,150 125,-50 250,50 C375,150 375,-50 500,50 C625,150 625,-50 750,50 C875,150 875,-50 1000,50" fill="none" stroke="#4BB8D4" strokeWidth="2" strokeOpacity="0.8" strokeDasharray="40 1000" style={{ animation: 'flowLight 8s linear infinite' }} />
-                
-                {/* Wave 2: Gold */}
                 <path d="M0,50 C125,-50 125,150 250,50 C375,-50 375,150 500,50 C625,-50 625,150 750,50 C875,-50 875,150 1000,50" fill="none" stroke="#F5A623" strokeWidth="1" strokeOpacity="0.2" />
                 <path d="M0,50 C125,-50 125,150 250,50 C375,-50 375,150 500,50 C625,-50 625,150 750,50 C875,-50 875,150 1000,50" fill="none" stroke="#F5A623" strokeWidth="2" strokeOpacity="0.8" strokeDasharray="60 1000" style={{ animation: 'flowLight 6s linear infinite reverse' }} />
               </svg>
             </div>
             
             <div className="flex flex-wrap justify-center gap-8 md:gap-24 relative z-10 w-full">
-              {sectors.map((sector, index) => {
+              {currentSectors.map((sector, index) => {
                 const Icon = sector.icon;
                 return (
                   <FadeInSection key={index} delay={index * 100}>
@@ -545,8 +633,8 @@ export default function App() {
       <section id="diensten" className="py-32 bg-[#012330] relative overflow-hidden border-t border-teal-900/30">
         <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <SectionTitle 
-            eyebrow="Diensten" 
-            title="Gerichte ondersteuning voor voedselveiligheid"
+            eyebrow={t.servicesSection.eyebrow} 
+            title={t.servicesSection.title}
             center
           />
           
@@ -555,7 +643,7 @@ export default function App() {
             {/* Left Menu */}
             <div className="lg:col-span-4 border-r border-teal-800/40 bg-[#012330]/80 relative z-20">
               <div className="flex flex-col h-full max-h-[700px] overflow-y-auto no-scrollbar py-6">
-                {services.map((service) => {
+                {currentServices.map((service) => {
                   const isActive = activeService.id === service.id;
                   return (
                     <button key={service.id} onClick={() => setActiveServiceId(service.id)}
@@ -588,7 +676,6 @@ export default function App() {
                  <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-[#4BB8D4]/20 to-transparent rounded-full blur-[100px] animate-pulse" style={{ animationDelay: '2s', animationDuration: '8s' }}></div>
               </div>
               
-              {/* Scanning light beam effect */}
               <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0 opacity-20">
                 <div className="w-[200%] h-[1px] bg-gradient-to-r from-transparent via-[#F5A623] to-transparent absolute top-1/2 left-[-50%] animate-[shuttle_6s_ease-in-out_infinite] shadow-[0_0_15px_#F5A623]"></div>
               </div>
@@ -618,11 +705,10 @@ export default function App() {
                   </div>
 
                   <button onClick={() => scrollToSection('contact')} className="inline-flex items-center gap-3 text-[#F5A623] font-bold text-sm uppercase tracking-[0.15em] hover:text-[#FFC35C] transition-colors group interactive-card border-b border-[#F5A623]/30 pb-2 hover:border-[#F5A623] animate-[blockReveal_0.9s_ease-out]">
-                    <span>Bespreek deze dienst</span><ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
+                    <span>{t.servicesSection.discuss}</span><ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
                   </button>
                 </div>
                 
-                {/* Right side animated visual */}
                 <div className="relative h-[400px] w-full items-center justify-center hidden md:flex pointer-events-none animate-[blockReveal_1s_ease-out]">
                   <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-[#4BB8D4] rounded-full blur-[120px] opacity-10"></div>
                   <PrecisionScanner />
@@ -641,13 +727,13 @@ export default function App() {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <SectionTitle 
-            eyebrow="Werkwijze" 
-            title="Een duidelijke methode, van analyse tot borging"
+            eyebrow={t.methodSection.eyebrow} 
+            title={t.methodSection.title}
             center
           />
 
           <div className="mt-20 grid md:grid-cols-3 gap-8">
-            {methodSteps.map((step, index) => {
+            {currentMethodSteps.map((step, index) => {
               const Icon = step.icon;
               return (
                 <FadeInSection key={step.title} delay={index * 150} className="group h-full">
@@ -684,8 +770,8 @@ export default function App() {
             <FadeInSection delay={100} className="space-y-12">
               <div>
                 <SectionTitle 
-                  title="Klaar voor een heldere aanpak?"
-                  description="Start vandaag."
+                  title={t.contactSection.title}
+                  description={t.contactSection.subtitle}
                 />
               </div>
 
@@ -695,7 +781,7 @@ export default function App() {
                     <Mail className="w-6 h-6 text-teal-500 group-hover:text-[#F5A623] transition-colors" />
                   </div>
                   <div>
-                    <p className="text-teal-600/80 text-xs font-bold uppercase tracking-widest mb-1">E-mail</p>
+                    <p className="text-teal-600/80 text-xs font-bold uppercase tracking-widest mb-1">{t.contactSection.emailText}</p>
                     <p className="text-white text-lg font-medium">info@nutrivisi.be</p>
                   </div>
                 </div>
@@ -705,7 +791,7 @@ export default function App() {
                     <Phone className="w-6 h-6 text-teal-500 group-hover:text-[#F5A623] transition-colors" />
                   </div>
                   <div>
-                    <p className="text-teal-600/80 text-xs font-bold uppercase tracking-widest mb-1">Telefoon</p>
+                    <p className="text-teal-600/80 text-xs font-bold uppercase tracking-widest mb-1">{t.contactSection.phoneText}</p>
                     <p className="text-white text-lg font-medium">+32 16 19 69 84</p>
                   </div>
                 </div>
@@ -715,7 +801,7 @@ export default function App() {
                     <MapPin className="w-6 h-6 text-teal-500 group-hover:text-[#F5A623] transition-colors" />
                   </div>
                   <div>
-                    <p className="text-teal-600/80 text-xs font-bold uppercase tracking-widest mb-1">Adres</p>
+                    <p className="text-teal-600/80 text-xs font-bold uppercase tracking-widest mb-1">{t.contactSection.addressText}</p>
                     <p className="text-white text-lg font-medium">Martelarenlaan 69, 3010 Leuven</p>
                   </div>
                 </div>
@@ -730,10 +816,10 @@ export default function App() {
 
                 <div className="mb-10 relative z-10">
                   <h3 className="text-3xl font-extrabold text-white mb-3 tracking-tight flex items-center gap-3">
-                    Neem contact op
+                    {t.contactSection.formTitle}
                   </h3>
                   <p className="text-teal-100/60 text-sm leading-relaxed">
-                    Laat uw gegevens achter. Dan kan Nutrivisi snel en gericht reageren.
+                    {t.contactSection.formSubtitle}
                   </p>
                 </div>
 
@@ -742,10 +828,10 @@ export default function App() {
                     <input 
                       type="text" name="name" value={formData.name} onChange={handleInputChange} required
                       className="w-full bg-transparent px-5 pt-6 pb-2 text-white focus:outline-none peer placeholder-transparent"
-                      placeholder="Uw naam"
+                      placeholder={t.contactSection.placeholders.name}
                     />
                     <label className="absolute left-5 top-4 text-teal-600/80 text-sm pointer-events-none transition-all peer-focus:-translate-y-2 peer-focus:text-[#F5A623] peer-focus:text-[10px] peer-focus:font-bold peer-focus:tracking-widest peer-[:not(:placeholder-shown)]:-translate-y-2 peer-[:not(:placeholder-shown)]:text-[#F5A623] peer-[:not(:placeholder-shown)]:text-[10px] peer-[:not(:placeholder-shown)]:font-bold peer-[:not(:placeholder-shown)]:tracking-widest">
-                      Naam
+                      {t.contactSection.labels.name}
                     </label>
                   </div>
 
@@ -754,10 +840,10 @@ export default function App() {
                       <input 
                         type="text" name="company" value={formData.company} onChange={handleInputChange} required
                         className="w-full bg-transparent px-5 pt-6 pb-2 text-white focus:outline-none peer placeholder-transparent"
-                        placeholder="Bedrijf"
+                        placeholder={t.contactSection.placeholders.company}
                       />
                       <label className="absolute left-5 top-4 text-teal-600/80 text-sm pointer-events-none transition-all peer-focus:-translate-y-2 peer-focus:text-[#F5A623] peer-focus:text-[10px] peer-focus:font-bold peer-focus:tracking-widest peer-[:not(:placeholder-shown)]:-translate-y-2 peer-[:not(:placeholder-shown)]:text-[#F5A623] peer-[:not(:placeholder-shown)]:text-[10px] peer-[:not(:placeholder-shown)]:font-bold peer-[:not(:placeholder-shown)]:tracking-widest">
-                        Bedrijfsnaam
+                        {t.contactSection.labels.company}
                       </label>
                     </div>
 
@@ -765,10 +851,10 @@ export default function App() {
                       <input 
                         type="email" name="email" value={formData.email} onChange={handleInputChange} required
                         className="w-full bg-transparent px-5 pt-6 pb-2 text-white focus:outline-none peer placeholder-transparent"
-                        placeholder="Email"
+                        placeholder={t.contactSection.placeholders.email}
                       />
                       <label className="absolute left-5 top-4 text-teal-600/80 text-sm pointer-events-none transition-all peer-focus:-translate-y-2 peer-focus:text-[#F5A623] peer-focus:text-[10px] peer-focus:font-bold peer-focus:tracking-widest peer-[:not(:placeholder-shown)]:-translate-y-2 peer-[:not(:placeholder-shown)]:text-[#F5A623] peer-[:not(:placeholder-shown)]:text-[10px] peer-[:not(:placeholder-shown)]:font-bold peer-[:not(:placeholder-shown)]:tracking-widest">
-                        E-mailadres
+                        {t.contactSection.labels.email}
                       </label>
                     </div>
                   </div>
@@ -777,15 +863,15 @@ export default function App() {
                     <textarea 
                       name="message" value={formData.message} onChange={handleInputChange} rows="4" required
                       className="w-full bg-transparent px-5 pt-7 pb-3 text-white focus:outline-none peer placeholder-transparent resize-none"
-                      placeholder="Omschrijf kort uw vraag, audit, labeltraject of uitdaging."
+                      placeholder={t.contactSection.placeholders.message}
                     ></textarea>
                     <label className="absolute left-5 top-4 text-teal-600/80 text-sm pointer-events-none transition-all peer-focus:-translate-y-2 peer-focus:text-[#F5A623] peer-focus:text-[10px] peer-focus:font-bold peer-focus:tracking-widest peer-[:not(:placeholder-shown)]:-translate-y-2 peer-[:not(:placeholder-shown)]:text-[#F5A623] peer-[:not(:placeholder-shown)]:text-[10px] peer-[:not(:placeholder-shown)]:font-bold peer-[:not(:placeholder-shown)]:tracking-widest">
-                      Vraag of project
+                      {t.contactSection.labels.message}
                     </label>
                   </div>
 
                   <button type="submit" className="w-full bg-gradient-to-r from-[#F5A623] to-[#FFC35C] hover:from-[#FFC35C] hover:to-[#F5A623] text-[#012330] px-8 py-5 rounded-2xl text-lg font-bold transition-all duration-300 shadow-[0_4px_20px_rgba(245,166,35,0.25)] hover:shadow-[0_8px_30px_rgba(245,166,35,0.4)] flex items-center justify-center gap-3 mt-8 group interactive-card">
-                    <span>Verstuur aanvraag</span>
+                    <span>{t.contactSection.submit}</span>
                     <Send className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                   </button>
                 </form>
@@ -804,7 +890,7 @@ export default function App() {
             <span className="font-bold text-xl text-white tracking-tight">Nutrivisi</span>
           </div>
           <p className="text-teal-600/80 text-xs font-medium uppercase tracking-widest text-center md:text-right">
-            © {new Date().getFullYear()} Nutrivisi. Praktische begeleiding in voedselveiligheid en kwaliteit.
+            © {new Date().getFullYear()} Nutrivisi. {t.footer}
           </p>
         </div>
       </footer>
