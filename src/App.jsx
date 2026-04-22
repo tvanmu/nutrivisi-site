@@ -624,7 +624,7 @@ export default function App() {
           <SectionTitle 
             eyebrow="Werkwijze" 
             title="Een duidelijke methode, van analyse tot borging"
-            description="Geen onnodige theaterlaag. Gewoon een scherpe aanpak die regelgeving omzet in iets waarmee uw team kan werken."
+            description=
             center
           />
 
