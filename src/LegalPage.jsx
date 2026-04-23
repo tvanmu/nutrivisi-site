@@ -233,6 +233,9 @@ export default function LegalPage({ lang = 'NL', pageKey }) {
                   {labels.phoneLabel}
                 </a>
               </div>
+              <p className="mt-4 text-sm leading-7 text-teal-50/70">
+                {companyFacts.email} · {companyFacts.secondaryEmail}
+              </p>
             </div>
 
             <div className="grid gap-3">
@@ -263,8 +266,9 @@ export default function LegalPage({ lang = 'NL', pageKey }) {
 
 const companyFacts = {
   brand: 'Nutrivisi',
-  company: 'K.M.V. nv',
-  vat: 'BE 0434 099 744',
+  company: 'Marc Van Mulders',
+  vat: 'BE 0638 418 663',
   address: 'Martelarenlaan 69/1, 3010 Leuven, Belgium',
   email: 'info@nutrivisi.be',
+  secondaryEmail: 'marc@nutrivisi.be',
 };

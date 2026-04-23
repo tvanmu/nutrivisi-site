@@ -2,7 +2,7 @@
 
 @layer base {
   :root {
-    /* This forces the entire website to use the premium Inter font */
-    --font-sans: "Inter", sans-serif;
+    /* Keep a refined local-only stack and avoid third-party font requests. */
+    --font-sans: "Avenir Next", "Avenir", "Segoe UI", "Helvetica Neue", sans-serif;
   }
 }

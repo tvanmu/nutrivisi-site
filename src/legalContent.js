@@ -50,10 +50,12 @@ export function getLegalSeo(lang, pageKey) {
 
 const companyFacts = {
   brand: 'Nutrivisi',
-  company: 'K.M.V. nv',
-  vat: 'BE 0434 099 744',
+  company: 'Marc Van Mulders',
+  vat: 'BE 0638 418 663',
   address: 'Martelarenlaan 69/1, 3010 Leuven, Belgium',
   email: 'info@nutrivisi.be',
+  secondaryEmail: 'marc@nutrivisi.be',
+  emailDisplay: 'info@nutrivisi.be · marc@nutrivisi.be',
   phone: '+32 16 19 69 84',
   domainProvider: 'Combell nv, Skaldenstraat 121, 9042 Gent, Belgium',
   websiteHost: 'Vercel Inc., 440 N Barranca Avenue #4133, Covina, CA 91723, United States',
@@ -74,7 +76,7 @@ export const LEGAL_LABELS = {
     contactBody: 'Voor privacy- of juridische vragen mag u rechtstreeks contact opnemen met Nutrivisi.',
     emailLabel: 'E-mail',
     phoneLabel: 'Telefoon',
-    companyLabel: 'Vennootschap',
+    companyLabel: 'Onderneming',
     addressLabel: 'Adres',
     vatLabel: 'BTW / KBO',
   },
@@ -90,7 +92,7 @@ export const LEGAL_LABELS = {
     contactBody: 'Pour toute question relative à la vie privée ou aux mentions légales, vous pouvez contacter Nutrivisi directement.',
     emailLabel: 'E-mail',
     phoneLabel: 'Téléphone',
-    companyLabel: 'Société',
+    companyLabel: 'Entreprise',
     addressLabel: 'Adresse',
     vatLabel: 'TVA / BCE',
   },
@@ -106,20 +108,20 @@ export const LEGAL_PAGE_CONTENT = {
         'Dit privacybeleid legt uit welke persoonsgegevens Nutrivisi verwerkt wanneer u contact opneemt, de website gebruikt of een samenwerking voorbereidt. Het doel is helder en proportioneel: correct communiceren, uw vraag opvolgen en de site veilig laten functioneren.',
       seoTitle: 'Privacybeleid | Nutrivisi',
       seoDescription:
-        'Lees hoe Nutrivisi, merk van K.M.V. nv, persoonsgegevens verwerkt voor contactaanvragen, websitegebruik en dienstverlening in België.',
+        'Lees hoe Nutrivisi, merk van Marc Van Mulders, persoonsgegevens verwerkt voor contactaanvragen, websitegebruik en dienstverlening in België.',
       updatedAt: companyFacts.updatedNl,
       summary: [
         { label: 'Verwerkingsverantwoordelijke', value: `${companyFacts.company} (${companyFacts.brand})` },
         { label: 'Adres', value: companyFacts.address },
         { label: 'BTW / KBO', value: companyFacts.vat },
-        { label: 'Contact', value: companyFacts.email },
+        { label: 'Contact', value: companyFacts.emailDisplay },
       ],
       sections: [
         {
           title: '1. Wie verwerkt uw gegevens?',
           paragraphs: [
             `${companyFacts.brand} is de merknaam van ${companyFacts.company}, met maatschappelijke zetel te ${companyFacts.address}.`,
-            `Voor vragen over dit beleid of over de verwerking van uw persoonsgegevens kunt u contact opnemen via ${companyFacts.email}.`,
+            `Voor vragen over dit beleid of over de verwerking van uw persoonsgegevens kunt u contact opnemen via ${companyFacts.email} of ${companyFacts.secondaryEmail}.`,
           ],
         },
         {
@@ -141,7 +143,7 @@ export const LEGAL_PAGE_CONTENT = {
         {
           title: '4. Met wie kunnen uw gegevens worden gedeeld?',
           bullets: [
-            'Met intern bevoegde personen binnen Nutrivisi of K.M.V. nv, voor zover dat nodig is om uw vraag te behandelen.',
+            'Met intern bevoegde personen binnen Nutrivisi of Marc Van Mulders, voor zover dat nodig is om uw vraag te behandelen.',
             `Met technische dienstverleners zoals ${companyFacts.domainProvider} voor domein- en e-mailinfrastructuur en ${companyFacts.websiteHost} voor websitehosting en levering.`,
             'Met professionele adviseurs of bevoegde autoriteiten wanneer dat wettelijk vereist is of noodzakelijk is voor de bescherming van onze rechten.',
             'Wanneer externe dienstverleners buiten de Europese Economische Ruimte betrokken zijn, gebeurt dat enkel met passende waarborgen zoals contractuele beschermingsmaatregelen of een toepasselijk adequaatheidsmechanisme.',
@@ -165,7 +167,7 @@ export const LEGAL_PAGE_CONTENT = {
           title: '7. Websitegebruik, e-mail en externe bronnen',
           paragraphs: [
             'De huidige contactmodule op deze website helpt u om via uw eigen e-mailtoepassing een bericht aan Nutrivisi te sturen. De eigenlijke verzending van uw bericht verloopt dus via uw e-mailprovider en onze e-mailinfrastructuur.',
-            'De site gebruikt momenteel ook externe Google Fonts. Volgens de documentatie van Google Fonts worden daarbij geen cookies geplaatst via de Fonts API, maar Google ontvangt wel technische verzoekgegevens zoals IP-adres en browserheaders om de lettertypes te leveren.',
+            'De website laadt geen externe marketing-, analyse- of fontdiensten in de publieke front-end. Eventuele technische verzoekgegevens blijven beperkt tot wat nodig is voor hosting, aflevering en beveiliging van de site.',
           ],
         },
         {
@@ -189,8 +191,8 @@ export const LEGAL_PAGE_CONTENT = {
       summary: [
         { label: 'Huidige status', value: 'Geen opzettelijke marketing- of analysecookies geactiveerd' },
         { label: 'Cookiebanner', value: 'Momenteel niet voorzien zolang geen niet-essentiële cookies actief zijn' },
-        { label: 'Externe bron', value: 'Google Fonts wordt momenteel extern geladen' },
-        { label: 'Contact', value: companyFacts.email },
+        { label: 'Externe bronnen', value: 'Geen externe font- of trackingdiensten in de publieke front-end' },
+        { label: 'Contact', value: companyFacts.emailDisplay },
       ],
       sections: [
         {
@@ -214,10 +216,10 @@ export const LEGAL_PAGE_CONTENT = {
           ],
         },
         {
-          title: '4. Externe lettertypes',
+          title: '4. Externe diensten',
           paragraphs: [
-            'De website laadt momenteel lettertypes via Google Fonts. Volgens de officiële documentatie van Google Fonts zet de Web API daarbij geen cookies en logt zij die ook niet als cookies.',
-            'Wel ontvangt Google technische verzoekgegevens, zoals het IP-adres, de opgevraagde URL en bepaalde browserheaders, om de fonts te leveren. Dat is daarom vooral relevant vanuit privacy-oogpunt en niet als klassiek marketingcookie.',
+            'De publieke website laadt momenteel geen externe font-, analytics- of advertentiediensten in de browser.',
+            'Als dat later verandert, wordt dit beleid aangepast en wordt waar nodig vooraf een passend toestemmingsmechanisme voorzien.',
           ],
         },
         {
@@ -248,7 +250,7 @@ export const LEGAL_PAGE_CONTENT = {
         {
           title: '1. Uitgever van de website',
           paragraphs: [
-            `${companyFacts.brand} is een merknaam van ${companyFacts.company}.`,
+            `${companyFacts.brand} is de merknaam waaronder Marc Van Mulders zijn activiteiten voert.`,
             `${companyFacts.company} is gevestigd te ${companyFacts.address} en is ingeschreven onder ondernemings- en btw-nummer ${companyFacts.vat}.`,
           ],
         },
@@ -256,6 +258,7 @@ export const LEGAL_PAGE_CONTENT = {
           title: '2. Contact',
           bullets: [
             `E-mail: ${companyFacts.email}`,
+            `E-mail: ${companyFacts.secondaryEmail}`,
             `Telefoon: ${companyFacts.phone}`,
             `Adres: ${companyFacts.address}`,
           ],
@@ -298,20 +301,20 @@ export const LEGAL_PAGE_CONTENT = {
         'Cette politique explique quelles données personnelles Nutrivisi peut traiter lorsque vous prenez contact, utilisez le site web ou préparez une collaboration. L’objectif reste sobre et proportionné : communiquer correctement, répondre à votre demande et faire fonctionner le site en toute sécurité.',
       seoTitle: 'Politique de confidentialité | Nutrivisi',
       seoDescription:
-        'Découvrez comment Nutrivisi, marque de K.M.V. nv, traite les données personnelles liées aux demandes de contact, au site web et aux services en Belgique.',
+        'Découvrez comment Nutrivisi, marque de Marc Van Mulders, traite les données personnelles liées aux demandes de contact, au site web et aux services en Belgique.',
       updatedAt: companyFacts.updatedFr,
       summary: [
         { label: 'Responsable du traitement', value: `${companyFacts.company} (${companyFacts.brand})` },
         { label: 'Adresse', value: companyFacts.address },
         { label: 'TVA / BCE', value: companyFacts.vat },
-        { label: 'Contact', value: companyFacts.email },
+        { label: 'Contact', value: companyFacts.emailDisplay },
       ],
       sections: [
         {
           title: '1. Qui traite vos données ?',
           paragraphs: [
             `${companyFacts.brand} est la marque commerciale de ${companyFacts.company}, dont le siège est établi à ${companyFacts.address}.`,
-            `Pour toute question relative à cette politique ou au traitement de vos données, vous pouvez écrire à ${companyFacts.email}.`,
+            `Pour toute question relative à cette politique ou au traitement de vos données, vous pouvez écrire à ${companyFacts.email} ou à ${companyFacts.secondaryEmail}.`,
           ],
         },
         {
@@ -333,7 +336,7 @@ export const LEGAL_PAGE_CONTENT = {
         {
           title: '4. Avec qui vos données peuvent-elles être partagées ?',
           bullets: [
-            'Avec les personnes habilitées au sein de Nutrivisi ou de K.M.V. nv, dans la mesure nécessaire au traitement de votre demande.',
+            'Avec les personnes habilitées au sein de Nutrivisi ou de Marc Van Mulders, dans la mesure nécessaire au traitement de votre demande.',
             `Avec des prestataires techniques tels que ${companyFacts.domainProvider} pour le domaine et l’infrastructure e-mail, et ${companyFacts.websiteHost} pour l’hébergement et la diffusion du site.`,
             'Avec des conseillers professionnels ou des autorités compétentes lorsque la loi l’impose ou lorsque cela est nécessaire à la protection de nos droits.',
             'Lorsque des prestataires situés hors de l’Espace économique européen interviennent, cela se fait uniquement avec des garanties appropriées, telles que des clauses contractuelles adaptées ou un mécanisme d’adéquation applicable.',
@@ -357,7 +360,7 @@ export const LEGAL_PAGE_CONTENT = {
           title: '7. Utilisation du site, e-mail et ressources externes',
           paragraphs: [
             'Le module de contact actuel du site vous aide à ouvrir votre propre application e-mail afin d’envoyer un message à Nutrivisi. L’envoi effectif du message transite donc par votre fournisseur e-mail et par notre infrastructure e-mail.',
-            'Le site charge actuellement des polices externes via Google Fonts. Selon la documentation officielle de Google Fonts, l’API n’installe pas de cookies via ce service, mais Google reçoit néanmoins certaines données techniques de requête, comme l’adresse IP et les en-têtes du navigateur, pour fournir les polices.',
+            'Le site public ne charge pas de services externes de marketing, d’analytics ou de polices web dans le front-end. Les éventuelles données techniques de requête restent limitées à ce qui est nécessaire pour l’hébergement, la diffusion et la sécurité du site.',
           ],
         },
         {
@@ -381,8 +384,8 @@ export const LEGAL_PAGE_CONTENT = {
       summary: [
         { label: 'Statut actuel', value: 'Pas de cookies analytiques ou marketing volontairement activés' },
         { label: 'Bannière de consentement', value: 'Non déployée tant qu’aucun cookie non essentiel n’est activé' },
-        { label: 'Ressource externe', value: 'Google Fonts est actuellement chargé à distance' },
-        { label: 'Contact', value: companyFacts.email },
+        { label: 'Services externes', value: 'Pas de service externe de police ou de suivi dans le front-end public' },
+        { label: 'Contact', value: companyFacts.emailDisplay },
       ],
       sections: [
         {
@@ -406,10 +409,10 @@ export const LEGAL_PAGE_CONTENT = {
           ],
         },
         {
-          title: '4. Polices externes',
+          title: '4. Services externes',
           paragraphs: [
-            'Le site charge actuellement ses polices via Google Fonts. Selon la documentation officielle de Google Fonts, l’API Web n’installe ni ne journalise de cookies dans ce cadre.',
-            'Google reçoit toutefois certaines données techniques de requête, telles que l’adresse IP, l’URL demandée et certains en-têtes du navigateur, afin de fournir les polices. Cela relève donc surtout d’une question de confidentialité, et non d’un cookie marketing classique.',
+            'Le site public ne charge actuellement aucun service externe de police, d’analytics ou de publicité dans le navigateur.',
+            'Si cela devait évoluer ultérieurement, cette politique serait mise à jour et, lorsque nécessaire, un mécanisme de consentement approprié serait mis en place au préalable.',
           ],
         },
         {
@@ -440,7 +443,7 @@ export const LEGAL_PAGE_CONTENT = {
         {
           title: '1. Éditeur du site',
           paragraphs: [
-            `${companyFacts.brand} est une marque commerciale de ${companyFacts.company}.`,
+            `${companyFacts.brand} est la marque commerciale utilisée par Marc Van Mulders pour ses activités.`,
             `${companyFacts.company} est établie à ${companyFacts.address} et inscrite sous le numéro d’entreprise et de TVA ${companyFacts.vat}.`,
           ],
         },
@@ -448,6 +451,7 @@ export const LEGAL_PAGE_CONTENT = {
           title: '2. Contact',
           bullets: [
             `E-mail : ${companyFacts.email}`,
+            `E-mail : ${companyFacts.secondaryEmail}`,
             `Téléphone : ${companyFacts.phone}`,
             `Adresse : ${companyFacts.address}`,
           ],
