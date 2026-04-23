@@ -854,9 +854,9 @@ export default function NutrivisiSite({ lang = 'NL' }) {
               <FadeInSection delay={500}>
                 <div className="mt-16 grid gap-4 sm:grid-cols-2">
                   {t.hero.trust.map((point) => (
-                    <div key={point} className="flex items-start gap-3 rounded-2xl border border-teal-800/40 bg-[#011a24]/60 p-4 backdrop-blur-sm group hover:border-[#F0A018]/30 transition-colors">
+                    <div key={point} className="flex items-start gap-3 rounded-2xl border border-teal-800/40 bg-[#023A4E] p-4 backdrop-blur-sm group hover:border-[#F0A018]/30 transition-colors">
                       <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#F0A018] group-hover:scale-110 transition-transform" />
-                      <p className="text-sm leading-6 text-teal-100/80">{point}</p>
+                      <p className="text-sm leading-6 text-white/90">{point}</p>
                     </div>
                   ))}
                 </div>
