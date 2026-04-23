@@ -28,60 +28,7 @@ const useReducedMotion = () => {
 };
 
 /* =====================================================================
-   2. CUSTOM CURSOR — fixed hover detection + reduced-motion aware
-   ===================================================================== */
-const CustomCursor = ({ disabled }) => {
-  const [position, setPosition] = useState({ x: -100, y: -100 });
-  const [isHovering, setIsHovering] = useState(false);
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    if (disabled) return;
-    const updatePosition = (e) => {
-      setPosition({ x: e.clientX, y: e.clientY });
-      setVisible(true);
-    };
-    const handleMouseOver = (e) => {
-      // Only mark real interactive elements, not every span/paragraph
-      setIsHovering(Boolean(e.target.closest('button, a, input, textarea, [data-cursor="hover"], .interactive-card')));
-    };
-    const handleLeave = () => setVisible(false);
-    window.addEventListener('mousemove', updatePosition);
-    window.addEventListener('mouseover', handleMouseOver);
-    document.addEventListener('mouseleave', handleLeave);
-    return () => {
-      window.removeEventListener('mousemove', updatePosition);
-      window.removeEventListener('mouseover', handleMouseOver);
-      document.removeEventListener('mouseleave', handleLeave);
-    };
-  }, [disabled]);
-
-  if (disabled) return null;
-
-  return (
-    <>
-      <div
-        className="fixed top-0 left-0 w-10 h-10 border border-[#F0A018]/40 rounded-full pointer-events-none z-[9999] transition-all duration-300 ease-out items-center justify-center mix-blend-screen hidden sm:flex"
-        style={{
-          transform: `translate(${position.x - 20}px, ${position.y - 20}px) scale(${isHovering ? 1.6 : 1})`,
-          backgroundColor: isHovering ? 'rgba(240,160,24,0.08)' : 'transparent',
-          boxShadow: isHovering ? '0 0 18px rgba(240,160,24,0.2)' : 'none',
-          opacity: visible ? 1 : 0,
-        }}
-      />
-      <div
-        className="fixed top-0 left-0 w-2 h-2 bg-[#F0A018] rounded-full pointer-events-none z-[10000] transition-transform duration-75 ease-linear hidden sm:block shadow-[0_0_8px_#F0A018]"
-        style={{
-          transform: `translate(${position.x - 4}px, ${position.y - 4}px)`,
-          opacity: visible ? 1 : 0,
-        }}
-      />
-    </>
-  );
-};
-
-/* =====================================================================
-   3. REVEAL UTILITIES
+   2. REVEAL UTILITIES
    ===================================================================== */
 const FadeInSection = ({ children, delay = 0, className = '' }) => {
   const [isVisible, setVisible] = useState(false);
@@ -998,8 +945,6 @@ export default function NutrivisiSite({ lang = 'NL' }) {
 
   return (
     <div className="min-h-screen bg-[#01506E] font-sans text-slate-200 overflow-x-hidden">
-      <CustomCursor disabled={reducedMotion} />
-
       {/* ===== NAV ===== */}
       <nav className={`fixed w-full z-50 transition-all duration-500 ${scrolled ? 'bg-[#023142]/95 backdrop-blur-xl shadow-[0_4px_30px_rgba(0,0,0,0.3)] py-2 border-b border-[#F0A018]/10' : 'bg-transparent py-6'}`}>
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
@@ -1921,18 +1866,16 @@ export default function NutrivisiSite({ lang = 'NL' }) {
 
       {/* ===== GLOBAL STYLES ===== */}
       <style dangerouslySetInnerHTML={{ __html: `
-        /* Custom cursor active for all users, except when reduced-motion is preferred */
-        * { cursor: none; }
-        input, textarea, select { cursor: text; }
+        body { cursor: default; }
+        a, button, [role="button"], .interactive-card { cursor: pointer; }
+        input, textarea, select, label[for] { cursor: text; }
 
         @media (prefers-reduced-motion: reduce) {
           *, *::before, *::after {
-            cursor: auto !important;
             animation-duration: 0.001ms !important;
             animation-iteration-count: 1 !important;
             transition-duration: 0.001ms !important;
           }
-          input, textarea, select { cursor: text !important; }
         }
 
         /* Text selection rules: allow on copy + form fields, disable on decorative/heading elements */
