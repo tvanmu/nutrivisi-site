@@ -503,7 +503,7 @@ const translations = {
         'Sectorfocus: bakkerij, vlees, horeca en retail',
       ],
       focusEyebrow: 'Onze focus',
-      focus1: { title: 'Van wet naar werkvloer', text: 'Geen abstracte theorie, maar duidelijke richtlijnen en visuele hulpmiddelen.' },
+      focus1: { title: 'Van wet naar werkvloer', text: 'Heldere richtlijnen die uw team direct kan toepassen.' },
       focus2: { title: 'Auditvoorbereiding', text: 'Richting een beter systeem en een rustiger audittraject.' },
       focus3: { title: 'Visuele tools', text: 'Begrijpelijk en beter te onthouden voor medewerkers.' },
       focus4: { title: 'Etikettering', text: 'Controle van labels volgens de geldende wetgeving.' },
@@ -593,7 +593,7 @@ const translations = {
         'Focus sectoriel : boulangerie, viande, horeca et retail',
       ],
       focusEyebrow: 'Notre objectif',
-      focus1: { title: 'De la loi au terrain', text: 'Pas de théorie abstraite, mais des directives claires et des outils visuels.' },
+      focus1: { title: 'De la loi au terrain', text: 'Des consignes claires, prêtes à l\'emploi.' },
       focus2: { title: 'Préparation aux audits', text: 'Vers un meilleur système et un parcours d\'audit plus serein.' },
       focus3: { title: 'Outils visuels', text: 'Compréhensibles et plus faciles à mémoriser pour le personnel.' },
       focus4: { title: 'Étiquetage', text: 'Vérification des étiquettes selon la législation en vigueur.' },
@@ -871,7 +871,7 @@ export default function NutrivisiSite({ lang = 'NL' }) {
                   <Activity className="w-5 h-5 text-teal-400 animate-pulse" />
                 </div>
                 <div className="space-y-6 p-8">
-                  <div className="rounded-3xl bg-[#01506E]/80 border border-teal-800/30 p-6 group hover:border-[#F0A018]/40 transition-colors">
+                  <div className="rounded-3xl bg-[#011a24]/50 border border-teal-800/30 p-6 group hover:border-[#F0A018]/40 transition-colors">
                     <div className="flex items-center gap-4">
                       <div className="rounded-xl bg-[#F0A018]/10 p-3">
                         <ShieldCheck className="h-8 w-8 text-[#F0A018]" />
