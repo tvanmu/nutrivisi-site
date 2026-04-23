@@ -1,28 +1,16 @@
 import React, { useMemo, useState, useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {
   Menu, X, ChevronRight, ArrowRight, ShieldCheck, Award, ShieldAlert,
   Tag, Wheat, Beef, UtensilsCrossed, Store, CheckCircle2,
   ClipboardCheck, Send, Eye, BookOpen, AlertTriangle,
   FlaskConical, Recycle, Scale, Layers, Fingerprint, Globe
 } from 'lucide-react';
+import NutriLogo from './components/NutriLogo';
+import { getLegalPath } from './legalContent';
 
 /* =====================================================================
-   1. LOGO
-   ===================================================================== */
-const NutriLogo = ({ className = 'w-10 h-10', cutoutColor = '#012330' }) => (
-  <svg viewBox="0 0 100 80" className={className} fill="none" stroke="currentColor" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <line x1="25" y1="30" x2="12" y2="18" />
-    <line x1="50" y1="25" x2="50" y2="8" />
-    <line x1="75" y1="30" x2="88" y2="18" />
-    <path d="M 5 55 Q 50 20 95 55 Q 50 90 5 55 Z" />
-    <circle cx="50" cy="55" r="22" fill="currentColor" stroke="none" />
-    <path d="M 40 55 L 48 64 L 62 45" stroke={cutoutColor} strokeWidth="6" fill="none" />
-  </svg>
-);
-
-/* =====================================================================
-   2. REDUCED-MOTION HOOK
+   1. REDUCED-MOTION HOOK
    ===================================================================== */
 const useReducedMotion = () => {
   const [reduced, setReduced] = useState(false);
@@ -40,7 +28,7 @@ const useReducedMotion = () => {
 };
 
 /* =====================================================================
-   3. CUSTOM CURSOR — fixed hover detection + reduced-motion aware
+   2. CUSTOM CURSOR — fixed hover detection + reduced-motion aware
    ===================================================================== */
 const CustomCursor = ({ disabled }) => {
   const [position, setPosition] = useState({ x: -100, y: -100 });
@@ -93,7 +81,7 @@ const CustomCursor = ({ disabled }) => {
 };
 
 /* =====================================================================
-   4. REVEAL UTILITIES
+   3. REVEAL UTILITIES
    ===================================================================== */
 const FadeInSection = ({ children, delay = 0, className = '' }) => {
   const [isVisible, setVisible] = useState(false);
@@ -822,6 +810,9 @@ const translations = {
       labels: { name: 'Naam', company: 'Bedrijfsnaam', email: 'E-mailadres', message: 'Vraag of project' },
       submit: 'Verstuur aanvraag',
       mailSubject: 'Aanvraag via website', mailBodyName: 'Naam', mailBodyCompany: 'Bedrijf', mailBodyEmail: 'E-mail', mailBodyQuestion: 'Vraag',
+      privacyNoteLead: 'Door contact op te nemen, verwerkt Nutrivisi uw gegevens om uw vraag te beantwoorden. Lees ons',
+      privacyNoteLink: 'privacybeleid',
+      privacyNoteTail: 'voor meer informatie.',
     },
     footer: { tagline: 'Praktische begeleiding in voedselveiligheid en kwaliteit.', privacy: 'Privacybeleid', cookies: 'Cookies', legal: 'Juridische info' },
   },
@@ -910,6 +901,9 @@ const translations = {
       labels: { name: 'Nom', company: 'Nom de l\'entreprise', email: 'Adresse e-mail', message: 'Question ou projet' },
       submit: 'Envoyer la demande',
       mailSubject: 'Demande via le site', mailBodyName: 'Nom', mailBodyCompany: 'Entreprise', mailBodyEmail: 'E-mail', mailBodyQuestion: 'Question',
+      privacyNoteLead: 'En prenant contact, Nutrivisi traite vos données afin de répondre à votre demande. Consultez notre',
+      privacyNoteLink: 'politique de confidentialité',
+      privacyNoteTail: 'pour en savoir plus.',
     },
     footer: { tagline: 'Accompagnement pratique en sécurité et qualité alimentaire.', privacy: 'Politique de confidentialité', cookies: 'Cookies', legal: 'Mentions légales' },
   },
@@ -996,6 +990,11 @@ export default function NutrivisiSite({ lang = 'NL' }) {
   };
 
   const toggleLang = () => navigate(lang === 'NL' ? '/fr' : '/nl');
+  const legalPaths = {
+    privacy: getLegalPath(lang, 'privacy'),
+    cookies: getLegalPath(lang, 'cookies'),
+    legal: getLegalPath(lang, 'legal'),
+  };
 
   return (
     <div className="min-h-screen bg-[#01506E] font-sans text-slate-200 overflow-x-hidden">
@@ -1864,6 +1863,16 @@ export default function NutrivisiSite({ lang = 'NL' }) {
                     <span>{t.contactSection.submit}</span>
                     <Send className="h-5 w-5 transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1" />
                   </button>
+                  <p className="px-1 text-sm leading-7 text-teal-100/64">
+                    {t.contactSection.privacyNoteLead}{' '}
+                    <Link
+                      to={legalPaths.privacy}
+                      className="font-semibold text-[#F0A018] transition-colors hover:text-[#FFC35C]"
+                    >
+                      {t.contactSection.privacyNoteLink}
+                    </Link>{' '}
+                    {t.contactSection.privacyNoteTail}
+                  </p>
                 </form>
               </div>
             </FadeInSection>
@@ -1890,9 +1899,9 @@ export default function NutrivisiSite({ lang = 'NL' }) {
 
                   <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-[11px] font-bold uppercase tracking-[0.18em]">
                     <a href="#waarom" onClick={(e) => { e.preventDefault(); scrollToSection('waarom'); }} className="text-teal-100/64 transition-colors hover:text-[#5CC0D5]">{t.nav.why}</a>
-                    <a href="#" onClick={(e) => e.preventDefault()} className="text-teal-100/64 transition-colors hover:text-[#5CC0D5]">{t.footer.privacy}</a>
-                    <a href="#" onClick={(e) => e.preventDefault()} className="text-teal-100/64 transition-colors hover:text-[#5CC0D5]">{t.footer.cookies}</a>
-                    <a href="#" onClick={(e) => e.preventDefault()} className="text-teal-100/64 transition-colors hover:text-[#5CC0D5]">{t.footer.legal}</a>
+                    <Link to={legalPaths.privacy} className="text-teal-100/64 transition-colors hover:text-[#5CC0D5]">{t.footer.privacy}</Link>
+                    <Link to={legalPaths.cookies} className="text-teal-100/64 transition-colors hover:text-[#5CC0D5]">{t.footer.cookies}</Link>
+                    <Link to={legalPaths.legal} className="text-teal-100/64 transition-colors hover:text-[#5CC0D5]">{t.footer.legal}</Link>
                   </div>
                 </div>
 

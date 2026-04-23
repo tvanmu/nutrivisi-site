@@ -1,13 +1,13 @@
-import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate, useLocation, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import NutrivisiSite from './NutrivisiSite';
+import LegalPage from './LegalPage';
+import { SITE_URL, getLegalPageKey, getLegalSeo } from './legalContent';
 
 /* =====================================================================
    SEO / <head> metadata per language
    ===================================================================== */
-const SITE_URL = 'https://nutrivisi.be';
-
-const SEO_DATA = {
+const HOME_SEO_DATA = {
   NL: {
     htmlLang: 'nl-BE',
     ogLocale: 'nl_BE',
@@ -15,6 +15,11 @@ const SEO_DATA = {
     title: 'Nutrivisi — Voedingsadvies, etikettering & certificatie in België',
     description:
       'Nutrivisi begeleidt voedingsbedrijven in bakkerij, vlees, horeca en retail met expertadvies, coaching, certificatie, risicobeheer en correcte etikettering (NL · FR · EN).',
+    alternates: {
+      'nl-BE': `${SITE_URL}/nl`,
+      'fr-BE': `${SITE_URL}/fr`,
+      'x-default': `${SITE_URL}/nl`,
+    },
   },
   FR: {
     htmlLang: 'fr-BE',
@@ -23,6 +28,11 @@ const SEO_DATA = {
     title: 'Nutrivisi — Conseil nutritionnel, étiquetage & certification en Belgique',
     description:
       "Nutrivisi accompagne les entreprises alimentaires (boulangerie, viande, horeca, retail) : conseil expert, coaching, certification, gestion des risques et étiquetage conforme (NL · FR · EN).",
+    alternates: {
+      'nl-BE': `${SITE_URL}/nl`,
+      'fr-BE': `${SITE_URL}/fr`,
+      'x-default': `${SITE_URL}/nl`,
+    },
   },
 };
 
@@ -42,19 +52,32 @@ function setCanonical(href) {
   el.setAttribute('href', href);
 }
 
-function SEO({ lang }) {
-  const data = SEO_DATA[lang];
+function setAlternateLink(hreflang, href) {
+  let el = document.head.querySelector(`link[rel="alternate"][hreflang="${hreflang}"]`);
+  if (!el) {
+    el = document.createElement('link');
+    el.setAttribute('rel', 'alternate');
+    el.setAttribute('hreflang', hreflang);
+    document.head.appendChild(el);
+  }
+  el.setAttribute('href', href);
+}
+
+function SEO({ meta }) {
   useEffect(() => {
-    document.documentElement.lang = data.htmlLang;
-    document.title = data.title;
-    setMetaByName('description', data.description);
-    setCanonical(`${SITE_URL}${data.path}`);
-    setMetaByProp('og:title', data.title);
-    setMetaByProp('og:description', data.description);
-    setMetaByProp('og:url', `${SITE_URL}${data.path}`);
-    setMetaByProp('og:locale', data.ogLocale);
+    document.documentElement.lang = meta.htmlLang;
+    document.title = meta.title;
+    setMetaByName('description', meta.description);
+    setCanonical(`${SITE_URL}${meta.path}`);
+    setMetaByProp('og:title', meta.title);
+    setMetaByProp('og:description', meta.description);
+    setMetaByProp('og:url', `${SITE_URL}${meta.path}`);
+    setMetaByProp('og:locale', meta.ogLocale);
     setMetaByProp('og:type', 'website');
-  }, [data]);
+    Object.entries(meta.alternates ?? {}).forEach(([hreflang, href]) => {
+      setAlternateLink(hreflang, href);
+    });
+  }, [meta]);
   return null;
 }
 
@@ -79,6 +102,24 @@ function ScrollToTop() {
   return null;
 }
 
+function LegalRoute({ lang }) {
+  const { slug } = useParams();
+  const pageKey = getLegalPageKey(lang, slug);
+
+  if (!pageKey) {
+    return <Navigate to={lang === 'NL' ? '/nl' : '/fr'} replace />;
+  }
+
+  const meta = getLegalSeo(lang, pageKey);
+
+  return (
+    <>
+      <SEO meta={meta} />
+      <LegalPage lang={lang} pageKey={pageKey} />
+    </>
+  );
+}
+
 /* =====================================================================
    Main App
    ===================================================================== */
@@ -90,12 +131,14 @@ export default function App() {
         <Route path="/" element={<LangRedirect />} />
         <Route
           path="/nl"
-          element={<><SEO lang="NL" /><NutrivisiSite lang="NL" /></>}
+          element={<><SEO meta={HOME_SEO_DATA.NL} /><NutrivisiSite lang="NL" /></>}
         />
         <Route
           path="/fr"
-          element={<><SEO lang="FR" /><NutrivisiSite lang="FR" /></>}
+          element={<><SEO meta={HOME_SEO_DATA.FR} /><NutrivisiSite lang="FR" /></>}
         />
+        <Route path="/nl/:slug" element={<LegalRoute lang="NL" />} />
+        <Route path="/fr/:slug" element={<LegalRoute lang="FR" />} />
         <Route path="*" element={<Navigate to="/nl" replace />} />
       </Routes>
     </BrowserRouter>
