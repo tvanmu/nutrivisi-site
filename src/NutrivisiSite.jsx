@@ -4,7 +4,7 @@ import {
   Menu, X, ChevronRight, ArrowRight, ShieldCheck, Users, Award, ShieldAlert,
   Tag, Wheat, Beef, UtensilsCrossed, Store, CheckCircle2, Mail, Phone, MapPin,
   Lightbulb, ClipboardCheck, Activity, Send, Eye, BookOpen, AlertTriangle,
-  FlaskConical, Recycle, Scale, Layers, Fingerprint
+  FlaskConical, Recycle, Scale, Layers, Fingerprint, Globe
 } from 'lucide-react';
 
 /* =====================================================================
@@ -905,8 +905,7 @@ export default function NutrivisiSite({ lang = 'NL' }) {
       </section>
 
       {/* ===== SECTORS BRIDGE ===== */}
-      <section className="bg-gradient-to-b from-[#023A4E] via-[#012a38] to-[#01506E] pt-12 pb-32 relative overflow-visible">
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-5xl h-64 bg-gradient-to-t from-[#F0A018]/5 to-transparent blur-[100px] pointer-events-none z-0"></div>
+      <section className="bg-gradient-to-b from-[#023A4E] via-[#014B68] to-[#01506E] pt-12 pb-32 relative overflow-visible">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex items-center justify-center mb-20">
             <p className="text-center text-xs font-bold text-teal-300 uppercase tracking-[0.3em]">{t.sectorsSection.eyebrow}</p>
@@ -943,10 +942,8 @@ export default function NutrivisiSite({ lang = 'NL' }) {
       </section>
 
       {/* ===== METRICS BAND ===== */}
-      <section className="relative py-24 bg-[#01506E] border-t border-teal-900/40 overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.05] pointer-events-none mix-blend-overlay" style={{ backgroundImage: 'linear-gradient(#F0A018 1px, transparent 1px), linear-gradient(90deg, #F0A018 1px, transparent 1px)', backgroundSize: '60px 60px' }}></div>
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#F0A018]/8 rounded-full blur-[120px] pointer-events-none"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#56C0D5]/8 rounded-full blur-[120px] pointer-events-none"></div>
+      <section className="relative py-24 bg-[#01506E] overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#F0A018 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <FadeInSection>
@@ -957,23 +954,30 @@ export default function NutrivisiSite({ lang = 'NL' }) {
             </div>
           </FadeInSection>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-0 relative">
-            {t.metrics.items.map((metric, index) => (
-              <FadeInSection key={index} delay={index * 100}>
-                <div className={`relative p-8 md:p-10 text-center group ${index > 0 ? 'md:border-l md:border-teal-800/40' : ''}`}>
-                  <div className="absolute top-4 right-4 flex gap-1 opacity-30">
-                    <div className="w-1 h-1 rounded-full bg-[#F0A018]"></div>
-                    <div className="w-1 h-1 rounded-full bg-[#F0A018]"></div>
-                    <div className="w-1 h-1 rounded-full bg-[#F0A018]"></div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 relative">
+            {t.metrics.items.map((metric, index) => {
+              const MetricIcon = [ShieldCheck, Layers, Globe, CheckCircle2][index];
+
+              return (
+                <FadeInSection key={index} delay={index * 100} className="h-full">
+                  <div className="group relative flex h-full min-h-[250px] flex-col overflow-hidden rounded-2xl border border-teal-800/40 bg-[#023A4E] p-8 shadow-[0_18px_50px_-20px_rgba(0,0,0,0.55)] transition-all duration-500 hover:-translate-y-1 hover:border-[#F0A018]/50 hover:shadow-[0_10px_40px_-10px_rgba(240,160,24,0.3)] active:scale-[0.98]">
+                    <div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#F0A018 1px, transparent 1px)', backgroundSize: '16px 16px' }}></div>
+
+                    <MetricIcon className="absolute right-6 top-6 h-8 w-8 text-[#F0A018]/60 opacity-0 translate-x-4 -translate-y-4 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0" />
+
+                    <div className="relative z-10">
+                      <p className="text-4xl lg:text-5xl font-extrabold tracking-tight leading-none text-transparent bg-clip-text bg-gradient-to-br from-[#F0A018] via-[#FFC35C] to-[#F0A018] mb-6">
+                        {metric.value}
+                      </p>
+                      <p className="text-white text-sm font-bold uppercase tracking-wider mb-3">{metric.label}</p>
+                      <p className="text-teal-100/70 text-sm leading-relaxed">{metric.caption}</p>
+                    </div>
+
+                    <div className="absolute bottom-0 left-8 right-8 h-[2px] bg-gradient-to-r from-transparent via-teal-800/60 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
                   </div>
-                  <p className="text-4xl md:text-6xl font-extrabold tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-[#F0A018] via-[#FFC35C] to-[#F0A018] mb-3 transition-all group-hover:scale-105">
-                    {metric.value}
-                  </p>
-                  <p className="text-sm font-bold text-white uppercase tracking-wider mb-2">{metric.label}</p>
-                  <p className="text-xs text-teal-200/70 leading-relaxed">{metric.caption}</p>
-                </div>
-              </FadeInSection>
-            ))}
+                </FadeInSection>
+              );
+            })}
           </div>
         </div>
       </section>
