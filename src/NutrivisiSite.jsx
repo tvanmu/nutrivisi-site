@@ -245,7 +245,7 @@ const WorkbookVisual = () => (
     <defs>
       <linearGradient id="wb-page" x1="0" y1="0" x2="0" y2="1">
         <stop offset="0%" stopColor="#023A4E" />
-        <stop offset="100%" stopColor="#012330" />
+        <stop offset="100%" stopColor="#01506E" />
       </linearGradient>
     </defs>
     {/* Back pages (layered) */}
@@ -752,7 +752,7 @@ export default function NutrivisiSite({ lang = 'NL' }) {
   const toggleLang = () => navigate(lang === 'NL' ? '/fr' : '/nl');
 
   return (
-    <div className="min-h-screen bg-[#012330] font-sans text-slate-200 overflow-x-hidden">
+    <div className="min-h-screen bg-[#01506E] font-sans text-slate-200 overflow-x-hidden">
       <CustomCursor disabled={reducedMotion} />
 
       {/* ===== NAV ===== */}
@@ -795,7 +795,7 @@ export default function NutrivisiSite({ lang = 'NL' }) {
         </div>
 
         {mobileOpen && (
-          <div className="absolute top-full left-0 w-full border-t border-teal-800/50 bg-[#011a24] p-4 lg:hidden backdrop-blur-xl">
+          <div className="absolute top-full left-0 w-full border-t border-teal-800/50 bg-[#01506E] p-4 lg:hidden backdrop-blur-xl">
             <div className="flex flex-col gap-2">
               {currentNavItems.map((item) => (
                 <a key={item.href} href={item.href} onClick={(e) => { e.preventDefault(); setMobileOpen(false); scrollToSection(item.href.replace('#', '')); }} className="rounded-xl px-4 py-3 text-sm font-bold uppercase tracking-wider text-slate-200 transition hover:bg-[#023142] hover:text-[#F0A018]">
@@ -871,7 +871,7 @@ export default function NutrivisiSite({ lang = 'NL' }) {
                   <Activity className="w-5 h-5 text-teal-400 animate-pulse" />
                 </div>
                 <div className="space-y-6 p-8">
-                  <div className="rounded-3xl bg-[#012330]/80 border border-teal-800/30 p-6 group hover:border-[#F0A018]/40 transition-colors">
+                  <div className="rounded-3xl bg-[#01506E]/80 border border-teal-800/30 p-6 group hover:border-[#F0A018]/40 transition-colors">
                     <div className="flex items-center gap-4">
                       <div className="rounded-xl bg-[#F0A018]/10 p-3">
                         <ShieldCheck className="h-8 w-8 text-[#F0A018]" />
@@ -904,7 +904,7 @@ export default function NutrivisiSite({ lang = 'NL' }) {
       </section>
 
       {/* ===== SECTORS BRIDGE ===== */}
-      <section className="bg-gradient-to-b from-[#023A4E] via-[#012a38] to-[#012330] pt-12 pb-32 relative overflow-visible">
+      <section className="bg-gradient-to-b from-[#023A4E] via-[#012a38] to-[#01506E] pt-12 pb-32 relative overflow-visible">
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-5xl h-64 bg-gradient-to-t from-[#F0A018]/5 to-transparent blur-[100px] pointer-events-none z-0"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex items-center justify-center mb-20">
@@ -942,7 +942,7 @@ export default function NutrivisiSite({ lang = 'NL' }) {
       </section>
 
       {/* ===== METRICS BAND ===== */}
-      <section className="relative py-24 bg-[#011722] border-t border-teal-900/40 overflow-hidden">
+      <section className="relative py-24 bg-[#01506E] border-t border-teal-900/40 overflow-hidden">
         <div className="absolute inset-0 opacity-[0.05] pointer-events-none mix-blend-overlay" style={{ backgroundImage: 'linear-gradient(#F0A018 1px, transparent 1px), linear-gradient(90deg, #F0A018 1px, transparent 1px)', backgroundSize: '60px 60px' }}></div>
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#F0A018]/8 rounded-full blur-[120px] pointer-events-none"></div>
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#56C0D5]/8 rounded-full blur-[120px] pointer-events-none"></div>
@@ -978,13 +978,13 @@ export default function NutrivisiSite({ lang = 'NL' }) {
       </section>
 
       {/* ===== SERVICES HUD ===== */}
-      <section id="diensten" className="py-32 bg-[#012330] relative overflow-hidden border-t border-teal-900/30">
+      <section id="diensten" className="py-32 bg-[#01506E] relative overflow-hidden border-t border-teal-900/30">
         <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <SectionTitle eyebrow={t.servicesSection.eyebrow} title={t.servicesSection.title} center />
 
           <div className="mt-20 grid lg:grid-cols-12 gap-0 border border-teal-800/40 rounded-[2.5rem] bg-[#023142]/40 backdrop-blur-2xl shadow-2xl overflow-hidden relative">
             {/* Left menu */}
-            <div className="lg:col-span-4 border-r border-teal-800/40 bg-[#012330]/80 relative z-20">
+            <div className="lg:col-span-4 border-r border-teal-800/40 bg-[#01506E]/80 relative z-20">
               <div className="flex flex-col h-full max-h-[700px] overflow-y-auto no-scrollbar py-6">
                 {currentServices.map((service) => {
                   const isActive = activeService.id === service.id;
@@ -1005,7 +1005,7 @@ export default function NutrivisiSite({ lang = 'NL' }) {
             </div>
 
             {/* Right display */}
-            <div className="lg:col-span-8 relative bg-gradient-to-br from-[#023A4E]/30 to-[#012330]/90 p-10 lg:p-16 flex items-center min-h-[700px] overflow-hidden">
+            <div className="lg:col-span-8 relative bg-gradient-to-br from-[#023A4E]/30 to-[#01506E]/90 p-10 lg:p-16 flex items-center min-h-[700px] overflow-hidden">
               <div className="absolute inset-0 z-0 opacity-30 pointer-events-none">
                 <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-[#F0A018]/20 to-transparent rounded-full blur-[100px] animate-pulse" style={{ animationDuration: '6s' }}></div>
                 <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-[#56C0D5]/20 to-transparent rounded-full blur-[100px] animate-pulse" style={{ animationDelay: '2s', animationDuration: '8s' }}></div>
@@ -1016,7 +1016,7 @@ export default function NutrivisiSite({ lang = 'NL' }) {
 
               <div className="relative z-10 w-full grid grid-cols-1 lg:grid-cols-[1.05fr_1fr] gap-10 items-center" key={activeService.id}>
                 <div>
-                  <div className="w-16 h-16 bg-[#012330] text-[#F0A018] rounded-2xl flex items-center justify-center mb-8 border border-[#F0A018]/30 shadow-[0_0_30px_rgba(240,160,24,0.15)] animate-[blockReveal_0.5s_ease-out]">
+                  <div className="w-16 h-16 bg-[#01506E] text-[#F0A018] rounded-2xl flex items-center justify-center mb-8 border border-[#F0A018]/30 shadow-[0_0_30px_rgba(240,160,24,0.15)] animate-[blockReveal_0.5s_ease-out]">
                     <ActiveServiceIcon className="w-8 h-8" />
                   </div>
                   <h3 className="text-4xl lg:text-5xl font-extrabold text-white mb-6 leading-tight tracking-tight animate-[blockReveal_0.6s_ease-out]">
@@ -1060,7 +1060,7 @@ export default function NutrivisiSite({ lang = 'NL' }) {
       </section>
 
       {/* ===== METHOD ===== */}
-      <section id="werkwijze" className="py-32 bg-[#012330] relative overflow-hidden border-t border-teal-900/30">
+      <section id="werkwijze" className="py-32 bg-[#01506E] relative overflow-hidden border-t border-teal-900/30">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-gradient-to-b from-[#F0A018]/10 to-transparent blur-[160px] pointer-events-none z-0"></div>
         <ClarityLensBackground rotation={scrollRotation} />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -1089,7 +1089,7 @@ export default function NutrivisiSite({ lang = 'NL' }) {
       </section>
 
       {/* ===== WAAROM NUTRIVISI ===== */}
-      <section id="waarom" className="py-32 bg-gradient-to-b from-[#012330] via-[#011b26] to-[#012330] relative overflow-hidden border-t border-teal-900/30">
+      <section id="waarom" className="py-32 bg-gradient-to-b from-[#01506E] via-[#011b26] to-[#01506E] relative overflow-hidden border-t border-teal-900/30">
         <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[800px] h-[800px] bg-[#F0A018]/5 rounded-full blur-[180px] pointer-events-none"></div>
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#56C0D5]/5 rounded-full blur-[180px] pointer-events-none"></div>
         {/* Decorative tech border */}
@@ -1133,7 +1133,7 @@ export default function NutrivisiSite({ lang = 'NL' }) {
       </section>
 
       {/* ===== KENNISBANK / INSIGHTS ===== */}
-      <section id="kennis" className="py-32 bg-[#012330] relative overflow-hidden border-t border-teal-900/30">
+      <section id="kennis" className="py-32 bg-[#01506E] relative overflow-hidden border-t border-teal-900/30">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-5xl h-64 bg-gradient-to-b from-[#56C0D5]/5 to-transparent blur-[100px] pointer-events-none"></div>
         {/* Dots backdrop */}
         <div className="absolute inset-0 opacity-[0.04] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#F0A018 1px, transparent 1px)', backgroundSize: '30px 30px' }}></div>
@@ -1178,7 +1178,7 @@ export default function NutrivisiSite({ lang = 'NL' }) {
       </section>
 
       {/* ===== CONTACT ===== */}
-      <section id="contact" className="py-32 bg-gradient-to-b from-[#012330] to-[#001720] relative overflow-hidden border-t border-teal-900/30">
+      <section id="contact" className="py-32 bg-gradient-to-b from-[#01506E] to-[#001720] relative overflow-hidden border-t border-teal-900/30">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[1000px] h-[600px] bg-[#F0A018]/5 rounded-full blur-[160px] pointer-events-none z-0"></div>
         <div className="absolute top-0 left-0 w-full h-full opacity-[0.03] pointer-events-none mix-blend-overlay" style={{ backgroundImage: 'radial-gradient(#56C0D5 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
 
@@ -1230,7 +1230,7 @@ export default function NutrivisiSite({ lang = 'NL' }) {
                 </div>
 
                 <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
-                  <div className="relative bg-[#011a24]/40 border border-teal-800/50 rounded-2xl focus-within:border-[#F0A018]/60 focus-within:bg-[#012330]/60 transition-all duration-300 shadow-inner">
+                  <div className="relative bg-[#011a24]/40 border border-teal-800/50 rounded-2xl focus-within:border-[#F0A018]/60 focus-within:bg-[#01506E]/60 transition-all duration-300 shadow-inner">
                     <input
                       type="text" name="name" value={formData.name} onChange={handleInputChange} required
                       className="w-full bg-transparent px-5 pt-6 pb-2 text-white focus:outline-none peer placeholder-transparent"
@@ -1242,7 +1242,7 @@ export default function NutrivisiSite({ lang = 'NL' }) {
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="relative bg-[#011a24]/40 border border-teal-800/50 rounded-2xl focus-within:border-[#F0A018]/60 focus-within:bg-[#012330]/60 transition-all duration-300 shadow-inner">
+                    <div className="relative bg-[#011a24]/40 border border-teal-800/50 rounded-2xl focus-within:border-[#F0A018]/60 focus-within:bg-[#01506E]/60 transition-all duration-300 shadow-inner">
                       <input
                         type="text" name="company" value={formData.company} onChange={handleInputChange} required
                         className="w-full bg-transparent px-5 pt-6 pb-2 text-white focus:outline-none peer placeholder-transparent"
@@ -1252,7 +1252,7 @@ export default function NutrivisiSite({ lang = 'NL' }) {
                         {t.contactSection.labels.company}
                       </label>
                     </div>
-                    <div className="relative bg-[#011a24]/40 border border-teal-800/50 rounded-2xl focus-within:border-[#F0A018]/60 focus-within:bg-[#012330]/60 transition-all duration-300 shadow-inner">
+                    <div className="relative bg-[#011a24]/40 border border-teal-800/50 rounded-2xl focus-within:border-[#F0A018]/60 focus-within:bg-[#01506E]/60 transition-all duration-300 shadow-inner">
                       <input
                         type="email" name="email" value={formData.email} onChange={handleInputChange} required
                         className="w-full bg-transparent px-5 pt-6 pb-2 text-white focus:outline-none peer placeholder-transparent"
@@ -1264,7 +1264,7 @@ export default function NutrivisiSite({ lang = 'NL' }) {
                     </div>
                   </div>
 
-                  <div className="relative bg-[#011a24]/40 border border-teal-800/50 rounded-2xl focus-within:border-[#F0A018]/60 focus-within:bg-[#012330]/60 transition-all duration-300 shadow-inner">
+                  <div className="relative bg-[#011a24]/40 border border-teal-800/50 rounded-2xl focus-within:border-[#F0A018]/60 focus-within:bg-[#01506E]/60 transition-all duration-300 shadow-inner">
                     <textarea
                       name="message" value={formData.message} onChange={handleInputChange} rows="4" required
                       className="w-full bg-transparent px-5 pt-7 pb-3 text-white focus:outline-none peer placeholder-transparent resize-none"
