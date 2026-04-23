@@ -509,7 +509,7 @@ const translations = {
       focus4: { title: 'Etikettering', text: 'Controle van labels volgens de geldende wetgeving.' },
       focus5: { title: 'Sectorgericht', text: 'Ervaring in bakkerij, vlees, horeca en retail.' },
     },
-    sectorsSection: { eyebrow: 'Verankerde expertise in uw sector', items: ['Bakkerij', 'Vleessector', 'Horeca', 'Retail'] },
+    sectorsSection: { eyebrow: 'Uw sector, onze praktijk.', items: ['Bakkerij', 'Vleessector', 'Horeca', 'Retail'] },
     metrics: {
       eyebrow: 'Het werkterrein',
       title: 'Concrete parameters van ons werk',
@@ -599,7 +599,7 @@ const translations = {
       focus4: { title: 'Étiquetage', text: 'Vérification des étiquettes selon la législation en vigueur.' },
       focus5: { title: 'Secteurs', text: 'Expérience en boulangerie, viande, horeca et retail.' },
     },
-    sectorsSection: { eyebrow: 'Une expertise ancrée dans votre secteur', items: ['Boulangerie', 'Secteur de la viande', 'Horeca', 'Retail'] },
+    sectorsSection: { eyebrow: 'Votre secteur, notre pratique.', items: ['Boulangerie', 'Secteur de la viande', 'Horeca', 'Retail'] },
     metrics: {
       eyebrow: 'Le terrain',
       title: 'Paramètres concrets de notre travail',
@@ -905,79 +905,87 @@ export default function NutrivisiSite({ lang = 'NL' }) {
       </section>
 
       {/* ===== SECTORS BRIDGE ===== */}
-      <section className="bg-gradient-to-b from-[#023A4E] via-[#014B68] to-[#01506E] pt-12 pb-32 relative overflow-visible">
+      <section className="bg-gradient-to-b from-[#023A4E] via-[#014B68] to-[#01506E] pt-14 pb-28 relative overflow-hidden">
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#56C0D5]/25 to-transparent"></div>
+        <div className="absolute left-1/2 top-24 h-56 w-[720px] -translate-x-1/2 rounded-full bg-[#56C0D5]/10 blur-[120px] pointer-events-none"></div>
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="flex items-center justify-center mb-20">
-            <p className="text-center text-xs font-bold text-teal-300 uppercase tracking-[0.3em]">{t.sectorsSection.eyebrow}</p>
-          </div>
-          <div className="relative py-10">
-            <div className="absolute top-1/2 left-0 w-full -translate-y-1/2 h-32 pointer-events-none hidden md:block z-0">
-              <svg className="w-full h-full opacity-60" viewBox="0 0 1000 100" preserveAspectRatio="none">
-                <path d="M0,50 C125,150 125,-50 250,50 C375,150 375,-50 500,50 C625,150 625,-50 750,50 C875,150 875,-50 1000,50" fill="none" stroke="#56C0D5" strokeWidth="1" strokeOpacity="0.2" />
-                <path d="M0,50 C125,150 125,-50 250,50 C375,150 375,-50 500,50 C625,150 625,-50 750,50 C875,150 875,-50 1000,50" fill="none" stroke="#56C0D5" strokeWidth="2" strokeOpacity="0.8" strokeDasharray="40 1000" style={{ animation: 'flowLight 8s linear infinite' }} />
-                <path d="M0,50 C125,-50 125,150 250,50 C375,-50 375,150 500,50 C625,-50 625,150 750,50 C875,-50 875,150 1000,50" fill="none" stroke="#F0A018" strokeWidth="1" strokeOpacity="0.2" />
-                <path d="M0,50 C125,-50 125,150 250,50 C375,-50 375,150 500,50 C625,-50 625,150 750,50 C875,-50 875,150 1000,50" fill="none" stroke="#F0A018" strokeWidth="2" strokeOpacity="0.8" strokeDasharray="60 1000" style={{ animation: 'flowLight 6s linear infinite reverse' }} />
-              </svg>
+          <FadeInSection>
+            <div className="flex flex-col items-center justify-center gap-4 mb-12 md:mb-14">
+              <div className="flex w-full max-w-3xl items-center gap-5">
+                <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#F0A018]/50 to-[#56C0D5]/20"></div>
+                <p className="sector-eyebrow-glow text-center text-2xl md:text-4xl font-extrabold text-teal-200 uppercase tracking-[0.22em] leading-tight">
+                  {t.sectorsSection.eyebrow}
+                </p>
+                <div className="h-px flex-1 bg-gradient-to-l from-transparent via-[#F0A018]/50 to-[#56C0D5]/20"></div>
+              </div>
+              <div className="h-[3px] w-24 rounded-full bg-gradient-to-r from-transparent via-[#F0A018] to-transparent opacity-80"></div>
             </div>
-            <div className="flex flex-wrap justify-center gap-8 md:gap-24 relative z-10 w-full">
+          </FadeInSection>
+
+          <div className="relative mx-auto max-w-6xl">
+            <svg className="pointer-events-none absolute left-0 top-10 hidden h-40 w-full md:block" viewBox="0 0 1000 160" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M80 80 C180 20 250 140 330 80 S480 20 560 80 S710 140 790 80 S900 20 960 80" fill="none" stroke="#56C0D5" strokeWidth="1.5" strokeOpacity="0.25" />
+              <path className="sector-trace-line" d="M80 80 C180 20 250 140 330 80 S480 20 560 80 S710 140 790 80 S900 20 960 80" fill="none" stroke="#F0A018" strokeWidth="3" strokeLinecap="round" strokeDasharray="90 1180" />
+              {[140, 380, 620, 860].map((cx, index) => (
+                <circle key={cx} className="sector-orbit-pulse" cx={cx} cy="80" r="28" fill="none" stroke="#F0A018" strokeOpacity="0.24" strokeWidth="1" style={{ animationDelay: `${index * 350}ms` }} />
+              ))}
+            </svg>
+
+            <div className="grid grid-cols-2 gap-6 md:grid-cols-4 md:gap-8 relative z-10">
               {currentSectors.map((sector, index) => {
                 const Icon = sector.icon;
                 return (
-                  <FadeInSection key={index} delay={index * 100}>
-                    <div className="flex flex-col items-center gap-4 text-teal-200/70 font-medium hover:text-[#F0A018] transition-all duration-500 group interactive-card">
-                      <div className="relative p-2">
-                        <div className="absolute inset-0 border border-[#F0A018]/0 rounded-full group-hover:border-[#F0A018]/30 group-hover:animate-[spin_4s_linear_infinite] transition-all duration-700"></div>
-                        <div className="p-5 rounded-full bg-[#011a24]/80 backdrop-blur-md border border-teal-700/40 group-hover:bg-[#F0A018]/10 group-hover:border-[#F0A018]/50 transition-all duration-500 shadow-lg group-hover:shadow-[0_0_30px_rgba(240,160,24,0.25)] relative z-10">
-                          <Icon className="w-6 h-6 group-hover:scale-110 transition-transform duration-500" />
+                  <FadeInSection key={index} delay={index * 100} className="h-full">
+                    <div className="sector-node group interactive-card flex h-full flex-col items-center justify-start gap-5 rounded-[2rem] border border-teal-800/30 bg-[#023A4E]/45 px-5 py-7 text-center text-teal-100/80 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:border-[#F0A018]/45 hover:bg-[#023A4E]/70 hover:text-white hover:shadow-[0_18px_50px_-18px_rgba(240,160,24,0.32)]" style={{ animationDelay: `${index * 180}ms` }}>
+                      <div className="relative flex h-20 w-20 items-center justify-center">
+                        <div className="absolute inset-0 rounded-full bg-[#F0A018]/0 blur-xl transition-all duration-500 group-hover:bg-[#F0A018]/18"></div>
+                        <div className="absolute inset-0 rounded-full border border-[#56C0D5]/25 transition-all duration-500 group-hover:scale-110 group-hover:border-[#F0A018]/45"></div>
+                        <div className="relative flex h-16 w-16 items-center justify-center rounded-full bg-[#011a24]/80 text-teal-200 shadow-[0_14px_35px_-18px_rgba(0,0,0,0.8)] transition-all duration-500 group-hover:bg-[#F0A018]/12 group-hover:text-[#F0A018]">
+                          <Icon className="h-7 w-7 transition-transform duration-500 group-hover:scale-110" />
                         </div>
                       </div>
-                      <span className="text-sm tracking-widest uppercase mt-2">{sector.title}</span>
+                      <span className="text-sm md:text-base font-bold uppercase tracking-[0.22em]">{sector.title}</span>
                     </div>
                   </FadeInSection>
                 );
               })}
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* ===== METRICS BAND ===== */}
-      <section className="relative py-24 bg-[#01506E] overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#F0A018 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
+            <div className="relative mt-24 md:mt-28">
+              <svg className="pointer-events-none absolute left-0 top-12 hidden h-44 w-full md:block opacity-70" viewBox="0 0 1000 170" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M70 86 C210 10 270 150 390 86 S590 10 710 86 S880 150 960 72" fill="none" stroke="#56C0D5" strokeWidth="1.4" strokeOpacity="0.18" />
+                <path className="sector-trace-line" d="M70 86 C210 10 270 150 390 86 S590 10 710 86 S880 150 960 72" fill="none" stroke="#F0A018" strokeWidth="3" strokeLinecap="round" strokeDasharray="110 1180" />
+              </svg>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <FadeInSection>
-            <div className="flex items-center gap-4 justify-center mb-12">
-              <div className="h-px w-16 bg-gradient-to-r from-transparent to-[#F0A018]/60"></div>
-              <p className="text-xs font-bold text-[#F0A018] uppercase tracking-[0.35em]">{t.metrics.eyebrow}</p>
-              <div className="h-px w-16 bg-gradient-to-l from-transparent to-[#F0A018]/60"></div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 relative z-10">
+                {t.metrics.items.map((metric, index) => {
+                  const MetricIcon = [ShieldCheck, Layers, Globe, CheckCircle2][index];
+
+                  return (
+                    <FadeInSection key={index} delay={index * 100} className="h-full">
+                      <div className="sector-node group interactive-card flex h-full min-h-[330px] flex-col items-center justify-start gap-5 rounded-[2rem] border border-teal-800/30 bg-[#023A4E]/45 px-7 py-8 text-center text-teal-100/80 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:border-[#F0A018]/45 hover:bg-[#023A4E]/70 hover:text-white hover:shadow-[0_18px_50px_-18px_rgba(240,160,24,0.32)] active:scale-[0.98]" style={{ animationDelay: `${(index + 4) * 180}ms` }}>
+                        <div className="relative flex h-20 w-20 items-center justify-center">
+                          <div className="absolute inset-0 rounded-full bg-[#F0A018]/0 blur-xl transition-all duration-500 group-hover:bg-[#F0A018]/18"></div>
+                          <div className="absolute inset-0 rounded-full border border-[#56C0D5]/25 transition-all duration-500 group-hover:scale-110 group-hover:border-[#F0A018]/45"></div>
+                          <div className="relative flex h-16 w-16 items-center justify-center rounded-full bg-[#011a24]/80 text-teal-200 shadow-[0_14px_35px_-18px_rgba(0,0,0,0.8)] transition-all duration-500 group-hover:bg-[#F0A018]/12 group-hover:text-[#F0A018]">
+                            <MetricIcon className="h-7 w-7 transition-transform duration-500 group-hover:scale-110" />
+                          </div>
+                        </div>
+
+                        <div className="flex flex-1 flex-col items-center">
+                          <p className="mb-5 text-5xl lg:text-6xl font-extrabold tracking-tight leading-none text-transparent bg-clip-text bg-gradient-to-br from-[#F0A018] via-[#FFC35C] to-[#F0A018]">
+                            {metric.value}
+                          </p>
+                          <p className="mb-3 text-sm font-bold uppercase tracking-[0.16em] text-white">{metric.label}</p>
+                          <p className="text-sm leading-relaxed text-teal-100/70">{metric.caption}</p>
+                        </div>
+                      </div>
+                    </FadeInSection>
+                  );
+                })}
+              </div>
             </div>
-          </FadeInSection>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 relative">
-            {t.metrics.items.map((metric, index) => {
-              const MetricIcon = [ShieldCheck, Layers, Globe, CheckCircle2][index];
-
-              return (
-                <FadeInSection key={index} delay={index * 100} className="h-full">
-                  <div className="group relative flex h-full min-h-[250px] flex-col overflow-hidden rounded-2xl border border-teal-800/40 bg-[#023A4E] p-8 shadow-[0_18px_50px_-20px_rgba(0,0,0,0.55)] transition-all duration-500 hover:-translate-y-1 hover:border-[#F0A018]/50 hover:shadow-[0_10px_40px_-10px_rgba(240,160,24,0.3)] active:scale-[0.98]">
-                    <div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#F0A018 1px, transparent 1px)', backgroundSize: '16px 16px' }}></div>
-
-                    <MetricIcon className="absolute right-6 top-6 h-8 w-8 text-[#F0A018]/60 opacity-0 translate-x-4 -translate-y-4 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0" />
-
-                    <div className="relative z-10">
-                      <p className="text-4xl lg:text-5xl font-extrabold tracking-tight leading-none text-transparent bg-clip-text bg-gradient-to-br from-[#F0A018] via-[#FFC35C] to-[#F0A018] mb-6">
-                        {metric.value}
-                      </p>
-                      <p className="text-white text-sm font-bold uppercase tracking-wider mb-3">{metric.label}</p>
-                      <p className="text-teal-100/70 text-sm leading-relaxed">{metric.caption}</p>
-                    </div>
-
-                    <div className="absolute bottom-0 left-8 right-8 h-[2px] bg-gradient-to-r from-transparent via-teal-800/60 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
-                  </div>
-                </FadeInSection>
-              );
-            })}
           </div>
         </div>
       </section>
@@ -1350,12 +1358,20 @@ export default function NutrivisiSite({ lang = 'NL' }) {
         @keyframes float-stream { 0% { transform: translateY(100vh); opacity: 0; } 20% { opacity: 0.15; } 80% { opacity: 0.15; } 100% { transform: translateY(-100px); opacity: 0; } }
         @keyframes blockReveal { 0% { opacity: 0; transform: translateY(15px); filter: blur(8px); } 100% { opacity: 1; transform: translateY(0); filter: blur(0px); } }
         @keyframes flowLight { from { stroke-dashoffset: 1040; } to { stroke-dashoffset: 0; } }
+        @keyframes sectorGlow { 0% { opacity: 0; transform: translateY(10px); text-shadow: 0 0 0 rgba(86,192,213,0); } 55% { opacity: 1; text-shadow: 0 0 28px rgba(86,192,213,0.4), 0 0 42px rgba(240,160,24,0.18); } 100% { opacity: 1; transform: translateY(0); text-shadow: 0 0 16px rgba(86,192,213,0.24); } }
+        @keyframes sectorTrace { from { stroke-dashoffset: 1270; } to { stroke-dashoffset: 0; } }
+        @keyframes sectorPulse { 0%, 100% { opacity: 0.15; transform: scale(0.75); transform-origin: center; } 50% { opacity: 0.55; transform: scale(1.25); transform-origin: center; } }
+        @keyframes sectorFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
         @keyframes labelScan { 0%, 100% { transform: translateY(-80px); opacity: 0; } 10% { opacity: 0.8; } 50% { opacity: 0.8; } 90% { opacity: 0; } }
 
         .animate-breathe { animation: breathe 6s ease-in-out infinite; }
         .animate-drift-slow { animation: drift-slow 12s ease-in-out infinite; }
         .animate-float-stream { animation: float-stream linear infinite; }
         .animate-gradient { animation: gradient 6s ease infinite; }
+        .sector-eyebrow-glow { animation: sectorGlow 1.2s ease-out both; }
+        .sector-trace-line { animation: sectorTrace 7s linear infinite; }
+        .sector-orbit-pulse { animation: sectorPulse 2.8s ease-in-out infinite; }
+        .sector-node { animation: sectorFloat 6s ease-in-out infinite; }
 
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
