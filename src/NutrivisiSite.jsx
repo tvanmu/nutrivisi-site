@@ -1758,7 +1758,12 @@ export default function NutrivisiSite({ lang = 'NL' }) {
                     </div>
                   </a>
 
-                  <div className="group selectable">
+                  <a
+                    href="https://www.google.com/maps/dir/?api=1&destination=Martelarenlaan+69,+3010+Leuven,+Belgium"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="group interactive-card selectable block"
+                  >
                     <div className="relative overflow-hidden rounded-[1.75rem] border border-[#5CC0D5]/16 bg-[#023A4E]/22 p-5 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:border-[#5CC0D5]/42 hover:bg-[#023A4E]/34 hover:shadow-[0_24px_70px_-44px_rgba(92,192,213,0.8)]">
                       <div className="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-[#5CC0D5]/0 to-transparent transition-all duration-500 group-hover:via-[#5CC0D5]/62"></div>
                       <div className="absolute -right-10 top-0 h-28 w-28 rounded-full bg-[#5CC0D5]/0 blur-[70px] transition-all duration-500 group-hover:bg-[#5CC0D5]/12"></div>
@@ -1774,9 +1779,10 @@ export default function NutrivisiSite({ lang = 'NL' }) {
                           <p className="mb-1 text-xs font-bold uppercase tracking-[0.22em] text-[#5CC0D5]/78">{t.contactSection.addressText}</p>
                           <p className="text-xl font-bold tracking-tight text-white">Martelarenlaan 69, 3010 Leuven</p>
                         </div>
+                        <ArrowRight className="h-4 w-4 text-[#F0A018]/75 transition-transform duration-500 group-hover:translate-x-1" />
                       </div>
                     </div>
-                  </div>
+                  </a>
                 </div>
               </div>
             </FadeInSection>
