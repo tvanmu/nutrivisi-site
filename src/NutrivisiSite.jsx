@@ -2,7 +2,7 @@ import React, { useMemo, useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   Menu, X, ChevronRight, ArrowRight, ShieldCheck, Award, ShieldAlert,
-  Tag, Wheat, Beef, UtensilsCrossed, Store, CheckCircle2, Mail, Phone, MapPin,
+  Tag, Wheat, Beef, UtensilsCrossed, Store, CheckCircle2,
   ClipboardCheck, Send, Eye, BookOpen, AlertTriangle,
   FlaskConical, Recycle, Scale, Layers, Fingerprint, Globe
 } from 'lucide-react';
@@ -671,6 +671,40 @@ const ServiceBulletGlyph = () => (
     <path d="M14 4V7M14 21V24M4 14H7M21 14H24" stroke="#56C0D5" strokeWidth="1.2" strokeLinecap="round" opacity="0.52" />
   </svg>
 );
+
+const ContactGlyph = ({ type, className = 'h-6 w-6' }) => {
+  if (type === 'mail') {
+    return (
+      <svg viewBox="0 0 72 72" className={className} fill="none" aria-hidden="true">
+        <rect x="14" y="20" width="44" height="32" rx="7" stroke="#5CC0D5" strokeWidth="2" opacity="0.82" />
+        <path d="M18 25L36 39L54 25" stroke="#5CC0D5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M24 48H48" stroke="#5CC0D5" strokeWidth="1.6" strokeLinecap="round" opacity="0.38" />
+        <path d="M22 24H50" stroke="#F0A018" strokeWidth="1.8" strokeLinecap="round" opacity="0.92" />
+        <circle cx="50" cy="24" r="2.4" fill="#F0A018" />
+      </svg>
+    );
+  }
+
+  if (type === 'phone') {
+    return (
+      <svg viewBox="0 0 72 72" className={className} fill="none" aria-hidden="true">
+        <path d="M24 17H31L35 28L29 33C31 38 34 42 39 45L44 39L55 43V50C55 53 53 55 50 55C31 55 17 41 17 22C17 19 19 17 22 17H24Z" stroke="#5CC0D5" strokeWidth="2" strokeLinejoin="round" opacity="0.84" />
+        <path d="M41 19C46 20 50 24 51 29" stroke="#F0A018" strokeWidth="2" strokeLinecap="round" />
+        <path d="M39 24C42 25 44 27 45 30" stroke="#F0A018" strokeWidth="2" strokeLinecap="round" opacity="0.92" />
+        <path d="M46 36L50 40" stroke="#5CC0D5" strokeWidth="1.6" strokeLinecap="round" opacity="0.42" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg viewBox="0 0 72 72" className={className} fill="none" aria-hidden="true">
+      <path d="M36 58C46 46 54 38 54 28C54 18 46 12 36 12C26 12 18 18 18 28C18 38 26 46 36 58Z" stroke="#5CC0D5" strokeWidth="2" strokeLinejoin="round" opacity="0.84" />
+      <circle cx="36" cy="28" r="7" stroke="#5CC0D5" strokeWidth="2" />
+      <circle cx="36" cy="28" r="2.5" fill="#F0A018" />
+      <path d="M36 44V49" stroke="#F0A018" strokeWidth="2" strokeLinecap="round" />
+    </svg>
+  );
+};
 
 /* =====================================================================
    7. SECTION TITLE
@@ -1690,7 +1724,9 @@ export default function NutrivisiSite({ lang = 'NL' }) {
                         <div className="relative flex h-16 w-16 items-center justify-center rounded-[1.2rem] border border-[#5CC0D5]/24 bg-[#011a24]/24 text-[#5CC0D5] transition-all duration-500 group-hover:border-[#5CC0D5]/52 group-hover:bg-[#5CC0D5]/10 group-hover:text-[#5CC0D5]">
                           <div className="absolute inset-2 rounded-2xl border border-[#F0A018]/10 transition-all duration-500 group-hover:scale-110 group-hover:border-[#5CC0D5]/22"></div>
                           <div className="absolute inset-0 rounded-[1.2rem] bg-[#5CC0D5]/0 blur-xl transition-all duration-500 group-hover:bg-[#5CC0D5]/18"></div>
-                          <Mail className="relative h-6 w-6 transition-transform duration-500 group-hover:scale-110" />
+                          <div className="relative transition-transform duration-500 group-hover:scale-110">
+                            <ContactGlyph type="mail" className="h-6 w-6" />
+                          </div>
                         </div>
                         <div className="min-w-0 flex-1">
                           <p className="mb-1 text-xs font-bold uppercase tracking-[0.22em] text-[#5CC0D5]/78">{t.contactSection.emailText}</p>
@@ -1709,7 +1745,9 @@ export default function NutrivisiSite({ lang = 'NL' }) {
                         <div className="relative flex h-16 w-16 items-center justify-center rounded-[1.2rem] border border-[#5CC0D5]/24 bg-[#011a24]/24 text-[#5CC0D5] transition-all duration-500 group-hover:border-[#5CC0D5]/52 group-hover:bg-[#5CC0D5]/10 group-hover:text-[#5CC0D5]">
                           <div className="absolute inset-2 rounded-2xl border border-[#F0A018]/10 transition-all duration-500 group-hover:scale-110 group-hover:border-[#5CC0D5]/22"></div>
                           <div className="absolute inset-0 rounded-[1.2rem] bg-[#5CC0D5]/0 blur-xl transition-all duration-500 group-hover:bg-[#5CC0D5]/18"></div>
-                          <Phone className="relative h-6 w-6 transition-transform duration-500 group-hover:scale-110" />
+                          <div className="relative transition-transform duration-500 group-hover:scale-110">
+                            <ContactGlyph type="phone" className="h-6 w-6" />
+                          </div>
                         </div>
                         <div className="min-w-0 flex-1">
                           <p className="mb-1 text-xs font-bold uppercase tracking-[0.22em] text-[#5CC0D5]/78">{t.contactSection.phoneText}</p>
@@ -1728,7 +1766,9 @@ export default function NutrivisiSite({ lang = 'NL' }) {
                         <div className="relative flex h-16 w-16 items-center justify-center rounded-[1.2rem] border border-[#5CC0D5]/24 bg-[#011a24]/24 text-[#5CC0D5] transition-all duration-500 group-hover:border-[#5CC0D5]/52 group-hover:bg-[#5CC0D5]/10 group-hover:text-[#5CC0D5]">
                           <div className="absolute inset-2 rounded-2xl border border-[#F0A018]/10 transition-all duration-500 group-hover:scale-110 group-hover:border-[#5CC0D5]/22"></div>
                           <div className="absolute inset-0 rounded-[1.2rem] bg-[#5CC0D5]/0 blur-xl transition-all duration-500 group-hover:bg-[#5CC0D5]/18"></div>
-                          <MapPin className="relative h-6 w-6 transition-transform duration-500 group-hover:scale-110" />
+                          <div className="relative transition-transform duration-500 group-hover:scale-110">
+                            <ContactGlyph type="pin" className="h-6 w-6" />
+                          </div>
                         </div>
                         <div className="min-w-0 flex-1">
                           <p className="mb-1 text-xs font-bold uppercase tracking-[0.22em] text-[#5CC0D5]/78">{t.contactSection.addressText}</p>
@@ -1755,10 +1795,6 @@ export default function NutrivisiSite({ lang = 'NL' }) {
                 </svg>
 
                 <div className="relative z-10 mb-10">
-                  <div className="mb-4 flex items-center gap-3">
-                    <span className="h-2 w-2 rounded-full bg-[#F0A018] shadow-[0_0_18px_rgba(240,160,24,0.6)]"></span>
-                    <span className="font-mono text-xs font-bold uppercase tracking-[0.24em] text-[#5CC0D5]/78">{t.nav.contact}</span>
-                  </div>
                   <h3 className="text-3xl font-extrabold tracking-tight text-white md:text-[2.15rem]">
                     {t.contactSection.formTitle}
                   </h3>
