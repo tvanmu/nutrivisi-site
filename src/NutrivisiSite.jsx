@@ -1,9 +1,9 @@
 import React, { useMemo, useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
-  Menu, X, ChevronRight, ArrowRight, ShieldCheck, Users, Award, ShieldAlert,
+  Menu, X, ChevronRight, ArrowRight, ShieldCheck, Award, ShieldAlert,
   Tag, Wheat, Beef, UtensilsCrossed, Store, CheckCircle2, Mail, Phone, MapPin,
-  Lightbulb, ClipboardCheck, Send, Eye, BookOpen, AlertTriangle,
+  ClipboardCheck, Send, Eye, BookOpen, AlertTriangle,
   FlaskConical, Recycle, Scale, Layers, Fingerprint, Globe
 } from 'lucide-react';
 
@@ -477,6 +477,201 @@ const MethodGlyph = ({ index }) => {
   );
 };
 
+const WhyGlyph = ({ index }) => {
+  if (index === 0) {
+    return (
+      <svg viewBox="0 0 72 72" className="h-10 w-10" fill="none" aria-hidden="true">
+        <rect x="15" y="12" width="34" height="46" rx="5" stroke="#56C0D5" strokeWidth="1.6" opacity="0.55" />
+        <path d="M22 24H39M22 35H35M22 46H43" stroke="#56C0D5" strokeWidth="1.7" strokeLinecap="round" opacity="0.8" />
+        <rect x="43" y="20" width="14" height="14" rx="3" stroke="#F0A018" strokeWidth="2" />
+        <path d="M47 27L50 30L55 24" stroke="#F0A018" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M49 42C54 42 58 45 60 50C58 55 54 58 49 58C44 58 40 55 38 50C40 45 44 42 49 42Z" stroke="#F0A018" strokeWidth="1.8" />
+        <circle cx="49" cy="50" r="3" fill="#F0A018" />
+      </svg>
+    );
+  }
+
+  if (index === 1) {
+    return (
+      <svg viewBox="0 0 72 72" className="h-10 w-10" fill="none" aria-hidden="true">
+        {[
+          [14, 14], [42, 14], [14, 42], [42, 42],
+        ].map(([x, y], i) => (
+          <rect key={`${x}-${y}`} x={x} y={y} width="16" height="16" rx="4" stroke={i === 1 ? '#F0A018' : '#56C0D5'} strokeWidth="1.8" opacity={i === 1 ? 1 : 0.64} />
+        ))}
+        <path d="M30 22H42M22 30V42M50 30V42M30 50H42" stroke="#F0A018" strokeWidth="1.8" strokeLinecap="round" strokeDasharray="2 4" />
+        <circle cx="22" cy="22" r="2.2" fill="#56C0D5" />
+        <path d="M47 21L50 24L55 18" stroke="#F0A018" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M20 50H24M50 47V53" stroke="#56C0D5" strokeWidth="1.8" strokeLinecap="round" />
+      </svg>
+    );
+  }
+
+  if (index === 2) {
+    return (
+      <svg viewBox="0 0 72 72" className="h-10 w-10" fill="none" aria-hidden="true">
+        <path d="M36 13V55M25 21H47M20 55H52" stroke="#F0A018" strokeWidth="2.1" strokeLinecap="round" />
+        <path d="M25 25L16 42H34L25 25ZM47 25L38 42H56L47 25Z" stroke="#F0A018" strokeWidth="1.8" strokeLinejoin="round" />
+        <path d="M18 42C20 47 31 47 33 42M40 42C42 47 53 47 55 42" stroke="#56C0D5" strokeWidth="1.6" strokeLinecap="round" opacity="0.75" />
+        <rect x="25" y="50" width="22" height="8" rx="3" stroke="#56C0D5" strokeWidth="1.5" opacity="0.6" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg viewBox="0 0 72 72" className="h-10 w-10" fill="none" aria-hidden="true">
+      <path d="M36 13C25 13 18 21 18 32M36 13C47 13 54 21 54 32" stroke="#56C0D5" strokeWidth="1.7" strokeLinecap="round" opacity="0.65" />
+      <path d="M25 51C21 45 21 37 24 31C27 25 32 22 36 22C44 22 50 28 50 36C50 43 45 49 39 53" stroke="#F0A018" strokeWidth="2.1" strokeLinecap="round" />
+      <path d="M31 56C27 49 27 41 30 35C32 31 34 30 36 30C40 30 42 33 42 36C42 41 38 42 38 47" stroke="#F0A018" strokeWidth="2.1" strokeLinecap="round" />
+      <path d="M36 38C36 45 44 48 51 48" stroke="#56C0D5" strokeWidth="1.8" strokeLinecap="round" opacity="0.75" />
+      <path d="M48 44L52 48L47 52" stroke="#56C0D5" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" opacity="0.75" />
+    </svg>
+  );
+};
+
+const KnowledgeGlyph = ({ index }) => {
+  if (index === 0) {
+    return (
+      <svg viewBox="0 0 72 72" className="h-10 w-10" fill="none" aria-hidden="true">
+        <path d="M36 13L59 56H13L36 13Z" stroke="#5CC0D5" strokeWidth="1.8" strokeLinejoin="round" opacity="0.72" />
+        <path d="M36 27V42" stroke="#F0A018" strokeWidth="2.8" strokeLinecap="round" />
+        <circle cx="36" cy="50" r="2.8" fill="#F0A018" />
+        <path d="M23 34C29 31 32 36 36 34C40 32 44 27 50 32" stroke="#5CC0D5" strokeWidth="1.7" strokeLinecap="round" opacity="0.65" />
+        <circle cx="23" cy="34" r="2" fill="#F0A018" />
+        <circle cx="50" cy="32" r="2" fill="#F0A018" opacity="0.75" />
+      </svg>
+    );
+  }
+
+  if (index === 1) {
+    return (
+      <svg viewBox="0 0 72 72" className="h-10 w-10" fill="none" aria-hidden="true">
+        <rect x="14" y="14" width="44" height="44" rx="7" stroke="#5CC0D5" strokeWidth="1.7" opacity="0.62" />
+        <path d="M23 26H32M40 26H49M23 36H32M40 36H49M23 46H32M40 46H49" stroke="#5CC0D5" strokeWidth="1.7" strokeLinecap="round" opacity="0.78" />
+        <path d="M18 32H54M18 42H54M36 18V54" stroke="#5CC0D5" strokeWidth="1.1" opacity="0.28" />
+        <path d="M23 25L27 29L34 21" stroke="#F0A018" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+        <circle cx="45" cy="45" r="7" stroke="#F0A018" strokeWidth="2" />
+      </svg>
+    );
+  }
+
+  if (index === 2) {
+    return (
+      <svg viewBox="0 0 72 72" className="h-10 w-10" fill="none" aria-hidden="true">
+        <path d="M21 31C23 22 31 16 41 17C48 18 54 23 56 30" stroke="#5CC0D5" strokeWidth="2" strokeLinecap="round" />
+        <path d="M51 23L56 30L48 32" stroke="#5CC0D5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M51 41C48 50 40 56 30 54C23 53 18 48 16 41" stroke="#F0A018" strokeWidth="2" strokeLinecap="round" />
+        <path d="M21 48L16 41L24 39" stroke="#F0A018" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        <rect x="25" y="26" width="22" height="20" rx="4" stroke="#5CC0D5" strokeWidth="1.7" opacity="0.58" />
+        <path d="M31 36H41" stroke="#F0A018" strokeWidth="2.2" strokeLinecap="round" />
+      </svg>
+    );
+  }
+
+  if (index === 3) {
+    return (
+      <svg viewBox="0 0 72 72" className="h-10 w-10" fill="none" aria-hidden="true">
+        <path d="M31 14H41M33 14V29L21 51C19 55 22 59 27 59H45C50 59 53 55 51 51L39 29V14" stroke="#5CC0D5" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M27 47H45" stroke="#F0A018" strokeWidth="2" strokeLinecap="round" />
+        <circle cx="32" cy="43" r="2.4" fill="#F0A018" />
+        <circle cx="42" cy="52" r="2.1" fill="#5CC0D5" />
+        <path d="M29 31C33 28 39 34 43 30" stroke="#F0A018" strokeWidth="1.8" strokeLinecap="round" opacity="0.85" />
+      </svg>
+    );
+  }
+
+  if (index === 4) {
+    return (
+      <svg viewBox="0 0 72 72" className="h-10 w-10" fill="none" aria-hidden="true">
+        <path d="M36 11L56 19V34C56 48 48 57 36 62C24 57 16 48 16 34V19L36 11Z" stroke="#5CC0D5" strokeWidth="1.8" strokeLinejoin="round" opacity="0.7" />
+        <rect x="27" y="33" width="18" height="14" rx="4" stroke="#F0A018" strokeWidth="2" />
+        <path d="M31 33V28C31 25 33 23 36 23C39 23 41 25 41 28V33" stroke="#F0A018" strokeWidth="2" strokeLinecap="round" />
+        <path d="M25 52H47M24 23H48" stroke="#5CC0D5" strokeWidth="1.5" strokeLinecap="round" opacity="0.45" />
+        <circle cx="36" cy="40" r="2.3" fill="#F0A018" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg viewBox="0 0 72 72" className="h-10 w-10" fill="none" aria-hidden="true">
+      <path d="M18 17H49C52 17 54 19 54 22V55C54 52 52 50 49 50H18V17Z" stroke="#5CC0D5" strokeWidth="1.8" strokeLinejoin="round" opacity="0.7" />
+      <path d="M18 17V55C18 52 20 50 23 50H54" stroke="#5CC0D5" strokeWidth="1.8" strokeLinejoin="round" opacity="0.7" />
+      <path d="M27 27H45M27 36H40" stroke="#5CC0D5" strokeWidth="1.7" strokeLinecap="round" opacity="0.82" />
+      <path d="M47 30C52 34 52 42 47 46" stroke="#F0A018" strokeWidth="2" strokeLinecap="round" />
+      <path d="M49 26L47 30L43 28M45 48L47 46L50 49" stroke="#F0A018" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+      <circle cx="24" cy="45" r="2.2" fill="#F0A018" />
+    </svg>
+  );
+};
+
+const ServiceGlyph = ({ id, className = 'h-10 w-10' }) => {
+  if (id === 'expertadvies') {
+    return (
+      <svg viewBox="0 0 72 72" className={className} fill="none" aria-hidden="true">
+        <circle cx="36" cy="36" r="22" stroke="currentColor" strokeWidth="1.4" opacity="0.24" />
+        <circle cx="36" cy="36" r="11" stroke="#F0A018" strokeWidth="2" />
+        <path d="M36 15V24M36 48V57M15 36H24M48 36H57" stroke="#56C0D5" strokeWidth="1.6" strokeLinecap="round" />
+        <circle cx="36" cy="36" r="4" fill="#F0A018" />
+        <path d="M45 23C51 28 54 35 52 43" stroke="#F0A018" strokeWidth="2" strokeLinecap="round" />
+        <path d="M27 50C21 46 18 39 20 31" stroke="#56C0D5" strokeWidth="1.8" strokeLinecap="round" opacity="0.78" />
+      </svg>
+    );
+  }
+
+  if (id === 'coaching') {
+    return (
+      <svg viewBox="0 0 72 72" className={className} fill="none" aria-hidden="true">
+        <circle cx="28" cy="25" r="7" stroke="#56C0D5" strokeWidth="2" />
+        <circle cx="47" cy="28" r="5.5" stroke="#56C0D5" strokeWidth="1.8" opacity="0.68" />
+        <path d="M16 51C18 41 23 36 31 36C38 36 43 40 45 48" stroke="#F0A018" strokeWidth="2.2" strokeLinecap="round" />
+        <path d="M43 39C50 39 54 43 56 50" stroke="#56C0D5" strokeWidth="1.8" strokeLinecap="round" opacity="0.74" />
+        <rect x="17" y="14" width="38" height="44" rx="6" stroke="currentColor" strokeWidth="1.2" opacity="0.18" />
+        <path d="M22 58H50" stroke="#F0A018" strokeWidth="1.8" strokeLinecap="round" />
+      </svg>
+    );
+  }
+
+  if (id === 'certificatie') {
+    return (
+      <svg viewBox="0 0 72 72" className={className} fill="none" aria-hidden="true">
+        <circle cx="36" cy="28" r="14" stroke="#F0A018" strokeWidth="2.2" />
+        <path d="M30 28L34 32L43 23" stroke="#F0A018" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M28 40L24 59L36 53L48 59L44 40" stroke="#56C0D5" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" opacity="0.82" />
+        <circle cx="36" cy="28" r="24" stroke="currentColor" strokeWidth="1.2" opacity="0.18" strokeDasharray="4 8" />
+      </svg>
+    );
+  }
+
+  if (id === 'risico') {
+    return (
+      <svg viewBox="0 0 72 72" className={className} fill="none" aria-hidden="true">
+        <path d="M36 11L55 19V33C55 47 47 56 36 62C25 56 17 47 17 33V19L36 11Z" stroke="#56C0D5" strokeWidth="1.9" strokeLinejoin="round" opacity="0.78" />
+        <path d="M36 23V38" stroke="#F0A018" strokeWidth="2.8" strokeLinecap="round" />
+        <circle cx="36" cy="47" r="2.8" fill="#F0A018" />
+        <path d="M25 23H47M25 54H47" stroke="#F0A018" strokeWidth="1.5" strokeLinecap="round" opacity="0.52" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg viewBox="0 0 72 72" className={className} fill="none" aria-hidden="true">
+      <path d="M18 18H43L55 30V54C55 57 53 59 50 59H22C19 59 17 57 17 54V21C17 19 18 18 18 18Z" stroke="#56C0D5" strokeWidth="1.8" strokeLinejoin="round" opacity="0.78" />
+      <path d="M43 18V30H55" stroke="#56C0D5" strokeWidth="1.8" strokeLinejoin="round" opacity="0.78" />
+      <path d="M25 34H45M25 43H38" stroke="#F0A018" strokeWidth="2" strokeLinecap="round" />
+      <path d="M26 52L30 56L38 48" stroke="#F0A018" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
+      <rect x="23" y="24" width="14" height="5" rx="2" stroke="currentColor" strokeWidth="1.2" opacity="0.22" />
+    </svg>
+  );
+};
+
+const ServiceBulletGlyph = () => (
+  <svg viewBox="0 0 28 28" className="h-5 w-5" fill="none" aria-hidden="true">
+    <circle cx="14" cy="14" r="10" stroke="#F0A018" strokeWidth="1.8" />
+    <path d="M9.5 14.5L12.5 17.5L18.5 10.5" stroke="#F0A018" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M14 4V7M14 21V24M4 14H7M21 14H24" stroke="#56C0D5" strokeWidth="1.2" strokeLinecap="round" opacity="0.52" />
+  </svg>
+);
+
 /* =====================================================================
    7. SECTION TITLE
    ===================================================================== */
@@ -565,12 +760,11 @@ const translations = {
     },
     whySection: {
       eyebrow: 'Waarom Nutrivisi', title: 'Een aanpak die blijft hangen, niet alleen op papier',
-      description: 'Compliance werkt pas als ze begrepen wordt. Onze differentiatie zit in vier concrete pijlers.',
       items: [
-        { icon: Eye, title: 'Visueel leermateriaal', text: 'Workbooks en pictogrammen die medewerkers op de werkvloer echt gebruiken, niet wegzetten in een map.' },
-        { icon: Layers, title: 'Sectorspecialisatie', text: 'Geen generiek advies: de aanpak is afgestemd op bakkerij, vlees, horeca of retail.' },
-        { icon: Scale, title: 'Wetsgetrouw', text: 'Elke stap beantwoordt aan FAVV en relevante EU-wetgeving, ook bij updates en herzieningen.' },
-        { icon: Fingerprint, title: 'Praktisch op de werkvloer', text: 'Geen glanzende theory maar procedures die resultaat geven bij een audit of inspectie.' },
+        { icon: Eye, title: 'Visueel leermateriaal', text: 'Werkkaarten, pictogrammen en checklists die uw ploeg echt kan gebruiken.' },
+        { icon: Layers, title: 'Sectorspecialisatie', text: 'Bakkerij, vlees, horeca en retail vragen elk een andere reflex. We kennen het verschil.' },
+        { icon: Scale, title: 'Wetsgetrouw', text: 'Advies afgestemd op FAVV, Belgische gidsen en EU-regels. Wanneer die veranderen, zit u mee.' },
+        { icon: Fingerprint, title: 'Praktisch op de werkvloer', text: 'We werken als een externe kwaliteitscollega: meekijken, vereenvoudigen, zorgen dat het blijft werken.' },
       ],
     },
     insightsSection: {
@@ -654,12 +848,11 @@ const translations = {
     },
     whySection: {
       eyebrow: 'Pourquoi Nutrivisi', title: 'Une approche qui s\'ancre, pas seulement sur papier',
-      description: 'La conformité ne fonctionne que lorsqu\'elle est comprise. Notre différenciation repose sur quatre piliers concrets.',
       items: [
-        { icon: Eye, title: 'Matériel visuel', text: 'Des workbooks et pictogrammes que les collaborateurs utilisent vraiment, pas rangés dans un classeur.' },
-        { icon: Layers, title: 'Spécialisation sectorielle', text: 'Pas de conseil générique : l\'approche est adaptée à la boulangerie, la viande, l\'horeca ou le retail.' },
-        { icon: Scale, title: 'Conforme à la loi', text: 'Chaque étape respecte l\'AFSCA et la législation UE en vigueur, y compris les mises à jour.' },
-        { icon: Fingerprint, title: 'Concret sur le terrain', text: 'Pas de théorie brillante mais des procédures qui donnent des résultats en audit ou inspection.' },
+        { icon: Eye, title: 'Matériel visuel', text: 'Fiches de travail, pictogrammes et checklists que vos équipes utilisent vraiment.' },
+        { icon: Layers, title: 'Spécialisation sectorielle', text: 'Boulangerie, viande, horeca et retail demandent chacun une autre approche. Nous connaissons la différence.' },
+        { icon: Scale, title: 'Conforme à la loi', text: 'Des conseils alignés sur l\'AFSCA, les guides belges et la réglementation européenne. Quand les règles changent, vous suivez avec nous.' },
+        { icon: Fingerprint, title: 'Concret sur le terrain', text: 'Nous travaillons comme un collègue qualité externe : observer, simplifier, faire en sorte que ça tienne dans la durée.' },
       ],
     },
     insightsSection: {
@@ -721,7 +914,6 @@ export default function NutrivisiSite({ lang = 'NL' }) {
 
   const currentServices = useMemo(() => t.servicesSection.items.map((s) => ({
     ...s,
-    icon: { expertadvies: Lightbulb, coaching: Users, certificatie: Award, risico: ShieldAlert, etikettering: Tag }[s.id],
     Visual: serviceVisualMap[s.id],
   })), [t, serviceVisualMap]);
 
@@ -736,7 +928,6 @@ export default function NutrivisiSite({ lang = 'NL' }) {
     [activeServiceId, currentServices]
   );
   const activeServiceIndex = Math.max(0, currentServices.findIndex((service) => service.id === activeService.id));
-  const ActiveServiceIcon = activeService.icon;
   const ActiveServiceVisual = activeService.Visual;
 
   useEffect(() => {
@@ -1075,7 +1266,6 @@ export default function NutrivisiSite({ lang = 'NL' }) {
               <div className="space-y-2 lg:sticky lg:top-28">
                 {currentServices.map((service, index) => {
                   const isActive = activeService.id === service.id;
-                  const ServiceIcon = service.icon;
 
                   return (
                     <button
@@ -1085,8 +1275,12 @@ export default function NutrivisiSite({ lang = 'NL' }) {
                       className={`group interactive-card w-full rounded-2xl border px-4 py-4 text-left transition-all duration-500 sm:px-5 ${isActive ? 'border-[#F0A018]/38 bg-[#F0A018]/8 text-white shadow-[0_18px_50px_-34px_rgba(240,160,24,0.55)]' : 'border-[#56C0D5]/13 bg-[#023A4E]/18 text-teal-100/60 hover:border-[#56C0D5]/32 hover:bg-[#023A4E]/32 hover:text-white'}`}
                     >
                       <div className="flex items-center gap-4">
-                        <div className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border transition-all duration-500 ${isActive ? 'border-[#F0A018]/45 bg-[#011a24]/50 text-[#F0A018]' : 'border-[#56C0D5]/18 bg-[#011a24]/25 text-teal-200/65 group-hover:text-[#F0A018]'}`}>
-                          <ServiceIcon className="h-5 w-5" />
+                        <div className={`relative flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border transition-all duration-500 ${isActive ? 'border-[#F0A018]/45 bg-[#F0A018]/8 text-[#F0A018]' : 'border-[#56C0D5]/18 bg-[#011a24]/25 text-teal-200/65 group-hover:border-[#F0A018]/35 group-hover:bg-[#F0A018]/8 group-hover:text-[#F0A018]'}`}>
+                          <div className={`absolute inset-1.5 rounded-lg border transition-all duration-500 ${isActive ? 'scale-110 border-[#F0A018]/22' : 'border-[#56C0D5]/8 group-hover:scale-110 group-hover:border-[#F0A018]/20'}`}></div>
+                          <div className={`absolute inset-0 rounded-xl blur-lg transition-all duration-500 ${isActive ? 'bg-[#F0A018]/12' : 'bg-transparent group-hover:bg-[#F0A018]/10'}`}></div>
+                          <div className="relative transition-transform duration-500 group-hover:scale-110">
+                            <ServiceGlyph id={service.id} className="h-7 w-7" />
+                          </div>
                         </div>
                         <div className="min-w-0 flex-1">
                           <div className="mb-1 flex items-center gap-3">
@@ -1113,8 +1307,12 @@ export default function NutrivisiSite({ lang = 'NL' }) {
                 <div className="grid gap-8 lg:grid-cols-[minmax(0,0.92fr)_minmax(340px,0.82fr)] lg:items-center" key={activeService.id}>
                   <div className="service-copy-reveal min-w-0">
                     <div className="mb-8 flex items-center justify-between gap-5">
-                      <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-[#F0A018]/28 bg-[#011a24]/38 text-[#F0A018]">
-                        <ActiveServiceIcon className="h-7 w-7" />
+                      <div className="group/icon relative flex h-18 w-18 items-center justify-center rounded-[1.35rem] border border-[#F0A018]/28 bg-[#011a24]/38 text-[#56C0D5] transition-all duration-500 hover:border-[#F0A018]/55 hover:bg-[#F0A018]/10 hover:text-[#F0A018]">
+                        <div className="absolute inset-2 rounded-2xl border border-[#56C0D5]/10 transition-all duration-500 group-hover/icon:scale-110 group-hover/icon:border-[#F0A018]/22"></div>
+                        <div className="absolute inset-0 rounded-[1.35rem] bg-[#F0A018]/0 blur-xl transition-all duration-500 group-hover/icon:bg-[#F0A018]/14"></div>
+                        <div className="relative transition-transform duration-500 group-hover/icon:scale-110">
+                          <ServiceGlyph id={activeService.id} />
+                        </div>
                       </div>
                       <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-teal-200/55">
                         <span className="text-[#F0A018]">{String(activeServiceIndex + 1).padStart(2, '0')}</span>
@@ -1132,8 +1330,10 @@ export default function NutrivisiSite({ lang = 'NL' }) {
 
                     <div className="mt-8 grid gap-3 sm:grid-cols-3">
                       {activeService.bullets.map((bullet) => (
-                        <div key={bullet} className="min-w-0 rounded-2xl border border-[#56C0D5]/14 bg-[#011a24]/24 px-4 py-4">
-                          <CheckCircle2 className="mb-4 h-5 w-5 text-[#F0A018]" />
+                        <div key={bullet} className="group/bullet min-w-0 rounded-2xl border border-[#56C0D5]/14 bg-[#011a24]/24 px-4 py-4 transition-all duration-500 hover:border-[#F0A018]/34 hover:bg-[#011a24]/36">
+                          <div className="mb-4 inline-flex rounded-full text-[#F0A018] transition-transform duration-500 group-hover/bullet:scale-110">
+                            <ServiceBulletGlyph />
+                          </div>
                           <p className="text-sm font-bold leading-relaxed text-white/90 break-words" style={{ overflowWrap: 'anywhere' }}>{bullet}</p>
                         </div>
                       ))}
@@ -1277,39 +1477,83 @@ export default function NutrivisiSite({ lang = 'NL' }) {
       </section>
 
       {/* ===== WAAROM NUTRIVISI ===== */}
-      <section id="waarom" className="py-32 bg-gradient-to-b from-[#01506E] via-[#011b26] to-[#01506E] relative overflow-hidden border-t border-teal-900/30">
-        <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[800px] h-[800px] bg-[#F0A018]/5 rounded-full blur-[180px] pointer-events-none"></div>
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#56C0D5]/5 rounded-full blur-[180px] pointer-events-none"></div>
-        {/* Decorative tech border */}
-        <svg className="absolute top-10 right-10 w-40 h-40 opacity-20 pointer-events-none hidden lg:block" viewBox="0 0 200 200">
-          <circle cx="100" cy="100" r="90" fill="none" stroke="#F0A018" strokeWidth="0.5" strokeDasharray="2 8" />
-          <circle cx="100" cy="100" r="60" fill="none" stroke="#56C0D5" strokeWidth="0.5" />
-          <circle cx="100" cy="100" r="30" fill="none" stroke="#F0A018" strokeWidth="0.5" />
-          <circle cx="100" cy="10" r="3" fill="#F0A018" />
-        </svg>
+      <section id="waarom" className="relative overflow-hidden border-t border-teal-900/30 bg-[#01506E] py-24 md:py-32">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(1,80,110,0)_0%,rgba(1,26,36,0.24)_48%,rgba(1,80,110,0)_100%)]"></div>
+          <div className="absolute left-0 top-20 h-px w-full bg-gradient-to-r from-transparent via-[#56C0D5]/18 to-transparent"></div>
+          <div className="absolute bottom-20 left-1/2 h-64 w-[820px] -translate-x-1/2 rounded-full bg-[#56C0D5]/6 blur-[110px]"></div>
+          <div className="why-ambient-grid absolute left-[-12%] top-12 hidden h-[520px] w-[720px] opacity-55 lg:block">
+            <svg viewBox="0 0 720 520" className="h-full w-full" fill="none" aria-hidden="true">
+              <path className="why-current-line" d="M38 330 C160 210 254 370 370 236 S560 92 688 176" stroke="#5CC0D5" strokeWidth="2.2" strokeLinecap="round" strokeDasharray="92 780" />
+              <path d="M38 330 C160 210 254 370 370 236 S560 92 688 176" stroke="#56C0D5" strokeOpacity="0.16" strokeWidth="1.2" />
+              <path d="M76 118 C208 188 308 60 438 126 S596 284 698 230" stroke="#56C0D5" strokeOpacity="0.13" strokeWidth="1" />
+              <circle className="why-orbit-a" cx="260" cy="250" r="176" stroke="#56C0D5" strokeOpacity="0.11" strokeWidth="1" />
+              <circle className="why-orbit-b" cx="260" cy="250" r="96" stroke="#F0A018" strokeOpacity="0.12" strokeWidth="1" strokeDasharray="6 16" />
+              <circle cx="470" cy="174" r="5" fill="#F0A018" opacity="0.72" />
+            </svg>
+          </div>
+          <svg className="absolute right-0 top-12 hidden h-[520px] w-[760px] opacity-35 lg:block" viewBox="0 0 760 520" fill="none" aria-hidden="true">
+            <path d="M90 396 C212 260 284 360 390 214 S594 94 712 188" stroke="#56C0D5" strokeOpacity="0.18" strokeWidth="1" />
+            <path d="M36 128 C188 194 276 68 424 132 S604 284 742 218" stroke="#F0A018" strokeOpacity="0.1" strokeWidth="1" />
+            <circle cx="536" cy="190" r="170" stroke="#56C0D5" strokeOpacity="0.08" />
+            <circle cx="536" cy="190" r="92" stroke="#F0A018" strokeOpacity="0.08" strokeDasharray="5 14" />
+          </svg>
+        </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-16 items-start">
+        <div className="relative z-10 mx-auto max-w-[88rem] px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-14 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
             <FadeInSection>
-              <SectionTitle eyebrow={t.whySection.eyebrow} title={t.whySection.title} description={t.whySection.description} />
+              <div className="lg:sticky lg:top-28">
+                <div className="mb-5 inline-flex items-center gap-2 border-b border-[#F0A018]/35 pb-2 text-xs font-extrabold uppercase tracking-[0.24em] text-[#F0A018]">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#F0A018]"></span>
+                  {t.whySection.eyebrow}
+                </div>
+                <h2 className="max-w-4xl text-4xl font-extrabold leading-[1.04] tracking-tight text-white md:text-5xl lg:text-6xl">
+                  {t.whySection.title.split(' ').map((word, i) =>
+                    i === 3 || i === 4
+                      ? <span key={i} className="text-[#F0A018]">{word} </span>
+                      : <span key={i}>{word} </span>
+                  )}
+                </h2>
+
+                <div className="mt-10 grid grid-cols-3 gap-3 max-w-xl">
+                  {['FAVV', 'EU', 'HACCP'].map((label, index) => (
+                    <div key={label} className="why-proof-chip group/chip relative overflow-hidden rounded-2xl border border-[#5CC0D5]/35 bg-[#023A4E]/42 px-4 py-3 text-center shadow-[0_18px_55px_-34px_rgba(92,192,213,0.72)] transition-all duration-500 hover:-translate-y-1 hover:border-[#5CC0D5]/75 hover:bg-[#023A4E]/60">
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#5CC0D5]/12 to-transparent opacity-0 transition-opacity duration-500 group-hover/chip:opacity-100"></div>
+                      <div className="absolute left-1/2 top-1/2 h-20 w-20 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#5CC0D5]/12 blur-2xl transition-all duration-500 group-hover/chip:bg-[#5CC0D5]/24"></div>
+                      <div className="absolute inset-x-4 top-0 h-px bg-gradient-to-r from-transparent via-[#5CC0D5]/70 to-transparent"></div>
+                      <p className="relative font-mono text-xs font-extrabold tracking-[0.28em] text-white drop-shadow-[0_0_12px_rgba(92,192,213,0.42)] transition-colors duration-500 group-hover/chip:text-[#5CC0D5]" style={{ animationDelay: `${index * 220}ms` }}>{label}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </FadeInSection>
 
-            <div className="grid sm:grid-cols-2 gap-5">
+            <div className="space-y-4">
               {t.whySection.items.map((item, index) => {
-                const Icon = item.icon;
                 return (
-                  <FadeInSection key={item.title} delay={index * 120}>
-                    <div className="relative h-full p-7 rounded-[1.75rem] bg-[#023142]/50 backdrop-blur-lg border border-teal-800/40 hover:border-[#F0A018]/50 transition-all duration-500 group overflow-hidden">
-                      {/* Corner notation */}
-                      <div className="absolute top-4 right-4 font-mono text-[10px] text-[#F0A018]/50 tracking-widest">0{index + 1}</div>
-                      <div className="absolute -bottom-8 -left-8 w-32 h-32 bg-[#F0A018]/0 group-hover:bg-[#F0A018]/8 rounded-full blur-2xl transition-all duration-500"></div>
+                  <FadeInSection key={item.title} delay={index * 110}>
+                    <div className="group interactive-card relative overflow-hidden rounded-[2rem] border border-[#56C0D5]/14 bg-[#023A4E]/22 p-5 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:border-[#F0A018]/34 hover:bg-[#023A4E]/34 hover:shadow-[0_24px_70px_-46px_rgba(240,160,24,0.5)] active:scale-[0.99] md:p-6">
+                      <div className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-[#F0A018]/0 to-transparent transition-all duration-500 group-hover:via-[#F0A018]/45"></div>
+                      <div className="absolute -right-12 -top-12 h-36 w-36 rounded-full bg-[#56C0D5]/0 blur-[70px] transition-all duration-500 group-hover:bg-[#56C0D5]/9"></div>
+                      <div className="absolute -left-10 bottom-4 h-32 w-32 rounded-full bg-[#F0A018]/0 blur-[70px] transition-all duration-500 group-hover:bg-[#F0A018]/7"></div>
 
-                      <div className="relative">
-                        <div className="w-12 h-12 rounded-xl bg-[#011a24] flex items-center justify-center border border-teal-700/40 mb-5 group-hover:border-[#F0A018]/50 group-hover:bg-[#F0A018]/10 transition-all">
-                          <Icon className="w-5 h-5 text-[#F0A018]" />
+                      <div className="relative grid gap-5 md:grid-cols-[92px_minmax(0,1fr)] md:items-center">
+                        <div className="flex items-center gap-4 md:block">
+                          <div className="relative flex h-[4.5rem] w-[4.5rem] items-center justify-center rounded-[1.35rem] border border-[#F0A018]/24 bg-[#011a24]/34 text-[#56C0D5] transition-all duration-500 group-hover:border-[#F0A018]/55 group-hover:bg-[#F0A018]/10 group-hover:text-[#F0A018]">
+                            <div className="absolute inset-2 rounded-2xl border border-[#56C0D5]/10 transition-all duration-500 group-hover:scale-110 group-hover:border-[#F0A018]/22"></div>
+                            <div className="absolute inset-0 rounded-[1.35rem] bg-[#F0A018]/0 blur-xl transition-all duration-500 group-hover:bg-[#F0A018]/14"></div>
+                            <div className="relative transition-transform duration-500 group-hover:scale-110">
+                              <WhyGlyph index={index} />
+                            </div>
+                          </div>
+                          <span className="font-mono text-xs font-bold tracking-[0.24em] text-[#F0A018]/70 md:mt-5 md:block">0{index + 1}</span>
                         </div>
-                        <h3 className="text-xl font-bold text-white mb-3 leading-tight">{item.title}</h3>
-                        <p className="text-teal-100/80 leading-relaxed text-sm">{item.text}</p>
+
+                        <div className="min-w-0">
+                          <h3 className="text-2xl font-extrabold leading-tight tracking-tight text-white">{item.title}</h3>
+                          <p className="mt-3 max-w-3xl text-base font-medium leading-relaxed text-teal-100/74">{item.text}</p>
+                        </div>
                       </div>
                     </div>
                   </FadeInSection>
@@ -1321,189 +1565,308 @@ export default function NutrivisiSite({ lang = 'NL' }) {
       </section>
 
       {/* ===== KENNISBANK / INSIGHTS ===== */}
-      <section id="kennis" className="py-32 bg-[#01506E] relative overflow-hidden border-t border-teal-900/30">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-5xl h-64 bg-gradient-to-b from-[#56C0D5]/5 to-transparent blur-[100px] pointer-events-none"></div>
-        {/* Dots backdrop */}
-        <div className="absolute inset-0 opacity-[0.04] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#F0A018 1px, transparent 1px)', backgroundSize: '30px 30px' }}></div>
+      <section id="kennis" className="relative overflow-hidden border-t border-teal-900/30 bg-[#01506E] py-24 md:py-32">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_14%,rgba(92,192,213,0.11),transparent_31%),radial-gradient(circle_at_82%_34%,rgba(240,160,24,0.06),transparent_30%),linear-gradient(180deg,rgba(1,80,110,0)_0%,rgba(1,26,36,0.18)_50%,rgba(1,80,110,0)_100%)]"></div>
+          <div className="absolute inset-0 opacity-[0.035]" style={{ backgroundImage: 'linear-gradient(rgba(92,192,213,0.35) 1px, transparent 1px), linear-gradient(90deg, rgba(92,192,213,0.35) 1px, transparent 1px)', backgroundSize: '72px 72px' }}></div>
+          <div className="absolute left-1/2 top-24 h-72 w-[980px] -translate-x-1/2 rounded-full bg-[#5CC0D5]/7 blur-[130px]"></div>
+          <svg className="absolute inset-x-0 top-10 hidden h-[620px] w-full opacity-70 lg:block" viewBox="0 0 1440 620" fill="none" aria-hidden="true">
+            <path d="M-40 420 C160 280 250 405 420 272 S725 114 936 225 S1190 398 1480 230" stroke="#5CC0D5" strokeOpacity="0.12" strokeWidth="1.2" />
+            <path className="knowledge-trace-line" d="M-40 420 C160 280 250 405 420 272 S725 114 936 225 S1190 398 1480 230" stroke="#5CC0D5" strokeWidth="2" strokeLinecap="round" strokeDasharray="120 1320" />
+            <path d="M56 172 C250 92 390 210 550 150 S780 42 956 128 S1212 276 1402 166" stroke="#F0A018" strokeOpacity="0.08" strokeWidth="1" />
+            <circle className="knowledge-orbit-a" cx="1080" cy="210" r="142" stroke="#5CC0D5" strokeOpacity="0.1" />
+            <circle className="knowledge-orbit-b" cx="1080" cy="210" r="76" stroke="#F0A018" strokeOpacity="0.1" strokeDasharray="5 14" />
+            <circle className="knowledge-node" cx="936" cy="225" r="5" fill="#5CC0D5" opacity="0.78" />
+            <circle className="knowledge-node" cx="550" cy="150" r="4" fill="#F0A018" opacity="0.58" style={{ animationDelay: '1.1s' }} />
+            <circle className="knowledge-node" cx="1080" cy="210" r="4" fill="#5CC0D5" opacity="0.72" style={{ animationDelay: '2.2s' }} />
+          </svg>
+        </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <SectionTitle eyebrow={t.insightsSection.eyebrow} title={t.insightsSection.title} description={t.insightsSection.description} center />
+        <div className="relative z-10 mx-auto max-w-[88rem] px-4 sm:px-6 lg:px-8">
+          <FadeInSection>
+            <div className="mx-auto max-w-5xl text-center">
+              <div className="mb-6 inline-flex items-center gap-2 border-b border-[#F0A018]/35 pb-2 text-xs font-extrabold uppercase tracking-[0.24em] text-[#F0A018]">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#F0A018]"></span>
+                {t.insightsSection.eyebrow}
+              </div>
+              <h2 className="text-4xl font-extrabold leading-[1.03] tracking-tight text-white md:text-6xl lg:text-7xl">
+                {t.insightsSection.title.split(' ').map((word, i, arr) =>
+                  i >= arr.length - 2
+                    ? <span key={i} className="text-[#F0A018]">{word} </span>
+                    : <span key={i}>{word} </span>
+                )}
+              </h2>
+              <p className="mx-auto mt-7 max-w-3xl text-lg font-bold leading-relaxed text-[#5CC0D5] md:text-2xl">
+                {t.insightsSection.description}
+              </p>
+            </div>
+          </FadeInSection>
 
-          <div className="mt-20 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {t.insightsSection.items.map((item, index) => {
-              const Icon = item.icon;
-              return (
-                <FadeInSection key={item.title} delay={(index % 3) * 100}>
-                  <a href="#contact" onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }} className="block h-full group interactive-card">
-                    <div className="relative h-full p-8 rounded-2xl bg-[#011a24]/60 backdrop-blur-md border border-teal-800/40 hover:border-[#F0A018]/50 transition-all duration-500 overflow-hidden">
-                      {/* Top bar accent */}
-                      <div className="absolute top-0 left-0 h-1 w-0 bg-[#F0A018] group-hover:w-full transition-all duration-700"></div>
-                      {/* Corner mono index */}
-                      <div className="absolute top-4 right-4 font-mono text-[10px] text-teal-500/50 tracking-widest group-hover:text-[#F0A018]/70 transition-colors">
-                        K.{String(index + 1).padStart(2, '0')}
-                      </div>
+          <div className="mt-16 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+            {t.insightsSection.items.map((item, index) => (
+              <FadeInSection key={item.title} delay={(index % 3) * 100}>
+                <a href="#contact" onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }} className="group block h-full interactive-card">
+                  <div className="relative flex h-full min-h-[19rem] flex-col overflow-hidden rounded-[2rem] border border-[#5CC0D5]/15 bg-[#011a24]/38 p-7 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:border-[#5CC0D5]/42 hover:bg-[#023A4E]/36 hover:shadow-[0_28px_80px_-52px_rgba(92,192,213,0.85)] active:scale-[0.985] md:p-8">
+                    <div className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-[#5CC0D5]/0 to-transparent transition-all duration-500 group-hover:via-[#5CC0D5]/65"></div>
+                    <div className="absolute -right-16 -top-16 h-44 w-44 rounded-full bg-[#5CC0D5]/0 blur-[80px] transition-all duration-500 group-hover:bg-[#5CC0D5]/14"></div>
+                    <div className="absolute -bottom-20 left-8 h-44 w-44 rounded-full bg-[#F0A018]/0 blur-[90px] transition-all duration-500 group-hover:bg-[#F0A018]/7"></div>
+                    <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(92,192,213,0.08),transparent_36%,rgba(240,160,24,0.04)_100%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
 
-                      <div className="flex items-center gap-4 mb-5">
-                        <div className="w-11 h-11 rounded-xl bg-[#023142] flex items-center justify-center border border-teal-700/40 group-hover:border-[#F0A018]/60 group-hover:bg-[#F0A018]/10 transition-all">
-                          <Icon className="w-5 h-5 text-[#F0A018]" />
+                    <div className="relative mb-8 flex items-center justify-between gap-5">
+                      <div className="relative flex h-[4.75rem] w-[4.75rem] items-center justify-center rounded-[1.35rem] border border-[#5CC0D5]/24 bg-[#023A4E]/34 text-[#5CC0D5] transition-all duration-500 group-hover:border-[#5CC0D5]/72 group-hover:bg-[#5CC0D5]/9 group-hover:text-[#5CC0D5] group-active:scale-95">
+                        <div className="absolute inset-2 rounded-2xl border border-[#F0A018]/10 transition-all duration-500 group-hover:scale-110 group-hover:border-[#5CC0D5]/28"></div>
+                        <div className="absolute inset-0 rounded-[1.35rem] bg-[#5CC0D5]/0 blur-xl transition-all duration-500 group-hover:bg-[#5CC0D5]/18"></div>
+                        <div className="relative transition-transform duration-500 group-hover:scale-110">
+                          <KnowledgeGlyph index={index} />
                         </div>
                       </div>
-                      <h3 className="text-xl font-bold text-white mb-3 leading-tight group-hover:text-[#F0A018] transition-colors">
+                      <div className="h-2 w-2 rounded-full bg-[#F0A018]/70 shadow-[0_0_18px_rgba(240,160,24,0.45)] transition-all duration-500 group-hover:bg-[#5CC0D5] group-hover:shadow-[0_0_24px_rgba(92,192,213,0.72)]"></div>
+                    </div>
+
+                    <div className="relative flex flex-1 flex-col">
+                      <h3 className="text-2xl font-extrabold leading-tight tracking-tight text-white transition-colors duration-500 group-hover:text-white">
                         {item.title}
                       </h3>
-                      <p className="text-teal-100/75 text-sm leading-relaxed mb-6">{item.text}</p>
-                      <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.15em] text-[#F0A018]/80 group-hover:text-[#F0A018]">
-                        {t.insightsSection.readMore}
-                        <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                      <p className="mt-4 max-w-md text-base font-medium leading-relaxed text-teal-100/74">{item.text}</p>
+                      <div className="mt-auto pt-8">
+                        <div className="flex items-center justify-between border-t border-[#5CC0D5]/14 pt-5 text-xs font-extrabold uppercase tracking-[0.18em] text-[#F0A018]/90 transition-colors duration-500 group-hover:text-[#5CC0D5]">
+                          <span>{t.insightsSection.readMore}</span>
+                          <ArrowRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-1" />
+                        </div>
                       </div>
                     </div>
-                  </a>
-                </FadeInSection>
-              );
-            })}
+                  </div>
+                </a>
+              </FadeInSection>
+            ))}
           </div>
         </div>
       </section>
 
       {/* ===== CONTACT ===== */}
-      <section id="contact" className="py-32 bg-gradient-to-b from-[#01506E] to-[#001720] relative overflow-hidden border-t border-teal-900/30">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[1000px] h-[600px] bg-[#F0A018]/5 rounded-full blur-[160px] pointer-events-none z-0"></div>
-        <div className="absolute top-0 left-0 w-full h-full opacity-[0.03] pointer-events-none mix-blend-overlay" style={{ backgroundImage: 'radial-gradient(#56C0D5 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
+      <section id="contact" className="relative overflow-hidden border-t border-teal-900/30 bg-[#01506E] pt-24 md:pt-32">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(1,80,110,0)_0%,rgba(1,58,78,0.18)_36%,rgba(1,26,36,0.2)_78%,rgba(1,80,110,0)_100%)]"></div>
+          <div className="absolute left-1/2 top-24 h-[520px] w-[980px] -translate-x-1/2 rounded-full bg-[#5CC0D5]/8 blur-[150px]"></div>
+          <div className="absolute right-[-10%] top-36 h-[420px] w-[620px] rounded-full bg-[#F0A018]/6 blur-[130px]"></div>
+          <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'linear-gradient(rgba(92,192,213,0.45) 1px, transparent 1px), linear-gradient(90deg, rgba(92,192,213,0.45) 1px, transparent 1px)', backgroundSize: '72px 72px' }}></div>
+          <svg className="absolute inset-x-0 top-0 hidden h-[760px] w-full opacity-80 lg:block" viewBox="0 0 1440 760" fill="none" aria-hidden="true">
+            <path d="M18 444 C204 392 340 468 520 396 S818 218 1012 248 S1258 406 1448 352" stroke="#5CC0D5" strokeOpacity="0.12" strokeWidth="1.2" />
+            <path className="contact-flow-line" d="M18 444 C204 392 340 468 520 396 S818 218 1012 248 S1258 406 1448 352" stroke="#5CC0D5" strokeWidth="1.9" strokeLinecap="round" strokeDasharray="120 1320" />
+            <path d="M40 210 C264 130 382 278 562 224 S866 82 1074 152 S1302 330 1470 250" stroke="#F0A018" strokeOpacity="0.08" strokeWidth="1" />
+            <circle className="contact-flow-ring-a" cx="1040" cy="260" r="142" stroke="#5CC0D5" strokeOpacity="0.1" />
+            <circle className="contact-flow-ring-b" cx="1040" cy="260" r="78" stroke="#F0A018" strokeOpacity="0.1" strokeDasharray="6 16" />
+            <circle className="contact-flow-node" cx="520" cy="396" r="5" fill="#5CC0D5" opacity="0.8" />
+            <circle className="contact-flow-node" cx="1012" cy="248" r="5" fill="#F0A018" opacity="0.74" style={{ animationDelay: '1.4s' }} />
+            <circle className="contact-flow-node" cx="1216" cy="382" r="4" fill="#5CC0D5" opacity="0.72" style={{ animationDelay: '2.1s' }} />
+          </svg>
+        </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-20 items-center">
-            <FadeInSection delay={100} className="space-y-12">
-              <SectionTitle title={t.contactSection.title} description={t.contactSection.subtitle} />
-              <div className="space-y-8 pt-8 border-t border-teal-800/40">
-                <a href="mailto:info@nutrivisi.be" className="flex items-center gap-6 group selectable">
-                  <div className="w-14 h-14 rounded-2xl bg-[#011a24] border border-teal-800 flex items-center justify-center group-hover:border-[#F0A018]/50 group-hover:bg-[#F0A018]/10 transition-all duration-300">
-                    <Mail className="w-6 h-6 text-teal-400 group-hover:text-[#F0A018] transition-colors" />
-                  </div>
-                  <div>
-                    <p className="text-teal-500/80 text-xs font-bold uppercase tracking-widest mb-1">{t.contactSection.emailText}</p>
-                    <p className="text-white text-lg font-medium">info@nutrivisi.be</p>
-                  </div>
-                </a>
-                <a href="tel:+3216196984" className="flex items-center gap-6 group selectable">
-                  <div className="w-14 h-14 rounded-2xl bg-[#011a24] border border-teal-800 flex items-center justify-center group-hover:border-[#F0A018]/50 group-hover:bg-[#F0A018]/10 transition-all duration-300">
-                    <Phone className="w-6 h-6 text-teal-400 group-hover:text-[#F0A018] transition-colors" />
-                  </div>
-                  <div>
-                    <p className="text-teal-500/80 text-xs font-bold uppercase tracking-widest mb-1">{t.contactSection.phoneText}</p>
-                    <p className="text-white text-lg font-medium">+32 16 19 69 84</p>
-                  </div>
-                </a>
-                <div className="flex items-center gap-6 group selectable">
-                  <div className="w-14 h-14 rounded-2xl bg-[#011a24] border border-teal-800 flex items-center justify-center group-hover:border-[#F0A018]/50 group-hover:bg-[#F0A018]/10 transition-all duration-300">
-                    <MapPin className="w-6 h-6 text-teal-400 group-hover:text-[#F0A018] transition-colors" />
-                  </div>
-                  <div>
-                    <p className="text-teal-500/80 text-xs font-bold uppercase tracking-widest mb-1">{t.contactSection.addressText}</p>
-                    <p className="text-white text-lg font-medium">Martelarenlaan 69, 3010 Leuven</p>
+        <div className="relative z-10 mx-auto max-w-[88rem] px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-14 lg:grid-cols-[0.9fr_1.04fr] lg:items-start">
+            <FadeInSection delay={100}>
+              <div className="max-w-2xl">
+                <div className="mb-5 inline-flex items-center gap-2 border-b border-[#F0A018]/35 pb-2 text-xs font-extrabold uppercase tracking-[0.24em] text-[#F0A018]">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#F0A018]"></span>
+                  {t.nav.contact}
+                </div>
+                <h2 className="max-w-3xl text-4xl font-extrabold leading-[1.04] tracking-tight text-white md:text-6xl lg:text-[4.25rem]">
+                  {t.contactSection.title.split(' ').map((word, i, arr) =>
+                    i >= arr.length - 2
+                      ? <span key={i} className="text-[#F0A018]">{word} </span>
+                      : <span key={i}>{word} </span>
+                  )}
+                </h2>
+                <p className="mt-6 text-2xl font-bold leading-relaxed text-[#5CC0D5]">
+                  {t.contactSection.subtitle}
+                </p>
+
+                <div className="mt-12 space-y-4 border-t border-[#5CC0D5]/16 pt-8">
+                  <a href="mailto:info@nutrivisi.be" className="group interactive-card selectable block">
+                    <div className="relative overflow-hidden rounded-[1.75rem] border border-[#5CC0D5]/16 bg-[#023A4E]/22 p-5 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:border-[#5CC0D5]/42 hover:bg-[#023A4E]/34 hover:shadow-[0_24px_70px_-44px_rgba(92,192,213,0.8)]">
+                      <div className="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-[#5CC0D5]/0 to-transparent transition-all duration-500 group-hover:via-[#5CC0D5]/62"></div>
+                      <div className="absolute -right-10 top-0 h-28 w-28 rounded-full bg-[#5CC0D5]/0 blur-[70px] transition-all duration-500 group-hover:bg-[#5CC0D5]/12"></div>
+                      <div className="relative flex items-center gap-5">
+                        <div className="relative flex h-16 w-16 items-center justify-center rounded-[1.2rem] border border-[#5CC0D5]/24 bg-[#011a24]/24 text-[#5CC0D5] transition-all duration-500 group-hover:border-[#5CC0D5]/52 group-hover:bg-[#5CC0D5]/10 group-hover:text-[#5CC0D5]">
+                          <div className="absolute inset-2 rounded-2xl border border-[#F0A018]/10 transition-all duration-500 group-hover:scale-110 group-hover:border-[#5CC0D5]/22"></div>
+                          <div className="absolute inset-0 rounded-[1.2rem] bg-[#5CC0D5]/0 blur-xl transition-all duration-500 group-hover:bg-[#5CC0D5]/18"></div>
+                          <Mail className="relative h-6 w-6 transition-transform duration-500 group-hover:scale-110" />
+                        </div>
+                        <div className="min-w-0 flex-1">
+                          <p className="mb-1 text-xs font-bold uppercase tracking-[0.22em] text-[#5CC0D5]/78">{t.contactSection.emailText}</p>
+                          <p className="text-xl font-bold tracking-tight text-white">info@nutrivisi.be</p>
+                        </div>
+                        <ArrowRight className="h-4 w-4 text-[#F0A018]/75 transition-transform duration-500 group-hover:translate-x-1" />
+                      </div>
+                    </div>
+                  </a>
+
+                  <a href="tel:+3216196984" className="group interactive-card selectable block">
+                    <div className="relative overflow-hidden rounded-[1.75rem] border border-[#5CC0D5]/16 bg-[#023A4E]/22 p-5 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:border-[#5CC0D5]/42 hover:bg-[#023A4E]/34 hover:shadow-[0_24px_70px_-44px_rgba(92,192,213,0.8)]">
+                      <div className="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-[#5CC0D5]/0 to-transparent transition-all duration-500 group-hover:via-[#5CC0D5]/62"></div>
+                      <div className="absolute -right-10 top-0 h-28 w-28 rounded-full bg-[#F0A018]/0 blur-[70px] transition-all duration-500 group-hover:bg-[#F0A018]/8"></div>
+                      <div className="relative flex items-center gap-5">
+                        <div className="relative flex h-16 w-16 items-center justify-center rounded-[1.2rem] border border-[#5CC0D5]/24 bg-[#011a24]/24 text-[#5CC0D5] transition-all duration-500 group-hover:border-[#5CC0D5]/52 group-hover:bg-[#5CC0D5]/10 group-hover:text-[#5CC0D5]">
+                          <div className="absolute inset-2 rounded-2xl border border-[#F0A018]/10 transition-all duration-500 group-hover:scale-110 group-hover:border-[#5CC0D5]/22"></div>
+                          <div className="absolute inset-0 rounded-[1.2rem] bg-[#5CC0D5]/0 blur-xl transition-all duration-500 group-hover:bg-[#5CC0D5]/18"></div>
+                          <Phone className="relative h-6 w-6 transition-transform duration-500 group-hover:scale-110" />
+                        </div>
+                        <div className="min-w-0 flex-1">
+                          <p className="mb-1 text-xs font-bold uppercase tracking-[0.22em] text-[#5CC0D5]/78">{t.contactSection.phoneText}</p>
+                          <p className="text-xl font-bold tracking-tight text-white">+32 16 19 69 84</p>
+                        </div>
+                        <ArrowRight className="h-4 w-4 text-[#F0A018]/75 transition-transform duration-500 group-hover:translate-x-1" />
+                      </div>
+                    </div>
+                  </a>
+
+                  <div className="group selectable">
+                    <div className="relative overflow-hidden rounded-[1.75rem] border border-[#5CC0D5]/16 bg-[#023A4E]/22 p-5 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:border-[#5CC0D5]/42 hover:bg-[#023A4E]/34 hover:shadow-[0_24px_70px_-44px_rgba(92,192,213,0.8)]">
+                      <div className="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-[#5CC0D5]/0 to-transparent transition-all duration-500 group-hover:via-[#5CC0D5]/62"></div>
+                      <div className="absolute -right-10 top-0 h-28 w-28 rounded-full bg-[#5CC0D5]/0 blur-[70px] transition-all duration-500 group-hover:bg-[#5CC0D5]/12"></div>
+                      <div className="relative flex items-center gap-5">
+                        <div className="relative flex h-16 w-16 items-center justify-center rounded-[1.2rem] border border-[#5CC0D5]/24 bg-[#011a24]/24 text-[#5CC0D5] transition-all duration-500 group-hover:border-[#5CC0D5]/52 group-hover:bg-[#5CC0D5]/10 group-hover:text-[#5CC0D5]">
+                          <div className="absolute inset-2 rounded-2xl border border-[#F0A018]/10 transition-all duration-500 group-hover:scale-110 group-hover:border-[#5CC0D5]/22"></div>
+                          <div className="absolute inset-0 rounded-[1.2rem] bg-[#5CC0D5]/0 blur-xl transition-all duration-500 group-hover:bg-[#5CC0D5]/18"></div>
+                          <MapPin className="relative h-6 w-6 transition-transform duration-500 group-hover:scale-110" />
+                        </div>
+                        <div className="min-w-0 flex-1">
+                          <p className="mb-1 text-xs font-bold uppercase tracking-[0.22em] text-[#5CC0D5]/78">{t.contactSection.addressText}</p>
+                          <p className="text-xl font-bold tracking-tight text-white">Martelarenlaan 69, 3010 Leuven</p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </FadeInSection>
 
             <FadeInSection delay={300}>
-              <div className="bg-gradient-to-br from-[#023A4E]/60 to-[#011a24]/90 backdrop-blur-2xl p-10 md:p-14 rounded-[3rem] border border-teal-700/30 shadow-[0_20px_60px_rgba(0,0,0,0.5)] relative overflow-hidden">
-                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#F0A018]/40 to-transparent"></div>
-                <div className="absolute -top-20 -right-20 w-64 h-64 bg-[#F0A018]/5 rounded-full blur-[80px] pointer-events-none"></div>
+              <div className="relative overflow-hidden rounded-[2.5rem] border border-[#5CC0D5]/26 bg-[linear-gradient(145deg,rgba(2,58,78,0.38),rgba(1,80,110,0.18)_55%,rgba(2,58,78,0.28))] p-8 shadow-[0_34px_110px_-58px_rgba(92,192,213,0.95)] backdrop-blur-[24px] md:p-10 lg:p-11">
+                <div className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-[#5CC0D5]/62 to-transparent"></div>
+                <div className="absolute -right-16 -top-14 h-44 w-44 rounded-full bg-[#5CC0D5]/13 blur-[90px]"></div>
+                <div className="absolute -left-16 bottom-8 h-36 w-36 rounded-full bg-[#F0A018]/7 blur-[90px]"></div>
+                <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(92,192,213,0.08),transparent_38%,rgba(240,160,24,0.05)_100%)]"></div>
+                <svg className="absolute inset-0 h-full w-full opacity-30" viewBox="0 0 720 620" fill="none" aria-hidden="true">
+                  <path d="M32 408 C138 332 214 394 302 328 S466 210 598 244" stroke="#5CC0D5" strokeOpacity="0.18" strokeWidth="1.1" />
+                  <path className="contact-panel-line" d="M32 408 C138 332 214 394 302 328 S466 210 598 244" stroke="#5CC0D5" strokeWidth="1.5" strokeLinecap="round" strokeDasharray="94 720" />
+                  <circle cx="598" cy="244" r="66" stroke="#5CC0D5" strokeOpacity="0.08" />
+                  <circle cx="598" cy="244" r="32" stroke="#F0A018" strokeOpacity="0.09" strokeDasharray="5 12" />
+                </svg>
 
-                <div className="mb-10 relative z-10">
-                  <h3 className="text-3xl font-extrabold text-white mb-3 tracking-tight flex items-center gap-3">
+                <div className="relative z-10 mb-10">
+                  <div className="mb-4 flex items-center gap-3">
+                    <span className="h-2 w-2 rounded-full bg-[#F0A018] shadow-[0_0_18px_rgba(240,160,24,0.6)]"></span>
+                    <span className="font-mono text-xs font-bold uppercase tracking-[0.24em] text-[#5CC0D5]/78">{t.nav.contact}</span>
+                  </div>
+                  <h3 className="text-3xl font-extrabold tracking-tight text-white md:text-[2.15rem]">
                     {t.contactSection.formTitle}
                   </h3>
-                  <p className="text-teal-100/75 text-sm leading-relaxed">{t.contactSection.formSubtitle}</p>
+                  <p className="mt-3 max-w-xl text-sm font-medium leading-relaxed text-teal-100/78">
+                    {t.contactSection.formSubtitle}
+                  </p>
                 </div>
 
-                <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
-                  <div className="relative bg-[#011a24]/40 border border-teal-800/50 rounded-2xl focus-within:border-[#F0A018]/60 focus-within:bg-[#01506E]/60 transition-all duration-300 shadow-inner">
+                <form onSubmit={handleSubmit} className="relative z-10 space-y-5">
+                  <div className="group/field relative overflow-hidden rounded-[1.35rem] border border-[#5CC0D5]/20 bg-[#023A4E]/34 shadow-[inset_0_1px_0_rgba(92,192,213,0.08)] transition-all duration-300 focus-within:border-[#5CC0D5]/58 focus-within:bg-[#023A4E]/48 focus-within:shadow-[0_0_0_1px_rgba(92,192,213,0.18),0_22px_55px_-36px_rgba(92,192,213,0.9)]">
+                    <div className="absolute inset-x-5 top-0 h-px bg-gradient-to-r from-transparent via-[#5CC0D5]/0 to-transparent transition-all duration-300 group-focus-within/field:via-[#5CC0D5]/70"></div>
                     <input
                       type="text" name="name" value={formData.name} onChange={handleInputChange} required
-                      className="w-full bg-transparent px-5 pt-6 pb-2 text-white focus:outline-none peer placeholder-transparent"
+                      className="w-full bg-transparent px-5 pt-7 pb-3 text-white focus:outline-none peer placeholder-transparent"
                       placeholder={t.contactSection.placeholders.name}
                     />
-                    <label className="absolute left-5 top-4 text-teal-500/90 text-sm pointer-events-none transition-all peer-focus:-translate-y-2 peer-focus:text-[#F0A018] peer-focus:text-[10px] peer-focus:font-bold peer-focus:tracking-widest peer-[:not(:placeholder-shown)]:-translate-y-2 peer-[:not(:placeholder-shown)]:text-[#F0A018] peer-[:not(:placeholder-shown)]:text-[10px] peer-[:not(:placeholder-shown)]:font-bold peer-[:not(:placeholder-shown)]:tracking-widest">
+                    <label className="absolute left-5 top-4 text-sm text-teal-200/58 pointer-events-none transition-all peer-focus:-translate-y-2 peer-focus:text-[#5CC0D5] peer-focus:text-[10px] peer-focus:font-bold peer-focus:tracking-[0.2em] peer-[:not(:placeholder-shown)]:-translate-y-2 peer-[:not(:placeholder-shown)]:text-[#5CC0D5] peer-[:not(:placeholder-shown)]:text-[10px] peer-[:not(:placeholder-shown)]:font-bold peer-[:not(:placeholder-shown)]:tracking-[0.2em]">
                       {t.contactSection.labels.name}
                     </label>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="relative bg-[#011a24]/40 border border-teal-800/50 rounded-2xl focus-within:border-[#F0A018]/60 focus-within:bg-[#01506E]/60 transition-all duration-300 shadow-inner">
+                  <div className="grid gap-5 md:grid-cols-2">
+                    <div className="group/field relative overflow-hidden rounded-[1.35rem] border border-[#5CC0D5]/20 bg-[#023A4E]/34 shadow-[inset_0_1px_0_rgba(92,192,213,0.08)] transition-all duration-300 focus-within:border-[#5CC0D5]/58 focus-within:bg-[#023A4E]/48 focus-within:shadow-[0_0_0_1px_rgba(92,192,213,0.18),0_22px_55px_-36px_rgba(92,192,213,0.9)]">
+                      <div className="absolute inset-x-5 top-0 h-px bg-gradient-to-r from-transparent via-[#5CC0D5]/0 to-transparent transition-all duration-300 group-focus-within/field:via-[#5CC0D5]/70"></div>
                       <input
                         type="text" name="company" value={formData.company} onChange={handleInputChange} required
-                        className="w-full bg-transparent px-5 pt-6 pb-2 text-white focus:outline-none peer placeholder-transparent"
+                        className="w-full bg-transparent px-5 pt-7 pb-3 text-white focus:outline-none peer placeholder-transparent"
                         placeholder={t.contactSection.placeholders.company}
                       />
-                      <label className="absolute left-5 top-4 text-teal-500/90 text-sm pointer-events-none transition-all peer-focus:-translate-y-2 peer-focus:text-[#F0A018] peer-focus:text-[10px] peer-focus:font-bold peer-focus:tracking-widest peer-[:not(:placeholder-shown)]:-translate-y-2 peer-[:not(:placeholder-shown)]:text-[#F0A018] peer-[:not(:placeholder-shown)]:text-[10px] peer-[:not(:placeholder-shown)]:font-bold peer-[:not(:placeholder-shown)]:tracking-widest">
+                      <label className="absolute left-5 top-4 text-sm text-teal-200/58 pointer-events-none transition-all peer-focus:-translate-y-2 peer-focus:text-[#5CC0D5] peer-focus:text-[10px] peer-focus:font-bold peer-focus:tracking-[0.2em] peer-[:not(:placeholder-shown)]:-translate-y-2 peer-[:not(:placeholder-shown)]:text-[#5CC0D5] peer-[:not(:placeholder-shown)]:text-[10px] peer-[:not(:placeholder-shown)]:font-bold peer-[:not(:placeholder-shown)]:tracking-[0.2em]">
                         {t.contactSection.labels.company}
                       </label>
                     </div>
-                    <div className="relative bg-[#011a24]/40 border border-teal-800/50 rounded-2xl focus-within:border-[#F0A018]/60 focus-within:bg-[#01506E]/60 transition-all duration-300 shadow-inner">
+
+                    <div className="group/field relative overflow-hidden rounded-[1.35rem] border border-[#5CC0D5]/20 bg-[#023A4E]/34 shadow-[inset_0_1px_0_rgba(92,192,213,0.08)] transition-all duration-300 focus-within:border-[#5CC0D5]/58 focus-within:bg-[#023A4E]/48 focus-within:shadow-[0_0_0_1px_rgba(92,192,213,0.18),0_22px_55px_-36px_rgba(92,192,213,0.9)]">
+                      <div className="absolute inset-x-5 top-0 h-px bg-gradient-to-r from-transparent via-[#5CC0D5]/0 to-transparent transition-all duration-300 group-focus-within/field:via-[#5CC0D5]/70"></div>
                       <input
                         type="email" name="email" value={formData.email} onChange={handleInputChange} required
-                        className="w-full bg-transparent px-5 pt-6 pb-2 text-white focus:outline-none peer placeholder-transparent"
+                        className="w-full bg-transparent px-5 pt-7 pb-3 text-white focus:outline-none peer placeholder-transparent"
                         placeholder={t.contactSection.placeholders.email}
                       />
-                      <label className="absolute left-5 top-4 text-teal-500/90 text-sm pointer-events-none transition-all peer-focus:-translate-y-2 peer-focus:text-[#F0A018] peer-focus:text-[10px] peer-focus:font-bold peer-focus:tracking-widest peer-[:not(:placeholder-shown)]:-translate-y-2 peer-[:not(:placeholder-shown)]:text-[#F0A018] peer-[:not(:placeholder-shown)]:text-[10px] peer-[:not(:placeholder-shown)]:font-bold peer-[:not(:placeholder-shown)]:tracking-widest">
+                      <label className="absolute left-5 top-4 text-sm text-teal-200/58 pointer-events-none transition-all peer-focus:-translate-y-2 peer-focus:text-[#5CC0D5] peer-focus:text-[10px] peer-focus:font-bold peer-focus:tracking-[0.2em] peer-[:not(:placeholder-shown)]:-translate-y-2 peer-[:not(:placeholder-shown)]:text-[#5CC0D5] peer-[:not(:placeholder-shown)]:text-[10px] peer-[:not(:placeholder-shown)]:font-bold peer-[:not(:placeholder-shown)]:tracking-[0.2em]">
                         {t.contactSection.labels.email}
                       </label>
                     </div>
                   </div>
 
-                  <div className="relative bg-[#011a24]/40 border border-teal-800/50 rounded-2xl focus-within:border-[#F0A018]/60 focus-within:bg-[#01506E]/60 transition-all duration-300 shadow-inner">
+                  <div className="group/field relative overflow-hidden rounded-[1.35rem] border border-[#5CC0D5]/20 bg-[#023A4E]/34 shadow-[inset_0_1px_0_rgba(92,192,213,0.08)] transition-all duration-300 focus-within:border-[#5CC0D5]/58 focus-within:bg-[#023A4E]/48 focus-within:shadow-[0_0_0_1px_rgba(92,192,213,0.18),0_22px_55px_-36px_rgba(92,192,213,0.9)]">
+                    <div className="absolute inset-x-5 top-0 h-px bg-gradient-to-r from-transparent via-[#5CC0D5]/0 to-transparent transition-all duration-300 group-focus-within/field:via-[#5CC0D5]/70"></div>
                     <textarea
-                      name="message" value={formData.message} onChange={handleInputChange} rows="4" required
-                      className="w-full bg-transparent px-5 pt-7 pb-3 text-white focus:outline-none peer placeholder-transparent resize-none"
+                      name="message" value={formData.message} onChange={handleInputChange} rows="5" required
+                      className="w-full resize-none bg-transparent px-5 pt-7 pb-3 text-white focus:outline-none peer placeholder-transparent"
                       placeholder={t.contactSection.placeholders.message}
                     ></textarea>
-                    <label className="absolute left-5 top-4 text-teal-500/90 text-sm pointer-events-none transition-all peer-focus:-translate-y-2 peer-focus:text-[#F0A018] peer-focus:text-[10px] peer-focus:font-bold peer-focus:tracking-widest peer-[:not(:placeholder-shown)]:-translate-y-2 peer-[:not(:placeholder-shown)]:text-[#F0A018] peer-[:not(:placeholder-shown)]:text-[10px] peer-[:not(:placeholder-shown)]:font-bold peer-[:not(:placeholder-shown)]:tracking-widest">
+                    <label className="absolute left-5 top-4 text-sm text-teal-200/58 pointer-events-none transition-all peer-focus:-translate-y-2 peer-focus:text-[#5CC0D5] peer-focus:text-[10px] peer-focus:font-bold peer-focus:tracking-[0.2em] peer-[:not(:placeholder-shown)]:-translate-y-2 peer-[:not(:placeholder-shown)]:text-[#5CC0D5] peer-[:not(:placeholder-shown)]:text-[10px] peer-[:not(:placeholder-shown)]:font-bold peer-[:not(:placeholder-shown)]:tracking-[0.2em]">
                       {t.contactSection.labels.message}
                     </label>
                   </div>
 
-                  <button type="submit" className="w-full bg-gradient-to-r from-[#F0A018] to-[#FFC35C] hover:from-[#FFC35C] hover:to-[#F0A018] text-[#012330] px-8 py-5 rounded-2xl text-lg font-bold transition-all duration-300 shadow-[0_4px_20px_rgba(240,160,24,0.25)] hover:shadow-[0_8px_30px_rgba(240,160,24,0.4)] flex items-center justify-center gap-3 mt-8 group interactive-card">
+                  <button type="submit" className="group interactive-card mt-3 flex w-full items-center justify-center gap-3 rounded-[1.35rem] border border-[#F0A018]/46 bg-gradient-to-r from-[#F0A018] via-[#FFB53A] to-[#FFC35C] px-8 py-5 text-lg font-bold text-[#012330] shadow-[0_16px_42px_-18px_rgba(240,160,24,0.55)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_24px_55px_-18px_rgba(240,160,24,0.72)]">
                     <span>{t.contactSection.submit}</span>
-                    <Send className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                    <Send className="h-5 w-5 transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1" />
                   </button>
                 </form>
               </div>
             </FadeInSection>
           </div>
         </div>
-      </section>
 
-      {/* ===== FOOTER ===== */}
-      <footer className="bg-[#001720] py-14 relative overflow-hidden border-t border-teal-900/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-10">
-            <div className="flex items-center gap-4 interactive-card cursor-pointer" onClick={() => scrollToSection('home')}>
-              <NutriLogo className="w-9 h-9 text-[#F0A018]" cutoutColor="#001720" />
-              <div>
-                <span className="block font-bold text-xl text-white tracking-tight">Nutrivisi</span>
-                <span className="block text-[10px] uppercase tracking-[0.2em] text-teal-400">{t.nav.tag}</span>
+        {/* ===== FOOTER ===== */}
+        <footer className="relative z-10 mt-20 overflow-hidden pb-14 pt-12">
+          <div className="mx-auto max-w-[88rem] px-4 sm:px-6 lg:px-8">
+            <div className="relative">
+              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#5CC0D5]/42 to-transparent"></div>
+              <div className="pt-10">
+                <div className="flex flex-col gap-10 md:flex-row md:items-center md:justify-between">
+                  <div className="flex cursor-pointer items-center gap-4 interactive-card" onClick={() => scrollToSection('home')}>
+                    <div className="relative flex h-12 w-12 items-center justify-center rounded-2xl border border-[#5CC0D5]/24 bg-[#023A4E]/18 text-[#F0A018] backdrop-blur-sm">
+                      <div className="absolute inset-2 rounded-xl border border-[#5CC0D5]/10"></div>
+                      <NutriLogo className="relative h-7 w-7 text-[#F0A018]" cutoutColor="#01506E" />
+                    </div>
+                    <div>
+                      <span className="block text-xl font-bold tracking-tight text-white">Nutrivisi</span>
+                      <span className="block text-[10px] uppercase tracking-[0.22em] text-[#5CC0D5]">{t.nav.tag}</span>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-[11px] font-bold uppercase tracking-[0.18em]">
+                    <a href="#waarom" onClick={(e) => { e.preventDefault(); scrollToSection('waarom'); }} className="text-teal-100/64 transition-colors hover:text-[#5CC0D5]">{t.nav.why}</a>
+                    <a href="#" onClick={(e) => e.preventDefault()} className="text-teal-100/64 transition-colors hover:text-[#5CC0D5]">{t.footer.privacy}</a>
+                    <a href="#" onClick={(e) => e.preventDefault()} className="text-teal-100/64 transition-colors hover:text-[#5CC0D5]">{t.footer.cookies}</a>
+                    <a href="#" onClick={(e) => e.preventDefault()} className="text-teal-100/64 transition-colors hover:text-[#5CC0D5]">{t.footer.legal}</a>
+                  </div>
+                </div>
+
+                <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-[#5CC0D5]/14 pt-6 md:flex-row">
+                  <p className="text-center text-xs font-medium uppercase tracking-[0.16em] text-teal-100/48 md:text-left">
+                    © {new Date().getFullYear()} Nutrivisi · {t.footer.tagline}
+                  </p>
+                  <p className="font-mono text-[10px] tracking-[0.28em] text-[#5CC0D5]/48">
+                    LEUVEN · BELGIUM
+                  </p>
+                </div>
               </div>
             </div>
-
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-[11px] font-bold uppercase tracking-widest">
-              <a href="#waarom" onClick={(e) => { e.preventDefault(); scrollToSection('waarom'); }} className="text-teal-300/70 hover:text-[#F0A018] transition-colors">{t.nav.why}</a>
-              <a href="#" onClick={(e) => e.preventDefault()} className="text-teal-300/70 hover:text-[#F0A018] transition-colors">{t.footer.privacy}</a>
-              <a href="#" onClick={(e) => e.preventDefault()} className="text-teal-300/70 hover:text-[#F0A018] transition-colors">{t.footer.cookies}</a>
-              <a href="#" onClick={(e) => e.preventDefault()} className="text-teal-300/70 hover:text-[#F0A018] transition-colors">{t.footer.legal}</a>
-            </div>
           </div>
-
-          <div className="mt-10 pt-6 border-t border-teal-900/50 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-teal-500/70 text-xs font-medium uppercase tracking-widest text-center md:text-left">
-              © {new Date().getFullYear()} Nutrivisi · {t.footer.tagline}
-            </p>
-            <p className="text-teal-500/50 text-[10px] font-mono tracking-widest">
-              LEUVEN · BELGIUM
-            </p>
-          </div>
-        </div>
-      </footer>
+        </footer>
+      </section>
 
       {/* ===== GLOBAL STYLES ===== */}
       <style dangerouslySetInnerHTML={{ __html: `
@@ -1542,6 +1905,19 @@ export default function NutrivisiSite({ lang = 'NL' }) {
         @keyframes methodOrderDash { from { stroke-dashoffset: 1100; } to { stroke-dashoffset: 0; } }
         @keyframes methodArrowPulse { 0%, 100% { opacity: 0.46; } 50% { opacity: 0.7; } }
         @keyframes methodChipRadiate { 0%, 100% { transform: translate(-50%, -50%) scale(0.82); opacity: 0.55; } 50% { transform: translate(-50%, -50%) scale(1.18); opacity: 1; } }
+        @keyframes whyCurrent { from { stroke-dashoffset: 872; } to { stroke-dashoffset: 0; } }
+        @keyframes whyOrbitA { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        @keyframes whyOrbitB { from { transform: rotate(360deg); } to { transform: rotate(0deg); } }
+        @keyframes whyProofGlow { 0%, 100% { box-shadow: 0 18px 55px -34px rgba(92,192,213,0.72), inset 0 0 0 rgba(92,192,213,0); } 50% { box-shadow: 0 20px 60px -26px rgba(92,192,213,0.98), inset 0 0 24px rgba(92,192,213,0.07); } }
+        @keyframes knowledgeTrace { from { stroke-dashoffset: 1440; } to { stroke-dashoffset: 0; } }
+        @keyframes knowledgeOrbitA { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        @keyframes knowledgeOrbitB { from { transform: rotate(360deg); } to { transform: rotate(0deg); } }
+        @keyframes knowledgeNodePulse { 0%, 100% { transform: scale(0.82); opacity: 0.42; } 50% { transform: scale(1.22); opacity: 0.9; } }
+        @keyframes contactFlowTrace { from { stroke-dashoffset: 1440; } to { stroke-dashoffset: 0; } }
+        @keyframes contactRingA { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        @keyframes contactRingB { from { transform: rotate(360deg); } to { transform: rotate(0deg); } }
+        @keyframes contactNodePulse { 0%, 100% { transform: scale(0.82); opacity: 0.42; } 50% { transform: scale(1.24); opacity: 0.96; } }
+        @keyframes contactPanelTrace { from { stroke-dashoffset: 820; } to { stroke-dashoffset: 0; } }
         @keyframes labelScan { 0%, 100% { transform: translateY(-80px); opacity: 0; } 10% { opacity: 0.8; } 50% { opacity: 0.8; } 90% { opacity: 0; } }
 
         .animate-breathe { animation: breathe 6s ease-in-out infinite; }
@@ -1557,6 +1933,19 @@ export default function NutrivisiSite({ lang = 'NL' }) {
         .method-order-dash { animation: methodOrderDash 6.4s linear infinite; }
         .method-arrow-head { animation: methodArrowPulse 1.8s ease-in-out infinite; }
         .method-chip-radiate { animation: methodChipRadiate 3.4s ease-in-out infinite; }
+        .why-current-line { animation: whyCurrent 8.5s linear infinite; opacity: 0.34; }
+        .why-orbit-a { animation: whyOrbitA 26s linear infinite; transform-origin: 260px 250px; }
+        .why-orbit-b { animation: whyOrbitB 18s linear infinite; transform-origin: 260px 250px; }
+        .why-proof-chip { animation: whyProofGlow 4.2s ease-in-out infinite; }
+        .knowledge-trace-line { animation: knowledgeTrace 10s linear infinite; opacity: 0.34; }
+        .knowledge-orbit-a { animation: knowledgeOrbitA 28s linear infinite; transform-origin: 1080px 210px; }
+        .knowledge-orbit-b { animation: knowledgeOrbitB 20s linear infinite; transform-origin: 1080px 210px; }
+        .knowledge-node { animation: knowledgeNodePulse 3.4s ease-in-out infinite; transform-origin: center; }
+        .contact-flow-line { animation: contactFlowTrace 10.5s linear infinite; opacity: 0.32; }
+        .contact-flow-ring-a { animation: contactRingA 30s linear infinite; transform-origin: 1040px 260px; }
+        .contact-flow-ring-b { animation: contactRingB 21s linear infinite; transform-origin: 1040px 260px; }
+        .contact-flow-node { animation: contactNodePulse 3.6s ease-in-out infinite; transform-origin: center; }
+        .contact-panel-line { animation: contactPanelTrace 7.5s linear infinite; opacity: 0.3; }
 
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
