@@ -488,7 +488,13 @@ const translations = {
     nav: { tag: 'Voedselveiligheid helder gemaakt', home: 'Home', services: 'Diensten', method: 'Werkwijze', insights: 'Kennis', why: 'Waarom wij', contact: 'Contact', cta: 'Contact' },
     hero: {
       title1: 'Veiligheid zonder', title2: 'complexiteit.',
-      subtitle: 'Nutrivisi vertaalt complexe wetgeving naar heldere visuele acties, zodat uw team begrijpt wat nodig is en sneller auditklaar werkt.',
+      subtitleParts: {
+  before: 'Nutrivisi vertaalt ',
+  highlight1: 'complexe wetgeving',
+  middle: ' naar heldere visuele acties, zodat uw team begrijpt wat nodig is en ',
+  highlight2: 'sneller auditklaar werkt',
+  after: '.',
+},
       btn1: 'Bekijk diensten', btn2: 'Bespreek uw vraag',
       trust: [
         'Praktische begeleiding voor voedingsbedrijven',
@@ -572,7 +578,13 @@ const translations = {
     nav: { tag: 'La sécurité alimentaire simplifiée', home: 'Accueil', services: 'Services', method: 'Méthode', insights: 'Savoir', why: 'Pourquoi nous', contact: 'Contact', cta: 'Contact' },
     hero: {
       title1: 'La sécurité sans', title2: 'complexité.',
-      subtitle: 'Nutrivisi traduit la législation complexe en actions visuelles claires, pour que votre équipe comprenne ce qui est nécessaire et soit plus rapidement prête pour l\'audit.',
+      subtitleParts: {
+  before: 'Nutrivisi traduit ',
+  highlight1: 'la législation complexe',
+  middle: ' en actions visuelles claires, pour que votre équipe comprenne ce qui est nécessaire et soit ',
+  highlight2: 'plus rapidement prête pour l’audit',
+  after: '.',
+},
       btn1: 'Voir les services', btn2: 'Discuter de votre projet',
       trust: [
         'Accompagnement pratique pour les entreprises agroalimentaires',
@@ -750,7 +762,7 @@ export default function NutrivisiSite({ lang = 'NL' }) {
             <NutriLogo className="h-12 w-12 text-[#F5A623]" cutoutColor={scrolled ? '#023142' : '#023A4E'} />
             <div>
               <p className="font-bold text-2xl tracking-tight text-white group-hover:text-[#F5A623] transition-colors">Nutrivisi</p>
-              <p className="text-[10px] uppercase tracking-[0.2em] text-teal-300">{t.nav.tag}</p>
+              
             </div>
           </a>
 
@@ -816,9 +828,17 @@ export default function NutrivisiSite({ lang = 'NL' }) {
                 </h1>
               </FadeInSection>
               <FadeInSection delay={300}>
-                <p className="mt-8 max-w-2xl text-xl leading-relaxed text-teal-100/85">
-                  {t.hero.subtitle}
-                </p>
+                <p className="mt-8 max-w-2xl text-xl leading-relaxed text-white font-semibold">
+  {t.hero.subtitleParts.before}
+  <span className="font-bold text-[#45E6DB] [text-shadow:0_0_12px_rgba(69,230,219,0.34),0_0_28px_rgba(69,230,219,0.16)]">
+  {t.hero.subtitleParts.highlight1}
+</span>
+  {t.hero.subtitleParts.middle}
+  <span className="font-bold text-[#45E6DB] [text-shadow:0_0_12px_rgba(69,230,219,0.34),0_0_28px_rgba(69,230,219,0.16)]">
+  {t.hero.subtitleParts.highlight2}
+</span>
+  {t.hero.subtitleParts.after}
+</p>
               </FadeInSection>
               <FadeInSection delay={400}>
                 <div className="mt-10 flex flex-col sm:flex-row gap-5">
