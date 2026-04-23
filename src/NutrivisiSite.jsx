@@ -815,6 +815,7 @@ export default function NutrivisiSite({ lang = 'NL' }) {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[#F0A018] rounded-full blur-[140px] opacity-[0.15] animate-breathe"></div>
           <div className="absolute top-[40%] left-[30%] w-[600px] h-[600px] bg-[#56C0D5] rounded-full blur-[180px] opacity-[0.1] animate-drift-slow"></div>
         </div>
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-40 bg-gradient-to-b from-transparent to-[#023A4E]"></div>
 
         <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 relative z-20">
           <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-16 items-center">
