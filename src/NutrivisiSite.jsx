@@ -148,18 +148,20 @@ const ScrollRevealText = ({ children, className = '' }) => {
 /* =====================================================================
    5. ATMOSPHERIC BACKGROUND LAYERS
    ===================================================================== */
+const heroParticles = Array.from({ length: 30 }, (_, i) => ({
+  left: `${(i * 37 + 11) % 100}%`,
+  top: `${(i * 53 + 7) % 100}%`,
+  animationDuration: `${15 + ((i * 11) % 20)}s`,
+  animationDelay: `${((i * 17) % 50) / 10}s`,
+}));
+
 const ParticleField = () => (
   <div className="absolute inset-0 overflow-hidden pointer-events-none z-10">
-    {[...Array(30)].map((_, i) => (
+    {heroParticles.map((particle, i) => (
       <div
         key={i}
         className="absolute w-[1px] h-[30px] bg-gradient-to-t from-transparent via-[#F0A018] to-transparent opacity-10 animate-float-stream"
-        style={{
-          left: `${Math.random() * 100}%`,
-          top: `${Math.random() * 100}%`,
-          animationDuration: `${15 + Math.random() * 20}s`,
-          animationDelay: `${Math.random() * 5}s`,
-        }}
+        style={particle}
       />
     ))}
   </div>
@@ -185,20 +187,6 @@ const HeroKineticCompass = ({ rotation }) => (
       <circle cx="20" cy="500" r="5" fill="#56C0D5" />
       <circle cx="980" cy="500" r="5" fill="#56C0D5" />
     </svg>
-  </div>
-);
-
-const ClarityLensBackground = ({ rotation }) => (
-  <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden z-0">
-    <div className="relative w-[800px] h-[800px] flex items-center justify-center transition-transform duration-500 ease-out">
-      <div className="absolute inset-0 border border-[#F0A018]/40 rounded-full" style={{ transform: `rotate(${rotation * 0.5}deg)` }}></div>
-      <div className="absolute inset-[15%] border border-[#F0A018]/50 rounded-full" style={{ transform: `rotate(${-rotation * 0.8}deg)` }}></div>
-      <div className="absolute inset-[30%] border border-[#F0A018]/40 rounded-full animate-[pulse_10s_ease-in-out_infinite]" style={{ transform: `rotate(${rotation * 1.2}deg)` }}></div>
-      <div className="absolute h-[1px] w-[200%] bg-gradient-to-r from-transparent via-[#F0A018]/50 to-transparent" style={{ transform: `rotate(${35 + rotation * 0.3}deg)` }}></div>
-      <div className="absolute h-[1px] w-[200%] bg-gradient-to-r from-transparent via-[#56C0D5]/40 to-transparent" style={{ transform: `rotate(${-15 - rotation * 0.4}deg)` }}></div>
-      <div className="absolute h-[2px] w-32 bg-gradient-to-r from-transparent via-[#F0A018]/60 to-transparent"></div>
-      <div className="absolute w-[2px] h-32 bg-gradient-to-b from-transparent via-[#F0A018]/60 to-transparent"></div>
-    </div>
   </div>
 );
 
@@ -453,6 +441,42 @@ const LabelInspectorVisual = () => (
   </svg>
 );
 
+const MethodGlyph = ({ index }) => {
+  if (index === 0) {
+    return (
+      <svg viewBox="0 0 72 72" className="h-10 w-10" fill="none" aria-hidden="true">
+        <circle cx="36" cy="36" r="25" stroke="currentColor" strokeWidth="1.5" opacity="0.28" />
+        <circle cx="36" cy="36" r="13" stroke="#F0A018" strokeWidth="2" />
+        <circle cx="36" cy="36" r="4" fill="#F0A018" />
+        <path d="M15 36H25M47 36H57M36 15V25M36 47V57" stroke="#56C0D5" strokeWidth="1.6" strokeLinecap="round" />
+        <path d="M48 48L59 59" stroke="#F0A018" strokeWidth="2.4" strokeLinecap="round" />
+      </svg>
+    );
+  }
+
+  if (index === 1) {
+    return (
+      <svg viewBox="0 0 72 72" className="h-10 w-10" fill="none" aria-hidden="true">
+        <path d="M15 20H36M15 36H42M15 52H31" stroke="#56C0D5" strokeWidth="2" strokeLinecap="round" opacity="0.78" />
+        <rect x="11" y="14" width="34" height="12" rx="3" stroke="currentColor" strokeWidth="1.4" opacity="0.32" />
+        <rect x="11" y="30" width="40" height="12" rx="3" stroke="currentColor" strokeWidth="1.4" opacity="0.32" />
+        <rect x="11" y="46" width="28" height="12" rx="3" stroke="currentColor" strokeWidth="1.4" opacity="0.32" />
+        <path d="M42 22C52 25 57 31 57 36C57 43 50 49 39 52" stroke="#F0A018" strokeWidth="2.5" strokeLinecap="round" />
+        <path d="M44 45L39 52L48 54" stroke="#F0A018" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg viewBox="0 0 72 72" className="h-10 w-10" fill="none" aria-hidden="true">
+      <path d="M36 10L55 18V33C55 47 47 56 36 62C25 56 17 47 17 33V18L36 10Z" stroke="#F0A018" strokeWidth="2.2" strokeLinejoin="round" />
+      <path d="M29 36L34 41L45 29" stroke="#F0A018" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M25 23H47M25 50H47" stroke="#56C0D5" strokeWidth="1.6" strokeLinecap="round" opacity="0.55" />
+      <circle cx="36" cy="36" r="25" stroke="currentColor" strokeWidth="1.2" opacity="0.18" strokeDasharray="4 8" />
+    </svg>
+  );
+};
+
 /* =====================================================================
    7. SECTION TITLE
    ===================================================================== */
@@ -523,7 +547,6 @@ const translations = {
     servicesSection: {
       eyebrow: 'Diensten', title: 'Gerichte ondersteuning voor voedselveiligheid',
       discuss: 'Bespreek deze dienst',
-      visualEyebrow: 'VISUELE OUTPUT',
       items: [
         { id: 'expertadvies', title: 'Expertadvies', description: 'Gericht advies over voedselveiligheid, kwaliteitssystemen en wettelijke vereisten, afgestemd op uw sector en uw concrete situatie.', bullets: ['Praktisch en sectorspecifiek', 'Heldere prioriteiten', 'Snel inzetbaar'], visualCaption: 'Advies geordend in lagen: wet, risico, werkvloer.' },
         { id: 'coaching', title: 'Coaching en training', description: 'Wij maken voedselveiligheid begrijpelijk voor management en medewerkers, met visuele hulpmiddelen die op de werkvloer blijven hangen.', bullets: ['Food Safety Culture', 'Visuele instructies', 'Draagvlak in het team'], visualCaption: 'Voorbeeld van een visuele instructiekaart.' },
@@ -613,7 +636,6 @@ const translations = {
     servicesSection: {
       eyebrow: 'Services', title: 'Un accompagnement ciblé pour la sécurité alimentaire',
       discuss: 'Discuter de ce service',
-      visualEyebrow: 'SORTIE VISUELLE',
       items: [
         { id: 'expertadvies', title: 'Conseil d\'expert', description: 'Des conseils ciblés sur la sécurité alimentaire, les systèmes de qualité et les exigences légales, adaptés à votre secteur et à votre situation concrète.', bullets: ['Pratique et spécifique au secteur', 'Priorités claires', 'Rapidement applicable'], visualCaption: 'Un conseil structuré en couches : loi, risque, terrain.' },
         { id: 'coaching', title: 'Coaching et formation', description: 'Nous rendons la sécurité alimentaire compréhensible pour la direction et les employés, avec des outils visuels qui s\'ancrent sur le lieu de travail.', bullets: ['Culture de la sécurité alimentaire', 'Instructions visuelles', 'Adhésion de l\'équipe'], visualCaption: 'Exemple d\'une fiche d\'instruction visuelle.' },
@@ -689,32 +711,31 @@ export default function NutrivisiSite({ lang = 'NL' }) {
     { label: t.nav.contact, href: '#contact' },
   ];
 
-  const serviceVisualMap = {
+  const serviceVisualMap = useMemo(() => ({
     expertadvies: AdvisoryLayersVisual,
     coaching: WorkbookVisual,
     certificatie: CertificationFlowVisual,
     risico: RiskHeatmapVisual,
     etikettering: LabelInspectorVisual,
-  };
+  }), []);
 
   const currentServices = useMemo(() => t.servicesSection.items.map((s) => ({
     ...s,
     icon: { expertadvies: Lightbulb, coaching: Users, certificatie: Award, risico: ShieldAlert, etikettering: Tag }[s.id],
     Visual: serviceVisualMap[s.id],
-  })), [t]);
+  })), [t, serviceVisualMap]);
 
   const currentSectors = useMemo(() => t.sectorsSection.items.map((title, i) => ({
     title, icon: [Wheat, Beef, UtensilsCrossed, Store][i],
   })), [t]);
 
-  const currentMethodSteps = useMemo(() => t.methodSection.items.map((step, i) => ({
-    ...step, icon: [ClipboardCheck, Lightbulb, ShieldCheck][i],
-  })), [t]);
+  const currentMethodSteps = useMemo(() => t.methodSection.items, [t]);
 
   const activeService = useMemo(
     () => currentServices.find((service) => service.id === activeServiceId) ?? currentServices[0],
     [activeServiceId, currentServices]
   );
+  const activeServiceIndex = Math.max(0, currentServices.findIndex((service) => service.id === activeService.id));
   const ActiveServiceIcon = activeService.icon;
   const ActiveServiceVisual = activeService.Visual;
 
@@ -904,16 +925,16 @@ export default function NutrivisiSite({ lang = 'NL' }) {
 
                     <div className="grid grid-cols-2 gap-5">
                       {[
-                        { Icon: Award, data: t.hero.focus2 },
-                        { Icon: Eye, data: t.hero.focus3 },
-                        { Icon: Tag, data: t.hero.focus4 },
-                        { Icon: Store, data: t.hero.focus5 },
-                      ].map(({ Icon, data }, index) => (
+                        { icon: Award, data: t.hero.focus2 },
+                        { icon: Eye, data: t.hero.focus3 },
+                        { icon: Tag, data: t.hero.focus4 },
+                        { icon: Store, data: t.hero.focus5 },
+                      ].map(({ icon, data }, index) => (
                         <div key={data.title} className="sector-node group relative min-h-[178px] overflow-hidden rounded-[1.75rem] border border-teal-800/30 bg-[#011a24]/50 p-5 text-left transition-all duration-500 hover:-translate-y-1 hover:border-[#F0A018]/40 hover:bg-[#023A4E]/68 hover:shadow-[0_18px_45px_-24px_rgba(240,160,24,0.32)]" style={{ animationDelay: `${index * 160}ms` }}>
                           <div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#F0A018 1px, transparent 1px)', backgroundSize: '16px 16px' }}></div>
                           <div className="relative z-10">
                             <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#011a24]/75 text-teal-200 ring-1 ring-[#56C0D5]/20 transition-all duration-500 group-hover:text-[#F0A018] group-hover:ring-[#F0A018]/45">
-                              <Icon className="h-6 w-6 transition-transform duration-500 group-hover:scale-110" />
+                              {React.createElement(icon, { className: 'h-6 w-6 transition-transform duration-500 group-hover:scale-110' })}
                             </div>
                             <p className="mb-2 text-base font-extrabold text-white">{data.title}</p>
                             <p className="text-sm leading-relaxed text-teal-100/70">{data.text}</p>
@@ -1016,113 +1037,241 @@ export default function NutrivisiSite({ lang = 'NL' }) {
         </div>
       </section>
 
-      {/* ===== SERVICES HUD ===== */}
-      <section id="diensten" className="py-32 bg-[#01506E] relative overflow-hidden border-t border-teal-900/30">
-        <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <SectionTitle eyebrow={t.servicesSection.eyebrow} title={t.servicesSection.title} center />
+      {/* ===== SERVICES ===== */}
+      <section id="diensten" className="relative overflow-hidden border-t border-teal-900/30 bg-[#01506E] py-24 md:py-32">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(1,80,110,0)_0%,rgba(2,58,78,0.34)_46%,rgba(1,80,110,0)_100%)]"></div>
+          <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#56C0D5]/24 to-transparent"></div>
+          <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[#56C0D5]/18 to-transparent"></div>
+        </div>
 
-          <div className="mt-20 grid lg:grid-cols-12 gap-0 border border-teal-800/40 rounded-[2.5rem] bg-[#023142]/40 backdrop-blur-2xl shadow-2xl overflow-hidden relative">
-            {/* Left menu */}
-            <div className="lg:col-span-4 border-r border-teal-800/40 bg-[#01506E]/80 relative z-20">
-              <div className="flex flex-col h-full max-h-[700px] overflow-y-auto no-scrollbar py-6">
-                {currentServices.map((service) => {
+        <div className="relative z-10 mx-auto max-w-[88rem] px-4 sm:px-6 lg:px-8">
+          <FadeInSection>
+            <div className="mb-14 grid gap-8 lg:grid-cols-[0.86fr_1.14fr] lg:items-end">
+              <div>
+                <div className="mb-5 inline-flex items-center gap-2 border-b border-[#F0A018]/35 pb-2 text-xs font-extrabold uppercase tracking-[0.24em] text-[#F0A018]">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#F0A018]"></span>
+                  {t.servicesSection.eyebrow}
+                </div>
+                <h2 className="max-w-4xl text-4xl font-extrabold leading-[1.04] tracking-tight text-white md:text-5xl lg:text-6xl">
+                  {t.servicesSection.title.split(' ').map((word, i, arr) =>
+                    i >= arr.length - 2
+                      ? <span key={i} className="text-[#F0A018]">{word} </span>
+                      : <span key={i}>{word} </span>
+                  )}
+                </h2>
+              </div>
+
+              <div className="border-t border-[#56C0D5]/18 pt-6 lg:pl-10">
+                <p className="max-w-2xl text-lg font-medium leading-relaxed text-teal-100/76">
+                  {activeService.description}
+                </p>
+              </div>
+            </div>
+          </FadeInSection>
+
+          <div className="grid gap-8 lg:grid-cols-[minmax(260px,0.38fr)_minmax(0,1fr)] lg:gap-12">
+            <FadeInSection delay={100}>
+              <div className="space-y-2 lg:sticky lg:top-28">
+                {currentServices.map((service, index) => {
                   const isActive = activeService.id === service.id;
+                  const ServiceIcon = service.icon;
+
                   return (
-                    <button key={service.id} onClick={() => setActiveServiceId(service.id)}
-                      className={`w-full text-left p-6 md:p-8 flex items-center gap-5 transition-all duration-500 interactive-card relative overflow-hidden group ${isActive ? 'bg-[#034259]/60 text-white' : 'bg-transparent text-teal-100/60 hover:bg-[#034259]/20 hover:text-white'}`}>
-                      {isActive && <div className="absolute left-0 top-0 w-1 h-full bg-[#F0A018] shadow-[0_0_15px_#F0A018]"></div>}
-                      <div className="relative flex items-center justify-center w-6 h-6 shrink-0">
-                        <div className={`absolute w-2 h-2 rounded-full transition-all duration-500 ${isActive ? 'bg-[#F0A018] scale-100 shadow-[0_0_10px_#F0A018]' : 'bg-teal-700 group-hover:bg-teal-400 scale-75'}`}></div>
-                        {isActive && <div className="absolute w-full h-full border border-[#F0A018] rounded-full animate-ping opacity-50"></div>}
+                    <button
+                      key={service.id}
+                      onClick={() => setActiveServiceId(service.id)}
+                      aria-pressed={isActive}
+                      className={`group interactive-card w-full rounded-2xl border px-4 py-4 text-left transition-all duration-500 sm:px-5 ${isActive ? 'border-[#F0A018]/38 bg-[#F0A018]/8 text-white shadow-[0_18px_50px_-34px_rgba(240,160,24,0.55)]' : 'border-[#56C0D5]/13 bg-[#023A4E]/18 text-teal-100/60 hover:border-[#56C0D5]/32 hover:bg-[#023A4E]/32 hover:text-white'}`}
+                    >
+                      <div className="flex items-center gap-4">
+                        <div className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border transition-all duration-500 ${isActive ? 'border-[#F0A018]/45 bg-[#011a24]/50 text-[#F0A018]' : 'border-[#56C0D5]/18 bg-[#011a24]/25 text-teal-200/65 group-hover:text-[#F0A018]'}`}>
+                          <ServiceIcon className="h-5 w-5" />
+                        </div>
+                        <div className="min-w-0 flex-1">
+                          <div className="mb-1 flex items-center gap-3">
+                            <span className={`font-mono text-[10px] tracking-[0.24em] ${isActive ? 'text-[#F0A018]' : 'text-teal-300/42'}`}>
+                              {String(index + 1).padStart(2, '0')}
+                            </span>
+                            <span className="text-base font-extrabold leading-tight">{service.title}</span>
+                          </div>
+                          <p className={`text-sm leading-relaxed ${isActive ? 'text-teal-100/72' : 'text-teal-100/44 group-hover:text-teal-100/66'}`}>
+                            {service.bullets[0]}
+                          </p>
+                        </div>
+                        <ChevronRight className={`h-4 w-4 shrink-0 transition-all duration-500 ${isActive ? 'text-[#F0A018]' : 'text-teal-300/30 group-hover:text-[#F0A018]/70'}`} />
                       </div>
-                      <span className={`font-bold text-lg tracking-wide transition-transform duration-300 ${isActive ? 'translate-x-1' : ''}`}>{service.title}</span>
-                      {isActive && <ChevronRight className="ml-auto w-5 h-5 text-[#F0A018]" />}
                     </button>
                   );
                 })}
               </div>
-            </div>
+            </FadeInSection>
 
-            {/* Right display */}
-            <div className="lg:col-span-8 relative bg-gradient-to-br from-[#023A4E]/30 to-[#01506E]/90 p-10 lg:p-16 flex items-center min-h-[700px] overflow-hidden">
-              <div className="absolute inset-0 z-0 opacity-30 pointer-events-none">
-                <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-[#F0A018]/20 to-transparent rounded-full blur-[100px] animate-pulse" style={{ animationDuration: '6s' }}></div>
-                <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-[#56C0D5]/20 to-transparent rounded-full blur-[100px] animate-pulse" style={{ animationDelay: '2s', animationDuration: '8s' }}></div>
-              </div>
-              <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0 opacity-20">
-                <div className="w-[200%] h-[1px] bg-gradient-to-r from-transparent via-[#F0A018] to-transparent absolute top-1/2 left-[-50%] animate-[shuttle_6s_ease-in-out_infinite] shadow-[0_0_15px_#F0A018]"></div>
-              </div>
-
-              <div className="relative z-10 w-full grid grid-cols-1 lg:grid-cols-[1.05fr_1fr] gap-10 items-center" key={activeService.id}>
-                <div>
-                  <div className="w-16 h-16 bg-[#01506E] text-[#F0A018] rounded-2xl flex items-center justify-center mb-8 border border-[#F0A018]/30 shadow-[0_0_30px_rgba(240,160,24,0.15)] animate-[blockReveal_0.5s_ease-out]">
-                    <ActiveServiceIcon className="w-8 h-8" />
-                  </div>
-                  <h3 className="text-4xl lg:text-5xl font-extrabold text-white mb-6 leading-tight tracking-tight animate-[blockReveal_0.6s_ease-out]">
-                    {activeService.title}
-                  </h3>
-                  <p className="text-teal-100/85 text-lg font-light leading-relaxed mb-8 animate-[blockReveal_0.7s_ease-out]">
-                    {activeService.description}
-                  </p>
-                  <div className="space-y-3 mb-10 animate-[blockReveal_0.8s_ease-out]">
-                    {activeService.bullets.map((bullet) => (
-                      <div key={bullet} className="flex items-center gap-3">
-                        <CheckCircle2 className="w-5 h-5 text-[#F0A018] shrink-0" />
-                        <span className="text-white font-medium">{bullet}</span>
+            <FadeInSection delay={180}>
+              <div className="relative overflow-hidden rounded-[2rem] border border-[#56C0D5]/18 bg-[#023A4E]/24 p-5 backdrop-blur-md md:p-7 lg:p-9">
+                <div className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-[#F0A018]/45 to-transparent"></div>
+                <div className="grid gap-8 lg:grid-cols-[minmax(0,0.92fr)_minmax(340px,0.82fr)] lg:items-center" key={activeService.id}>
+                  <div className="service-copy-reveal min-w-0">
+                    <div className="mb-8 flex items-center justify-between gap-5">
+                      <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-[#F0A018]/28 bg-[#011a24]/38 text-[#F0A018]">
+                        <ActiveServiceIcon className="h-7 w-7" />
                       </div>
-                    ))}
-                  </div>
-                  <button onClick={() => scrollToSection('contact')} className="inline-flex items-center gap-3 text-[#F0A018] font-bold text-sm uppercase tracking-[0.15em] hover:text-[#FFC35C] transition-colors group interactive-card border-b border-[#F0A018]/30 pb-2 hover:border-[#F0A018] animate-[blockReveal_0.9s_ease-out]">
-                    <span>{t.servicesSection.discuss}</span>
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
-                  </button>
-                </div>
+                      <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-teal-200/55">
+                        <span className="text-[#F0A018]">{String(activeServiceIndex + 1).padStart(2, '0')}</span>
+                        <span>/</span>
+                        <span>{String(currentServices.length).padStart(2, '0')}</span>
+                      </div>
+                    </div>
 
-                <div className="relative hidden md:flex flex-col items-center justify-center pointer-events-none animate-[blockReveal_1s_ease-out]">
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-[#56C0D5] rounded-full blur-[120px] opacity-10"></div>
-                  <div className="text-xs font-bold uppercase tracking-[0.3em] text-[#F0A018]/70 mb-4 flex items-center gap-2">
-                    <span className="h-px w-8 bg-[#F0A018]/40"></span>
-                    {t.servicesSection.visualEyebrow}
-                    <span className="h-px w-8 bg-[#F0A018]/40"></span>
+                    <h3 className="max-w-full text-3xl font-extrabold leading-tight tracking-tight text-white md:text-4xl lg:text-[2.75rem] break-words" style={{ overflowWrap: 'anywhere' }}>
+                      {activeService.title}
+                    </h3>
+                    <p className="mt-5 max-w-2xl text-base font-medium leading-relaxed text-teal-100/78 md:text-lg">
+                      {activeService.description}
+                    </p>
+
+                    <div className="mt-8 grid gap-3 sm:grid-cols-3">
+                      {activeService.bullets.map((bullet) => (
+                        <div key={bullet} className="min-w-0 rounded-2xl border border-[#56C0D5]/14 bg-[#011a24]/24 px-4 py-4">
+                          <CheckCircle2 className="mb-4 h-5 w-5 text-[#F0A018]" />
+                          <p className="text-sm font-bold leading-relaxed text-white/90 break-words" style={{ overflowWrap: 'anywhere' }}>{bullet}</p>
+                        </div>
+                      ))}
+                    </div>
+
+                    <button onClick={() => scrollToSection('contact')} className="group interactive-card mt-9 inline-flex items-center gap-3 rounded-full border border-[#F0A018]/35 bg-transparent px-6 py-3.5 text-sm font-extrabold uppercase tracking-[0.16em] text-[#F0A018] transition-all duration-500 hover:border-[#F0A018] hover:bg-[#F0A018] hover:text-[#012330]">
+                      <span>{t.servicesSection.discuss}</span>
+                      <ArrowRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-1" />
+                    </button>
                   </div>
-                  <div className="relative w-full h-[360px] flex items-center justify-center">
-                    <ActiveServiceVisual />
+
+                  <div className="relative min-h-[360px] min-w-0 overflow-hidden rounded-[1.7rem] border border-[#56C0D5]/14 bg-[#011a24]/18 px-4 py-6 md:min-h-[430px]">
+                    <div className="absolute inset-x-6 top-6 h-px bg-gradient-to-r from-transparent via-[#56C0D5]/28 to-transparent"></div>
+                    <div className="absolute inset-x-6 bottom-6 h-px bg-gradient-to-r from-transparent via-[#F0A018]/28 to-transparent"></div>
+                    <div className="relative z-10 flex h-full min-h-[320px] flex-col items-center justify-center md:min-h-[390px]">
+                      <div className="flex h-[280px] w-full items-center justify-center md:h-[330px] service-visual-reveal">
+                        <ActiveServiceVisual />
+                      </div>
+                      <p className="mt-3 max-w-sm text-center text-sm font-medium italic leading-relaxed text-teal-100/62">
+                        {activeService.visualCaption}
+                      </p>
+                    </div>
                   </div>
-                  <p className="text-xs text-teal-200/70 italic text-center max-w-xs mt-4 leading-relaxed">
-                    {activeService.visualCaption}
-                  </p>
                 </div>
               </div>
-            </div>
+            </FadeInSection>
           </div>
         </div>
       </section>
 
       {/* ===== METHOD ===== */}
-      <section id="werkwijze" className="py-32 bg-[#01506E] relative overflow-hidden border-t border-teal-900/30">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-gradient-to-b from-[#F0A018]/10 to-transparent blur-[160px] pointer-events-none z-0"></div>
-        <ClarityLensBackground rotation={scrollRotation} />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <SectionTitle eyebrow={t.methodSection.eyebrow} title={t.methodSection.title} center />
-          <div className="mt-20 grid md:grid-cols-3 gap-8">
-            {currentMethodSteps.map((step, index) => {
-              const Icon = step.icon;
-              return (
-                <FadeInSection key={step.title} delay={index * 150} className="group h-full">
-                  <div className="h-full p-10 rounded-[2.5rem] bg-[#023142]/40 backdrop-blur-md border border-teal-800/40 hover:border-[#F0A018]/40 transition-all duration-500 flex flex-col relative overflow-hidden">
-                    <div className="absolute -right-4 -bottom-4 w-32 h-32 bg-[#F0A018]/5 rounded-full blur-2xl group-hover:bg-[#F0A018]/10 transition-all"></div>
-                    <div className="flex items-center justify-between mb-8">
-                      <div className="w-14 h-14 rounded-2xl bg-[#011a24] flex items-center justify-center border border-teal-800/50 group-hover:scale-110 group-hover:border-[#F0A018]/50 transition-all">
-                        <Icon className="w-6 h-6 text-[#F0A018]" />
-                      </div>
-                      <span className="text-3xl font-black text-teal-800/40 group-hover:text-[#F0A018]/20 transition-colors">0{index + 1}</span>
+      <section id="werkwijze" className="relative overflow-hidden border-t border-teal-900/30 bg-[#01506E] py-24 md:py-32">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(1,80,110,0)_0%,rgba(2,58,78,0.32)_44%,rgba(1,80,110,0)_100%)]"></div>
+          <div className="absolute left-1/2 top-10 h-[620px] w-[1180px] -translate-x-1/2 opacity-45 transition-transform duration-500 ease-out" style={{ transform: `translateX(-50%) translateY(${Math.sin(scrollRotation / 38) * 18}px) rotate(${scrollRotation * 0.025}deg)` }}>
+            <svg viewBox="0 0 1180 620" className="h-full w-full" aria-hidden="true">
+              <defs>
+                <linearGradient id="method-map" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stopColor="#56C0D5" stopOpacity="0" />
+                  <stop offset="45%" stopColor="#56C0D5" stopOpacity="0.26" />
+                  <stop offset="100%" stopColor="#F0A018" stopOpacity="0" />
+                </linearGradient>
+              </defs>
+              <path d="M90 355 C260 230 366 420 530 284 S808 130 1088 238" fill="none" stroke="url(#method-map)" strokeWidth="1.2" />
+              <path d="M152 120 C310 178 382 72 548 146 S826 298 1028 112" fill="none" stroke="#56C0D5" strokeWidth="0.8" strokeOpacity="0.12" />
+              <path d="M64 502 C320 420 488 542 704 418 S914 304 1110 420" fill="none" stroke="#F0A018" strokeWidth="0.8" strokeOpacity="0.1" />
+              <circle cx="590" cy="310" r="220" fill="none" stroke="#56C0D5" strokeOpacity="0.08" />
+              <circle cx="590" cy="310" r="128" fill="none" stroke="#F0A018" strokeOpacity="0.08" strokeDasharray="6 18" />
+            </svg>
+          </div>
+          <div className="absolute left-1/2 top-24 h-64 w-[760px] -translate-x-1/2 rounded-full bg-[#56C0D5]/7 blur-[110px]" style={{ transform: `translateX(-50%) translateY(${Math.cos(scrollRotation / 45) * -14}px)` }}></div>
+          <div className="absolute right-[10%] bottom-16 h-56 w-56 rounded-full bg-[#F0A018]/7 blur-[90px]" style={{ transform: `translateY(${Math.sin(scrollRotation / 34) * 16}px)` }}></div>
+        </div>
+
+        <div className="relative z-10 mx-auto max-w-[88rem] px-4 sm:px-6 lg:px-8">
+          <FadeInSection>
+            <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+              <div>
+                <div className="mb-5 inline-flex items-center gap-2 border-b border-[#F0A018]/35 pb-2 text-xs font-extrabold uppercase tracking-[0.24em] text-[#F0A018]">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#F0A018]"></span>
+                  {t.methodSection.eyebrow}
+                </div>
+                <h2 className="max-w-4xl text-4xl font-extrabold leading-[1.04] tracking-tight text-white md:text-5xl lg:text-6xl">
+                  {t.methodSection.title.split(' ').map((word, i) =>
+                    i === 1 || i === 2
+                      ? <span key={i} className="text-[#F0A018]">{word} </span>
+                      : <span key={i}>{word} </span>
+                  )}
+                </h2>
+              </div>
+
+              <div className="grid grid-cols-3 gap-3 border-t border-[#56C0D5]/18 pt-6">
+                {currentMethodSteps.map((step, index) => (
+                  <div key={step.title} className="group relative overflow-hidden rounded-2xl border border-[#56C0D5]/14 bg-[#023A4E]/22 px-4 py-4 text-center transition-all duration-500 hover:-translate-y-1 hover:border-[#F0A018]/42 hover:bg-[#023A4E]/42 hover:shadow-[0_18px_48px_-30px_rgba(240,160,24,0.6)]">
+                    <div className="method-chip-radiate absolute left-1/2 top-1/2 h-24 w-24 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#F0A018]/0 blur-2xl transition-all duration-500 group-hover:bg-[#F0A018]/18"></div>
+                    <div className="absolute inset-x-5 top-0 h-px bg-gradient-to-r from-transparent via-[#F0A018]/0 to-transparent transition-all duration-500 group-hover:via-[#F0A018]/55"></div>
+                    <div className="relative">
+                      <p className="mb-2 font-mono text-[10px] font-bold tracking-[0.24em] text-[#F0A018]/80">STAP 0{index + 1}</p>
+                      <p className="truncate text-xs font-extrabold uppercase tracking-[0.12em] text-teal-100/70 transition-colors duration-500 group-hover:text-white">{step.title}</p>
                     </div>
-                    <h3 className="text-2xl font-bold text-white mb-4">{step.title}</h3>
-                    <p className="text-teal-100/80 font-light leading-relaxed flex-grow">{step.text}</p>
                   </div>
-                </FadeInSection>
-              );
-            })}
+                ))}
+              </div>
+            </div>
+          </FadeInSection>
+
+          <div className="relative mt-16">
+            <div className="pointer-events-none absolute inset-x-0 bottom-12 z-0 hidden h-24 opacity-70 lg:block">
+              <svg viewBox="0 0 1000 110" className="h-full w-full" preserveAspectRatio="none" aria-hidden="true">
+                <defs>
+                  <filter id="method-arrow-glow" x="-20%" y="-80%" width="140%" height="260%">
+                    <feGaussianBlur stdDeviation="2.5" result="blur" />
+                    <feMerge>
+                      <feMergeNode in="blur" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
+                  <path id="method-order-path" d="M72 56 C198 34 275 78 356 56 S534 34 616 56 S802 78 928 56" />
+                </defs>
+                <use href="#method-order-path" fill="none" stroke="#56C0D5" strokeWidth="1.2" strokeOpacity="0.1" />
+                <use href="#method-order-path" className="method-order-dash" fill="none" stroke="#F0A018" strokeWidth="1.7" strokeOpacity="0.42" strokeLinecap="round" strokeDasharray="105 995" />
+                <g filter="url(#method-arrow-glow)" className="method-arrow-head" opacity="0.58">
+                  <animateMotion dur="6.4s" repeatCount="indefinite" rotate="auto">
+                    <mpath href="#method-order-path" />
+                  </animateMotion>
+                  <path d="M0 -6 L15 0 L0 6 L4 0 Z" fill="#F0A018" />
+                  <circle cx="-5" cy="0" r="2.8" fill="#F0A018" opacity="0.34" />
+                </g>
+              </svg>
+            </div>
+
+            <div className="relative z-10 grid gap-5 lg:grid-cols-3 lg:gap-7">
+              {currentMethodSteps.map((step, index) => {
+                return (
+                  <FadeInSection key={step.title} delay={index * 140} className="group relative h-full">
+                    <div className="relative h-full min-h-[350px] overflow-hidden rounded-[2rem] border border-[#56C0D5]/16 bg-[#023A4E]/26 p-7 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:border-[#F0A018]/34 hover:bg-[#023A4E]/38 hover:shadow-[0_24px_70px_-48px_rgba(240,160,24,0.58)] md:p-8">
+                      <div className="absolute inset-x-7 top-0 h-px bg-gradient-to-r from-transparent via-[#F0A018]/36 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
+                      <div className="absolute -right-16 -top-16 h-40 w-40 rounded-full bg-[#56C0D5]/0 blur-[70px] transition-all duration-500 group-hover:bg-[#56C0D5]/10"></div>
+                      <div className="absolute -left-12 bottom-8 h-36 w-36 rounded-full bg-[#F0A018]/0 blur-[80px] transition-all duration-500 group-hover:bg-[#F0A018]/8"></div>
+                      <div className="relative z-10 flex h-full flex-col">
+                        <div className="mb-10 flex items-start justify-between gap-5">
+                          <div className="relative flex h-18 w-18 items-center justify-center rounded-[1.35rem] border border-[#F0A018]/28 bg-[#011a24]/36 text-[#56C0D5] transition-all duration-500 group-hover:border-[#F0A018]/55 group-hover:bg-[#F0A018]/10 group-hover:text-[#F0A018]">
+                            <div className="absolute inset-2 rounded-2xl border border-[#56C0D5]/10 transition-all duration-500 group-hover:scale-110 group-hover:border-[#F0A018]/22"></div>
+                            <MethodGlyph index={index} />
+                          </div>
+                          <div className="mt-8 h-px flex-1 bg-gradient-to-r from-[#56C0D5]/18 to-transparent"></div>
+                        </div>
+
+                        <h3 className="text-2xl font-extrabold leading-tight tracking-tight text-white md:text-3xl">{step.title}</h3>
+                        <p className="mt-5 text-base font-medium leading-relaxed text-teal-100/76">{step.text}</p>
+
+                        <div className="mt-auto pt-14"></div>
+                      </div>
+                    </div>
+                  </FadeInSection>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
@@ -1388,6 +1537,11 @@ export default function NutrivisiSite({ lang = 'NL' }) {
         @keyframes sectorTrace { from { stroke-dashoffset: 1270; } to { stroke-dashoffset: 0; } }
         @keyframes sectorPulse { 0%, 100% { opacity: 0.15; transform: scale(0.75); transform-origin: center; } 50% { opacity: 0.55; transform: scale(1.25); transform-origin: center; } }
         @keyframes sectorFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+        @keyframes serviceCopyReveal { 0% { opacity: 0; transform: translateY(16px); filter: blur(10px); } 100% { opacity: 1; transform: translateY(0); filter: blur(0); } }
+        @keyframes serviceVisualReveal { 0% { opacity: 0; transform: scale(0.94) translateY(10px); filter: blur(10px); } 100% { opacity: 1; transform: scale(1) translateY(0); filter: blur(0); } }
+        @keyframes methodOrderDash { from { stroke-dashoffset: 1100; } to { stroke-dashoffset: 0; } }
+        @keyframes methodArrowPulse { 0%, 100% { opacity: 0.46; } 50% { opacity: 0.7; } }
+        @keyframes methodChipRadiate { 0%, 100% { transform: translate(-50%, -50%) scale(0.82); opacity: 0.55; } 50% { transform: translate(-50%, -50%) scale(1.18); opacity: 1; } }
         @keyframes labelScan { 0%, 100% { transform: translateY(-80px); opacity: 0; } 10% { opacity: 0.8; } 50% { opacity: 0.8; } 90% { opacity: 0; } }
 
         .animate-breathe { animation: breathe 6s ease-in-out infinite; }
@@ -1398,6 +1552,11 @@ export default function NutrivisiSite({ lang = 'NL' }) {
         .sector-trace-line { animation: sectorTrace 7s linear infinite; }
         .sector-orbit-pulse { animation: sectorPulse 2.8s ease-in-out infinite; }
         .sector-node { animation: sectorFloat 6s ease-in-out infinite; }
+        .service-copy-reveal { animation: serviceCopyReveal 0.72s ease-out both; }
+        .service-visual-reveal { animation: serviceVisualReveal 0.85s ease-out both; }
+        .method-order-dash { animation: methodOrderDash 6.4s linear infinite; }
+        .method-arrow-head { animation: methodArrowPulse 1.8s ease-in-out infinite; }
+        .method-chip-radiate { animation: methodChipRadiate 3.4s ease-in-out infinite; }
 
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
