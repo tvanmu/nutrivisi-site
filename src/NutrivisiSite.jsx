@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import {
   Menu, X, ChevronRight, ArrowRight, ShieldCheck, Users, Award, ShieldAlert,
   Tag, Wheat, Beef, UtensilsCrossed, Store, CheckCircle2, Mail, Phone, MapPin,
-  Lightbulb, ClipboardCheck, Activity, Send, Eye, BookOpen, AlertTriangle,
+  Lightbulb, ClipboardCheck, Send, Eye, BookOpen, AlertTriangle,
   FlaskConical, Recycle, Scale, Layers, Fingerprint, Globe
 } from 'lucide-react';
 
@@ -853,11 +853,19 @@ export default function NutrivisiSite({ lang = 'NL' }) {
                 </div>
               </FadeInSection>
               <FadeInSection delay={500}>
-                <div className="mt-16 grid gap-4 sm:grid-cols-2">
-                  {t.hero.trust.map((point) => (
-                    <div key={point} className="flex items-start gap-3 rounded-2xl border border-teal-800/40 bg-[#023A4E] p-4 backdrop-blur-sm group hover:border-[#F0A018]/30 transition-colors">
-                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#F0A018] group-hover:scale-110 transition-transform" />
-                      <p className="text-sm leading-6 text-white/90">{point}</p>
+                <div className="mt-14 grid gap-4 sm:grid-cols-2">
+                  {t.hero.trust.map((point, index) => (
+                    <div key={point} className="group interactive-card relative min-h-[104px] overflow-hidden rounded-[1.75rem] border border-[#56C0D5]/18 bg-[#023A4E]/36 p-[1px] backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:border-[#F0A018]/45 hover:shadow-[0_18px_45px_-24px_rgba(240,160,24,0.35)]" style={{ animationDelay: `${index * 120}ms` }}>
+                      <div className="absolute inset-0 bg-gradient-to-br from-[#56C0D5]/12 via-transparent to-[#F0A018]/10 opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
+                      <div className="relative flex h-full items-start gap-4 rounded-[1.65rem] bg-[#011a24]/32 px-5 py-5">
+                        <div className="relative mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center">
+                          <div className="absolute inset-0 rounded-full border border-[#F0A018]/35 transition-all duration-500 group-hover:scale-110 group-hover:border-[#F0A018]/70"></div>
+                          <div className="absolute inset-2 rounded-full bg-[#F0A018]/0 blur-md transition-all duration-500 group-hover:bg-[#F0A018]/25"></div>
+                          <CheckCircle2 className="relative h-5 w-5 text-[#F0A018] transition-transform duration-500 group-hover:scale-110" />
+                        </div>
+                        <p className="text-base font-semibold leading-7 text-white/90 transition-colors duration-500 group-hover:text-white">{point}</p>
+                      </div>
+                      <div className="absolute bottom-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-[#F0A018]/50 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
                     </div>
                   ))}
                 </div>
@@ -865,37 +873,55 @@ export default function NutrivisiSite({ lang = 'NL' }) {
             </div>
 
             <FadeInSection delay={400} className="relative hidden lg:block">
-              <div className="absolute inset-0 bg-[#F0A018]/5 rounded-[3rem] blur-2xl"></div>
-              <div className="relative overflow-hidden rounded-[3rem] border border-teal-800/50 bg-[#023142]/40 backdrop-blur-xl shadow-[0_0_50px_rgba(0,0,0,0.4)]">
-                <div className="border-b border-teal-800/40 bg-[#011a24]/80 px-8 py-6 flex items-center justify-between">
-                  <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#F0A018]">{t.hero.focusEyebrow}</p>
-                  <Activity className="w-5 h-5 text-teal-400 animate-pulse" />
-                </div>
-                <div className="space-y-6 p-8">
-                  <div className="rounded-3xl bg-[#011a24]/50 border border-teal-800/30 p-6 group hover:border-[#F0A018]/40 transition-colors">
-                    <div className="flex items-center gap-4">
-                      <div className="rounded-xl bg-[#F0A018]/10 p-3">
-                        <ShieldCheck className="h-8 w-8 text-[#F0A018]" />
-                      </div>
-                      <div>
-                        <h3 className="text-lg font-bold text-white">{t.hero.focus1.title}</h3>
-                        <p className="mt-1 text-sm text-teal-100/75 leading-relaxed">{t.hero.focus1.text}</p>
+              <div className="absolute -inset-8 rounded-[3.5rem] bg-[#56C0D5]/10 blur-[90px]"></div>
+              <div className="absolute -bottom-10 left-12 h-40 w-40 rounded-full bg-[#F0A018]/10 blur-[80px]"></div>
+
+              <div className="relative overflow-hidden rounded-[3rem] border border-[#56C0D5]/20 bg-[#023A4E]/25 p-6 backdrop-blur-xl shadow-[0_30px_90px_-45px_rgba(0,0,0,0.8)]">
+                <div className="relative z-10">
+                  <div className="mb-6 flex items-center gap-4 px-2 pt-1">
+                    <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#F0A018]/50 to-[#56C0D5]/20"></div>
+                    <p className="text-sm font-extrabold uppercase tracking-[0.28em] text-[#F0A018] drop-shadow-[0_0_18px_rgba(240,160,24,0.22)]">{t.hero.focusEyebrow}</p>
+                    <div className="h-px flex-1 bg-gradient-to-l from-transparent via-[#F0A018]/50 to-[#56C0D5]/20"></div>
+                  </div>
+
+                  <div className="space-y-5">
+                    <div className="group relative overflow-hidden rounded-[2rem] border border-teal-800/30 bg-[#011a24]/55 p-6 transition-all duration-500 hover:-translate-y-1 hover:border-[#F0A018]/45 hover:bg-[#023A4E]/70 hover:shadow-[0_20px_55px_-24px_rgba(240,160,24,0.35)]">
+                      <div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#F0A018 1px, transparent 1px)', backgroundSize: '16px 16px' }}></div>
+                      <div className="relative z-10 flex items-center gap-5">
+                        <div className="relative flex h-20 w-20 shrink-0 items-center justify-center">
+                          <div className="absolute inset-0 rounded-full border border-[#56C0D5]/25 transition-all duration-500 group-hover:scale-110 group-hover:border-[#F0A018]/45"></div>
+                          <div className="absolute inset-2 rounded-full bg-[#F0A018]/0 blur-xl transition-all duration-500 group-hover:bg-[#F0A018]/20"></div>
+                          <div className="relative flex h-14 w-14 items-center justify-center rounded-2xl bg-[#F0A018]/10 text-[#F0A018] transition-all duration-500 group-hover:rotate-3 group-hover:bg-[#F0A018]/16">
+                            <ShieldCheck className="h-7 w-7" />
+                          </div>
+                        </div>
+                        <div>
+                          <h3 className="text-2xl font-extrabold tracking-tight text-white">{t.hero.focus1.title}</h3>
+                          <p className="mt-2 text-base leading-relaxed text-teal-100/75">{t.hero.focus1.text}</p>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div className="grid grid-cols-2 gap-4">
-                    {[
-                      { Icon: Award, data: t.hero.focus2 },
-                      { Icon: Eye, data: t.hero.focus3 },
-                      { Icon: Tag, data: t.hero.focus4 },
-                      { Icon: Store, data: t.hero.focus5 },
-                    ].map(({ Icon, data }) => (
-                      <div key={data.title} className="rounded-3xl border border-teal-800/30 bg-[#011a24]/50 p-5 group hover:border-teal-400/40 transition-colors">
-                        <Icon className="h-6 w-6 text-teal-300 mb-3" />
-                        <p className="text-sm font-bold text-white mb-1">{data.title}</p>
-                        <p className="text-xs text-teal-100/70 leading-relaxed">{data.text}</p>
-                      </div>
-                    ))}
+
+                    <div className="grid grid-cols-2 gap-5">
+                      {[
+                        { Icon: Award, data: t.hero.focus2 },
+                        { Icon: Eye, data: t.hero.focus3 },
+                        { Icon: Tag, data: t.hero.focus4 },
+                        { Icon: Store, data: t.hero.focus5 },
+                      ].map(({ Icon, data }, index) => (
+                        <div key={data.title} className="sector-node group relative min-h-[178px] overflow-hidden rounded-[1.75rem] border border-teal-800/30 bg-[#011a24]/50 p-5 text-left transition-all duration-500 hover:-translate-y-1 hover:border-[#F0A018]/40 hover:bg-[#023A4E]/68 hover:shadow-[0_18px_45px_-24px_rgba(240,160,24,0.32)]" style={{ animationDelay: `${index * 160}ms` }}>
+                          <div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#F0A018 1px, transparent 1px)', backgroundSize: '16px 16px' }}></div>
+                          <div className="relative z-10">
+                            <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#011a24]/75 text-teal-200 ring-1 ring-[#56C0D5]/20 transition-all duration-500 group-hover:text-[#F0A018] group-hover:ring-[#F0A018]/45">
+                              <Icon className="h-6 w-6 transition-transform duration-500 group-hover:scale-110" />
+                            </div>
+                            <p className="mb-2 text-base font-extrabold text-white">{data.title}</p>
+                            <p className="text-sm leading-relaxed text-teal-100/70">{data.text}</p>
+                          </div>
+                          <div className="absolute bottom-0 left-6 right-6 h-[2px] bg-gradient-to-r from-transparent via-[#F0A018]/45 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
