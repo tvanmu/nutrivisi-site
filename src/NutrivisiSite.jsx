@@ -4,7 +4,8 @@ import {
   Menu, X, ChevronRight, ArrowRight, ShieldCheck, Award, ShieldAlert,
   Tag, Wheat, Beef, UtensilsCrossed, Store, CheckCircle2,
   ClipboardCheck, Send, Eye, BookOpen, AlertTriangle,
-  FlaskConical, Recycle, Scale, Layers, Fingerprint, Globe
+  FlaskConical, Recycle, Scale, Layers, Fingerprint, Globe,
+  Radio, MapPin, ExternalLink, Clock3, BellRing
 } from 'lucide-react';
 import NutriLogo from './components/NutriLogo';
 import { getLegalPath } from './legalContent';
@@ -668,12 +669,18 @@ function SectionTitle({ eyebrow, title, description, center = false }) {
   );
 }
 
+const regulatoryStatusClasses = {
+  action: 'border-[#F0A018]/40 bg-[#F0A018]/10 text-[#F0A018]',
+  monitor: 'border-[#5CC0D5]/38 bg-[#5CC0D5]/10 text-[#5CC0D5]',
+  info: 'border-white/18 bg-white/7 text-white/78',
+};
+
 /* =====================================================================
    8. LANGUAGE DICTIONARY (NL / FR)
-   ===================================================================== */
+  ===================================================================== */
 const translations = {
   NL: {
-    nav: { tag: 'Voedselveiligheid helder gemaakt', home: 'Home', services: 'Diensten', method: 'Werkwijze', insights: 'Kennis', why: 'Waarom wij', contact: 'Contact', cta: 'Contact' },
+    nav: { tag: 'Voedselveiligheid helder gemaakt', home: 'Home', services: 'Diensten', method: 'Werkwijze', radar: 'Updates', insights: 'Kennis', why: 'Waarom wij', contact: 'Contact', cta: 'Contact' },
     hero: {
       title1: 'Veiligheid zonder', title2: 'complexiteit.',
       subtitleParts: {
@@ -736,6 +743,95 @@ const translations = {
         { icon: Fingerprint, title: 'Praktisch op de werkvloer', text: 'We werken als een externe kwaliteitscollega: meekijken, vereenvoudigen, zorgen dat het blijft werken.' },
       ],
     },
+    regulatorySection: {
+      eyebrow: 'Regelgevingsradar',
+      title: 'Belgische signalen die actie kunnen vragen',
+      description: 'Een compacte selectie van officiële updates voor voedingsbedrijven in België. Nutrivisi volgt de signalen, vertaalt de impact en maakt duidelijk welke stap logisch is.',
+      liveLabel: 'Live selectie',
+      updatedLabel: 'Laatst geactualiseerd',
+      updatedAt: '25 april 2026',
+      sourceLabel: 'Bronnenmix',
+      sourceStack: ['FAVV / AFSCA', 'Vlaanderen', 'Wallonie', 'EU voor België'],
+      contactCta: 'Vraag wat dit betekent',
+      sourceCta: 'Officiële bron',
+      sectorsLabel: 'Relevant voor',
+      impactLabels: { action: 'Actie nodig', monitor: 'Opvolgen', info: 'Ter info' },
+      filters: [
+        { id: 'all', label: 'Alles' },
+        { id: 'federal', label: 'Federaal' },
+        { id: 'flanders', label: 'Vlaanderen' },
+        { id: 'wallonia', label: 'Wallonië' },
+        { id: 'eu', label: 'EU → België' },
+      ],
+      items: [
+        {
+          region: 'federal',
+          regionLabel: 'Federaal België',
+          status: 'monitor',
+          source: 'FAVV / AFSCA',
+          date: '16 apr 2026',
+          title: 'Gerichte controleactie rond zware metalen in groenteteelten',
+          text: 'Een signaal voor telers, verwerkers en aankopers die werken met lokale groenten, risicozones of leveranciersdocumentatie.',
+          sectors: ['Producenten', 'Retail', 'Horeca'],
+          url: 'https://favv-afsca.be/nl/publications',
+        },
+        {
+          region: 'flanders',
+          regionLabel: 'Vlaanderen',
+          status: 'action',
+          source: 'Landbouw Vlaanderen',
+          date: '14 apr 2026',
+          title: 'Fiche voedselveiligheid aangepast binnen conditionaliteit',
+          text: 'Aandacht voor gewasbeschermingsmiddelen, biociden en bewijsvoering bij landbouwbedrijven en toeleveranciers.',
+          sectors: ['Primaire productie', 'Verwerking'],
+          url: 'https://lv.vlaanderen.be/bedrijfsvoering/conditionaliteit-en-randvoorwaarden/conditionaliteit-2023-2027/voedselveiligheid',
+        },
+        {
+          region: 'flanders',
+          regionLabel: 'Vlaanderen',
+          status: 'action',
+          source: 'OVAM',
+          date: '2026',
+          title: 'Keukenafval en etensresten sorteren blijft een bedrijfsverplichting',
+          text: 'Relevant voor horeca, retail en productieomgevingen waar voedselresten, retouren of vervallen producten ontstaan.',
+          sectors: ['Horeca', 'Retail', 'Productie'],
+          url: 'https://ovam.vlaanderen.be/bedrijfsafval-sorteren1',
+        },
+        {
+          region: 'wallonia',
+          regionLabel: 'Wallonië',
+          status: 'action',
+          source: 'SPW Agriculture',
+          date: '25 sep 2025',
+          title: 'ERMG 5: sécurité des denrées alimentaires',
+          text: 'Waalse PAC-conditionaliteit rond gevaarlijke levensmiddelen, diervoeders, hygiëne en traceerbare corrigerende acties.',
+          sectors: ['Landbouw', 'Vlees', 'Zuivel'],
+          url: 'https://agriculture.wallonie.be/home/aides/pac-2023-2027-description-des-interventions/conditionnalite-renforcee-nouveaute-2025/ermg-5-securite-des-denrees-alimentaires.html',
+        },
+        {
+          region: 'wallonia',
+          regionLabel: 'Wallonië',
+          status: 'monitor',
+          source: 'SPW Environnement',
+          date: 'Actueel',
+          title: 'Biodéchets: tri des restes alimentaires et invendus',
+          text: 'Voor Waalse handelszaken, horeca en voedingsbedrijven met organisch afval, vervallen producten of retourstromen.',
+          sectors: ['Horeca', 'Retail', 'Foodservice'],
+          url: 'https://environnement.wallonie.be/home/gestion-environnementale/dechets/categories-de-dechets-ressources/autres-dechets/dechets-organiques.html',
+        },
+        {
+          region: 'eu',
+          regionLabel: 'EU → België',
+          status: 'monitor',
+          source: 'RASFF',
+          date: 'Continu',
+          title: 'RASFF-alerts met Belgische relevantie',
+          text: 'Snelle signalen rond recalls, contaminanten en grensoverschrijdende risico’s, bekeken op impact voor Belgische operatoren.',
+          sectors: ['Import/export', 'Retail', 'QA'],
+          url: 'https://food.ec.europa.eu/food-safety/rasff_en',
+        },
+      ],
+    },
     insightsSection: {
       eyebrow: 'Kennisbank', title: 'Onderwerpen waar wij dagelijks mee werken',
       description: 'Een greep uit de dossiers die vaak terugkomen in ons werk met voedingsbedrijven.',
@@ -764,7 +860,7 @@ const translations = {
     footer: { tagline: 'Praktische begeleiding in voedselveiligheid en kwaliteit.', privacy: 'Privacybeleid', cookies: 'Cookies', legal: 'Juridische info' },
   },
   FR: {
-    nav: { tag: 'La sécurité alimentaire simplifiée', home: 'Accueil', services: 'Services', method: 'Méthode', insights: 'Savoir', why: 'Pourquoi nous', contact: 'Contact', cta: 'Contact' },
+    nav: { tag: 'La sécurité alimentaire simplifiée', home: 'Accueil', services: 'Services', method: 'Méthode', radar: 'Veille', insights: 'Savoir', why: 'Pourquoi nous', contact: 'Contact', cta: 'Contact' },
     hero: {
       title1: 'La sécurité sans', title2: 'complexité.',
       subtitleParts: {
@@ -827,6 +923,95 @@ const translations = {
         { icon: Fingerprint, title: 'Concret sur le terrain', text: 'Nous travaillons comme un collègue qualité externe : observer, simplifier, faire en sorte que ça tienne dans la durée.' },
       ],
     },
+    regulatorySection: {
+      eyebrow: 'Veille réglementaire',
+      title: 'Signaux belges qui peuvent demander une action',
+      description: 'Une sélection compacte de mises à jour officielles pour les entreprises alimentaires en Belgique. Nutrivisi suit les signaux, traduit l’impact et clarifie la prochaine étape.',
+      liveLabel: 'Sélection live',
+      updatedLabel: 'Dernière mise à jour',
+      updatedAt: '25 avril 2026',
+      sourceLabel: 'Sources suivies',
+      sourceStack: ['AFSCA / FAVV', 'Flandre', 'Wallonie', 'UE pour la Belgique'],
+      contactCta: 'Demander l’impact',
+      sourceCta: 'Source officielle',
+      sectorsLabel: 'Pertinent pour',
+      impactLabels: { action: 'Action requise', monitor: 'À suivre', info: 'Information' },
+      filters: [
+        { id: 'all', label: 'Tout' },
+        { id: 'federal', label: 'Fédéral' },
+        { id: 'flanders', label: 'Flandre' },
+        { id: 'wallonia', label: 'Wallonie' },
+        { id: 'eu', label: 'UE → Belgique' },
+      ],
+      items: [
+        {
+          region: 'federal',
+          regionLabel: 'Belgique fédérale',
+          status: 'monitor',
+          source: 'AFSCA / FAVV',
+          date: '16 avr. 2026',
+          title: 'Action de contrôle ciblée sur les métaux lourds dans les cultures maraîchères',
+          text: 'Un signal pour les producteurs, transformateurs et acheteurs travaillant avec des légumes locaux, des zones à risque ou des preuves fournisseurs.',
+          sectors: ['Producteurs', 'Retail', 'Horeca'],
+          url: 'https://favv-afsca.be/fr/publications',
+        },
+        {
+          region: 'flanders',
+          regionLabel: 'Flandre',
+          status: 'action',
+          source: 'Landbouw Vlaanderen',
+          date: '14 avr. 2026',
+          title: 'Fiche sécurité alimentaire modifiée dans la conditionnalité',
+          text: 'Point d’attention sur les produits phytopharmaceutiques, biocides et preuves documentaires chez les exploitations et fournisseurs.',
+          sectors: ['Production primaire', 'Transformation'],
+          url: 'https://lv.vlaanderen.be/bedrijfsvoering/conditionaliteit-en-randvoorwaarden/conditionaliteit-2023-2027/voedselveiligheid',
+        },
+        {
+          region: 'flanders',
+          regionLabel: 'Flandre',
+          status: 'action',
+          source: 'OVAM',
+          date: '2026',
+          title: 'Tri des déchets de cuisine et restes alimentaires en entreprise',
+          text: 'Pertinent pour horeca, retail et production lorsque des restes alimentaires, retours ou produits périmés apparaissent.',
+          sectors: ['Horeca', 'Retail', 'Production'],
+          url: 'https://ovam.vlaanderen.be/bedrijfsafval-sorteren1',
+        },
+        {
+          region: 'wallonia',
+          regionLabel: 'Wallonie',
+          status: 'action',
+          source: 'SPW Agriculture',
+          date: '25 sept. 2025',
+          title: 'ERMG 5: sécurité des denrées alimentaires',
+          text: 'Conditionnalité PAC en Wallonie autour des denrées dangereuses, aliments pour animaux, hygiène et actions correctives traçables.',
+          sectors: ['Agriculture', 'Viande', 'Lait'],
+          url: 'https://agriculture.wallonie.be/home/aides/pac-2023-2027-description-des-interventions/conditionnalite-renforcee-nouveaute-2025/ermg-5-securite-des-denrees-alimentaires.html',
+        },
+        {
+          region: 'wallonia',
+          regionLabel: 'Wallonie',
+          status: 'monitor',
+          source: 'SPW Environnement',
+          date: 'Actuel',
+          title: 'Biodéchets: tri des restes alimentaires et invendus',
+          text: 'Pour commerces, horeca et entreprises alimentaires wallonnes avec déchets organiques, produits périmés ou flux de retour.',
+          sectors: ['Horeca', 'Retail', 'Foodservice'],
+          url: 'https://environnement.wallonie.be/home/gestion-environnementale/dechets/categories-de-dechets-ressources/autres-dechets/dechets-organiques.html',
+        },
+        {
+          region: 'eu',
+          regionLabel: 'UE → Belgique',
+          status: 'monitor',
+          source: 'RASFF',
+          date: 'Continu',
+          title: 'Alertes RASFF pertinentes pour la Belgique',
+          text: 'Signaux rapides sur rappels, contaminants et risques transfrontaliers, évalués sous l’angle des opérateurs belges.',
+          sectors: ['Import/export', 'Retail', 'QA'],
+          url: 'https://food.ec.europa.eu/food-safety/rasff_en',
+        },
+      ],
+    },
     insightsSection: {
       eyebrow: 'Base de connaissances', title: 'Les sujets sur lesquels nous travaillons au quotidien',
       description: 'Un aperçu des dossiers récurrents dans notre travail avec les entreprises agroalimentaires.',
@@ -868,6 +1053,7 @@ export default function NutrivisiSite({ lang = 'NL' }) {
   const [scrolled, setScrolled] = useState(false);
   const [scrollRotation, setScrollRotation] = useState(0);
   const [activeServiceId, setActiveServiceId] = useState('expertadvies');
+  const [activeRegulatoryFilter, setActiveRegulatoryFilter] = useState('all');
   const [formData, setFormData] = useState({ name: '', company: '', email: '', message: '' });
 
   const currentNavItems = [
@@ -875,6 +1061,7 @@ export default function NutrivisiSite({ lang = 'NL' }) {
     { label: t.nav.services, href: '#diensten' },
     { label: t.nav.method, href: '#werkwijze' },
     { label: t.nav.why, href: '#waarom' },
+    { label: t.nav.radar, href: '#radar' },
     { label: t.nav.insights, href: '#kennis' },
     { label: t.nav.contact, href: '#contact' },
   ];
@@ -897,6 +1084,11 @@ export default function NutrivisiSite({ lang = 'NL' }) {
   })), [t]);
 
   const currentMethodSteps = useMemo(() => t.methodSection.items, [t]);
+  const currentRegulatoryItems = useMemo(() => (
+    activeRegulatoryFilter === 'all'
+      ? t.regulatorySection.items
+      : t.regulatorySection.items.filter((item) => item.region === activeRegulatoryFilter)
+  ), [activeRegulatoryFilter, t]);
 
   const activeService = useMemo(
     () => currentServices.find((service) => service.id === activeServiceId) ?? currentServices[0],
@@ -1537,6 +1729,163 @@ export default function NutrivisiSite({ lang = 'NL' }) {
                   </FadeInSection>
                 );
               })}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== REGELGEVINGSRADAR / VEILLE ===== */}
+      <section id="radar" className="relative overflow-hidden border-t border-teal-900/30 bg-[#023A4E] py-24 md:py-32">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_16%_20%,rgba(240,160,24,0.1),transparent_30%),radial-gradient(circle_at_78%_18%,rgba(92,192,213,0.13),transparent_31%),linear-gradient(180deg,rgba(2,58,78,0.92)_0%,rgba(1,80,110,0.96)_52%,rgba(2,58,78,0.9)_100%)]"></div>
+          <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: 'linear-gradient(rgba(92,192,213,0.42) 1px, transparent 1px), linear-gradient(90deg, rgba(92,192,213,0.42) 1px, transparent 1px)', backgroundSize: '66px 66px' }}></div>
+          <div className="absolute left-1/2 top-20 h-72 w-[940px] -translate-x-1/2 rounded-full bg-[#5CC0D5]/8 blur-[135px]"></div>
+          <svg className="absolute inset-x-0 top-0 hidden h-[760px] w-full opacity-75 lg:block" viewBox="0 0 1440 760" fill="none" aria-hidden="true">
+            <path d="M-40 478 C170 310 306 456 482 306 S794 102 1022 222 S1228 450 1488 252" stroke="#5CC0D5" strokeOpacity="0.13" strokeWidth="1.2" />
+            <path className="knowledge-trace-line" d="M-40 478 C170 310 306 456 482 306 S794 102 1022 222 S1228 450 1488 252" stroke="#F0A018" strokeWidth="2" strokeLinecap="round" strokeDasharray="118 1320" />
+            <path d="M50 228 C254 130 395 268 610 190 S912 50 1128 154 S1318 322 1468 238" stroke="#5CC0D5" strokeOpacity="0.1" strokeWidth="1" />
+            <circle className="knowledge-orbit-a" cx="1030" cy="225" r="148" stroke="#5CC0D5" strokeOpacity="0.1" />
+            <circle className="knowledge-orbit-b" cx="1030" cy="225" r="78" stroke="#F0A018" strokeOpacity="0.12" strokeDasharray="5 14" />
+            <circle className="knowledge-node" cx="482" cy="306" r="5" fill="#F0A018" opacity="0.72" />
+            <circle className="knowledge-node" cx="1022" cy="222" r="5" fill="#5CC0D5" opacity="0.75" style={{ animationDelay: '1.3s' }} />
+          </svg>
+        </div>
+
+        <div className="relative z-10 mx-auto max-w-[88rem] px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
+            <FadeInSection>
+              <div className="lg:sticky lg:top-28">
+                <div className="mb-5 inline-flex items-center gap-2 border-b border-[#F0A018]/35 pb-2 text-xs font-extrabold uppercase tracking-[0.24em] text-[#F0A018]">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#F0A018]"></span>
+                  {t.regulatorySection.eyebrow}
+                </div>
+                <h2 className="max-w-4xl text-4xl font-extrabold leading-[1.04] tracking-tight text-white md:text-5xl lg:text-6xl">
+                  {t.regulatorySection.title.split(' ').map((word, i, arr) =>
+                    i >= arr.length - 3
+                      ? <span key={i} className="text-[#F0A018]">{word} </span>
+                      : <span key={i}>{word} </span>
+                  )}
+                </h2>
+                <p className="mt-7 max-w-2xl text-lg font-semibold leading-relaxed text-teal-100/76">
+                  {t.regulatorySection.description}
+                </p>
+
+                <div className="mt-9 grid gap-3 sm:grid-cols-2 lg:max-w-xl">
+                  <div className="relative overflow-hidden rounded-[1.5rem] border border-[#5CC0D5]/22 bg-[#011a24]/34 p-5">
+                    <div className="absolute right-4 top-4 h-14 w-14 rounded-full bg-[#5CC0D5]/10 blur-2xl"></div>
+                    <div className="relative flex items-center gap-4">
+                      <div className="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[#F0A018]/35 bg-[#F0A018]/8 text-[#F0A018]">
+                        <span className="absolute h-4 w-4 rounded-full bg-[#F0A018]/25 animate-ping"></span>
+                        <Radio className="relative h-6 w-6" />
+                      </div>
+                      <div>
+                        <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-[#F0A018]">{t.regulatorySection.liveLabel}</p>
+                        <p className="mt-1 text-sm font-semibold text-teal-100/72">{t.regulatorySection.updatedLabel}: {t.regulatorySection.updatedAt}</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="relative overflow-hidden rounded-[1.5rem] border border-[#5CC0D5]/22 bg-[#011a24]/34 p-5">
+                    <div className="absolute -right-8 -top-8 h-28 w-28 rounded-full bg-[#F0A018]/8 blur-3xl"></div>
+                    <div className="relative">
+                      <div className="mb-3 flex items-center gap-2 text-xs font-extrabold uppercase tracking-[0.18em] text-[#5CC0D5]">
+                        <BellRing className="h-4 w-4" />
+                        {t.regulatorySection.sourceLabel}
+                      </div>
+                      <div className="flex flex-wrap gap-2">
+                        {t.regulatorySection.sourceStack.map((source) => (
+                          <span key={source} className="rounded-full border border-[#5CC0D5]/18 bg-[#023A4E]/48 px-3 py-1 text-xs font-bold text-teal-100/78">
+                            {source}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <button onClick={() => scrollToSection('contact')} className="group interactive-card mt-8 inline-flex items-center gap-3 rounded-full border border-[#F0A018]/35 bg-[#F0A018]/8 px-6 py-3.5 text-sm font-extrabold uppercase tracking-[0.16em] text-[#F0A018] transition-all duration-500 hover:border-[#F0A018] hover:bg-[#F0A018] hover:text-[#012330]">
+                  <span>{t.regulatorySection.contactCta}</span>
+                  <ArrowRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-1" />
+                </button>
+              </div>
+            </FadeInSection>
+
+            <div>
+              <FadeInSection delay={100}>
+                <div className="flex flex-wrap gap-2">
+                  {t.regulatorySection.filters.map((filter) => {
+                    const isActive = activeRegulatoryFilter === filter.id;
+                    return (
+                      <button
+                        key={filter.id}
+                        onClick={() => setActiveRegulatoryFilter(filter.id)}
+                        className={`interactive-card rounded-full border px-4 py-2 text-xs font-extrabold uppercase tracking-[0.16em] transition-all duration-300 ${isActive ? 'border-[#F0A018]/70 bg-[#F0A018] text-[#012330]' : 'border-[#5CC0D5]/18 bg-[#011a24]/28 text-teal-100/66 hover:border-[#5CC0D5]/45 hover:text-white'}`}
+                      >
+                        {filter.label}
+                      </button>
+                    );
+                  })}
+                </div>
+              </FadeInSection>
+
+              <div className="mt-7 space-y-4">
+                {currentRegulatoryItems.map((item, index) => (
+                  <FadeInSection key={`${item.region}-${item.title}`} delay={(index % 3) * 90}>
+                    <article className="group relative overflow-hidden rounded-[2rem] border border-[#5CC0D5]/14 bg-[#011a24]/38 p-5 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:border-[#F0A018]/34 hover:bg-[#023A4E]/42 hover:shadow-[0_26px_78px_-50px_rgba(240,160,24,0.62)] md:p-6">
+                      <div className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-[#F0A018]/0 to-transparent transition-all duration-500 group-hover:via-[#F0A018]/52"></div>
+                      <div className="absolute -right-16 -top-16 h-44 w-44 rounded-full bg-[#5CC0D5]/0 blur-[80px] transition-all duration-500 group-hover:bg-[#5CC0D5]/11"></div>
+                      <div className="absolute -bottom-16 left-8 h-40 w-40 rounded-full bg-[#F0A018]/0 blur-[82px] transition-all duration-500 group-hover:bg-[#F0A018]/7"></div>
+
+                      <div className="relative">
+                        <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                          <div className="flex flex-wrap gap-2">
+                            <span className="inline-flex items-center gap-2 rounded-full border border-[#5CC0D5]/20 bg-[#023A4E]/50 px-3 py-1.5 text-xs font-extrabold uppercase tracking-[0.14em] text-teal-100/78">
+                              <MapPin className="h-3.5 w-3.5 text-[#5CC0D5]" />
+                              {item.regionLabel}
+                            </span>
+                            <span className={`inline-flex items-center rounded-full border px-3 py-1.5 text-xs font-extrabold uppercase tracking-[0.14em] ${regulatoryStatusClasses[item.status]}`}>
+                              {t.regulatorySection.impactLabels[item.status]}
+                            </span>
+                          </div>
+                          <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-teal-100/54">
+                            <Clock3 className="h-3.5 w-3.5 text-[#F0A018]/80" />
+                            {item.date}
+                          </div>
+                        </div>
+
+                        <h3 className="mt-5 max-w-3xl text-2xl font-extrabold leading-tight tracking-tight text-white md:text-3xl">{item.title}</h3>
+                        <p className="mt-4 max-w-3xl text-base font-medium leading-relaxed text-teal-100/74">{item.text}</p>
+
+                        <div className="mt-5">
+                          <p className="mb-2 text-[0.68rem] font-extrabold uppercase tracking-[0.18em] text-[#5CC0D5]/78">{t.regulatorySection.sectorsLabel}</p>
+                          <div className="flex flex-wrap gap-2">
+                            {item.sectors.map((sector) => (
+                              <span key={sector} className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs font-semibold text-teal-100/70">
+                                {sector}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+
+                        <div className="mt-6 flex flex-col gap-4 border-t border-[#5CC0D5]/14 pt-5 sm:flex-row sm:items-center sm:justify-between">
+                          <div className="text-sm font-semibold text-teal-100/62">
+                            <span className="text-[#F0A018]">{item.source}</span>
+                          </div>
+                          <div className="flex flex-wrap gap-3">
+                            <button onClick={() => scrollToSection('contact')} className="interactive-card inline-flex items-center gap-2 rounded-full border border-[#F0A018]/30 bg-transparent px-4 py-2 text-xs font-extrabold uppercase tracking-[0.14em] text-[#F0A018] transition hover:border-[#F0A018] hover:bg-[#F0A018] hover:text-[#012330]">
+                              {t.regulatorySection.contactCta}
+                            </button>
+                            <a href={item.url} target="_blank" rel="noreferrer" className="interactive-card inline-flex items-center gap-2 rounded-full border border-[#5CC0D5]/24 bg-[#023A4E]/42 px-4 py-2 text-xs font-extrabold uppercase tracking-[0.14em] text-[#5CC0D5] transition hover:border-[#5CC0D5] hover:bg-[#5CC0D5] hover:text-[#012330]">
+                              {t.regulatorySection.sourceCta}
+                              <ExternalLink className="h-3.5 w-3.5" />
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </article>
+                  </FadeInSection>
+                ))}
+              </div>
             </div>
           </div>
         </div>
