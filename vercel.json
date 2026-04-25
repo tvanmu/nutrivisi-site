@@ -33,6 +33,7 @@
     }
   ],
   "redirects": [
+    { "source": "/", "has": [{ "type": "host", "value": "www.nutrivisi.be" }], "destination": "https://nutrivisi.be", "permanent": true },
     { "source": "/:path*", "has": [{ "type": "host", "value": "www.nutrivisi.be" }], "destination": "https://nutrivisi.be/:path*", "permanent": true },
     { "source": "/en",        "destination": "/nl", "permanent": true },
     { "source": "/en/:path*", "destination": "/nl", "permanent": true }

@@ -1875,7 +1875,7 @@ export default function NutrivisiSite({ lang = 'NL' }) {
                             <button onClick={() => scrollToSection('contact')} className="interactive-card inline-flex items-center gap-2 rounded-full border border-[#F0A018]/30 bg-transparent px-4 py-2 text-xs font-extrabold uppercase tracking-[0.14em] text-[#F0A018] transition hover:border-[#F0A018] hover:bg-[#F0A018] hover:text-[#012330]">
                               {t.regulatorySection.contactCta}
                             </button>
-                            <a href={item.url} target="_blank" rel="noreferrer" className="interactive-card inline-flex items-center gap-2 rounded-full border border-[#5CC0D5]/24 bg-[#023A4E]/42 px-4 py-2 text-xs font-extrabold uppercase tracking-[0.14em] text-[#5CC0D5] transition hover:border-[#5CC0D5] hover:bg-[#5CC0D5] hover:text-[#012330]">
+                            <a href={item.url} target="_blank" rel="noopener noreferrer" className="interactive-card inline-flex items-center gap-2 rounded-full border border-[#5CC0D5]/24 bg-[#023A4E]/42 px-4 py-2 text-xs font-extrabold uppercase tracking-[0.14em] text-[#5CC0D5] transition hover:border-[#5CC0D5] hover:bg-[#5CC0D5] hover:text-[#012330]">
                               {t.regulatorySection.sourceCta}
                               <ExternalLink className="h-3.5 w-3.5" />
                             </a>
@@ -2054,7 +2054,7 @@ export default function NutrivisiSite({ lang = 'NL' }) {
                   <a
                     href="https://www.google.com/maps/dir/?api=1&destination=Martelarenlaan+69,+3010+Leuven,+Belgium"
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                     className="group interactive-card selectable block"
                   >
                     <div className="relative overflow-hidden rounded-[1.75rem] border border-[#5CC0D5]/16 bg-[#023A4E]/22 p-5 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:border-[#5CC0D5]/42 hover:bg-[#023A4E]/34 hover:shadow-[0_24px_70px_-44px_rgba(92,192,213,0.8)]">
