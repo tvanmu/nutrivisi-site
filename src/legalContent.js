@@ -54,8 +54,7 @@ const companyFacts = {
   vat: 'BE 0638 418 663',
   address: 'Martelarenlaan 69/1, 3010 Leuven, Belgium',
   email: 'info@nutrivisi.be',
-  secondaryEmail: 'marc@nutrivisi.be',
-  emailDisplay: 'info@nutrivisi.be · marc@nutrivisi.be',
+  emailDisplay: 'info@nutrivisi.be',
   phone: '+32 16 19 69 84',
   domainProvider: 'Combell nv, Skaldenstraat 121, 9042 Gent, Belgium',
   websiteHost: 'Vercel Inc., 440 N Barranca Avenue #4133, Covina, CA 91723, United States',
@@ -121,7 +120,7 @@ export const LEGAL_PAGE_CONTENT = {
           title: '1. Wie verwerkt uw gegevens?',
           paragraphs: [
             `${companyFacts.brand} is de merknaam van ${companyFacts.company}, met maatschappelijke zetel te ${companyFacts.address}.`,
-            `Voor vragen over dit beleid of over de verwerking van uw persoonsgegevens kunt u contact opnemen via ${companyFacts.email} of ${companyFacts.secondaryEmail}.`,
+            `Voor vragen over dit beleid of over de verwerking van uw persoonsgegevens kunt u contact opnemen via ${companyFacts.email}.`,
           ],
         },
         {
@@ -258,7 +257,6 @@ export const LEGAL_PAGE_CONTENT = {
           title: '2. Contact',
           bullets: [
             `E-mail: ${companyFacts.email}`,
-            `E-mail: ${companyFacts.secondaryEmail}`,
             `Telefoon: ${companyFacts.phone}`,
             `Adres: ${companyFacts.address}`,
           ],
@@ -314,7 +312,7 @@ export const LEGAL_PAGE_CONTENT = {
           title: '1. Qui traite vos données ?',
           paragraphs: [
             `${companyFacts.brand} est la marque commerciale de ${companyFacts.company}, dont le siège est établi à ${companyFacts.address}.`,
-            `Pour toute question relative à cette politique ou au traitement de vos données, vous pouvez écrire à ${companyFacts.email} ou à ${companyFacts.secondaryEmail}.`,
+            `Pour toute question relative à cette politique ou au traitement de vos données, vous pouvez écrire à ${companyFacts.email}.`,
           ],
         },
         {
@@ -451,7 +449,6 @@ export const LEGAL_PAGE_CONTENT = {
           title: '2. Contact',
           bullets: [
             `E-mail : ${companyFacts.email}`,
-            `E-mail : ${companyFacts.secondaryEmail}`,
             `Téléphone : ${companyFacts.phone}`,
             `Adresse : ${companyFacts.address}`,
           ],

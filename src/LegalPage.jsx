@@ -234,7 +234,7 @@ export default function LegalPage({ lang = 'NL', pageKey }) {
                 </a>
               </div>
               <p className="mt-4 text-sm leading-7 text-teal-50/70">
-                {companyFacts.email} · {companyFacts.secondaryEmail}
+                {companyFacts.email}
               </p>
             </div>
 
@@ -270,5 +270,4 @@ const companyFacts = {
   vat: 'BE 0638 418 663',
   address: 'Martelarenlaan 69/1, 3010 Leuven, Belgium',
   email: 'info@nutrivisi.be',
-  secondaryEmail: 'marc@nutrivisi.be',
 };
