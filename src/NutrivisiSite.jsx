@@ -684,7 +684,7 @@ const regulatoryStatusClasses = {
   ===================================================================== */
 const translations = {
   NL: {
-    nav: { tag: 'Voedselveiligheid helder gemaakt', home: 'Home', services: 'Diensten', method: 'Werkwijze', radar: 'Updates', insights: 'Kennis', why: 'Waarom wij', contact: 'Contact', cta: 'Contact' },
+    nav: { tag: 'Voedselveiligheid helder gemaakt', home: 'Home', services: 'Diensten', method: 'Werkwijze', radar: 'Updates', insights: 'Kennis', why: 'Waarom we', contact: 'Contact', cta: 'Contact' },
     hero: {
       title1: 'Veiligheid zonder', title2: 'complexiteit.',
       subtitleParts: {
@@ -724,7 +724,7 @@ const translations = {
       discuss: 'Bespreek deze dienst',
       items: [
         { id: 'expertadvies', title: 'Expertadvies', description: 'Gericht advies over voedselveiligheid, kwaliteitssystemen en wettelijke vereisten, afgestemd op uw sector en uw concrete situatie.', bullets: ['Praktisch en sectorspecifiek', 'Heldere prioriteiten', 'Snel inzetbaar'], visualCaption: 'Advies geordend in lagen: wet, risico, werkvloer.' },
-        { id: 'coaching', title: 'Coaching en training', description: 'Wij maken voedselveiligheid begrijpelijk voor management en medewerkers, met visuele hulpmiddelen die op de werkvloer blijven hangen.', bullets: ['Food Safety Culture', 'Visuele instructies', 'Draagvlak in het team'], visualCaption: 'Voorbeeld van een visuele instructiekaart.' },
+        { id: 'coaching', title: 'Coaching en training', description: 'We maken voedselveiligheid begrijpelijk voor management en medewerkers, met visuele hulpmiddelen die op de werkvloer blijven hangen.', bullets: ['Food Safety Culture', 'Visuele instructies', 'Draagvlak in het team'], visualCaption: 'Voorbeeld van een visuele instructiekaart.' },
         { id: 'certificatie', title: 'Certificatiebegeleiding', description: 'Begeleiding bij de opbouw, verbetering en borging van kwaliteitssystemen, tot en met auditvoorbereiding en certificatie.', bullets: ['Autocontrolegidsen', 'GFSI-trajecten', 'Auditvoorbereiding'], visualCaption: 'Traject van document-review tot certificering.' },
         { id: 'risico', title: 'Risicobeheersing', description: 'Ondersteuning bij risicoanalyse, voedselverdediging, voedselfraude, incidenten en corrigerende acties.', bullets: ['Preventie en opvolging', 'Interne en externe risico\'s', 'Concreet actieplan'], visualCaption: 'Risicomatrix met focus op kritieke punten.' },
         { id: 'etikettering', title: 'Etikettering en specificaties', description: 'Opmaak en controle van productlabels en productspecificaties volgens Belgische en Europese wetgeving.', bullets: ['Wettelijke controle', 'Vertaling en lay-out', 'Minder risico op fouten'], visualCaption: 'Gecontroleerd label met allergen-, batch- en datumcheck.' },
@@ -815,7 +815,7 @@ const translations = {
       ],
     },
     insightsSection: {
-      eyebrow: 'Kennisbank', title: 'Onderwerpen waar wij dagelijks mee werken',
+      eyebrow: 'Kennisbank', title: 'Onderwerpen waar we dagelijks mee werken',
       description: 'Een greep uit de dossiers die vaak terugkomen in ons werk met voedingsbedrijven.',
       readMore: 'Meer info',
       items: [

@@ -124,7 +124,7 @@ export const LEGAL_PAGE_CONTENT = {
           ],
         },
         {
-          title: '2. Welke gegevens kunnen wij verwerken?',
+          title: '2. Welke gegevens kunnen we verwerken?',
           bullets: [
             'Identificatie- en contactgegevens die u zelf meedeelt, zoals naam, bedrijfsnaam, e-mailadres, telefoonnummer en de inhoud van uw bericht.',
             'Gegevens die verband houden met een mogelijke samenwerking, offerteaanvraag of dossieropvolging.',
@@ -132,7 +132,7 @@ export const LEGAL_PAGE_CONTENT = {
           ],
         },
         {
-          title: '3. Waarom verwerken wij die gegevens en op welke rechtsgrond?',
+          title: '3. Waarom verwerken we die gegevens en op welke rechtsgrond?',
           bullets: [
             'Om uw vraag te beantwoorden, een kennismaking voor te bereiden of stappen te zetten op uw verzoek voorafgaand aan een mogelijke overeenkomst.',
             'Om zakelijke communicatie en dossieropvolging correct te organiseren op basis van ons gerechtvaardigd belang om aanvragen professioneel te beheren.',
@@ -151,7 +151,7 @@ export const LEGAL_PAGE_CONTENT = {
         {
           title: '5. Bewaartermijnen',
           paragraphs: [
-            'Wij bewaren persoonsgegevens niet langer dan nodig. Contactaanvragen en bijhorende correspondentie worden in beginsel uiterlijk 24 maanden na het laatste zinvolle contact verwijderd of herbekeken, tenzij een langere bewaartermijn wettelijk vereist is of nodig is voor de instelling, uitoefening of verdediging van rechtsvorderingen.',
+            'We bewaren persoonsgegevens niet langer dan nodig. Contactaanvragen en bijhorende correspondentie worden in beginsel uiterlijk 24 maanden na het laatste zinvolle contact verwijderd of herbekeken, tenzij een langere bewaartermijn wettelijk vereist is of nodig is voor de instelling, uitoefening of verdediging van rechtsvorderingen.',
             'Technische logs en beveiligingsinformatie worden enkel bewaard zolang dat nodig is voor veiligheid, foutopsporing en infrastructuurbeheer, rekening houdend met de standaardinstellingen van de betrokken hostingproviders.',
           ],
         },
@@ -204,7 +204,7 @@ export const LEGAL_PAGE_CONTENT = {
           title: '2. Wat gebruikt deze website vandaag?',
           paragraphs: [
             'Op basis van de huidige configuratie gebruikt nutrivisi.be geen opzettelijke analysecookies, advertentiecookies of trackingcookies voor marketingdoeleinden.',
-            'Daarom tonen wij op dit moment geen uitgebreide cookiebanner. Als later niet-essentiële cookies of vergelijkbare trackingtechnologieën worden toegevoegd, passen wij dit beleid aan en voorzien wij voorafgaand een passend toestemmingsmechanisme.',
+            'Daarom tonen we op dit moment geen uitgebreide cookiebanner. Als later niet-essentiële cookies of vergelijkbare trackingtechnologieën worden toegevoegd, passen we dit beleid aan en voorzien we voorafgaand een passend toestemmingsmechanisme.',
           ],
         },
         {
