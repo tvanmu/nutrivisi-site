@@ -26,19 +26,19 @@ h3, p, span, li, input, textarea, label, a, .selectable, .selectable * { user-se
 
 @keyframes shuttle { 0% { left: 35%; opacity: 0.5; } 50% { left: 65%; opacity: 1; } 100% { left: 35%; opacity: 0.5; } }
 @keyframes gradient { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-@keyframes breathe { 0%, 100% { opacity: 0.1; transform: scale(1) translate(-50%, -50%); filter: blur(140px); } 50% { opacity: 0.25; transform: scale(1.15) translate(-50%, -50%); filter: blur(100px); } }
+@keyframes breathe { 0%, 100% { opacity: 0.14; transform: scale(1) translate(-50%, -50%); filter: blur(140px); } 50% { opacity: 0.32; transform: scale(1.15) translate(-50%, -50%); filter: blur(100px); } }
 @keyframes drift-slow { 0%, 100% { transform: translate(-50%, -50%) translate(0, 0); } 50% { transform: translate(-50%, -50%) translate(50px, -30px); } }
-@keyframes float-stream { 0% { transform: translateY(100vh); opacity: 0; } 20% { opacity: 0.15; } 80% { opacity: 0.15; } 100% { transform: translateY(-100px); opacity: 0; } }
+@keyframes float-stream { 0% { transform: translateY(100vh); opacity: 0; } 20% { opacity: 0.24; } 80% { opacity: 0.24; } 100% { transform: translateY(-100px); opacity: 0; } }
 @keyframes blockReveal { 0% { opacity: 0; transform: translateY(15px); filter: blur(8px); } 100% { opacity: 1; transform: translateY(0); filter: blur(0px); } }
 @keyframes flowLight { from { stroke-dashoffset: 1040; } to { stroke-dashoffset: 0; } }
-@keyframes sectorGlow { 0% { opacity: 0; transform: translateY(10px); text-shadow: 0 0 0 rgba(86,192,213,0); } 55% { opacity: 1; text-shadow: 0 0 28px rgba(86,192,213,0.4), 0 0 42px rgba(240,160,24,0.18); } 100% { opacity: 1; transform: translateY(0); text-shadow: 0 0 16px rgba(86,192,213,0.24); } }
+@keyframes sectorGlow { 0% { opacity: 0; transform: translateY(10px); text-shadow: 0 0 0 rgba(86,192,213,0); } 55% { opacity: 1; text-shadow: 0 0 30px rgba(86,192,213,0.52), 0 0 46px rgba(240,160,24,0.26); } 100% { opacity: 1; transform: translateY(0); text-shadow: 0 0 18px rgba(86,192,213,0.32); } }
 @keyframes sectorTrace { from { stroke-dashoffset: 1270; } to { stroke-dashoffset: 0; } }
-@keyframes sectorPulse { 0%, 100% { opacity: 0.15; transform: scale(0.75); transform-origin: center; } 50% { opacity: 0.55; transform: scale(1.25); transform-origin: center; } }
+@keyframes sectorPulse { 0%, 100% { opacity: 0.22; transform: scale(0.75); transform-origin: center; } 50% { opacity: 0.72; transform: scale(1.25); transform-origin: center; } }
 @keyframes sectorFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
 @keyframes serviceCopyReveal { 0% { opacity: 0; transform: translateY(16px); filter: blur(10px); } 100% { opacity: 1; transform: translateY(0); filter: blur(0); } }
 @keyframes serviceVisualReveal { 0% { opacity: 0; transform: scale(0.94) translateY(10px); filter: blur(10px); } 100% { opacity: 1; transform: scale(1) translateY(0); filter: blur(0); } }
 @keyframes methodOrderDash { from { stroke-dashoffset: 1100; } to { stroke-dashoffset: 0; } }
-@keyframes methodArrowPulse { 0%, 100% { opacity: 0.46; } 50% { opacity: 0.7; } }
+@keyframes methodArrowPulse { 0%, 100% { opacity: 0.58; } 50% { opacity: 0.86; } }
 @keyframes methodChipRadiate { 0%, 100% { transform: translate(-50%, -50%) scale(0.82); opacity: 0.55; } 50% { transform: translate(-50%, -50%) scale(1.18); opacity: 1; } }
 @keyframes whyCurrent { from { stroke-dashoffset: 872; } to { stroke-dashoffset: 0; } }
 @keyframes whyOrbitA { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
@@ -47,11 +47,11 @@ h3, p, span, li, input, textarea, label, a, .selectable, .selectable * { user-se
 @keyframes knowledgeTrace { from { stroke-dashoffset: 1440; } to { stroke-dashoffset: 0; } }
 @keyframes knowledgeOrbitA { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 @keyframes knowledgeOrbitB { from { transform: rotate(360deg); } to { transform: rotate(0deg); } }
-@keyframes knowledgeNodePulse { 0%, 100% { transform: scale(0.82); opacity: 0.42; } 50% { transform: scale(1.22); opacity: 0.9; } }
+@keyframes knowledgeNodePulse { 0%, 100% { transform: scale(0.82); opacity: 0.52; } 50% { transform: scale(1.22); opacity: 1; } }
 @keyframes contactFlowTrace { from { stroke-dashoffset: 1440; } to { stroke-dashoffset: 0; } }
 @keyframes contactRingA { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 @keyframes contactRingB { from { transform: rotate(360deg); } to { transform: rotate(0deg); } }
-@keyframes contactNodePulse { 0%, 100% { transform: scale(0.82); opacity: 0.42; } 50% { transform: scale(1.24); opacity: 0.96; } }
+@keyframes contactNodePulse { 0%, 100% { transform: scale(0.82); opacity: 0.52; } 50% { transform: scale(1.24); opacity: 1; } }
 @keyframes contactPanelTrace { from { stroke-dashoffset: 820; } to { stroke-dashoffset: 0; } }
 @keyframes labelScan { 0%, 100% { transform: translateY(-80px); opacity: 0; } 10% { opacity: 0.8; } 50% { opacity: 0.8; } 90% { opacity: 0; } }
 
@@ -60,27 +60,27 @@ h3, p, span, li, input, textarea, label, a, .selectable, .selectable * { user-se
 .animate-float-stream { animation: float-stream linear infinite; }
 .animate-gradient { animation: gradient 6s ease infinite; }
 .sector-eyebrow-glow { animation: sectorGlow 1.2s ease-out both; }
-.sector-trace-line { animation: sectorTrace 7s linear infinite; }
+.sector-trace-line { animation: sectorTrace 7s linear infinite; filter: drop-shadow(0 0 8px rgba(240,160,24,0.24)); }
 .sector-orbit-pulse { animation: sectorPulse 2.8s ease-in-out infinite; }
 .sector-node { animation: sectorFloat 6s ease-in-out infinite; }
 .service-copy-reveal { animation: serviceCopyReveal 0.72s ease-out both; }
 .service-visual-reveal { animation: serviceVisualReveal 0.85s ease-out both; }
-.method-order-dash { animation: methodOrderDash 6.4s linear infinite; }
+.method-order-dash { animation: methodOrderDash 6.4s linear infinite; filter: drop-shadow(0 0 7px rgba(240,160,24,0.22)); }
 .method-arrow-head { animation: methodArrowPulse 1.8s ease-in-out infinite; }
 .method-chip-radiate { animation: methodChipRadiate 3.4s ease-in-out infinite; }
-.why-current-line { animation: whyCurrent 8.5s linear infinite; opacity: 0.34; }
+.why-current-line { animation: whyCurrent 8.5s linear infinite; opacity: 0.46; filter: drop-shadow(0 0 7px rgba(92,192,213,0.24)); }
 .why-orbit-a { animation: whyOrbitA 26s linear infinite; transform-origin: 260px 250px; }
 .why-orbit-b { animation: whyOrbitB 18s linear infinite; transform-origin: 260px 250px; }
 .why-proof-chip { animation: whyProofGlow 4.2s ease-in-out infinite; }
-.knowledge-trace-line { animation: knowledgeTrace 10s linear infinite; opacity: 0.34; }
+.knowledge-trace-line { animation: knowledgeTrace 10s linear infinite; opacity: 0.47; filter: drop-shadow(0 0 7px rgba(92,192,213,0.22)); }
 .knowledge-orbit-a { animation: knowledgeOrbitA 28s linear infinite; transform-origin: 1080px 210px; }
 .knowledge-orbit-b { animation: knowledgeOrbitB 20s linear infinite; transform-origin: 1080px 210px; }
 .knowledge-node { animation: knowledgeNodePulse 3.4s ease-in-out infinite; transform-origin: center; }
-.contact-flow-line { animation: contactFlowTrace 10.5s linear infinite; opacity: 0.32; }
+.contact-flow-line { animation: contactFlowTrace 10.5s linear infinite; opacity: 0.45; filter: drop-shadow(0 0 8px rgba(92,192,213,0.22)); }
 .contact-flow-ring-a { animation: contactRingA 30s linear infinite; transform-origin: 1040px 260px; }
 .contact-flow-ring-b { animation: contactRingB 21s linear infinite; transform-origin: 1040px 260px; }
 .contact-flow-node { animation: contactNodePulse 3.6s ease-in-out infinite; transform-origin: center; }
-.contact-panel-line { animation: contactPanelTrace 7.5s linear infinite; opacity: 0.3; }
+.contact-panel-line { animation: contactPanelTrace 7.5s linear infinite; opacity: 0.44; filter: drop-shadow(0 0 7px rgba(92,192,213,0.22)); }
 
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }

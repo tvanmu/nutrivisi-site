@@ -100,7 +100,7 @@ const ParticleField = () => (
     {heroParticles.map((particle, i) => (
       <div
         key={i}
-        className="absolute w-[1px] h-[30px] bg-gradient-to-t from-transparent via-[#F0A018] to-transparent opacity-10 animate-float-stream"
+        className="absolute w-[1px] h-[30px] bg-gradient-to-t from-transparent via-[#F0A018] to-transparent opacity-20 animate-float-stream"
         style={particle}
       />
     ))}
@@ -108,7 +108,7 @@ const ParticleField = () => (
 );
 
 const HeroKineticCompass = ({ rotation }) => (
-  <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden z-0 opacity-[0.18]">
+  <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden z-0 opacity-[0.24]">
     <svg viewBox="0 0 1000 1000" className="w-[150vw] h-[150vw] max-w-[1200px] max-h-[1200px] transition-transform duration-500 ease-out" style={{ transform: `rotate(${rotation * 0.3}deg)` }}>
       <circle cx="500" cy="500" r="480" fill="none" stroke="#ffffff" strokeWidth="1" strokeDasharray="4 12" />
       <circle cx="500" cy="500" r="420" fill="none" stroke="#56C0D5" strokeWidth="0.5" opacity="0.6" />
@@ -1177,7 +1177,7 @@ export default function NutrivisiSite({ lang = 'NL' }) {
         <ParticleField />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-[1400px] pointer-events-none z-0">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[#F0A018] rounded-full blur-[140px] opacity-[0.15] animate-breathe"></div>
-          <div className="absolute top-[40%] left-[30%] w-[600px] h-[600px] bg-[#56C0D5] rounded-full blur-[180px] opacity-[0.1] animate-drift-slow"></div>
+          <div className="absolute top-[40%] left-[30%] w-[600px] h-[600px] bg-[#56C0D5] rounded-full blur-[180px] opacity-[0.14] animate-drift-slow"></div>
         </div>
         <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-40 bg-gradient-to-b from-transparent to-[#0A6F8F]"></div>
 
@@ -1318,7 +1318,7 @@ export default function NutrivisiSite({ lang = 'NL' }) {
               <path d="M80 80 C180 20 250 140 330 80 S480 20 560 80 S710 140 790 80 S900 20 960 80" fill="none" stroke="#56C0D5" strokeWidth="1.5" strokeOpacity="0.25" />
               <path className="sector-trace-line" d="M80 80 C180 20 250 140 330 80 S480 20 560 80 S710 140 790 80 S900 20 960 80" fill="none" stroke="#F0A018" strokeWidth="3" strokeLinecap="round" strokeDasharray="90 1180" />
               {[300, 700].map((cx, index) => (
-                <circle key={cx} className="sector-orbit-pulse" cx={cx} cy="80" r="28" fill="none" stroke="#F0A018" strokeOpacity="0.24" strokeWidth="1" style={{ animationDelay: `${index * 350}ms` }} />
+                <circle key={cx} className="sector-orbit-pulse" cx={cx} cy="80" r="28" fill="none" stroke="#F0A018" strokeOpacity="0.36" strokeWidth="1.2" style={{ animationDelay: `${index * 350}ms` }} />
               ))}
             </svg>
 
@@ -1343,7 +1343,7 @@ export default function NutrivisiSite({ lang = 'NL' }) {
             </div>
 
             <div className="relative mt-24 md:mt-28">
-              <svg className="pointer-events-none absolute left-0 top-12 hidden h-44 w-full md:block opacity-70" viewBox="0 0 1000 170" preserveAspectRatio="none" aria-hidden="true">
+              <svg className="pointer-events-none absolute left-0 top-12 hidden h-44 w-full md:block opacity-80" viewBox="0 0 1000 170" preserveAspectRatio="none" aria-hidden="true">
                 <path d="M70 86 C210 10 270 150 390 86 S590 10 710 86 S880 150 960 72" fill="none" stroke="#56C0D5" strokeWidth="1.4" strokeOpacity="0.18" />
                 <path className="sector-trace-line" d="M70 86 C210 10 270 150 390 86 S590 10 710 86 S880 150 960 72" fill="none" stroke="#F0A018" strokeWidth="3" strokeLinecap="round" strokeDasharray="110 1180" />
               </svg>
@@ -1520,7 +1520,7 @@ export default function NutrivisiSite({ lang = 'NL' }) {
       <section id="werkwijze" className="relative overflow-hidden border-t border-teal-900/30 bg-[#087FA1] py-24 md:py-32">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,127,161,0)_0%,rgba(10,111,143,0.32)_44%,rgba(8,127,161,0)_100%)]"></div>
-          <div className="absolute left-1/2 top-10 h-[620px] w-[1180px] -translate-x-1/2 opacity-45 transition-transform duration-500 ease-out" style={{ transform: `translateX(-50%) translateY(${Math.sin(scrollRotation / 38) * 18}px) rotate(${scrollRotation * 0.025}deg)` }}>
+          <div className="absolute left-1/2 top-10 h-[620px] w-[1180px] -translate-x-1/2 opacity-60 transition-transform duration-500 ease-out" style={{ transform: `translateX(-50%) translateY(${Math.sin(scrollRotation / 38) * 18}px) rotate(${scrollRotation * 0.025}deg)` }}>
             <svg viewBox="0 0 1180 620" className="h-full w-full" aria-hidden="true">
               <defs>
                 <linearGradient id="method-map" x1="0" y1="0" x2="1" y2="1">
@@ -1573,7 +1573,7 @@ export default function NutrivisiSite({ lang = 'NL' }) {
           </FadeInSection>
 
           <div className="relative mt-16">
-            <div className="pointer-events-none absolute inset-x-0 bottom-12 z-0 hidden h-24 opacity-70 lg:block">
+            <div className="pointer-events-none absolute inset-x-0 bottom-12 z-0 hidden h-24 opacity-80 lg:block">
               <svg viewBox="0 0 1000 110" className="h-full w-full" preserveAspectRatio="none" aria-hidden="true">
                 <defs>
                   <filter id="method-arrow-glow" x="-20%" y="-80%" width="140%" height="260%">
@@ -1586,7 +1586,7 @@ export default function NutrivisiSite({ lang = 'NL' }) {
                   <path id="method-order-path" d="M72 56 C198 34 275 78 356 56 S534 34 616 56 S802 78 928 56" />
                 </defs>
                 <use href="#method-order-path" fill="none" stroke="#56C0D5" strokeWidth="1.2" strokeOpacity="0.1" />
-                <use href="#method-order-path" className="method-order-dash" fill="none" stroke="#F0A018" strokeWidth="1.7" strokeOpacity="0.42" strokeLinecap="round" strokeDasharray="105 995" />
+                <use href="#method-order-path" className="method-order-dash" fill="none" stroke="#F0A018" strokeWidth="2.1" strokeOpacity="0.58" strokeLinecap="round" strokeDasharray="105 995" />
                 <g filter="url(#method-arrow-glow)" className="method-arrow-head" opacity="0.58">
                   <animateMotion dur="6.4s" repeatCount="indefinite" rotate="auto">
                     <mpath href="#method-order-path" />
@@ -1634,7 +1634,7 @@ export default function NutrivisiSite({ lang = 'NL' }) {
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,127,161,0)_0%,rgba(10,70,93,0.24)_48%,rgba(8,127,161,0)_100%)]"></div>
           <div className="absolute left-0 top-20 h-px w-full bg-gradient-to-r from-transparent via-[#56C0D5]/18 to-transparent"></div>
           <div className="absolute bottom-20 left-1/2 h-64 w-[820px] -translate-x-1/2 rounded-full bg-[#56C0D5]/6 blur-[110px]"></div>
-          <div className="why-ambient-grid absolute left-[-12%] top-12 hidden h-[520px] w-[720px] opacity-55 lg:block">
+          <div className="why-ambient-grid absolute left-[-12%] top-12 hidden h-[520px] w-[720px] opacity-70 lg:block">
             <svg viewBox="0 0 720 520" className="h-full w-full" fill="none" aria-hidden="true">
               <path className="why-current-line" d="M38 330 C160 210 254 370 370 236 S560 92 688 176" stroke="#5CC0D5" strokeWidth="2.2" strokeLinecap="round" strokeDasharray="92 780" />
               <path d="M38 330 C160 210 254 370 370 236 S560 92 688 176" stroke="#56C0D5" strokeOpacity="0.16" strokeWidth="1.2" />
@@ -1644,7 +1644,7 @@ export default function NutrivisiSite({ lang = 'NL' }) {
               <circle cx="470" cy="174" r="5" fill="#F0A018" opacity="0.72" />
             </svg>
           </div>
-          <svg className="absolute right-0 top-12 hidden h-[520px] w-[760px] opacity-35 lg:block" viewBox="0 0 760 520" fill="none" aria-hidden="true">
+          <svg className="absolute right-0 top-12 hidden h-[520px] w-[760px] opacity-45 lg:block" viewBox="0 0 760 520" fill="none" aria-hidden="true">
             <path d="M90 396 C212 260 284 360 390 214 S594 94 712 188" stroke="#56C0D5" strokeOpacity="0.18" strokeWidth="1" />
             <path d="M36 128 C188 194 276 68 424 132 S604 284 742 218" stroke="#F0A018" strokeOpacity="0.1" strokeWidth="1" />
             <circle cx="536" cy="190" r="170" stroke="#56C0D5" strokeOpacity="0.08" />
@@ -1720,7 +1720,7 @@ export default function NutrivisiSite({ lang = 'NL' }) {
       <section id="radar" className="relative overflow-hidden border-t border-teal-900/30 bg-[#0A6F8F] py-24 md:py-32">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_16%_20%,rgba(240,160,24,0.1),transparent_30%),radial-gradient(circle_at_78%_18%,rgba(92,192,213,0.13),transparent_31%),linear-gradient(180deg,rgba(10,111,143,0.92)_0%,rgba(8,127,161,0.96)_52%,rgba(10,111,143,0.9)_100%)]"></div>
-          <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: 'linear-gradient(rgba(92,192,213,0.42) 1px, transparent 1px), linear-gradient(90deg, rgba(92,192,213,0.42) 1px, transparent 1px)', backgroundSize: '66px 66px' }}></div>
+          <div className="absolute inset-0 opacity-[0.055]" style={{ backgroundImage: 'linear-gradient(rgba(92,192,213,0.42) 1px, transparent 1px), linear-gradient(90deg, rgba(92,192,213,0.42) 1px, transparent 1px)', backgroundSize: '66px 66px' }}></div>
           <div className="absolute left-1/2 top-20 h-72 w-[940px] -translate-x-1/2 rounded-full bg-[#5CC0D5]/8 blur-[135px]"></div>
           <svg className="absolute inset-x-0 top-0 hidden h-[760px] w-full opacity-75 lg:block" viewBox="0 0 1440 760" fill="none" aria-hidden="true">
             <path d="M-40 478 C170 310 306 456 482 306 S794 102 1022 222 S1228 450 1488 252" stroke="#5CC0D5" strokeOpacity="0.13" strokeWidth="1.2" />
@@ -1877,9 +1877,9 @@ export default function NutrivisiSite({ lang = 'NL' }) {
       <section id="kennis" className="relative overflow-hidden border-t border-teal-900/30 bg-[#087FA1] py-24 md:py-32">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_14%,rgba(92,192,213,0.11),transparent_31%),radial-gradient(circle_at_82%_34%,rgba(240,160,24,0.06),transparent_30%),linear-gradient(180deg,rgba(8,127,161,0)_0%,rgba(10,70,93,0.18)_50%,rgba(8,127,161,0)_100%)]"></div>
-          <div className="absolute inset-0 opacity-[0.035]" style={{ backgroundImage: 'linear-gradient(rgba(92,192,213,0.35) 1px, transparent 1px), linear-gradient(90deg, rgba(92,192,213,0.35) 1px, transparent 1px)', backgroundSize: '72px 72px' }}></div>
+          <div className="absolute inset-0 opacity-[0.048]" style={{ backgroundImage: 'linear-gradient(rgba(92,192,213,0.35) 1px, transparent 1px), linear-gradient(90deg, rgba(92,192,213,0.35) 1px, transparent 1px)', backgroundSize: '72px 72px' }}></div>
           <div className="absolute left-1/2 top-24 h-72 w-[980px] -translate-x-1/2 rounded-full bg-[#5CC0D5]/7 blur-[130px]"></div>
-          <svg className="absolute inset-x-0 top-10 hidden h-[620px] w-full opacity-70 lg:block" viewBox="0 0 1440 620" fill="none" aria-hidden="true">
+          <svg className="absolute inset-x-0 top-10 hidden h-[620px] w-full opacity-80 lg:block" viewBox="0 0 1440 620" fill="none" aria-hidden="true">
             <path d="M-40 420 C160 280 250 405 420 272 S725 114 936 225 S1190 398 1480 230" stroke="#5CC0D5" strokeOpacity="0.12" strokeWidth="1.2" />
             <path className="knowledge-trace-line" d="M-40 420 C160 280 250 405 420 272 S725 114 936 225 S1190 398 1480 230" stroke="#5CC0D5" strokeWidth="2" strokeLinecap="round" strokeDasharray="120 1320" />
             <path d="M56 172 C250 92 390 210 550 150 S780 42 956 128 S1212 276 1402 166" stroke="#F0A018" strokeOpacity="0.08" strokeWidth="1" />
@@ -1958,8 +1958,8 @@ export default function NutrivisiSite({ lang = 'NL' }) {
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,127,161,0)_0%,rgba(10,111,143,0.18)_36%,rgba(10,70,93,0.2)_78%,rgba(8,127,161,0)_100%)]"></div>
           <div className="absolute left-1/2 top-24 h-[520px] w-[980px] -translate-x-1/2 rounded-full bg-[#5CC0D5]/8 blur-[150px]"></div>
           <div className="absolute right-[-10%] top-36 h-[420px] w-[620px] rounded-full bg-[#F0A018]/6 blur-[130px]"></div>
-          <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'linear-gradient(rgba(92,192,213,0.45) 1px, transparent 1px), linear-gradient(90deg, rgba(92,192,213,0.45) 1px, transparent 1px)', backgroundSize: '72px 72px' }}></div>
-          <svg className="absolute inset-x-0 top-0 hidden h-[760px] w-full opacity-80 lg:block" viewBox="0 0 1440 760" fill="none" aria-hidden="true">
+          <div className="absolute inset-0 opacity-[0.042]" style={{ backgroundImage: 'linear-gradient(rgba(92,192,213,0.45) 1px, transparent 1px), linear-gradient(90deg, rgba(92,192,213,0.45) 1px, transparent 1px)', backgroundSize: '72px 72px' }}></div>
+          <svg className="absolute inset-x-0 top-0 hidden h-[760px] w-full opacity-90 lg:block" viewBox="0 0 1440 760" fill="none" aria-hidden="true">
             <path d="M18 444 C204 392 340 468 520 396 S818 218 1012 248 S1258 406 1448 352" stroke="#5CC0D5" strokeOpacity="0.12" strokeWidth="1.2" />
             <path className="contact-flow-line" d="M18 444 C204 392 340 468 520 396 S818 218 1012 248 S1258 406 1448 352" stroke="#5CC0D5" strokeWidth="1.9" strokeLinecap="round" strokeDasharray="120 1320" />
             <path d="M40 210 C264 130 382 278 562 224 S866 82 1074 152 S1302 330 1470 250" stroke="#F0A018" strokeOpacity="0.08" strokeWidth="1" />
@@ -2068,7 +2068,7 @@ export default function NutrivisiSite({ lang = 'NL' }) {
                 <div className="absolute -right-16 -top-14 h-44 w-44 rounded-full bg-[#5CC0D5]/13 blur-[90px]"></div>
                 <div className="absolute -left-16 bottom-8 h-36 w-36 rounded-full bg-[#F0A018]/7 blur-[90px]"></div>
                 <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(92,192,213,0.08),transparent_38%,rgba(240,160,24,0.05)_100%)]"></div>
-                <svg className="absolute inset-0 h-full w-full opacity-30" viewBox="0 0 720 620" fill="none" aria-hidden="true">
+                <svg className="absolute inset-0 h-full w-full opacity-45" viewBox="0 0 720 620" fill="none" aria-hidden="true">
                   <path d="M32 408 C138 332 214 394 302 328 S466 210 598 244" stroke="#5CC0D5" strokeOpacity="0.18" strokeWidth="1.1" />
                   <path className="contact-panel-line" d="M32 408 C138 332 214 394 302 328 S466 210 598 244" stroke="#5CC0D5" strokeWidth="1.5" strokeLinecap="round" strokeDasharray="94 720" />
                   <circle cx="598" cy="244" r="66" stroke="#5CC0D5" strokeOpacity="0.08" />
