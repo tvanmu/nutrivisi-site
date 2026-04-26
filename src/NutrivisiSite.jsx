@@ -2,13 +2,17 @@ import React, { useMemo, useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import {
   Menu, X, ChevronRight, ArrowRight, ShieldCheck, Award, ShieldAlert,
-  Tag, Wheat, Beef, UtensilsCrossed, Store, CheckCircle2,
+  Tag, Wheat, Beef, CheckCircle2,
   ClipboardCheck, Send, Eye, BookOpen, AlertTriangle,
   FlaskConical, Recycle, Scale, Layers, Fingerprint, Globe,
   Radio, MapPin, ExternalLink, Clock3, BellRing
 } from 'lucide-react';
 import NutriLogo from './components/NutriLogo';
 import { getLegalPath } from './legalContent';
+
+const CONTACT_EMAIL = 'info@nutrivisi.be';
+const CONTACT_PHONE_DISPLAY = '+32 492 72 97 29';
+const CONTACT_PHONE_LINK = '+32492729729';
 
 /* =====================================================================
    1. REDUCED-MOTION HOOK
@@ -168,13 +172,13 @@ const WorkbookVisual = () => (
   <svg viewBox="0 0 400 400" className="w-full h-full max-w-[320px] opacity-90">
     <defs>
       <linearGradient id="wb-page" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stopColor="#023A4E" />
-        <stop offset="100%" stopColor="#01506E" />
+        <stop offset="0%" stopColor="#0A6F8F" />
+        <stop offset="100%" stopColor="#087FA1" />
       </linearGradient>
     </defs>
     {/* Back pages (layered) */}
-    <rect x="75" y="55" width="260" height="310" rx="6" fill="#011a24" opacity="0.5" transform="rotate(-4 200 200)" />
-    <rect x="70" y="50" width="260" height="310" rx="6" fill="#023142" opacity="0.75" transform="rotate(-2 200 200)" />
+    <rect x="75" y="55" width="260" height="310" rx="6" fill="#0A465D" opacity="0.5" transform="rotate(-4 200 200)" />
+    <rect x="70" y="50" width="260" height="310" rx="6" fill="#075B74" opacity="0.75" transform="rotate(-2 200 200)" />
     {/* Main card */}
     <rect x="65" y="45" width="270" height="320" rx="8" fill="url(#wb-page)" stroke="#F0A018" strokeWidth="1.5" />
     {/* Header bar */}
@@ -184,20 +188,20 @@ const WorkbookVisual = () => (
     {/* Pictogram grid */}
     <g transform="translate(95, 105)">
       {/* Handwash */}
-      <rect x="0" y="0" width="60" height="60" rx="6" fill="#011a24" stroke="#56C0D5" strokeWidth="1" opacity="0.9" />
+      <rect x="0" y="0" width="60" height="60" rx="6" fill="#0A465D" stroke="#56C0D5" strokeWidth="1" opacity="0.9" />
       <circle cx="30" cy="22" r="8" fill="none" stroke="#56C0D5" strokeWidth="1.5" />
       <path d="M 20 36 Q 30 42 40 36 L 40 48 L 20 48 Z" fill="none" stroke="#56C0D5" strokeWidth="1.5" />
       <circle cx="22" cy="44" r="1.5" fill="#56C0D5" />
       <circle cx="38" cy="46" r="1.5" fill="#56C0D5" />
       {/* Temp */}
-      <rect x="75" y="0" width="60" height="60" rx="6" fill="#011a24" stroke="#F0A018" strokeWidth="1" opacity="0.9" />
+      <rect x="75" y="0" width="60" height="60" rx="6" fill="#0A465D" stroke="#F0A018" strokeWidth="1" opacity="0.9" />
       <rect x="101" y="15" width="8" height="28" rx="2" fill="none" stroke="#F0A018" strokeWidth="1.5" />
       <circle cx="105" cy="45" r="5" fill="#F0A018" />
       <line x1="114" y1="22" x2="120" y2="22" stroke="#F0A018" strokeWidth="1" />
       <line x1="114" y1="30" x2="120" y2="30" stroke="#F0A018" strokeWidth="1" />
       <line x1="114" y1="38" x2="120" y2="38" stroke="#F0A018" strokeWidth="1" />
       {/* Separate */}
-      <rect x="150" y="0" width="60" height="60" rx="6" fill="#011a24" stroke="#56C0D5" strokeWidth="1" opacity="0.9" />
+      <rect x="150" y="0" width="60" height="60" rx="6" fill="#0A465D" stroke="#56C0D5" strokeWidth="1" opacity="0.9" />
       <rect x="162" y="15" width="16" height="12" rx="1" fill="none" stroke="#56C0D5" strokeWidth="1.5" />
       <rect x="182" y="33" width="16" height="12" rx="1" fill="none" stroke="#56C0D5" strokeWidth="1.5" />
       <line x1="170" y1="33" x2="180" y2="22" stroke="#F0A018" strokeWidth="1" strokeDasharray="2 2" />
@@ -244,10 +248,10 @@ const CertificationFlowVisual = () => {
         return (
           <g key={item.label}>
             {isActive && <circle cx="90" cy={y} r="20" fill="none" stroke="#F0A018" strokeWidth="1" opacity="0.4" className="animate-ping" />}
-            <circle cx="90" cy={y} r="12" fill={isDone ? '#F0A018' : '#011a24'} stroke={color} strokeWidth="2" />
-            {isDone && <path d={`M ${85} ${y} L ${89} ${y + 4} L ${96} ${y - 3}`} stroke="#012330" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" />}
+            <circle cx="90" cy={y} r="12" fill={isDone ? '#F0A018' : '#0A465D'} stroke={color} strokeWidth="2" />
+            {isDone && <path d={`M ${85} ${y} L ${89} ${y + 4} L ${96} ${y - 3}`} stroke="#073B4C" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" />}
             {isActive && <circle cx="90" cy={y} r="4" fill="#F0A018" className="animate-pulse" />}
-            <rect x="115" y={y - 14} width="220" height="28" rx="4" fill={isActive ? '#F0A018' : '#011a24'} fillOpacity={isActive ? 0.15 : 0.6} stroke={color} strokeWidth="0.8" strokeOpacity={isActive ? 1 : 0.4} />
+            <rect x="115" y={y - 14} width="220" height="28" rx="4" fill={isActive ? '#F0A018' : '#0A465D'} fillOpacity={isActive ? 0.15 : 0.6} stroke={color} strokeWidth="0.8" strokeOpacity={isActive ? 1 : 0.4} />
             <text x="125" y={y + 4} fill={isActive ? '#F0A018' : isDone ? '#ffffff' : '#56C0D5'} fontSize="10" fontFamily="monospace" letterSpacing="2" opacity={item.status === 'pending' ? 0.6 : 1}>{item.label}</text>
             {isDone && <text x="320" y={y + 4} fill="#F0A018" fontSize="9" fontFamily="monospace" letterSpacing="1" opacity="0.7">OK</text>}
             {isActive && <text x="315" y={y + 4} fill="#F0A018" fontSize="9" fontFamily="monospace" letterSpacing="1">··· 72%</text>}
@@ -294,7 +298,7 @@ const RiskHeatmapVisual = () => {
               {highlighted && (
                 <>
                   <rect x={x - 4} y={y - 4} width="58" height="58" rx="5" fill="none" stroke="#F0A018" strokeWidth="1.5" strokeDasharray="3 3" className="animate-pulse" />
-                  <text x={x + 25} y={y + 30} textAnchor="middle" fill="#012330" fontSize="14" fontWeight="bold">!</text>
+                  <text x={x + 25} y={y + 30} textAnchor="middle" fill="#073B4C" fontSize="14" fontWeight="bold">!</text>
                 </>
               )}
             </g>
@@ -357,19 +361,19 @@ const LabelInspectorVisual = () => (
     {/* Callout 1 — Allergen */}
     <line x1="192" y1="197" x2="355" y2="155" stroke="#F0A018" strokeWidth="1" strokeDasharray="2 2" />
     <circle cx="192" cy="197" r="3" fill="#F0A018" />
-    <rect x="340" y="140" width="58" height="30" rx="3" fill="#011a24" stroke="#F0A018" strokeWidth="0.8" />
+    <rect x="340" y="140" width="58" height="30" rx="3" fill="#0A465D" stroke="#F0A018" strokeWidth="0.8" />
     <text x="346" y="152" fill="#F0A018" fontSize="7" fontFamily="monospace">ALLERGEN</text>
     <text x="346" y="163" fill="#ffffff" fontSize="6" fontFamily="monospace" opacity="0.7">EU 1169/2011</text>
     {/* Callout 2 — TGT */}
     <line x1="310" y1="295" x2="365" y2="320" stroke="#56C0D5" strokeWidth="1" strokeDasharray="2 2" />
     <circle cx="310" cy="295" r="3" fill="#56C0D5" />
-    <rect x="340" y="310" width="58" height="28" rx="3" fill="#011a24" stroke="#56C0D5" strokeWidth="0.8" />
+    <rect x="340" y="310" width="58" height="28" rx="3" fill="#0A465D" stroke="#56C0D5" strokeWidth="0.8" />
     <text x="346" y="322" fill="#56C0D5" fontSize="7" fontFamily="monospace">DATE</text>
     <text x="346" y="333" fill="#ffffff" fontSize="6" fontFamily="monospace" opacity="0.7">FAVV CHECK</text>
     {/* Callout 3 — Batch */}
     <line x1="88" y1="295" x2="22" y2="340" stroke="#56C0D5" strokeWidth="1" strokeDasharray="2 2" />
     <circle cx="88" cy="295" r="3" fill="#56C0D5" />
-    <rect x="4" y="330" width="58" height="28" rx="3" fill="#011a24" stroke="#56C0D5" strokeWidth="0.8" />
+    <rect x="4" y="330" width="58" height="28" rx="3" fill="#0A465D" stroke="#56C0D5" strokeWidth="0.8" />
     <text x="10" y="342" fill="#56C0D5" fontSize="7" fontFamily="monospace">BATCH</text>
     <text x="10" y="353" fill="#ffffff" fontSize="6" fontFamily="monospace" opacity="0.7">TRACEABLE</text>
     {/* Scan line */}
@@ -695,22 +699,22 @@ const translations = {
         'Praktische begeleiding voor voedingsbedrijven',
         'Visuele tools die medewerkers echt begrijpen',
         'Ondersteuning bij audits, labels en kwaliteitssystemen',
-        'Sectorfocus: bakkerij, vlees, horeca en retail',
+        'Sectorfocus: bakkerijsector en vleessector',
       ],
       focusEyebrow: 'Onze focus',
       focus1: { title: 'Van wet naar werkvloer', text: 'Heldere richtlijnen die uw team direct kan toepassen.' },
       focus2: { title: 'Auditvoorbereiding', text: 'Richting een beter systeem en een rustiger audittraject.' },
       focus3: { title: 'Visuele tools', text: 'Begrijpelijk en beter te onthouden voor medewerkers.' },
       focus4: { title: 'Etikettering', text: 'Controle van labels volgens de geldende wetgeving.' },
-      focus5: { title: 'Sectorgericht', text: 'Ervaring in bakkerij, vlees, horeca en retail.' },
+      focus5: { title: 'Sectorgericht', text: 'Ervaring in de bakkerijsector en vleessector.' },
     },
-    sectorsSection: { eyebrow: 'Uw sector, onze praktijk.', items: ['Bakkerij', 'Vleessector', 'Horeca', 'Retail'] },
+    sectorsSection: { eyebrow: 'Uw sector, onze praktijk.', items: ['Bakkerijsector', 'Vleessector'] },
     metrics: {
       eyebrow: 'Het werkterrein',
       title: 'Concrete parameters van ons werk',
       items: [
         { value: '15+', label: 'Jaar in voedselveiligheid', caption: 'Gericht op Belgische en EU-wetgeving' },
-        { value: '4', label: 'Kernsectoren', caption: 'Bakkerij · Vlees · Horeca · Retail' },
+        { value: '2', label: 'Kernsectoren', caption: 'Bakkerijsector · Vleessector' },
         { value: 'NL · FR · EN', label: 'Talen voor labels & specs', caption: 'Vertaling en lay-out in huis' },
         { value: 'FAVV + EU', label: 'Kader', caption: 'Autocontrole, HACCP, GFSI-normen' },
       ],
@@ -738,15 +742,15 @@ const translations = {
       eyebrow: 'Waarom Nutrivisi', title: 'Een aanpak die blijft hangen, niet alleen op papier',
       items: [
         { icon: Eye, title: 'Visueel leermateriaal', text: 'Werkkaarten, pictogrammen en checklists die uw ploeg echt kan gebruiken.' },
-        { icon: Layers, title: 'Sectorspecialisatie', text: 'Bakkerij, vlees, horeca en retail vragen elk een andere reflex. We kennen het verschil.' },
+        { icon: Layers, title: 'Sectorspecialisatie', text: 'De bakkerijsector en vleessector vragen elk een andere reflex. We kennen het verschil.' },
         { icon: Scale, title: 'Wetsgetrouw', text: 'Advies afgestemd op FAVV, Belgische gidsen en EU-regels. Wanneer die veranderen, zit u mee.' },
         { icon: Fingerprint, title: 'Praktisch op de werkvloer', text: 'We werken als een externe kwaliteitscollega: meekijken, vereenvoudigen, zorgen dat het blijft werken.' },
       ],
     },
     regulatorySection: {
       eyebrow: 'Regelgevingsradar',
-      title: 'Belgische signalen die actie kunnen vragen',
-      description: 'Een compacte selectie van officiële updates voor voedingsbedrijven in België. Nutrivisi volgt de signalen, vertaalt de impact en maakt duidelijk welke stap logisch is.',
+      title: 'Belgische signalen waarvoor actie nodig kan zijn',
+      description: 'Een compacte selectie van officiële updates voor voedingsbedrijven in België. Nutrivisi volgt deze signalen op, vertaalt de impact en maakt duidelijk welke volgende stap zinvol is.',
       liveLabel: 'Live selectie',
       updatedLabel: 'Laatst geactualiseerd',
       updatedAt: '25 april 2026',
@@ -772,7 +776,7 @@ const translations = {
           date: '16 apr 2026',
           title: 'Gerichte controleactie rond zware metalen in groenteteelten',
           text: 'Een signaal voor telers, verwerkers en aankopers die werken met lokale groenten, risicozones of leveranciersdocumentatie.',
-          sectors: ['Producenten', 'Retail', 'Horeca'],
+          sectors: ['Producenten', 'Verwerking', 'Aankoop'],
           url: 'https://favv-afsca.be/nl/publications',
         },
         {
@@ -787,17 +791,6 @@ const translations = {
           url: 'https://lv.vlaanderen.be/bedrijfsvoering/conditionaliteit-en-randvoorwaarden/conditionaliteit-2023-2027/voedselveiligheid',
         },
         {
-          region: 'flanders',
-          regionLabel: 'Vlaanderen',
-          status: 'action',
-          source: 'OVAM',
-          date: '2026',
-          title: 'Keukenafval en etensresten sorteren blijft een bedrijfsverplichting',
-          text: 'Relevant voor horeca, retail en productieomgevingen waar voedselresten, retouren of vervallen producten ontstaan.',
-          sectors: ['Horeca', 'Retail', 'Productie'],
-          url: 'https://ovam.vlaanderen.be/bedrijfsafval-sorteren1',
-        },
-        {
           region: 'wallonia',
           regionLabel: 'Wallonië',
           status: 'action',
@@ -809,17 +802,6 @@ const translations = {
           url: 'https://agriculture.wallonie.be/home/aides/pac-2023-2027-description-des-interventions/conditionnalite-renforcee-nouveaute-2025/ermg-5-securite-des-denrees-alimentaires.html',
         },
         {
-          region: 'wallonia',
-          regionLabel: 'Wallonië',
-          status: 'monitor',
-          source: 'SPW Environnement',
-          date: 'Actueel',
-          title: 'Biodéchets: tri des restes alimentaires et invendus',
-          text: 'Voor Waalse handelszaken, horeca en voedingsbedrijven met organisch afval, vervallen producten of retourstromen.',
-          sectors: ['Horeca', 'Retail', 'Foodservice'],
-          url: 'https://environnement.wallonie.be/home/gestion-environnementale/dechets/categories-de-dechets-ressources/autres-dechets/dechets-organiques.html',
-        },
-        {
           region: 'eu',
           regionLabel: 'EU → België',
           status: 'monitor',
@@ -827,7 +809,7 @@ const translations = {
           date: 'Continu',
           title: 'RASFF-alerts met Belgische relevantie',
           text: 'Snelle signalen rond recalls, contaminanten en grensoverschrijdende risico’s, bekeken op impact voor Belgische operatoren.',
-          sectors: ['Import/export', 'Retail', 'QA'],
+          sectors: ['Import/export', 'Productie', 'QA'],
           url: 'https://food.ec.europa.eu/food-safety/rasff_en',
         },
       ],
@@ -849,9 +831,12 @@ const translations = {
       title: 'Klaar voor een heldere aanpak?', subtitle: 'Start vandaag.',
       emailText: 'E-mail', phoneText: 'Telefoon', addressText: 'Adres',
       formTitle: 'Neem contact op', formSubtitle: 'Laat uw gegevens achter. Dan kan Nutrivisi snel en gericht reageren.',
-      placeholders: { name: 'Uw naam', company: 'Bedrijf', email: 'Email', message: 'Omschrijf kort uw vraag, audit, labeltraject of uitdaging.' },
+      placeholders: { name: 'Uw naam', company: 'Bedrijf', email: 'E-mail', message: 'Omschrijf kort uw vraag, audit, labeltraject of uitdaging.' },
       labels: { name: 'Naam', company: 'Bedrijfsnaam', email: 'E-mailadres', message: 'Vraag of project' },
       submit: 'Verstuur aanvraag',
+      sending: 'Aanvraag wordt verzonden',
+      success: 'Bedankt. Uw aanvraag is verzonden. Nutrivisi neemt zo snel mogelijk contact op.',
+      error: 'Er ging iets mis bij het verzenden. Probeer straks opnieuw of neem telefonisch contact op.',
       mailSubject: 'Aanvraag via website', mailBodyName: 'Naam', mailBodyCompany: 'Bedrijf', mailBodyEmail: 'E-mail', mailBodyQuestion: 'Vraag',
       privacyNoteLead: 'Door contact op te nemen, verwerkt Nutrivisi uw gegevens om uw vraag te beantwoorden. Lees ons',
       privacyNoteLink: 'privacybeleid',
@@ -875,22 +860,22 @@ const translations = {
         'Accompagnement pratique pour les entreprises agroalimentaires',
         'Outils visuels vraiment compris par les collaborateurs',
         'Soutien pour les audits, labels et systèmes de qualité',
-        'Focus sectoriel : boulangerie, viande, horeca et retail',
+        'Focus sectoriel : secteur de la boulangerie et secteur de la viande',
       ],
       focusEyebrow: 'Notre objectif',
       focus1: { title: 'De la loi au terrain', text: 'Des consignes claires, prêtes à l\'emploi.' },
       focus2: { title: 'Préparation aux audits', text: 'Vers un meilleur système et un parcours d\'audit plus serein.' },
       focus3: { title: 'Outils visuels', text: 'Compréhensibles et plus faciles à mémoriser pour le personnel.' },
       focus4: { title: 'Étiquetage', text: 'Vérification des étiquettes selon la législation en vigueur.' },
-      focus5: { title: 'Secteurs', text: 'Expérience en boulangerie, viande, horeca et retail.' },
+      focus5: { title: 'Secteurs', text: 'Expérience dans le secteur de la boulangerie et le secteur de la viande.' },
     },
-    sectorsSection: { eyebrow: 'Votre secteur, notre pratique.', items: ['Boulangerie', 'Secteur de la viande', 'Horeca', 'Retail'] },
+    sectorsSection: { eyebrow: 'Votre secteur, notre pratique.', items: ['Secteur de la boulangerie', 'Secteur de la viande'] },
     metrics: {
       eyebrow: 'Le terrain',
       title: 'Paramètres concrets de notre travail',
       items: [
         { value: '15+', label: 'Années en sécurité alimentaire', caption: 'Axé sur la législation belge et européenne' },
-        { value: '4', label: 'Secteurs de référence', caption: 'Boulangerie · Viande · Horeca · Retail' },
+        { value: '2', label: 'Secteurs de référence', caption: 'Boulangerie · Viande' },
         { value: 'NL · FR · EN', label: 'Langues pour étiquettes & specs', caption: 'Traduction et mise en page en interne' },
         { value: 'AFSCA + UE', label: 'Cadre', caption: 'Autocontrôle, HACCP, normes GFSI' },
       ],
@@ -918,7 +903,7 @@ const translations = {
       eyebrow: 'Pourquoi Nutrivisi', title: 'Une approche qui s\'ancre, pas seulement sur papier',
       items: [
         { icon: Eye, title: 'Matériel visuel', text: 'Fiches de travail, pictogrammes et checklists que vos équipes utilisent vraiment.' },
-        { icon: Layers, title: 'Spécialisation sectorielle', text: 'Boulangerie, viande, horeca et retail demandent chacun une autre approche. Nous connaissons la différence.' },
+        { icon: Layers, title: 'Spécialisation sectorielle', text: 'Le secteur de la boulangerie et le secteur de la viande demandent chacun une autre approche. Nous connaissons la différence.' },
         { icon: Scale, title: 'Conforme à la loi', text: 'Des conseils alignés sur l\'AFSCA, les guides belges et la réglementation européenne. Quand les règles changent, vous suivez avec nous.' },
         { icon: Fingerprint, title: 'Concret sur le terrain', text: 'Nous travaillons comme un collègue qualité externe : observer, simplifier, faire en sorte que ça tienne dans la durée.' },
       ],
@@ -952,7 +937,7 @@ const translations = {
           date: '16 avr. 2026',
           title: 'Action de contrôle ciblée sur les métaux lourds dans les cultures maraîchères',
           text: 'Un signal pour les producteurs, transformateurs et acheteurs travaillant avec des légumes locaux, des zones à risque ou des preuves fournisseurs.',
-          sectors: ['Producteurs', 'Retail', 'Horeca'],
+          sectors: ['Producteurs', 'Transformation', 'Achats'],
           url: 'https://favv-afsca.be/fr/publications',
         },
         {
@@ -967,17 +952,6 @@ const translations = {
           url: 'https://lv.vlaanderen.be/bedrijfsvoering/conditionaliteit-en-randvoorwaarden/conditionaliteit-2023-2027/voedselveiligheid',
         },
         {
-          region: 'flanders',
-          regionLabel: 'Flandre',
-          status: 'action',
-          source: 'OVAM',
-          date: '2026',
-          title: 'Tri des déchets de cuisine et restes alimentaires en entreprise',
-          text: 'Pertinent pour horeca, retail et production lorsque des restes alimentaires, retours ou produits périmés apparaissent.',
-          sectors: ['Horeca', 'Retail', 'Production'],
-          url: 'https://ovam.vlaanderen.be/bedrijfsafval-sorteren1',
-        },
-        {
           region: 'wallonia',
           regionLabel: 'Wallonie',
           status: 'action',
@@ -989,17 +963,6 @@ const translations = {
           url: 'https://agriculture.wallonie.be/home/aides/pac-2023-2027-description-des-interventions/conditionnalite-renforcee-nouveaute-2025/ermg-5-securite-des-denrees-alimentaires.html',
         },
         {
-          region: 'wallonia',
-          regionLabel: 'Wallonie',
-          status: 'monitor',
-          source: 'SPW Environnement',
-          date: 'Actuel',
-          title: 'Biodéchets: tri des restes alimentaires et invendus',
-          text: 'Pour commerces, horeca et entreprises alimentaires wallonnes avec déchets organiques, produits périmés ou flux de retour.',
-          sectors: ['Horeca', 'Retail', 'Foodservice'],
-          url: 'https://environnement.wallonie.be/home/gestion-environnementale/dechets/categories-de-dechets-ressources/autres-dechets/dechets-organiques.html',
-        },
-        {
           region: 'eu',
           regionLabel: 'UE → Belgique',
           status: 'monitor',
@@ -1007,7 +970,7 @@ const translations = {
           date: 'Continu',
           title: 'Alertes RASFF pertinentes pour la Belgique',
           text: 'Signaux rapides sur rappels, contaminants et risques transfrontaliers, évalués sous l’angle des opérateurs belges.',
-          sectors: ['Import/export', 'Retail', 'QA'],
+          sectors: ['Import/export', 'Production', 'QA'],
           url: 'https://food.ec.europa.eu/food-safety/rasff_en',
         },
       ],
@@ -1029,9 +992,12 @@ const translations = {
       title: 'Prêt pour une approche claire ?', subtitle: 'Commencez aujourd\'hui.',
       emailText: 'E-mail', phoneText: 'Téléphone', addressText: 'Adresse',
       formTitle: 'Contactez-nous', formSubtitle: 'Laissez vos coordonnées. Nutrivisi réagira rapidement et de manière ciblée.',
-      placeholders: { name: 'Votre nom', company: 'Entreprise', email: 'Email', message: 'Décrivez brièvement votre question, audit, projet d\'étiquetage ou défi.' },
+      placeholders: { name: 'Votre nom', company: 'Entreprise', email: 'E-mail', message: 'Décrivez brièvement votre question, audit, projet d\'étiquetage ou défi.' },
       labels: { name: 'Nom', company: 'Nom de l\'entreprise', email: 'Adresse e-mail', message: 'Question ou projet' },
       submit: 'Envoyer la demande',
+      sending: 'Envoi en cours',
+      success: 'Merci. Votre demande a été envoyée. Nutrivisi vous recontactera rapidement.',
+      error: 'Un problème est survenu pendant l’envoi. Réessayez plus tard ou contactez-nous par téléphone.',
       mailSubject: 'Demande via le site', mailBodyName: 'Nom', mailBodyCompany: 'Entreprise', mailBodyEmail: 'E-mail', mailBodyQuestion: 'Question',
       privacyNoteLead: 'En prenant contact, Nutrivisi traite vos données afin de répondre à votre demande. Consultez notre',
       privacyNoteLink: 'politique de confidentialité',
@@ -1055,6 +1021,7 @@ export default function NutrivisiSite({ lang = 'NL' }) {
   const [activeServiceId, setActiveServiceId] = useState('expertadvies');
   const [activeRegulatoryFilter, setActiveRegulatoryFilter] = useState('all');
   const [formData, setFormData] = useState({ name: '', company: '', email: '', message: '' });
+  const [formStatus, setFormStatus] = useState({ type: 'idle', message: '' });
 
   const currentNavItems = [
     { label: t.nav.home, href: '#home' },
@@ -1080,7 +1047,7 @@ export default function NutrivisiSite({ lang = 'NL' }) {
   })), [t, serviceVisualMap]);
 
   const currentSectors = useMemo(() => t.sectorsSection.items.map((title, i) => ({
-    title, icon: [Wheat, Beef, UtensilsCrossed, Store][i],
+    title, icon: [Wheat, Beef][i],
   })), [t]);
 
   const currentMethodSteps = useMemo(() => t.methodSection.items, [t]);
@@ -1109,18 +1076,33 @@ export default function NutrivisiSite({ lang = 'NL' }) {
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    if (formStatus.type !== 'idle') setFormStatus({ type: 'idle', message: '' });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    const subject = encodeURIComponent(`${t.contactSection.mailSubject} — ${formData.company || 'Nutrivisi'}`);
-    const body = encodeURIComponent(
-      `${t.contactSection.mailBodyName}: ${formData.name}\n` +
-      `${t.contactSection.mailBodyCompany}: ${formData.company}\n` +
-      `${t.contactSection.mailBodyEmail}: ${formData.email}\n\n` +
-      `${t.contactSection.mailBodyQuestion}:\n${formData.message}`
-    );
-    window.location.href = `mailto:info@nutrivisi.be?subject=${subject}&body=${body}`;
+    setFormStatus({ type: 'sending', message: '' });
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...formData,
+          language: lang,
+          subject: `${t.contactSection.mailSubject} - ${formData.company || 'Nutrivisi'}`,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('contact-submit-failed');
+      }
+
+      setFormData({ name: '', company: '', email: '', message: '' });
+      setFormStatus({ type: 'success', message: t.contactSection.success });
+    } catch {
+      setFormStatus({ type: 'error', message: t.contactSection.error });
+    }
   };
 
   const scrollToSection = (id) => {
@@ -1136,12 +1118,12 @@ export default function NutrivisiSite({ lang = 'NL' }) {
   };
 
   return (
-    <div className="min-h-screen bg-[#01506E] font-sans text-slate-200 overflow-x-hidden">
+    <div className="min-h-screen bg-[#087FA1] font-sans text-slate-200 overflow-x-hidden">
       {/* ===== NAV ===== */}
-      <nav className={`fixed w-full z-50 transition-all duration-500 ${scrolled ? 'bg-[#023142]/95 backdrop-blur-xl shadow-[0_4px_30px_rgba(0,0,0,0.3)] py-2 border-b border-[#F0A018]/10' : 'bg-transparent py-6'}`}>
+      <nav className={`fixed w-full z-50 transition-all duration-500 ${scrolled ? 'bg-[#075B74]/95 backdrop-blur-xl shadow-[0_4px_30px_rgba(0,0,0,0.3)] py-2 border-b border-[#F0A018]/10' : 'bg-transparent py-6'}`}>
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
           <a href="#home" className="flex items-center gap-3 group interactive-card" onClick={(e) => { e.preventDefault(); scrollToSection('home'); }}>
-            <NutriLogo className="h-12 w-12 text-[#F0A018]" cutoutColor={scrolled ? '#023142' : '#023A4E'} />
+            <NutriLogo className="h-12 w-12 text-[#F0A018]" cutoutColor={scrolled ? '#075B74' : '#0A6F8F'} />
             <div>
               <p className="font-bold text-2xl tracking-tight text-white group-hover:text-[#F0A018] transition-colors">Nutrivisi</p>
               
@@ -1156,10 +1138,10 @@ export default function NutrivisiSite({ lang = 'NL' }) {
               </a>
             ))}
             <div className="flex items-center gap-4 pl-4 border-l border-teal-800/50">
-              <button onClick={toggleLang} className="w-10 h-10 rounded-full border border-[#F0A018] text-[#F0A018] font-bold text-sm hover:bg-[#F0A018] hover:text-[#012330] transition-colors interactive-card flex items-center justify-center" aria-label="Toggle language">
+              <button onClick={toggleLang} className="w-10 h-10 rounded-full border border-[#F0A018] text-[#F0A018] font-bold text-sm hover:bg-[#F0A018] hover:text-[#073B4C] transition-colors interactive-card flex items-center justify-center" aria-label="Toggle language">
                 {lang === 'NL' ? 'FR' : 'NL'}
               </button>
-              <a href="#contact" onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }} className="inline-flex items-center gap-2 rounded-full border border-[#F0A018] bg-transparent px-6 py-2.5 text-sm font-bold uppercase tracking-widest text-[#F0A018] transition hover:bg-[#F0A018] hover:text-[#012330] interactive-card">
+              <a href="#contact" onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }} className="inline-flex items-center gap-2 rounded-full border border-[#F0A018] bg-transparent px-6 py-2.5 text-sm font-bold uppercase tracking-widest text-[#F0A018] transition hover:bg-[#F0A018] hover:text-[#073B4C] interactive-card">
                 {t.nav.cta}
                 <ArrowRight className="h-4 w-4" />
               </a>
@@ -1170,17 +1152,17 @@ export default function NutrivisiSite({ lang = 'NL' }) {
             <button onClick={toggleLang} className="w-10 h-10 rounded-full border border-[#F0A018] text-[#F0A018] font-bold text-sm flex items-center justify-center" aria-label="Toggle language">
               {lang === 'NL' ? 'FR' : 'NL'}
             </button>
-            <button onClick={() => setMobileOpen(!mobileOpen)} className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-teal-800/50 bg-[#011a24] text-white transition hover:border-[#F0A018]/40 hover:text-[#F0A018]" aria-label="Toggle menu">
+            <button onClick={() => setMobileOpen(!mobileOpen)} className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-teal-800/50 bg-[#0A465D] text-white transition hover:border-[#F0A018]/40 hover:text-[#F0A018]" aria-label="Toggle menu">
               {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
           </div>
         </div>
 
         {mobileOpen && (
-          <div className="absolute top-full left-0 w-full border-t border-teal-800/50 bg-[#01506E] p-4 lg:hidden backdrop-blur-xl">
+          <div className="absolute top-full left-0 w-full border-t border-teal-800/50 bg-[#087FA1] p-4 lg:hidden backdrop-blur-xl">
             <div className="flex flex-col gap-2">
               {currentNavItems.map((item) => (
-                <a key={item.href} href={item.href} onClick={(e) => { e.preventDefault(); setMobileOpen(false); scrollToSection(item.href.replace('#', '')); }} className="rounded-xl px-4 py-3 text-sm font-bold uppercase tracking-wider text-slate-200 transition hover:bg-[#023142] hover:text-[#F0A018]">
+                <a key={item.href} href={item.href} onClick={(e) => { e.preventDefault(); setMobileOpen(false); scrollToSection(item.href.replace('#', '')); }} className="rounded-xl px-4 py-3 text-sm font-bold uppercase tracking-wider text-slate-200 transition hover:bg-[#075B74] hover:text-[#F0A018]">
                   {item.label}
                 </a>
               ))}
@@ -1190,20 +1172,20 @@ export default function NutrivisiSite({ lang = 'NL' }) {
       </nav>
 
       {/* ===== HERO ===== */}
-      <section id="home" className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-[#023A4E]">
+      <section id="home" className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-[#0A6F8F]">
         <HeroKineticCompass rotation={scrollRotation} />
         <ParticleField />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-[1400px] pointer-events-none z-0">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[#F0A018] rounded-full blur-[140px] opacity-[0.15] animate-breathe"></div>
           <div className="absolute top-[40%] left-[30%] w-[600px] h-[600px] bg-[#56C0D5] rounded-full blur-[180px] opacity-[0.1] animate-drift-slow"></div>
         </div>
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-40 bg-gradient-to-b from-transparent to-[#023A4E]"></div>
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-40 bg-gradient-to-b from-transparent to-[#0A6F8F]"></div>
 
         <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 relative z-20">
           <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-16 items-center">
             <div>
               <FadeInSection delay={200}>
-                <h1 className="max-w-4xl text-6xl font-extrabold leading-[1.05] tracking-tighter text-white sm:text-7xl lg:text-8xl">
+                <h1 className="max-w-4xl text-5xl font-extrabold leading-[1.05] tracking-tighter text-white sm:text-7xl lg:text-8xl">
                   {t.hero.title1} <br />
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F0A018] via-[#FFD07A] to-[#F0A018] bg-[length:200%_auto] animate-gradient">
                     {t.hero.title2}
@@ -1225,11 +1207,11 @@ export default function NutrivisiSite({ lang = 'NL' }) {
               </FadeInSection>
               <FadeInSection delay={400}>
                 <div className="mt-10 flex flex-col sm:flex-row gap-5">
-                  <button onClick={() => scrollToSection('diensten')} className="inline-flex items-center justify-center gap-3 rounded-full bg-[#F0A018] px-8 py-4 text-lg font-bold text-[#012330] transition-all hover:bg-[#FFC35C] hover:shadow-[0_4px_20px_rgba(240,160,24,0.3)] interactive-card group">
+                  <button onClick={() => scrollToSection('diensten')} className="inline-flex items-center justify-center gap-3 rounded-full bg-[#F0A018] px-8 py-4 text-lg font-bold text-[#073B4C] transition-all hover:bg-[#FFC35C] hover:shadow-[0_4px_20px_rgba(240,160,24,0.3)] interactive-card group">
                     {t.hero.btn1}
                     <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                   </button>
-                  <button onClick={() => scrollToSection('contact')} className="inline-flex items-center justify-center rounded-full border border-[#F0A018]/30 bg-[#011a24]/50 px-8 py-4 text-lg font-bold text-white transition-all hover:border-[#F0A018] hover:bg-[#F0A018]/10 interactive-card">
+                  <button onClick={() => scrollToSection('contact')} className="inline-flex items-center justify-center rounded-full border border-[#F0A018]/30 bg-[#0A465D]/50 px-8 py-4 text-lg font-bold text-white transition-all hover:border-[#F0A018] hover:bg-[#F0A018]/10 interactive-card">
                     {t.hero.btn2}
                   </button>
                 </div>
@@ -1237,9 +1219,9 @@ export default function NutrivisiSite({ lang = 'NL' }) {
               <FadeInSection delay={500}>
                 <div className="mt-14 grid gap-4 sm:grid-cols-2">
                   {t.hero.trust.map((point, index) => (
-                    <div key={point} className="group interactive-card relative min-h-[104px] overflow-hidden rounded-[1.75rem] border border-[#56C0D5]/18 bg-[#023A4E]/36 p-[1px] backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:border-[#F0A018]/45 hover:shadow-[0_18px_45px_-24px_rgba(240,160,24,0.35)]" style={{ animationDelay: `${index * 120}ms` }}>
+                    <div key={point} className="group interactive-card relative min-h-[104px] overflow-hidden rounded-[1.75rem] border border-[#56C0D5]/18 bg-[#0A6F8F]/36 p-[1px] backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:border-[#F0A018]/45 hover:shadow-[0_18px_45px_-24px_rgba(240,160,24,0.35)]" style={{ animationDelay: `${index * 120}ms` }}>
                       <div className="absolute inset-0 bg-gradient-to-br from-[#56C0D5]/12 via-transparent to-[#F0A018]/10 opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
-                      <div className="relative flex h-full items-start gap-4 rounded-[1.65rem] bg-[#011a24]/32 px-5 py-5">
+                      <div className="relative flex h-full items-start gap-4 rounded-[1.65rem] bg-[#0A465D]/32 px-5 py-5">
                         <div className="relative mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center">
                           <div className="absolute inset-0 rounded-full border border-[#F0A018]/35 transition-all duration-500 group-hover:scale-110 group-hover:border-[#F0A018]/70"></div>
                           <div className="absolute inset-2 rounded-full bg-[#F0A018]/0 blur-md transition-all duration-500 group-hover:bg-[#F0A018]/25"></div>
@@ -1258,7 +1240,7 @@ export default function NutrivisiSite({ lang = 'NL' }) {
               <div className="absolute -inset-8 rounded-[3.5rem] bg-[#56C0D5]/10 blur-[90px]"></div>
               <div className="absolute -bottom-10 left-12 h-40 w-40 rounded-full bg-[#F0A018]/10 blur-[80px]"></div>
 
-              <div className="relative overflow-hidden rounded-[3rem] border border-[#56C0D5]/20 bg-[#023A4E]/25 p-6 backdrop-blur-xl shadow-[0_30px_90px_-45px_rgba(0,0,0,0.8)]">
+              <div className="relative overflow-hidden rounded-[3rem] border border-[#56C0D5]/20 bg-[#0A6F8F]/25 p-6 backdrop-blur-xl shadow-[0_30px_90px_-45px_rgba(0,0,0,0.8)]">
                 <div className="relative z-10">
                   <div className="mb-6 flex items-center gap-4 px-2 pt-1">
                     <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#F0A018]/50 to-[#56C0D5]/20"></div>
@@ -1267,7 +1249,7 @@ export default function NutrivisiSite({ lang = 'NL' }) {
                   </div>
 
                   <div className="space-y-5">
-                    <div className="group relative overflow-hidden rounded-[2rem] border border-teal-800/30 bg-[#011a24]/55 p-6 transition-all duration-500 hover:-translate-y-1 hover:border-[#F0A018]/45 hover:bg-[#023A4E]/70 hover:shadow-[0_20px_55px_-24px_rgba(240,160,24,0.35)]">
+                    <div className="group relative overflow-hidden rounded-[2rem] border border-teal-800/30 bg-[#0A465D]/55 p-6 transition-all duration-500 hover:-translate-y-1 hover:border-[#F0A018]/45 hover:bg-[#0A6F8F]/70 hover:shadow-[0_20px_55px_-24px_rgba(240,160,24,0.35)]">
                       <div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#F0A018 1px, transparent 1px)', backgroundSize: '16px 16px' }}></div>
                       <div className="relative z-10 flex items-center gap-5">
                         <div className="relative flex h-20 w-20 shrink-0 items-center justify-center">
@@ -1289,12 +1271,12 @@ export default function NutrivisiSite({ lang = 'NL' }) {
                         { icon: Award, data: t.hero.focus2 },
                         { icon: Eye, data: t.hero.focus3 },
                         { icon: Tag, data: t.hero.focus4 },
-                        { icon: Store, data: t.hero.focus5 },
+                        { icon: Wheat, data: t.hero.focus5 },
                       ].map(({ icon, data }, index) => (
-                        <div key={data.title} className="sector-node group relative min-h-[178px] overflow-hidden rounded-[1.75rem] border border-teal-800/30 bg-[#011a24]/50 p-5 text-left transition-all duration-500 hover:-translate-y-1 hover:border-[#F0A018]/40 hover:bg-[#023A4E]/68 hover:shadow-[0_18px_45px_-24px_rgba(240,160,24,0.32)]" style={{ animationDelay: `${index * 160}ms` }}>
+                        <div key={data.title} className="sector-node group relative min-h-[178px] overflow-hidden rounded-[1.75rem] border border-teal-800/30 bg-[#0A465D]/50 p-5 text-left transition-all duration-500 hover:-translate-y-1 hover:border-[#F0A018]/40 hover:bg-[#0A6F8F]/68 hover:shadow-[0_18px_45px_-24px_rgba(240,160,24,0.32)]" style={{ animationDelay: `${index * 160}ms` }}>
                           <div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#F0A018 1px, transparent 1px)', backgroundSize: '16px 16px' }}></div>
                           <div className="relative z-10">
-                            <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#011a24]/75 text-teal-200 ring-1 ring-[#56C0D5]/20 transition-all duration-500 group-hover:text-[#F0A018] group-hover:ring-[#F0A018]/45">
+                            <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#0A465D]/75 text-teal-200 ring-1 ring-[#56C0D5]/20 transition-all duration-500 group-hover:text-[#F0A018] group-hover:ring-[#F0A018]/45">
                               {React.createElement(icon, { className: 'h-6 w-6 transition-transform duration-500 group-hover:scale-110' })}
                             </div>
                             <p className="mb-2 text-base font-extrabold text-white">{data.title}</p>
@@ -1313,7 +1295,7 @@ export default function NutrivisiSite({ lang = 'NL' }) {
       </section>
 
       {/* ===== SECTORS BRIDGE ===== */}
-      <section className="bg-gradient-to-b from-[#023A4E] via-[#014B68] to-[#01506E] pt-14 pb-28 relative overflow-hidden">
+      <section className="bg-gradient-to-b from-[#0A6F8F] via-[#087A9A] to-[#087FA1] pt-14 pb-28 relative overflow-hidden">
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#56C0D5]/25 to-transparent"></div>
         <div className="absolute left-1/2 top-24 h-56 w-[720px] -translate-x-1/2 rounded-full bg-[#56C0D5]/10 blur-[120px] pointer-events-none"></div>
 
@@ -1335,21 +1317,21 @@ export default function NutrivisiSite({ lang = 'NL' }) {
             <svg className="pointer-events-none absolute left-0 top-10 hidden h-40 w-full md:block" viewBox="0 0 1000 160" preserveAspectRatio="none" aria-hidden="true">
               <path d="M80 80 C180 20 250 140 330 80 S480 20 560 80 S710 140 790 80 S900 20 960 80" fill="none" stroke="#56C0D5" strokeWidth="1.5" strokeOpacity="0.25" />
               <path className="sector-trace-line" d="M80 80 C180 20 250 140 330 80 S480 20 560 80 S710 140 790 80 S900 20 960 80" fill="none" stroke="#F0A018" strokeWidth="3" strokeLinecap="round" strokeDasharray="90 1180" />
-              {[140, 380, 620, 860].map((cx, index) => (
+              {[300, 700].map((cx, index) => (
                 <circle key={cx} className="sector-orbit-pulse" cx={cx} cy="80" r="28" fill="none" stroke="#F0A018" strokeOpacity="0.24" strokeWidth="1" style={{ animationDelay: `${index * 350}ms` }} />
               ))}
             </svg>
 
-            <div className="grid grid-cols-2 gap-6 md:grid-cols-4 md:gap-8 relative z-10">
+            <div className="relative z-10 mx-auto grid max-w-3xl grid-cols-1 gap-6 sm:grid-cols-2 md:gap-8">
               {currentSectors.map((sector, index) => {
                 const Icon = sector.icon;
                 return (
                   <FadeInSection key={index} delay={index * 100} className="h-full">
-                    <div className="sector-node group interactive-card flex h-full flex-col items-center justify-start gap-5 rounded-[2rem] border border-teal-800/30 bg-[#023A4E]/45 px-5 py-7 text-center text-teal-100/80 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:border-[#F0A018]/45 hover:bg-[#023A4E]/70 hover:text-white hover:shadow-[0_18px_50px_-18px_rgba(240,160,24,0.32)]" style={{ animationDelay: `${index * 180}ms` }}>
+                    <div className="sector-node group interactive-card flex h-full flex-col items-center justify-start gap-5 rounded-[2rem] border border-teal-800/30 bg-[#0A6F8F]/45 px-5 py-7 text-center text-teal-100/80 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:border-[#F0A018]/45 hover:bg-[#0A6F8F]/70 hover:text-white hover:shadow-[0_18px_50px_-18px_rgba(240,160,24,0.32)]" style={{ animationDelay: `${index * 180}ms` }}>
                       <div className="relative flex h-20 w-20 items-center justify-center">
                         <div className="absolute inset-0 rounded-full bg-[#F0A018]/0 blur-xl transition-all duration-500 group-hover:bg-[#F0A018]/18"></div>
                         <div className="absolute inset-0 rounded-full border border-[#56C0D5]/25 transition-all duration-500 group-hover:scale-110 group-hover:border-[#F0A018]/45"></div>
-                        <div className="relative flex h-16 w-16 items-center justify-center rounded-full bg-[#011a24]/80 text-teal-200 shadow-[0_14px_35px_-18px_rgba(0,0,0,0.8)] transition-all duration-500 group-hover:bg-[#F0A018]/12 group-hover:text-[#F0A018]">
+                        <div className="relative flex h-16 w-16 items-center justify-center rounded-full bg-[#0A465D]/80 text-teal-200 shadow-[0_14px_35px_-18px_rgba(0,0,0,0.8)] transition-all duration-500 group-hover:bg-[#F0A018]/12 group-hover:text-[#F0A018]">
                           <Icon className="h-7 w-7 transition-transform duration-500 group-hover:scale-110" />
                         </div>
                       </div>
@@ -1372,11 +1354,11 @@ export default function NutrivisiSite({ lang = 'NL' }) {
 
                   return (
                     <FadeInSection key={index} delay={index * 100} className="h-full">
-                      <div className="sector-node group interactive-card flex h-full min-h-[330px] flex-col items-center justify-start gap-5 rounded-[2rem] border border-teal-800/30 bg-[#023A4E]/45 px-7 py-8 text-center text-teal-100/80 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:border-[#F0A018]/45 hover:bg-[#023A4E]/70 hover:text-white hover:shadow-[0_18px_50px_-18px_rgba(240,160,24,0.32)] active:scale-[0.98]" style={{ animationDelay: `${(index + 4) * 180}ms` }}>
+                      <div className="sector-node group interactive-card flex h-full min-h-[330px] flex-col items-center justify-start gap-5 rounded-[2rem] border border-teal-800/30 bg-[#0A6F8F]/45 px-7 py-8 text-center text-teal-100/80 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:border-[#F0A018]/45 hover:bg-[#0A6F8F]/70 hover:text-white hover:shadow-[0_18px_50px_-18px_rgba(240,160,24,0.32)] active:scale-[0.98]" style={{ animationDelay: `${(index + 4) * 180}ms` }}>
                         <div className="relative flex h-20 w-20 items-center justify-center">
                           <div className="absolute inset-0 rounded-full bg-[#F0A018]/0 blur-xl transition-all duration-500 group-hover:bg-[#F0A018]/18"></div>
                           <div className="absolute inset-0 rounded-full border border-[#56C0D5]/25 transition-all duration-500 group-hover:scale-110 group-hover:border-[#F0A018]/45"></div>
-                          <div className="relative flex h-16 w-16 items-center justify-center rounded-full bg-[#011a24]/80 text-teal-200 shadow-[0_14px_35px_-18px_rgba(0,0,0,0.8)] transition-all duration-500 group-hover:bg-[#F0A018]/12 group-hover:text-[#F0A018]">
+                          <div className="relative flex h-16 w-16 items-center justify-center rounded-full bg-[#0A465D]/80 text-teal-200 shadow-[0_14px_35px_-18px_rgba(0,0,0,0.8)] transition-all duration-500 group-hover:bg-[#F0A018]/12 group-hover:text-[#F0A018]">
                             <MetricIcon className="h-7 w-7 transition-transform duration-500 group-hover:scale-110" />
                           </div>
                         </div>
@@ -1399,9 +1381,9 @@ export default function NutrivisiSite({ lang = 'NL' }) {
       </section>
 
       {/* ===== SERVICES ===== */}
-      <section id="diensten" className="relative overflow-hidden border-t border-teal-900/30 bg-[#01506E] py-24 md:py-32">
+      <section id="diensten" className="relative overflow-hidden border-t border-teal-900/30 bg-[#087FA1] py-24 md:py-32">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(1,80,110,0)_0%,rgba(2,58,78,0.34)_46%,rgba(1,80,110,0)_100%)]"></div>
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,127,161,0)_0%,rgba(10,111,143,0.34)_46%,rgba(8,127,161,0)_100%)]"></div>
           <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#56C0D5]/24 to-transparent"></div>
           <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[#56C0D5]/18 to-transparent"></div>
         </div>
@@ -1442,10 +1424,10 @@ export default function NutrivisiSite({ lang = 'NL' }) {
                       key={service.id}
                       onClick={() => setActiveServiceId(service.id)}
                       aria-pressed={isActive}
-                      className={`group interactive-card w-full rounded-2xl border px-4 py-4 text-left transition-all duration-500 sm:px-5 ${isActive ? 'border-[#F0A018]/38 bg-[#F0A018]/8 text-white shadow-[0_18px_50px_-34px_rgba(240,160,24,0.55)]' : 'border-[#56C0D5]/13 bg-[#023A4E]/18 text-teal-100/60 hover:border-[#56C0D5]/32 hover:bg-[#023A4E]/32 hover:text-white'}`}
+                      className={`group interactive-card w-full rounded-2xl border px-4 py-4 text-left transition-all duration-500 sm:px-5 ${isActive ? 'border-[#F0A018]/38 bg-[#F0A018]/8 text-white shadow-[0_18px_50px_-34px_rgba(240,160,24,0.55)]' : 'border-[#56C0D5]/13 bg-[#0A6F8F]/18 text-teal-100/60 hover:border-[#56C0D5]/32 hover:bg-[#0A6F8F]/32 hover:text-white'}`}
                     >
                       <div className="flex items-center gap-4">
-                        <div className={`relative flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border transition-all duration-500 ${isActive ? 'border-[#F0A018]/45 bg-[#F0A018]/8 text-[#F0A018]' : 'border-[#56C0D5]/18 bg-[#011a24]/25 text-teal-200/65 group-hover:border-[#F0A018]/35 group-hover:bg-[#F0A018]/8 group-hover:text-[#F0A018]'}`}>
+                        <div className={`relative flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border transition-all duration-500 ${isActive ? 'border-[#F0A018]/45 bg-[#F0A018]/8 text-[#F0A018]' : 'border-[#56C0D5]/18 bg-[#0A465D]/25 text-teal-200/65 group-hover:border-[#F0A018]/35 group-hover:bg-[#F0A018]/8 group-hover:text-[#F0A018]'}`}>
                           <div className={`absolute inset-1.5 rounded-lg border transition-all duration-500 ${isActive ? 'scale-110 border-[#F0A018]/22' : 'border-[#56C0D5]/8 group-hover:scale-110 group-hover:border-[#F0A018]/20'}`}></div>
                           <div className={`absolute inset-0 rounded-xl blur-lg transition-all duration-500 ${isActive ? 'bg-[#F0A018]/12' : 'bg-transparent group-hover:bg-[#F0A018]/10'}`}></div>
                           <div className="relative transition-transform duration-500 group-hover:scale-110">
@@ -1472,12 +1454,12 @@ export default function NutrivisiSite({ lang = 'NL' }) {
             </FadeInSection>
 
             <FadeInSection delay={180}>
-              <div className="relative overflow-hidden rounded-[2rem] border border-[#56C0D5]/18 bg-[#023A4E]/24 p-5 backdrop-blur-md md:p-7 lg:p-9">
+              <div className="relative overflow-hidden rounded-[2rem] border border-[#56C0D5]/18 bg-[#0A6F8F]/24 p-5 backdrop-blur-md md:p-7 lg:p-9">
                 <div className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-[#F0A018]/45 to-transparent"></div>
                 <div className="grid gap-8 lg:grid-cols-[minmax(0,0.92fr)_minmax(340px,0.82fr)] lg:items-center" key={activeService.id}>
                   <div className="service-copy-reveal min-w-0">
                     <div className="mb-8 flex items-center justify-between gap-5">
-                      <div className="group/icon relative flex h-18 w-18 items-center justify-center rounded-[1.35rem] border border-[#F0A018]/28 bg-[#011a24]/38 text-[#56C0D5] transition-all duration-500 hover:border-[#F0A018]/55 hover:bg-[#F0A018]/10 hover:text-[#F0A018]">
+                      <div className="group/icon relative flex h-18 w-18 items-center justify-center rounded-[1.35rem] border border-[#F0A018]/28 bg-[#0A465D]/38 text-[#56C0D5] transition-all duration-500 hover:border-[#F0A018]/55 hover:bg-[#F0A018]/10 hover:text-[#F0A018]">
                         <div className="absolute inset-2 rounded-2xl border border-[#56C0D5]/10 transition-all duration-500 group-hover/icon:scale-110 group-hover/icon:border-[#F0A018]/22"></div>
                         <div className="absolute inset-0 rounded-[1.35rem] bg-[#F0A018]/0 blur-xl transition-all duration-500 group-hover/icon:bg-[#F0A018]/14"></div>
                         <div className="relative transition-transform duration-500 group-hover/icon:scale-110">
@@ -1500,7 +1482,7 @@ export default function NutrivisiSite({ lang = 'NL' }) {
 
                     <div className="mt-8 grid gap-3 sm:grid-cols-3">
                       {activeService.bullets.map((bullet) => (
-                        <div key={bullet} className="group/bullet min-w-0 rounded-2xl border border-[#56C0D5]/14 bg-[#011a24]/24 px-4 py-4 transition-all duration-500 hover:border-[#F0A018]/34 hover:bg-[#011a24]/36">
+                        <div key={bullet} className="group/bullet min-w-0 rounded-2xl border border-[#56C0D5]/14 bg-[#0A465D]/24 px-4 py-4 transition-all duration-500 hover:border-[#F0A018]/34 hover:bg-[#0A465D]/36">
                           <div className="mb-4 inline-flex rounded-full text-[#F0A018] transition-transform duration-500 group-hover/bullet:scale-110">
                             <ServiceBulletGlyph />
                           </div>
@@ -1509,13 +1491,13 @@ export default function NutrivisiSite({ lang = 'NL' }) {
                       ))}
                     </div>
 
-                    <button onClick={() => scrollToSection('contact')} className="group interactive-card mt-9 inline-flex items-center gap-3 rounded-full border border-[#F0A018]/35 bg-transparent px-6 py-3.5 text-sm font-extrabold uppercase tracking-[0.16em] text-[#F0A018] transition-all duration-500 hover:border-[#F0A018] hover:bg-[#F0A018] hover:text-[#012330]">
+                    <button onClick={() => scrollToSection('contact')} className="group interactive-card mt-9 inline-flex items-center gap-3 rounded-full border border-[#F0A018]/35 bg-transparent px-6 py-3.5 text-sm font-extrabold uppercase tracking-[0.16em] text-[#F0A018] transition-all duration-500 hover:border-[#F0A018] hover:bg-[#F0A018] hover:text-[#073B4C]">
                       <span>{t.servicesSection.discuss}</span>
                       <ArrowRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-1" />
                     </button>
                   </div>
 
-                  <div className="relative min-h-[360px] min-w-0 overflow-hidden rounded-[1.7rem] border border-[#56C0D5]/14 bg-[#011a24]/18 px-4 py-6 md:min-h-[430px]">
+                  <div className="relative min-h-[360px] min-w-0 overflow-hidden rounded-[1.7rem] border border-[#56C0D5]/14 bg-[#0A465D]/18 px-4 py-6 md:min-h-[430px]">
                     <div className="absolute inset-x-6 top-6 h-px bg-gradient-to-r from-transparent via-[#56C0D5]/28 to-transparent"></div>
                     <div className="absolute inset-x-6 bottom-6 h-px bg-gradient-to-r from-transparent via-[#F0A018]/28 to-transparent"></div>
                     <div className="relative z-10 flex h-full min-h-[320px] flex-col items-center justify-center md:min-h-[390px]">
@@ -1535,9 +1517,9 @@ export default function NutrivisiSite({ lang = 'NL' }) {
       </section>
 
       {/* ===== METHOD ===== */}
-      <section id="werkwijze" className="relative overflow-hidden border-t border-teal-900/30 bg-[#01506E] py-24 md:py-32">
+      <section id="werkwijze" className="relative overflow-hidden border-t border-teal-900/30 bg-[#087FA1] py-24 md:py-32">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(1,80,110,0)_0%,rgba(2,58,78,0.32)_44%,rgba(1,80,110,0)_100%)]"></div>
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,127,161,0)_0%,rgba(10,111,143,0.32)_44%,rgba(8,127,161,0)_100%)]"></div>
           <div className="absolute left-1/2 top-10 h-[620px] w-[1180px] -translate-x-1/2 opacity-45 transition-transform duration-500 ease-out" style={{ transform: `translateX(-50%) translateY(${Math.sin(scrollRotation / 38) * 18}px) rotate(${scrollRotation * 0.025}deg)` }}>
             <svg viewBox="0 0 1180 620" className="h-full w-full" aria-hidden="true">
               <defs>
@@ -1577,7 +1559,7 @@ export default function NutrivisiSite({ lang = 'NL' }) {
 
               <div className="grid grid-cols-3 gap-3 border-t border-[#56C0D5]/18 pt-6">
                 {currentMethodSteps.map((step, index) => (
-                  <div key={step.title} className="group relative overflow-hidden rounded-2xl border border-[#56C0D5]/14 bg-[#023A4E]/22 px-4 py-4 text-center transition-all duration-500 hover:-translate-y-1 hover:border-[#F0A018]/42 hover:bg-[#023A4E]/42 hover:shadow-[0_18px_48px_-30px_rgba(240,160,24,0.6)]">
+                  <div key={step.title} className="group relative overflow-hidden rounded-2xl border border-[#56C0D5]/14 bg-[#0A6F8F]/22 px-4 py-4 text-center transition-all duration-500 hover:-translate-y-1 hover:border-[#F0A018]/42 hover:bg-[#0A6F8F]/42 hover:shadow-[0_18px_48px_-30px_rgba(240,160,24,0.6)]">
                     <div className="method-chip-radiate absolute left-1/2 top-1/2 h-24 w-24 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#F0A018]/0 blur-2xl transition-all duration-500 group-hover:bg-[#F0A018]/18"></div>
                     <div className="absolute inset-x-5 top-0 h-px bg-gradient-to-r from-transparent via-[#F0A018]/0 to-transparent transition-all duration-500 group-hover:via-[#F0A018]/55"></div>
                     <div className="relative">
@@ -1619,13 +1601,13 @@ export default function NutrivisiSite({ lang = 'NL' }) {
               {currentMethodSteps.map((step, index) => {
                 return (
                   <FadeInSection key={step.title} delay={index * 140} className="group relative h-full">
-                    <div className="relative h-full min-h-[350px] overflow-hidden rounded-[2rem] border border-[#56C0D5]/16 bg-[#023A4E]/26 p-7 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:border-[#F0A018]/34 hover:bg-[#023A4E]/38 hover:shadow-[0_24px_70px_-48px_rgba(240,160,24,0.58)] md:p-8">
+                    <div className="relative h-full min-h-[350px] overflow-hidden rounded-[2rem] border border-[#56C0D5]/16 bg-[#0A6F8F]/26 p-7 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:border-[#F0A018]/34 hover:bg-[#0A6F8F]/38 hover:shadow-[0_24px_70px_-48px_rgba(240,160,24,0.58)] md:p-8">
                       <div className="absolute inset-x-7 top-0 h-px bg-gradient-to-r from-transparent via-[#F0A018]/36 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
                       <div className="absolute -right-16 -top-16 h-40 w-40 rounded-full bg-[#56C0D5]/0 blur-[70px] transition-all duration-500 group-hover:bg-[#56C0D5]/10"></div>
                       <div className="absolute -left-12 bottom-8 h-36 w-36 rounded-full bg-[#F0A018]/0 blur-[80px] transition-all duration-500 group-hover:bg-[#F0A018]/8"></div>
                       <div className="relative z-10 flex h-full flex-col">
                         <div className="mb-10 flex items-start justify-between gap-5">
-                          <div className="relative flex h-18 w-18 items-center justify-center rounded-[1.35rem] border border-[#F0A018]/28 bg-[#011a24]/36 text-[#56C0D5] transition-all duration-500 group-hover:border-[#F0A018]/55 group-hover:bg-[#F0A018]/10 group-hover:text-[#F0A018]">
+                          <div className="relative flex h-18 w-18 items-center justify-center rounded-[1.35rem] border border-[#F0A018]/28 bg-[#0A465D]/36 text-[#56C0D5] transition-all duration-500 group-hover:border-[#F0A018]/55 group-hover:bg-[#F0A018]/10 group-hover:text-[#F0A018]">
                             <div className="absolute inset-2 rounded-2xl border border-[#56C0D5]/10 transition-all duration-500 group-hover:scale-110 group-hover:border-[#F0A018]/22"></div>
                             <MethodGlyph index={index} />
                           </div>
@@ -1647,9 +1629,9 @@ export default function NutrivisiSite({ lang = 'NL' }) {
       </section>
 
       {/* ===== WAAROM NUTRIVISI ===== */}
-      <section id="waarom" className="relative overflow-hidden border-t border-teal-900/30 bg-[#01506E] py-24 md:py-32">
+      <section id="waarom" className="relative overflow-hidden border-t border-teal-900/30 bg-[#087FA1] py-24 md:py-32">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(1,80,110,0)_0%,rgba(1,26,36,0.24)_48%,rgba(1,80,110,0)_100%)]"></div>
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,127,161,0)_0%,rgba(10,70,93,0.24)_48%,rgba(8,127,161,0)_100%)]"></div>
           <div className="absolute left-0 top-20 h-px w-full bg-gradient-to-r from-transparent via-[#56C0D5]/18 to-transparent"></div>
           <div className="absolute bottom-20 left-1/2 h-64 w-[820px] -translate-x-1/2 rounded-full bg-[#56C0D5]/6 blur-[110px]"></div>
           <div className="why-ambient-grid absolute left-[-12%] top-12 hidden h-[520px] w-[720px] opacity-55 lg:block">
@@ -1688,7 +1670,7 @@ export default function NutrivisiSite({ lang = 'NL' }) {
 
                 <div className="mt-10 grid grid-cols-3 gap-3 max-w-xl">
                   {['FAVV', 'EU', 'HACCP'].map((label, index) => (
-                    <div key={label} className="why-proof-chip group/chip relative overflow-hidden rounded-2xl border border-[#5CC0D5]/35 bg-[#023A4E]/42 px-4 py-3 text-center shadow-[0_18px_55px_-34px_rgba(92,192,213,0.72)] transition-all duration-500 hover:-translate-y-1 hover:border-[#5CC0D5]/75 hover:bg-[#023A4E]/60">
+                    <div key={label} className="why-proof-chip group/chip relative overflow-hidden rounded-2xl border border-[#5CC0D5]/35 bg-[#0A6F8F]/42 px-4 py-3 text-center shadow-[0_18px_55px_-34px_rgba(92,192,213,0.72)] transition-all duration-500 hover:-translate-y-1 hover:border-[#5CC0D5]/75 hover:bg-[#0A6F8F]/60">
                       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#5CC0D5]/12 to-transparent opacity-0 transition-opacity duration-500 group-hover/chip:opacity-100"></div>
                       <div className="absolute left-1/2 top-1/2 h-20 w-20 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#5CC0D5]/12 blur-2xl transition-all duration-500 group-hover/chip:bg-[#5CC0D5]/24"></div>
                       <div className="absolute inset-x-4 top-0 h-px bg-gradient-to-r from-transparent via-[#5CC0D5]/70 to-transparent"></div>
@@ -1703,14 +1685,14 @@ export default function NutrivisiSite({ lang = 'NL' }) {
               {t.whySection.items.map((item, index) => {
                 return (
                   <FadeInSection key={item.title} delay={index * 110}>
-                    <div className="group interactive-card relative overflow-hidden rounded-[2rem] border border-[#56C0D5]/14 bg-[#023A4E]/22 p-5 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:border-[#F0A018]/34 hover:bg-[#023A4E]/34 hover:shadow-[0_24px_70px_-46px_rgba(240,160,24,0.5)] active:scale-[0.99] md:p-6">
+                    <div className="group interactive-card relative overflow-hidden rounded-[2rem] border border-[#56C0D5]/14 bg-[#0A6F8F]/22 p-5 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:border-[#F0A018]/34 hover:bg-[#0A6F8F]/34 hover:shadow-[0_24px_70px_-46px_rgba(240,160,24,0.5)] active:scale-[0.99] md:p-6">
                       <div className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-[#F0A018]/0 to-transparent transition-all duration-500 group-hover:via-[#F0A018]/45"></div>
                       <div className="absolute -right-12 -top-12 h-36 w-36 rounded-full bg-[#56C0D5]/0 blur-[70px] transition-all duration-500 group-hover:bg-[#56C0D5]/9"></div>
                       <div className="absolute -left-10 bottom-4 h-32 w-32 rounded-full bg-[#F0A018]/0 blur-[70px] transition-all duration-500 group-hover:bg-[#F0A018]/7"></div>
 
                       <div className="relative grid gap-5 md:grid-cols-[92px_minmax(0,1fr)] md:items-center">
                         <div className="flex items-center gap-4 md:block">
-                          <div className="relative flex h-[4.5rem] w-[4.5rem] items-center justify-center rounded-[1.35rem] border border-[#F0A018]/24 bg-[#011a24]/34 text-[#56C0D5] transition-all duration-500 group-hover:border-[#F0A018]/55 group-hover:bg-[#F0A018]/10 group-hover:text-[#F0A018]">
+                          <div className="relative flex h-[4.5rem] w-[4.5rem] items-center justify-center rounded-[1.35rem] border border-[#F0A018]/24 bg-[#0A465D]/34 text-[#56C0D5] transition-all duration-500 group-hover:border-[#F0A018]/55 group-hover:bg-[#F0A018]/10 group-hover:text-[#F0A018]">
                             <div className="absolute inset-2 rounded-2xl border border-[#56C0D5]/10 transition-all duration-500 group-hover:scale-110 group-hover:border-[#F0A018]/22"></div>
                             <div className="absolute inset-0 rounded-[1.35rem] bg-[#F0A018]/0 blur-xl transition-all duration-500 group-hover:bg-[#F0A018]/14"></div>
                             <div className="relative transition-transform duration-500 group-hover:scale-110">
@@ -1735,9 +1717,9 @@ export default function NutrivisiSite({ lang = 'NL' }) {
       </section>
 
       {/* ===== REGELGEVINGSRADAR / VEILLE ===== */}
-      <section id="radar" className="relative overflow-hidden border-t border-teal-900/30 bg-[#023A4E] py-24 md:py-32">
+      <section id="radar" className="relative overflow-hidden border-t border-teal-900/30 bg-[#0A6F8F] py-24 md:py-32">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_16%_20%,rgba(240,160,24,0.1),transparent_30%),radial-gradient(circle_at_78%_18%,rgba(92,192,213,0.13),transparent_31%),linear-gradient(180deg,rgba(2,58,78,0.92)_0%,rgba(1,80,110,0.96)_52%,rgba(2,58,78,0.9)_100%)]"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_16%_20%,rgba(240,160,24,0.1),transparent_30%),radial-gradient(circle_at_78%_18%,rgba(92,192,213,0.13),transparent_31%),linear-gradient(180deg,rgba(10,111,143,0.92)_0%,rgba(8,127,161,0.96)_52%,rgba(10,111,143,0.9)_100%)]"></div>
           <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: 'linear-gradient(rgba(92,192,213,0.42) 1px, transparent 1px), linear-gradient(90deg, rgba(92,192,213,0.42) 1px, transparent 1px)', backgroundSize: '66px 66px' }}></div>
           <div className="absolute left-1/2 top-20 h-72 w-[940px] -translate-x-1/2 rounded-full bg-[#5CC0D5]/8 blur-[135px]"></div>
           <svg className="absolute inset-x-0 top-0 hidden h-[760px] w-full opacity-75 lg:block" viewBox="0 0 1440 760" fill="none" aria-hidden="true">
@@ -1771,7 +1753,7 @@ export default function NutrivisiSite({ lang = 'NL' }) {
                 </p>
 
                 <div className="mt-9 grid gap-3 sm:grid-cols-2 lg:max-w-xl">
-                  <div className="relative overflow-hidden rounded-[1.5rem] border border-[#5CC0D5]/22 bg-[#011a24]/34 p-5">
+                  <div className="relative overflow-hidden rounded-[1.5rem] border border-[#5CC0D5]/22 bg-[#0A465D]/34 p-5">
                     <div className="absolute right-4 top-4 h-14 w-14 rounded-full bg-[#5CC0D5]/10 blur-2xl"></div>
                     <div className="relative flex items-center gap-4">
                       <div className="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[#F0A018]/35 bg-[#F0A018]/8 text-[#F0A018]">
@@ -1785,7 +1767,7 @@ export default function NutrivisiSite({ lang = 'NL' }) {
                     </div>
                   </div>
 
-                  <div className="relative overflow-hidden rounded-[1.5rem] border border-[#5CC0D5]/22 bg-[#011a24]/34 p-5">
+                  <div className="relative overflow-hidden rounded-[1.5rem] border border-[#5CC0D5]/22 bg-[#0A465D]/34 p-5">
                     <div className="absolute -right-8 -top-8 h-28 w-28 rounded-full bg-[#F0A018]/8 blur-3xl"></div>
                     <div className="relative">
                       <div className="mb-3 flex items-center gap-2 text-xs font-extrabold uppercase tracking-[0.18em] text-[#5CC0D5]">
@@ -1794,7 +1776,7 @@ export default function NutrivisiSite({ lang = 'NL' }) {
                       </div>
                       <div className="flex flex-wrap gap-2">
                         {t.regulatorySection.sourceStack.map((source) => (
-                          <span key={source} className="rounded-full border border-[#5CC0D5]/18 bg-[#023A4E]/48 px-3 py-1 text-xs font-bold text-teal-100/78">
+                          <span key={source} className="rounded-full border border-[#5CC0D5]/18 bg-[#0A6F8F]/48 px-3 py-1 text-xs font-bold text-teal-100/78">
                             {source}
                           </span>
                         ))}
@@ -1803,7 +1785,7 @@ export default function NutrivisiSite({ lang = 'NL' }) {
                   </div>
                 </div>
 
-                <button onClick={() => scrollToSection('contact')} className="group interactive-card mt-8 inline-flex items-center gap-3 rounded-full border border-[#F0A018]/35 bg-[#F0A018]/8 px-6 py-3.5 text-sm font-extrabold uppercase tracking-[0.16em] text-[#F0A018] transition-all duration-500 hover:border-[#F0A018] hover:bg-[#F0A018] hover:text-[#012330]">
+                <button onClick={() => scrollToSection('contact')} className="group interactive-card mt-8 inline-flex items-center gap-3 rounded-full border border-[#F0A018]/35 bg-[#F0A018]/8 px-6 py-3.5 text-sm font-extrabold uppercase tracking-[0.16em] text-[#F0A018] transition-all duration-500 hover:border-[#F0A018] hover:bg-[#F0A018] hover:text-[#073B4C]">
                   <span>{t.regulatorySection.contactCta}</span>
                   <ArrowRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-1" />
                 </button>
@@ -1819,7 +1801,7 @@ export default function NutrivisiSite({ lang = 'NL' }) {
                       <button
                         key={filter.id}
                         onClick={() => setActiveRegulatoryFilter(filter.id)}
-                        className={`interactive-card rounded-full border px-4 py-2 text-xs font-extrabold uppercase tracking-[0.16em] transition-all duration-300 ${isActive ? 'border-[#F0A018]/70 bg-[#F0A018] text-[#012330]' : 'border-[#5CC0D5]/18 bg-[#011a24]/28 text-teal-100/66 hover:border-[#5CC0D5]/45 hover:text-white'}`}
+                        className={`interactive-card rounded-full border px-4 py-2 text-xs font-extrabold uppercase tracking-[0.16em] transition-all duration-300 ${isActive ? 'border-[#F0A018]/70 bg-[#F0A018] text-[#073B4C]' : 'border-[#5CC0D5]/18 bg-[#0A465D]/28 text-teal-100/66 hover:border-[#5CC0D5]/45 hover:text-white'}`}
                       >
                         {filter.label}
                       </button>
@@ -1831,7 +1813,7 @@ export default function NutrivisiSite({ lang = 'NL' }) {
               <div className="mt-7 space-y-4">
                 {currentRegulatoryItems.map((item, index) => (
                   <FadeInSection key={`${item.region}-${item.title}`} delay={(index % 3) * 90}>
-                    <article className="group relative overflow-hidden rounded-[2rem] border border-[#5CC0D5]/14 bg-[#011a24]/38 p-5 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:border-[#F0A018]/34 hover:bg-[#023A4E]/42 hover:shadow-[0_26px_78px_-50px_rgba(240,160,24,0.62)] md:p-6">
+                    <article className="group relative overflow-hidden rounded-[2rem] border border-[#5CC0D5]/14 bg-[#0A465D]/38 p-5 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:border-[#F0A018]/34 hover:bg-[#0A6F8F]/42 hover:shadow-[0_26px_78px_-50px_rgba(240,160,24,0.62)] md:p-6">
                       <div className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-[#F0A018]/0 to-transparent transition-all duration-500 group-hover:via-[#F0A018]/52"></div>
                       <div className="absolute -right-16 -top-16 h-44 w-44 rounded-full bg-[#5CC0D5]/0 blur-[80px] transition-all duration-500 group-hover:bg-[#5CC0D5]/11"></div>
                       <div className="absolute -bottom-16 left-8 h-40 w-40 rounded-full bg-[#F0A018]/0 blur-[82px] transition-all duration-500 group-hover:bg-[#F0A018]/7"></div>
@@ -1839,7 +1821,7 @@ export default function NutrivisiSite({ lang = 'NL' }) {
                       <div className="relative">
                         <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                           <div className="flex flex-wrap gap-2">
-                            <span className="inline-flex items-center gap-2 rounded-full border border-[#5CC0D5]/20 bg-[#023A4E]/50 px-3 py-1.5 text-xs font-extrabold uppercase tracking-[0.14em] text-teal-100/78">
+                            <span className="inline-flex items-center gap-2 rounded-full border border-[#5CC0D5]/20 bg-[#0A6F8F]/50 px-3 py-1.5 text-xs font-extrabold uppercase tracking-[0.14em] text-teal-100/78">
                               <MapPin className="h-3.5 w-3.5 text-[#5CC0D5]" />
                               {item.regionLabel}
                             </span>
@@ -1872,10 +1854,10 @@ export default function NutrivisiSite({ lang = 'NL' }) {
                             <span className="text-[#F0A018]">{item.source}</span>
                           </div>
                           <div className="flex flex-wrap gap-3">
-                            <button onClick={() => scrollToSection('contact')} className="interactive-card inline-flex items-center gap-2 rounded-full border border-[#F0A018]/30 bg-transparent px-4 py-2 text-xs font-extrabold uppercase tracking-[0.14em] text-[#F0A018] transition hover:border-[#F0A018] hover:bg-[#F0A018] hover:text-[#012330]">
+                            <button onClick={() => scrollToSection('contact')} className="interactive-card inline-flex items-center gap-2 rounded-full border border-[#F0A018]/30 bg-transparent px-4 py-2 text-xs font-extrabold uppercase tracking-[0.14em] text-[#F0A018] transition hover:border-[#F0A018] hover:bg-[#F0A018] hover:text-[#073B4C]">
                               {t.regulatorySection.contactCta}
                             </button>
-                            <a href={item.url} target="_blank" rel="noopener noreferrer" className="interactive-card inline-flex items-center gap-2 rounded-full border border-[#5CC0D5]/24 bg-[#023A4E]/42 px-4 py-2 text-xs font-extrabold uppercase tracking-[0.14em] text-[#5CC0D5] transition hover:border-[#5CC0D5] hover:bg-[#5CC0D5] hover:text-[#012330]">
+                            <a href={item.url} target="_blank" rel="noopener noreferrer" className="interactive-card inline-flex items-center gap-2 rounded-full border border-[#5CC0D5]/24 bg-[#0A6F8F]/42 px-4 py-2 text-xs font-extrabold uppercase tracking-[0.14em] text-[#5CC0D5] transition hover:border-[#5CC0D5] hover:bg-[#5CC0D5] hover:text-[#073B4C]">
                               {t.regulatorySection.sourceCta}
                               <ExternalLink className="h-3.5 w-3.5" />
                             </a>
@@ -1892,9 +1874,9 @@ export default function NutrivisiSite({ lang = 'NL' }) {
       </section>
 
       {/* ===== KENNISBANK / INSIGHTS ===== */}
-      <section id="kennis" className="relative overflow-hidden border-t border-teal-900/30 bg-[#01506E] py-24 md:py-32">
+      <section id="kennis" className="relative overflow-hidden border-t border-teal-900/30 bg-[#087FA1] py-24 md:py-32">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_14%,rgba(92,192,213,0.11),transparent_31%),radial-gradient(circle_at_82%_34%,rgba(240,160,24,0.06),transparent_30%),linear-gradient(180deg,rgba(1,80,110,0)_0%,rgba(1,26,36,0.18)_50%,rgba(1,80,110,0)_100%)]"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_14%,rgba(92,192,213,0.11),transparent_31%),radial-gradient(circle_at_82%_34%,rgba(240,160,24,0.06),transparent_30%),linear-gradient(180deg,rgba(8,127,161,0)_0%,rgba(10,70,93,0.18)_50%,rgba(8,127,161,0)_100%)]"></div>
           <div className="absolute inset-0 opacity-[0.035]" style={{ backgroundImage: 'linear-gradient(rgba(92,192,213,0.35) 1px, transparent 1px), linear-gradient(90deg, rgba(92,192,213,0.35) 1px, transparent 1px)', backgroundSize: '72px 72px' }}></div>
           <div className="absolute left-1/2 top-24 h-72 w-[980px] -translate-x-1/2 rounded-full bg-[#5CC0D5]/7 blur-[130px]"></div>
           <svg className="absolute inset-x-0 top-10 hidden h-[620px] w-full opacity-70 lg:block" viewBox="0 0 1440 620" fill="none" aria-hidden="true">
@@ -1933,14 +1915,14 @@ export default function NutrivisiSite({ lang = 'NL' }) {
             {t.insightsSection.items.map((item, index) => (
               <FadeInSection key={item.title} delay={(index % 3) * 100}>
                 <a href="#contact" onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }} className="group block h-full interactive-card">
-                  <div className="relative flex h-full min-h-[19rem] flex-col overflow-hidden rounded-[2rem] border border-[#5CC0D5]/15 bg-[#011a24]/38 p-7 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:border-[#5CC0D5]/42 hover:bg-[#023A4E]/36 hover:shadow-[0_28px_80px_-52px_rgba(92,192,213,0.85)] active:scale-[0.985] md:p-8">
+                  <div className="relative flex h-full min-h-[19rem] flex-col overflow-hidden rounded-[2rem] border border-[#5CC0D5]/15 bg-[#0A465D]/38 p-7 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:border-[#5CC0D5]/42 hover:bg-[#0A6F8F]/36 hover:shadow-[0_28px_80px_-52px_rgba(92,192,213,0.85)] active:scale-[0.985] md:p-8">
                     <div className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-[#5CC0D5]/0 to-transparent transition-all duration-500 group-hover:via-[#5CC0D5]/65"></div>
                     <div className="absolute -right-16 -top-16 h-44 w-44 rounded-full bg-[#5CC0D5]/0 blur-[80px] transition-all duration-500 group-hover:bg-[#5CC0D5]/14"></div>
                     <div className="absolute -bottom-20 left-8 h-44 w-44 rounded-full bg-[#F0A018]/0 blur-[90px] transition-all duration-500 group-hover:bg-[#F0A018]/7"></div>
                     <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(92,192,213,0.08),transparent_36%,rgba(240,160,24,0.04)_100%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
 
                     <div className="relative mb-8 flex items-center justify-between gap-5">
-                      <div className="relative flex h-[4.75rem] w-[4.75rem] items-center justify-center rounded-[1.35rem] border border-[#5CC0D5]/24 bg-[#023A4E]/34 text-[#5CC0D5] transition-all duration-500 group-hover:border-[#5CC0D5]/72 group-hover:bg-[#5CC0D5]/9 group-hover:text-[#5CC0D5] group-active:scale-95">
+                      <div className="relative flex h-[4.75rem] w-[4.75rem] items-center justify-center rounded-[1.35rem] border border-[#5CC0D5]/24 bg-[#0A6F8F]/34 text-[#5CC0D5] transition-all duration-500 group-hover:border-[#5CC0D5]/72 group-hover:bg-[#5CC0D5]/9 group-hover:text-[#5CC0D5] group-active:scale-95">
                         <div className="absolute inset-2 rounded-2xl border border-[#F0A018]/10 transition-all duration-500 group-hover:scale-110 group-hover:border-[#5CC0D5]/28"></div>
                         <div className="absolute inset-0 rounded-[1.35rem] bg-[#5CC0D5]/0 blur-xl transition-all duration-500 group-hover:bg-[#5CC0D5]/18"></div>
                         <div className="relative transition-transform duration-500 group-hover:scale-110">
@@ -1971,9 +1953,9 @@ export default function NutrivisiSite({ lang = 'NL' }) {
       </section>
 
       {/* ===== CONTACT ===== */}
-      <section id="contact" className="relative overflow-hidden border-t border-teal-900/30 bg-[#01506E] pt-24 md:pt-32">
+      <section id="contact" className="relative overflow-hidden border-t border-teal-900/30 bg-[#087FA1] pt-24 md:pt-32">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(1,80,110,0)_0%,rgba(1,58,78,0.18)_36%,rgba(1,26,36,0.2)_78%,rgba(1,80,110,0)_100%)]"></div>
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,127,161,0)_0%,rgba(10,111,143,0.18)_36%,rgba(10,70,93,0.2)_78%,rgba(8,127,161,0)_100%)]"></div>
           <div className="absolute left-1/2 top-24 h-[520px] w-[980px] -translate-x-1/2 rounded-full bg-[#5CC0D5]/8 blur-[150px]"></div>
           <div className="absolute right-[-10%] top-36 h-[420px] w-[620px] rounded-full bg-[#F0A018]/6 blur-[130px]"></div>
           <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'linear-gradient(rgba(92,192,213,0.45) 1px, transparent 1px), linear-gradient(90deg, rgba(92,192,213,0.45) 1px, transparent 1px)', backgroundSize: '72px 72px' }}></div>
@@ -2009,12 +1991,12 @@ export default function NutrivisiSite({ lang = 'NL' }) {
                 </p>
 
                 <div className="mt-12 space-y-4 border-t border-[#5CC0D5]/16 pt-8">
-                  <a href="mailto:info@nutrivisi.be" className="group interactive-card selectable block">
-                    <div className="relative overflow-hidden rounded-[1.75rem] border border-[#5CC0D5]/16 bg-[#023A4E]/22 p-5 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:border-[#5CC0D5]/42 hover:bg-[#023A4E]/34 hover:shadow-[0_24px_70px_-44px_rgba(92,192,213,0.8)]">
+                  <button type="button" onClick={() => scrollToSection('contact')} className="group interactive-card selectable block w-full text-left">
+                    <div className="relative overflow-hidden rounded-[1.75rem] border border-[#5CC0D5]/16 bg-[#0A6F8F]/22 p-5 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:border-[#5CC0D5]/42 hover:bg-[#0A6F8F]/34 hover:shadow-[0_24px_70px_-44px_rgba(92,192,213,0.8)]">
                       <div className="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-[#5CC0D5]/0 to-transparent transition-all duration-500 group-hover:via-[#5CC0D5]/62"></div>
                       <div className="absolute -right-10 top-0 h-28 w-28 rounded-full bg-[#5CC0D5]/0 blur-[70px] transition-all duration-500 group-hover:bg-[#5CC0D5]/12"></div>
                       <div className="relative flex items-center gap-5">
-                        <div className="relative flex h-16 w-16 items-center justify-center rounded-[1.2rem] border border-[#5CC0D5]/24 bg-[#011a24]/24 text-[#5CC0D5] transition-all duration-500 group-hover:border-[#5CC0D5]/52 group-hover:bg-[#5CC0D5]/10 group-hover:text-[#5CC0D5]">
+                        <div className="relative flex h-16 w-16 items-center justify-center rounded-[1.2rem] border border-[#5CC0D5]/24 bg-[#0A465D]/24 text-[#5CC0D5] transition-all duration-500 group-hover:border-[#5CC0D5]/52 group-hover:bg-[#5CC0D5]/10 group-hover:text-[#5CC0D5]">
                           <div className="absolute inset-2 rounded-2xl border border-[#F0A018]/10 transition-all duration-500 group-hover:scale-110 group-hover:border-[#5CC0D5]/22"></div>
                           <div className="absolute inset-0 rounded-[1.2rem] bg-[#5CC0D5]/0 blur-xl transition-all duration-500 group-hover:bg-[#5CC0D5]/18"></div>
                           <div className="relative transition-transform duration-500 group-hover:scale-110">
@@ -2023,19 +2005,19 @@ export default function NutrivisiSite({ lang = 'NL' }) {
                         </div>
                         <div className="min-w-0 flex-1">
                           <p className="mb-1 text-xs font-bold uppercase tracking-[0.22em] text-[#5CC0D5]/78">{t.contactSection.emailText}</p>
-                          <p className="text-xl font-bold tracking-tight text-white">info@nutrivisi.be</p>
+                          <p className="text-xl font-bold tracking-tight text-white">{CONTACT_EMAIL}</p>
                         </div>
                         <ArrowRight className="h-4 w-4 text-[#F0A018]/75 transition-transform duration-500 group-hover:translate-x-1" />
                       </div>
                     </div>
-                  </a>
+                  </button>
 
-                  <a href="tel:+3216196984" className="group interactive-card selectable block">
-                    <div className="relative overflow-hidden rounded-[1.75rem] border border-[#5CC0D5]/16 bg-[#023A4E]/22 p-5 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:border-[#5CC0D5]/42 hover:bg-[#023A4E]/34 hover:shadow-[0_24px_70px_-44px_rgba(92,192,213,0.8)]">
+                  <a href={`tel:${CONTACT_PHONE_LINK}`} className="group interactive-card selectable block">
+                    <div className="relative overflow-hidden rounded-[1.75rem] border border-[#5CC0D5]/16 bg-[#0A6F8F]/22 p-5 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:border-[#5CC0D5]/42 hover:bg-[#0A6F8F]/34 hover:shadow-[0_24px_70px_-44px_rgba(92,192,213,0.8)]">
                       <div className="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-[#5CC0D5]/0 to-transparent transition-all duration-500 group-hover:via-[#5CC0D5]/62"></div>
                       <div className="absolute -right-10 top-0 h-28 w-28 rounded-full bg-[#F0A018]/0 blur-[70px] transition-all duration-500 group-hover:bg-[#F0A018]/8"></div>
                       <div className="relative flex items-center gap-5">
-                        <div className="relative flex h-16 w-16 items-center justify-center rounded-[1.2rem] border border-[#5CC0D5]/24 bg-[#011a24]/24 text-[#5CC0D5] transition-all duration-500 group-hover:border-[#5CC0D5]/52 group-hover:bg-[#5CC0D5]/10 group-hover:text-[#5CC0D5]">
+                        <div className="relative flex h-16 w-16 items-center justify-center rounded-[1.2rem] border border-[#5CC0D5]/24 bg-[#0A465D]/24 text-[#5CC0D5] transition-all duration-500 group-hover:border-[#5CC0D5]/52 group-hover:bg-[#5CC0D5]/10 group-hover:text-[#5CC0D5]">
                           <div className="absolute inset-2 rounded-2xl border border-[#F0A018]/10 transition-all duration-500 group-hover:scale-110 group-hover:border-[#5CC0D5]/22"></div>
                           <div className="absolute inset-0 rounded-[1.2rem] bg-[#5CC0D5]/0 blur-xl transition-all duration-500 group-hover:bg-[#5CC0D5]/18"></div>
                           <div className="relative transition-transform duration-500 group-hover:scale-110">
@@ -2044,7 +2026,7 @@ export default function NutrivisiSite({ lang = 'NL' }) {
                         </div>
                         <div className="min-w-0 flex-1">
                           <p className="mb-1 text-xs font-bold uppercase tracking-[0.22em] text-[#5CC0D5]/78">{t.contactSection.phoneText}</p>
-                          <p className="text-xl font-bold tracking-tight text-white">+32 16 19 69 84</p>
+                          <p className="text-xl font-bold tracking-tight text-white">{CONTACT_PHONE_DISPLAY}</p>
                         </div>
                         <ArrowRight className="h-4 w-4 text-[#F0A018]/75 transition-transform duration-500 group-hover:translate-x-1" />
                       </div>
@@ -2057,11 +2039,11 @@ export default function NutrivisiSite({ lang = 'NL' }) {
                     rel="noopener noreferrer"
                     className="group interactive-card selectable block"
                   >
-                    <div className="relative overflow-hidden rounded-[1.75rem] border border-[#5CC0D5]/16 bg-[#023A4E]/22 p-5 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:border-[#5CC0D5]/42 hover:bg-[#023A4E]/34 hover:shadow-[0_24px_70px_-44px_rgba(92,192,213,0.8)]">
+                    <div className="relative overflow-hidden rounded-[1.75rem] border border-[#5CC0D5]/16 bg-[#0A6F8F]/22 p-5 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:border-[#5CC0D5]/42 hover:bg-[#0A6F8F]/34 hover:shadow-[0_24px_70px_-44px_rgba(92,192,213,0.8)]">
                       <div className="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-[#5CC0D5]/0 to-transparent transition-all duration-500 group-hover:via-[#5CC0D5]/62"></div>
                       <div className="absolute -right-10 top-0 h-28 w-28 rounded-full bg-[#5CC0D5]/0 blur-[70px] transition-all duration-500 group-hover:bg-[#5CC0D5]/12"></div>
                       <div className="relative flex items-center gap-5">
-                        <div className="relative flex h-16 w-16 items-center justify-center rounded-[1.2rem] border border-[#5CC0D5]/24 bg-[#011a24]/24 text-[#5CC0D5] transition-all duration-500 group-hover:border-[#5CC0D5]/52 group-hover:bg-[#5CC0D5]/10 group-hover:text-[#5CC0D5]">
+                        <div className="relative flex h-16 w-16 items-center justify-center rounded-[1.2rem] border border-[#5CC0D5]/24 bg-[#0A465D]/24 text-[#5CC0D5] transition-all duration-500 group-hover:border-[#5CC0D5]/52 group-hover:bg-[#5CC0D5]/10 group-hover:text-[#5CC0D5]">
                           <div className="absolute inset-2 rounded-2xl border border-[#F0A018]/10 transition-all duration-500 group-hover:scale-110 group-hover:border-[#5CC0D5]/22"></div>
                           <div className="absolute inset-0 rounded-[1.2rem] bg-[#5CC0D5]/0 blur-xl transition-all duration-500 group-hover:bg-[#5CC0D5]/18"></div>
                           <div className="relative transition-transform duration-500 group-hover:scale-110">
@@ -2081,7 +2063,7 @@ export default function NutrivisiSite({ lang = 'NL' }) {
             </FadeInSection>
 
             <FadeInSection delay={300}>
-              <div className="relative overflow-hidden rounded-[2.5rem] border border-[#5CC0D5]/26 bg-[linear-gradient(145deg,rgba(2,58,78,0.38),rgba(1,80,110,0.18)_55%,rgba(2,58,78,0.28))] p-8 shadow-[0_34px_110px_-58px_rgba(92,192,213,0.95)] backdrop-blur-[24px] md:p-10 lg:p-11">
+              <div className="relative overflow-hidden rounded-[2.5rem] border border-[#5CC0D5]/26 bg-[linear-gradient(145deg,rgba(10,111,143,0.38),rgba(8,127,161,0.18)_55%,rgba(10,111,143,0.28))] p-8 shadow-[0_34px_110px_-58px_rgba(92,192,213,0.95)] backdrop-blur-[24px] md:p-10 lg:p-11">
                 <div className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-[#5CC0D5]/62 to-transparent"></div>
                 <div className="absolute -right-16 -top-14 h-44 w-44 rounded-full bg-[#5CC0D5]/13 blur-[90px]"></div>
                 <div className="absolute -left-16 bottom-8 h-36 w-36 rounded-full bg-[#F0A018]/7 blur-[90px]"></div>
@@ -2103,7 +2085,7 @@ export default function NutrivisiSite({ lang = 'NL' }) {
                 </div>
 
                 <form onSubmit={handleSubmit} className="relative z-10 space-y-5">
-                  <div className="group/field relative overflow-hidden rounded-[1.35rem] border border-[#5CC0D5]/20 bg-[#023A4E]/34 shadow-[inset_0_1px_0_rgba(92,192,213,0.08)] transition-all duration-300 focus-within:border-[#5CC0D5]/58 focus-within:bg-[#023A4E]/48 focus-within:shadow-[0_0_0_1px_rgba(92,192,213,0.18),0_22px_55px_-36px_rgba(92,192,213,0.9)]">
+                  <div className="group/field relative overflow-hidden rounded-[1.35rem] border border-[#5CC0D5]/20 bg-[#0A6F8F]/34 shadow-[inset_0_1px_0_rgba(92,192,213,0.08)] transition-all duration-300 focus-within:border-[#5CC0D5]/58 focus-within:bg-[#0A6F8F]/48 focus-within:shadow-[0_0_0_1px_rgba(92,192,213,0.18),0_22px_55px_-36px_rgba(92,192,213,0.9)]">
                     <div className="absolute inset-x-5 top-0 h-px bg-gradient-to-r from-transparent via-[#5CC0D5]/0 to-transparent transition-all duration-300 group-focus-within/field:via-[#5CC0D5]/70"></div>
                     <input
                       type="text" name="name" value={formData.name} onChange={handleInputChange} required
@@ -2116,7 +2098,7 @@ export default function NutrivisiSite({ lang = 'NL' }) {
                   </div>
 
                   <div className="grid gap-5 md:grid-cols-2">
-                    <div className="group/field relative overflow-hidden rounded-[1.35rem] border border-[#5CC0D5]/20 bg-[#023A4E]/34 shadow-[inset_0_1px_0_rgba(92,192,213,0.08)] transition-all duration-300 focus-within:border-[#5CC0D5]/58 focus-within:bg-[#023A4E]/48 focus-within:shadow-[0_0_0_1px_rgba(92,192,213,0.18),0_22px_55px_-36px_rgba(92,192,213,0.9)]">
+                    <div className="group/field relative overflow-hidden rounded-[1.35rem] border border-[#5CC0D5]/20 bg-[#0A6F8F]/34 shadow-[inset_0_1px_0_rgba(92,192,213,0.08)] transition-all duration-300 focus-within:border-[#5CC0D5]/58 focus-within:bg-[#0A6F8F]/48 focus-within:shadow-[0_0_0_1px_rgba(92,192,213,0.18),0_22px_55px_-36px_rgba(92,192,213,0.9)]">
                       <div className="absolute inset-x-5 top-0 h-px bg-gradient-to-r from-transparent via-[#5CC0D5]/0 to-transparent transition-all duration-300 group-focus-within/field:via-[#5CC0D5]/70"></div>
                       <input
                         type="text" name="company" value={formData.company} onChange={handleInputChange} required
@@ -2128,7 +2110,7 @@ export default function NutrivisiSite({ lang = 'NL' }) {
                       </label>
                     </div>
 
-                    <div className="group/field relative overflow-hidden rounded-[1.35rem] border border-[#5CC0D5]/20 bg-[#023A4E]/34 shadow-[inset_0_1px_0_rgba(92,192,213,0.08)] transition-all duration-300 focus-within:border-[#5CC0D5]/58 focus-within:bg-[#023A4E]/48 focus-within:shadow-[0_0_0_1px_rgba(92,192,213,0.18),0_22px_55px_-36px_rgba(92,192,213,0.9)]">
+                    <div className="group/field relative overflow-hidden rounded-[1.35rem] border border-[#5CC0D5]/20 bg-[#0A6F8F]/34 shadow-[inset_0_1px_0_rgba(92,192,213,0.08)] transition-all duration-300 focus-within:border-[#5CC0D5]/58 focus-within:bg-[#0A6F8F]/48 focus-within:shadow-[0_0_0_1px_rgba(92,192,213,0.18),0_22px_55px_-36px_rgba(92,192,213,0.9)]">
                       <div className="absolute inset-x-5 top-0 h-px bg-gradient-to-r from-transparent via-[#5CC0D5]/0 to-transparent transition-all duration-300 group-focus-within/field:via-[#5CC0D5]/70"></div>
                       <input
                         type="email" name="email" value={formData.email} onChange={handleInputChange} required
@@ -2141,7 +2123,7 @@ export default function NutrivisiSite({ lang = 'NL' }) {
                     </div>
                   </div>
 
-                  <div className="group/field relative overflow-hidden rounded-[1.35rem] border border-[#5CC0D5]/20 bg-[#023A4E]/34 shadow-[inset_0_1px_0_rgba(92,192,213,0.08)] transition-all duration-300 focus-within:border-[#5CC0D5]/58 focus-within:bg-[#023A4E]/48 focus-within:shadow-[0_0_0_1px_rgba(92,192,213,0.18),0_22px_55px_-36px_rgba(92,192,213,0.9)]">
+                  <div className="group/field relative overflow-hidden rounded-[1.35rem] border border-[#5CC0D5]/20 bg-[#0A6F8F]/34 shadow-[inset_0_1px_0_rgba(92,192,213,0.08)] transition-all duration-300 focus-within:border-[#5CC0D5]/58 focus-within:bg-[#0A6F8F]/48 focus-within:shadow-[0_0_0_1px_rgba(92,192,213,0.18),0_22px_55px_-36px_rgba(92,192,213,0.9)]">
                     <div className="absolute inset-x-5 top-0 h-px bg-gradient-to-r from-transparent via-[#5CC0D5]/0 to-transparent transition-all duration-300 group-focus-within/field:via-[#5CC0D5]/70"></div>
                     <textarea
                       name="message" value={formData.message} onChange={handleInputChange} rows="5" required
@@ -2153,10 +2135,27 @@ export default function NutrivisiSite({ lang = 'NL' }) {
                     </label>
                   </div>
 
-                  <button type="submit" className="group interactive-card mt-3 flex w-full items-center justify-center gap-3 rounded-[1.35rem] border border-[#F0A018]/46 bg-gradient-to-r from-[#F0A018] via-[#FFB53A] to-[#FFC35C] px-8 py-5 text-lg font-bold text-[#012330] shadow-[0_16px_42px_-18px_rgba(240,160,24,0.55)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_24px_55px_-18px_rgba(240,160,24,0.72)]">
-                    <span>{t.contactSection.submit}</span>
+                  <button
+                    type="submit"
+                    disabled={formStatus.type === 'sending'}
+                    className="group interactive-card mt-3 flex w-full items-center justify-center gap-3 rounded-[1.35rem] border border-[#F0A018]/46 bg-gradient-to-r from-[#F0A018] via-[#FFB53A] to-[#FFC35C] px-8 py-5 text-lg font-bold text-[#073B4C] shadow-[0_16px_42px_-18px_rgba(240,160,24,0.55)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_24px_55px_-18px_rgba(240,160,24,0.72)] disabled:cursor-wait disabled:opacity-70 disabled:hover:translate-y-0 disabled:hover:shadow-[0_16px_42px_-18px_rgba(240,160,24,0.55)]"
+                  >
+                    <span>{formStatus.type === 'sending' ? t.contactSection.sending : t.contactSection.submit}</span>
                     <Send className="h-5 w-5 transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1" />
                   </button>
+                  {formStatus.message ? (
+                    <p
+                      role="status"
+                      aria-live="polite"
+                      className={`rounded-2xl border px-4 py-3 text-sm font-semibold leading-6 ${
+                        formStatus.type === 'success'
+                          ? 'border-[#B8EACD]/45 bg-[#B8EACD]/14 text-white'
+                          : 'border-[#FFD0D0]/45 bg-[#FFD0D0]/12 text-[#FFE6E6]'
+                      }`}
+                    >
+                      {formStatus.message}
+                    </p>
+                  ) : null}
                   <p className="px-1 text-sm leading-7 text-teal-100/64">
                     {t.contactSection.privacyNoteLead}{' '}
                     <Link
@@ -2181,9 +2180,9 @@ export default function NutrivisiSite({ lang = 'NL' }) {
               <div className="pt-10">
                 <div className="flex flex-col gap-10 md:flex-row md:items-center md:justify-between">
                   <div className="flex cursor-pointer items-center gap-4 interactive-card" onClick={() => scrollToSection('home')}>
-                    <div className="relative flex h-12 w-12 items-center justify-center rounded-2xl border border-[#5CC0D5]/24 bg-[#023A4E]/18 text-[#F0A018] backdrop-blur-sm">
+                    <div className="relative flex h-12 w-12 items-center justify-center rounded-2xl border border-[#5CC0D5]/24 bg-[#0A6F8F]/18 text-[#F0A018] backdrop-blur-sm">
                       <div className="absolute inset-2 rounded-xl border border-[#5CC0D5]/10"></div>
-                      <NutriLogo className="relative h-7 w-7 text-[#F0A018]" cutoutColor="#01506E" />
+                      <NutriLogo className="relative h-7 w-7 text-[#F0A018]" cutoutColor="#087FA1" />
                     </div>
                     <div>
                       <span className="block text-xl font-bold tracking-tight text-white">Nutrivisi</span>

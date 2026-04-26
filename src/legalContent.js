@@ -55,7 +55,7 @@ const companyFacts = {
   address: 'Martelarenlaan 69/1, 3010 Leuven, Belgium',
   email: 'info@nutrivisi.be',
   emailDisplay: 'info@nutrivisi.be',
-  phone: '+32 16 19 69 84',
+  phone: '+32 492 72 97 29',
   domainProvider: 'Combell nv, Skaldenstraat 121, 9042 Gent, Belgium',
   websiteHost: 'Vercel Inc., 440 N Barranca Avenue #4133, Covina, CA 91723, United States',
   updatedNl: '23 april 2026',
@@ -165,7 +165,7 @@ export const LEGAL_PAGE_CONTENT = {
         {
           title: '7. Websitegebruik, e-mail en externe bronnen',
           paragraphs: [
-            'De huidige contactmodule op deze website helpt u om via uw eigen e-mailtoepassing een bericht aan Nutrivisi te sturen. De eigenlijke verzending van uw bericht verloopt dus via uw e-mailprovider en onze e-mailinfrastructuur.',
+            'De contactmodule op deze website verstuurt uw bericht rechtstreeks naar Nutrivisi via de beveiligde serveromgeving van de website. Uw browser hoeft daarvoor geen eigen e-mailtoepassing te openen.',
             'De website laadt geen externe marketing-, analyse- of fontdiensten in de publieke front-end. Eventuele technische verzoekgegevens blijven beperkt tot wat nodig is voor hosting, aflevering en beveiliging van de site.',
           ],
         },
@@ -357,7 +357,7 @@ export const LEGAL_PAGE_CONTENT = {
         {
           title: '7. Utilisation du site, e-mail et ressources externes',
           paragraphs: [
-            'Le module de contact actuel du site vous aide à ouvrir votre propre application e-mail afin d’envoyer un message à Nutrivisi. L’envoi effectif du message transite donc par votre fournisseur e-mail et par notre infrastructure e-mail.',
+            'Le module de contact du site envoie votre message directement à Nutrivisi via l’environnement serveur sécurisé du site. Votre navigateur n’a donc pas besoin d’ouvrir votre propre application e-mail.',
             'Le site public ne charge pas de services externes de marketing, d’analytics ou de polices web dans le front-end. Les éventuelles données techniques de requête restent limitées à ce qui est nécessaire pour l’hébergement, la diffusion et la sécurité du site.',
           ],
         },

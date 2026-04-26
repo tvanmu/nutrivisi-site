@@ -14,7 +14,7 @@ const HOME_SEO_DATA = {
     path: '/nl',
     title: 'Nutrivisi — Voedingsadvies, etikettering & certificatie in België',
     description:
-      'Nutrivisi begeleidt voedingsbedrijven in bakkerij, vlees, horeca en retail met expertadvies, coaching, certificatie, risicobeheer en correcte etikettering (NL · FR · EN).',
+      'Nutrivisi begeleidt voedingsbedrijven in de bakkerijsector en vleessector met expertadvies, coaching, certificatie, risicobeheer en correcte etikettering (NL · FR · EN).',
     alternates: {
       'nl-BE': `${SITE_URL}/nl`,
       'fr-BE': `${SITE_URL}/fr`,
@@ -27,7 +27,7 @@ const HOME_SEO_DATA = {
     path: '/fr',
     title: 'Nutrivisi — Conseil nutritionnel, étiquetage & certification en Belgique',
     description:
-      "Nutrivisi accompagne les entreprises alimentaires (boulangerie, viande, horeca, retail) : conseil expert, coaching, certification, gestion des risques et étiquetage conforme (NL · FR · EN).",
+      "Nutrivisi accompagne les entreprises alimentaires du secteur de la boulangerie et du secteur de la viande : conseil expert, coaching, certification, gestion des risques et étiquetage conforme (NL · FR · EN).",
     alternates: {
       'nl-BE': `${SITE_URL}/nl`,
       'fr-BE': `${SITE_URL}/fr`,
