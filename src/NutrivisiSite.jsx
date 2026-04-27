@@ -837,6 +837,8 @@ const translations = {
       sending: 'Aanvraag wordt verzonden',
       success: 'Bedankt. Uw aanvraag is verzonden. Nutrivisi neemt zo snel mogelijk contact op.',
       error: 'Er ging iets mis bij het verzenden. Probeer straks opnieuw of neem telefonisch contact op.',
+      fallback: 'De automatische verzending lukt momenteel niet. U kunt uw bericht direct via e-mail versturen.',
+      fallbackAction: 'Open e-mail',
       mailSubject: 'Aanvraag via website', mailBodyName: 'Naam', mailBodyCompany: 'Bedrijf', mailBodyEmail: 'E-mail', mailBodyQuestion: 'Vraag',
       privacyNoteLead: 'Door contact op te nemen, verwerkt Nutrivisi uw gegevens om uw vraag te beantwoorden. Lees ons',
       privacyNoteLink: 'privacybeleid',
@@ -998,6 +1000,8 @@ const translations = {
       sending: 'Envoi en cours',
       success: 'Merci. Votre demande a été envoyée. Nutrivisi vous recontactera rapidement.',
       error: 'Un problème est survenu pendant l’envoi. Réessayez plus tard ou contactez-nous par téléphone.',
+      fallback: 'L’envoi automatique est momentanément indisponible. Vous pouvez envoyer votre message directement par e-mail.',
+      fallbackAction: 'Ouvrir l’e-mail',
       mailSubject: 'Demande via le site', mailBodyName: 'Nom', mailBodyCompany: 'Entreprise', mailBodyEmail: 'E-mail', mailBodyQuestion: 'Question',
       privacyNoteLead: 'En prenant contact, Nutrivisi traite vos données afin de répondre à votre demande. Consultez notre',
       privacyNoteLink: 'politique de confidentialité',
@@ -1057,6 +1061,20 @@ export default function NutrivisiSite({ lang = 'NL' }) {
       : t.regulatorySection.items.filter((item) => item.region === activeRegulatoryFilter)
   ), [activeRegulatoryFilter, t]);
 
+  const mailFallbackHref = useMemo(() => {
+    const subject = `${t.contactSection.mailSubject} - ${formData.company || 'Nutrivisi'}`;
+    const body = [
+      `${t.contactSection.mailBodyName}: ${formData.name}`,
+      `${t.contactSection.mailBodyCompany}: ${formData.company}`,
+      `${t.contactSection.mailBodyEmail}: ${formData.email}`,
+      '',
+      `${t.contactSection.mailBodyQuestion}:`,
+      formData.message,
+    ].join('\n');
+
+    return `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  }, [formData, t]);
+
   const activeService = useMemo(
     () => currentServices.find((service) => service.id === activeServiceId) ?? currentServices[0],
     [activeServiceId, currentServices]
@@ -1101,7 +1119,7 @@ export default function NutrivisiSite({ lang = 'NL' }) {
       setFormData({ name: '', company: '', email: '', message: '' });
       setFormStatus({ type: 'success', message: t.contactSection.success });
     } catch {
-      setFormStatus({ type: 'error', message: t.contactSection.error });
+      setFormStatus({ type: 'fallback', message: t.contactSection.fallback });
     }
   };
 
@@ -2154,6 +2172,17 @@ export default function NutrivisiSite({ lang = 'NL' }) {
                       }`}
                     >
                       {formStatus.message}
+                      {formStatus.type === 'fallback' ? (
+                        <>
+                          {' '}
+                          <a
+                            href={mailFallbackHref}
+                            className="font-extrabold text-white underline decoration-white/45 underline-offset-4 transition hover:decoration-white"
+                          >
+                            {t.contactSection.fallbackAction}
+                          </a>
+                        </>
+                      ) : null}
                     </p>
                   ) : null}
                   <p className="px-1 text-sm leading-7 text-teal-100/64">

@@ -95,7 +95,7 @@ export default async function handler(req, res) {
     const apiKey = process.env.RESEND_API_KEY;
     if (!apiKey) {
       console.error('Missing RESEND_API_KEY for contact form delivery');
-      if (process.env.NODE_ENV !== 'production' && !process.env.VERCEL) {
+      if (!process.env.VERCEL) {
         return sendJson(res, 200, { ok: true, dev: true });
       }
       return sendJson(res, 503, { ok: false });
