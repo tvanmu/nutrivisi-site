@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate, useLocation, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import NutrivisiSite from './NutrivisiSite';
 import LegalPage from './LegalPage';
 import { SITE_URL, getLegalPageKey, getLegalSeo } from './legalContent';
@@ -153,6 +154,7 @@ export default function App() {
         <Route path="/fr/:slug" element={<LegalRoute lang="FR" />} />
         <Route path="*" element={<Navigate to="/nl" replace />} />
       </Routes>
+      <Analytics />
     </BrowserRouter>
   );
 }
