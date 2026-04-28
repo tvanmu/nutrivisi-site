@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate, useLocation, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import NutrivisiSite from './NutrivisiSite';
 import LegalPage from './LegalPage';
 import { SITE_URL, getLegalPageKey, getLegalSeo } from './legalContent';
@@ -138,6 +139,7 @@ function LegalRoute({ lang }) {
 export default function App() {
   return (
     <BrowserRouter>
+      <Analytics />
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<LangRedirect />} />

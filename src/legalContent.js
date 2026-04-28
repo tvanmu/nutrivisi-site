@@ -166,7 +166,7 @@ export const LEGAL_PAGE_CONTENT = {
           title: '7. Websitegebruik, e-mail en externe bronnen',
           paragraphs: [
             'De contactmodule op deze website verstuurt uw bericht rechtstreeks naar Nutrivisi via de beveiligde serveromgeving van de website. Uw browser hoeft daarvoor geen eigen e-mailtoepassing te openen.',
-            'De website laadt geen externe marketing-, analyse- of fontdiensten in de publieke front-end. Eventuele technische verzoekgegevens blijven beperkt tot wat nodig is voor hosting, aflevering en beveiliging van de site.',
+            'De website gebruikt Vercel Web Analytics om geaggregeerde, privacyvriendelijke statistieken over websitegebruik te bekijken. Deze analytics werken zonder cookies en zijn bedoeld om de site technisch en inhoudelijk te verbeteren.',
           ],
         },
         {
@@ -182,15 +182,15 @@ export const LEGAL_PAGE_CONTENT = {
       eyebrow: 'Cookiebeleid',
       title: 'Duidelijkheid over cookies en vergelijkbare technologieën',
       intro:
-        'Deze pagina beschrijft hoe Nutrivisi omgaat met cookies, technische opslag en vergelijkbare online technologieën. De website is momenteel bewust eenvoudig gehouden: geen marketingstack, geen advertentiecookies en geen klassieke analyticsimplementatie.',
+        'Deze pagina beschrijft hoe Nutrivisi omgaat met cookies, technische opslag en vergelijkbare online technologieën. De website is bewust eenvoudig gehouden: geen marketingstack en geen advertentiecookies. Voor basisstatistieken gebruikt de site Vercel Web Analytics zonder cookies.',
       seoTitle: 'Cookies | Nutrivisi',
       seoDescription:
         'Bekijk hoe Nutrivisi omgaat met cookies, technische opslag en externe bronnen op nutrivisi.be.',
       updatedAt: companyFacts.updatedNl,
       summary: [
-        { label: 'Huidige status', value: 'Geen opzettelijke marketing- of analysecookies geactiveerd' },
+        { label: 'Huidige status', value: 'Vercel Web Analytics actief zonder cookies' },
         { label: 'Cookiebanner', value: 'Momenteel niet voorzien zolang geen niet-essentiële cookies actief zijn' },
-        { label: 'Externe bronnen', value: 'Geen externe font- of trackingdiensten in de publieke front-end' },
+        { label: 'Externe bronnen', value: 'Geen externe font- of advertentiediensten in de publieke front-end' },
         { label: 'Contact', value: companyFacts.emailDisplay },
       ],
       sections: [
@@ -203,7 +203,8 @@ export const LEGAL_PAGE_CONTENT = {
         {
           title: '2. Wat gebruikt deze website vandaag?',
           paragraphs: [
-            'Op basis van de huidige configuratie gebruikt nutrivisi.be geen opzettelijke analysecookies, advertentiecookies of trackingcookies voor marketingdoeleinden.',
+            'Op basis van de huidige configuratie gebruikt nutrivisi.be geen advertentiecookies of trackingcookies voor marketingdoeleinden.',
+            'De site gebruikt Vercel Web Analytics voor geaggregeerde statistieken over paginaweergaven, verwijzers, apparaten, browsers en algemene locatiegegevens. Deze analytics gebruiken geen cookies.',
             'Daarom tonen we op dit moment geen uitgebreide cookiebanner. Als later niet-essentiële cookies of vergelijkbare trackingtechnologieën worden toegevoegd, passen we dit beleid aan en voorzien we voorafgaand een passend toestemmingsmechanisme.',
           ],
         },
@@ -217,7 +218,7 @@ export const LEGAL_PAGE_CONTENT = {
         {
           title: '4. Externe diensten',
           paragraphs: [
-            'De publieke website laadt momenteel geen externe font-, analytics- of advertentiediensten in de browser.',
+            'De publieke website laadt momenteel geen externe font- of advertentiediensten in de browser. Vercel Web Analytics wordt via de Vercel-hostingomgeving geladen voor geaggregeerde gebruiksstatistieken.',
             'Als dat later verandert, wordt dit beleid aangepast en wordt waar nodig vooraf een passend toestemmingsmechanisme voorzien.',
           ],
         },
@@ -358,7 +359,7 @@ export const LEGAL_PAGE_CONTENT = {
           title: '7. Utilisation du site, e-mail et ressources externes',
           paragraphs: [
             'Le module de contact du site envoie votre message directement à Nutrivisi via l’environnement serveur sécurisé du site. Votre navigateur n’a donc pas besoin d’ouvrir votre propre application e-mail.',
-            'Le site public ne charge pas de services externes de marketing, d’analytics ou de polices web dans le front-end. Les éventuelles données techniques de requête restent limitées à ce qui est nécessaire pour l’hébergement, la diffusion et la sécurité du site.',
+            'Le site utilise Vercel Web Analytics afin de consulter des statistiques agrégées et respectueuses de la vie privée sur l’utilisation du site. Ces analytics fonctionnent sans cookies et servent à améliorer le site sur les plans technique et éditorial.',
           ],
         },
         {
@@ -374,15 +375,15 @@ export const LEGAL_PAGE_CONTENT = {
       eyebrow: 'Cookies',
       title: 'Comprendre l’usage des cookies et technologies similaires',
       intro:
-        'Cette page décrit l’approche de Nutrivisi concernant les cookies, le stockage technique et les technologies voisines. Le site est actuellement volontairement simple : pas de pile marketing, pas de cookies publicitaires et pas d’implémentation classique d’analytics.',
+        'Cette page décrit l’approche de Nutrivisi concernant les cookies, le stockage technique et les technologies voisines. Le site reste volontairement simple : pas de pile marketing ni de cookies publicitaires. Pour les statistiques de base, le site utilise Vercel Web Analytics sans cookies.',
       seoTitle: 'Cookies | Nutrivisi',
       seoDescription:
         'Consultez la politique de Nutrivisi concernant les cookies, le stockage technique et les ressources externes sur nutrivisi.be.',
       updatedAt: companyFacts.updatedFr,
       summary: [
-        { label: 'Statut actuel', value: 'Pas de cookies analytiques ou marketing volontairement activés' },
+        { label: 'Statut actuel', value: 'Vercel Web Analytics actif sans cookies' },
         { label: 'Bannière de consentement', value: 'Non déployée tant qu’aucun cookie non essentiel n’est activé' },
-        { label: 'Services externes', value: 'Pas de service externe de police ou de suivi dans le front-end public' },
+        { label: 'Services externes', value: 'Pas de service externe de police ou de publicité dans le front-end public' },
         { label: 'Contact', value: companyFacts.emailDisplay },
       ],
       sections: [
@@ -395,7 +396,8 @@ export const LEGAL_PAGE_CONTENT = {
         {
           title: '2. Que fait actuellement ce site ?',
           paragraphs: [
-            'D’après la configuration actuelle, nutrivisi.be n’utilise pas intentionnellement de cookies d’analyse, de publicité ou de suivi à des fins marketing.',
+            'D’après la configuration actuelle, nutrivisi.be n’utilise pas de cookies publicitaires ou de suivi à des fins marketing.',
+            'Le site utilise Vercel Web Analytics pour des statistiques agrégées sur les pages vues, les référents, les appareils, les navigateurs et les données générales de localisation. Ces analytics n’utilisent pas de cookies.',
             'C’est pourquoi nous n’affichons pas actuellement de bannière de consentement détaillée. Si des cookies non essentiels ou des technologies de suivi comparables sont ajoutés ultérieurement, cette politique sera adaptée et un mécanisme de consentement approprié sera mis en place au préalable.',
           ],
         },
@@ -409,7 +411,7 @@ export const LEGAL_PAGE_CONTENT = {
         {
           title: '4. Services externes',
           paragraphs: [
-            'Le site public ne charge actuellement aucun service externe de police, d’analytics ou de publicité dans le navigateur.',
+            'Le site public ne charge actuellement aucun service externe de police ou de publicité dans le navigateur. Vercel Web Analytics est chargé via l’environnement d’hébergement Vercel pour des statistiques d’utilisation agrégées.',
             'Si cela devait évoluer ultérieurement, cette politique serait mise à jour et, lorsque nécessaire, un mécanisme de consentement approprié serait mis en place au préalable.',
           ],
         },
