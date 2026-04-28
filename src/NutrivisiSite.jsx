@@ -1024,7 +1024,7 @@ export default function NutrivisiSite({ lang = 'NL' }) {
   const [scrollRotation, setScrollRotation] = useState(0);
   const [activeServiceId, setActiveServiceId] = useState('expertadvies');
   const [activeRegulatoryFilter, setActiveRegulatoryFilter] = useState('all');
-  const [formData, setFormData] = useState({ name: '', company: '', email: '', message: '' });
+  const [formData, setFormData] = useState({ name: '', company: '', email: '', message: '', website: '' });
   const [formStatus, setFormStatus] = useState({ type: 'idle', message: '' });
 
   const currentNavItems = [
@@ -1116,7 +1116,7 @@ export default function NutrivisiSite({ lang = 'NL' }) {
         throw new Error('contact-submit-failed');
       }
 
-      setFormData({ name: '', company: '', email: '', message: '' });
+      setFormData({ name: '', company: '', email: '', message: '', website: '' });
       setFormStatus({ type: 'success', message: t.contactSection.success });
     } catch {
       setFormStatus({ type: 'fallback', message: t.contactSection.fallback });
@@ -2103,6 +2103,19 @@ export default function NutrivisiSite({ lang = 'NL' }) {
                 </div>
 
                 <form onSubmit={handleSubmit} className="relative z-10 space-y-5">
+                  <div className="sr-only" aria-hidden="true">
+                    <label htmlFor="contact-website">Website</label>
+                    <input
+                      id="contact-website"
+                      type="text"
+                      name="website"
+                      value={formData.website}
+                      onChange={handleInputChange}
+                      tabIndex={-1}
+                      autoComplete="off"
+                    />
+                  </div>
+
                   <div className="group/field relative overflow-hidden rounded-[1.35rem] border border-[#5CC0D5]/20 bg-[#0A6F8F]/34 shadow-[inset_0_1px_0_rgba(92,192,213,0.08)] transition-all duration-300 focus-within:border-[#5CC0D5]/58 focus-within:bg-[#0A6F8F]/48 focus-within:shadow-[0_0_0_1px_rgba(92,192,213,0.18),0_22px_55px_-36px_rgba(92,192,213,0.9)]">
                     <div className="absolute inset-x-5 top-0 h-px bg-gradient-to-r from-transparent via-[#5CC0D5]/0 to-transparent transition-all duration-300 group-focus-within/field:via-[#5CC0D5]/70"></div>
                     <input

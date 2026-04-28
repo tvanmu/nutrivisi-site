@@ -81,12 +81,17 @@ export default async function handler(req, res) {
 
   try {
     const body = await readJson(req);
+    const website = cleanLine(body.website);
     const name = cleanLine(body.name);
     const company = cleanLine(body.company);
     const email = cleanLine(body.email, 220);
     const message = cleanMessage(body.message);
     const language = cleanLine(body.language || 'NL', 12);
     const subject = cleanLine(body.subject || `Aanvraag via website - ${company || 'Nutrivisi'}`, 180);
+
+    if (website) {
+      return sendJson(res, 200, { ok: true });
+    }
 
     if (!name || !company || !email || !message || !isValidEmail(email)) {
       return sendJson(res, 400, { ok: false });
