@@ -684,7 +684,7 @@ const regulatoryStatusClasses = {
   ===================================================================== */
 const translations = {
   NL: {
-    nav: { tag: 'Voedselveiligheid helder gemaakt', home: 'Home', services: 'Diensten', method: 'Werkwijze', radar: 'Updates', insights: 'Kennis', why: 'Waarom we', contact: 'Contact', cta: 'Contact' },
+    nav: { tag: 'Vision on food safety', home: 'Home', services: 'Diensten', method: 'Werkwijze', radar: 'Updates', insights: 'Kennis', why: 'Waarom we', contact: 'Contact', cta: 'Contact' },
     hero: {
       title1: 'Veiligheid zonder', title2: 'complexiteit.',
       subtitleParts: {
