@@ -9,11 +9,13 @@ export const LEGAL_SLUGS = {
   NL: {
     privacy: 'privacybeleid',
     cookies: 'cookies',
+    terms: 'algemene-voorwaarden',
     legal: 'juridische-info',
   },
   FR: {
     privacy: 'politique-de-confidentialite',
     cookies: 'cookies',
+    terms: 'conditions-generales',
     legal: 'mentions-legales',
   },
 };
@@ -58,8 +60,8 @@ const companyFacts = {
   phone: '+32 492 72 97 29',
   domainProvider: 'Combell nv, Skaldenstraat 121, 9042 Gent, Belgium',
   websiteHost: 'Vercel Inc., 440 N Barranca Avenue #4133, Covina, CA 91723, United States',
-  updatedNl: '23 april 2026',
-  updatedFr: '23 avril 2026',
+  updatedNl: '2 mei 2026',
+  updatedFr: '2 mai 2026',
 };
 
 export const LEGAL_LABELS = {
@@ -166,7 +168,7 @@ export const LEGAL_PAGE_CONTENT = {
           title: '7. Websitegebruik, e-mail en externe bronnen',
           paragraphs: [
             'De contactmodule op deze website verstuurt uw bericht rechtstreeks naar Nutrivisi via de beveiligde serveromgeving van de website. Uw browser hoeft daarvoor geen eigen e-mailtoepassing te openen.',
-            'De website gebruikt Vercel Web Analytics om geaggregeerde, privacyvriendelijke statistieken over websitegebruik te bekijken. Deze analytics werken zonder cookies en zijn bedoeld om de site technisch en inhoudelijk te verbeteren.',
+            'Na uw toestemming kan de website Vercel Web Analytics laden om geaggregeerde, privacyvriendelijke statistieken over websitegebruik te bekijken. Deze analytics werken zonder cookies en zijn bedoeld om de site technisch en inhoudelijk te verbeteren.',
           ],
         },
         {
@@ -188,8 +190,8 @@ export const LEGAL_PAGE_CONTENT = {
         'Bekijk hoe Nutrivisi omgaat met cookies, technische opslag en externe bronnen op nutrivisi.be.',
       updatedAt: companyFacts.updatedNl,
       summary: [
-        { label: 'Huidige status', value: 'Vercel Web Analytics actief zonder cookies' },
-        { label: 'Cookiebanner', value: 'Momenteel niet voorzien zolang geen niet-essentiële cookies actief zijn' },
+        { label: 'Huidige status', value: 'Noodzakelijke opslag actief; analytics alleen na toestemming' },
+        { label: 'Cookiebanner', value: 'Aanwezig voor de keuze rond Vercel Web Analytics' },
         { label: 'Externe bronnen', value: 'Geen externe font- of advertentiediensten in de publieke front-end' },
         { label: 'Contact', value: companyFacts.emailDisplay },
       ],
@@ -204,8 +206,8 @@ export const LEGAL_PAGE_CONTENT = {
           title: '2. Wat gebruikt deze website vandaag?',
           paragraphs: [
             'Op basis van de huidige configuratie gebruikt nutrivisi.be geen advertentiecookies of trackingcookies voor marketingdoeleinden.',
-            'De site gebruikt Vercel Web Analytics voor geaggregeerde statistieken over paginaweergaven, verwijzers, apparaten, browsers en algemene locatiegegevens. Deze analytics gebruiken geen cookies.',
-            'Daarom tonen we op dit moment geen uitgebreide cookiebanner. Als later niet-essentiële cookies of vergelijkbare trackingtechnologieën worden toegevoegd, passen we dit beleid aan en voorzien we voorafgaand een passend toestemmingsmechanisme.',
+            'De site kan Vercel Web Analytics gebruiken voor geaggregeerde statistieken over paginaweergaven, verwijzers, apparaten, browsers en algemene locatiegegevens. Deze analytics gebruiken geen cookies en worden pas geladen nadat u analytics toestaat in de banner.',
+            'Uw keuze wordt lokaal in uw browser bewaard als noodzakelijke voorkeur, zodat de website uw keuze kan respecteren. U kunt die voorkeur aanpassen via de cookie-instellingen op de website of verwijderen via uw browserinstellingen.',
           ],
         },
         {
@@ -218,14 +220,73 @@ export const LEGAL_PAGE_CONTENT = {
         {
           title: '4. Externe diensten',
           paragraphs: [
-            'De publieke website laadt momenteel geen externe font- of advertentiediensten in de browser. Vercel Web Analytics wordt via de Vercel-hostingomgeving geladen voor geaggregeerde gebruiksstatistieken.',
-            'Als dat later verandert, wordt dit beleid aangepast en wordt waar nodig vooraf een passend toestemmingsmechanisme voorzien.',
+            'De publieke website laadt momenteel geen externe font- of advertentiediensten in de browser. Vercel Web Analytics wordt via de Vercel-hostingomgeving geladen voor geaggregeerde gebruiksstatistieken wanneer u daarvoor toestemming geeft.',
+            'Als later andere niet-noodzakelijke cookies of vergelijkbare technologieën worden toegevoegd, wordt dit beleid aangepast en wordt vooraf een passend toestemmingsmechanisme voorzien.',
           ],
         },
         {
           title: '5. Uw browserinstellingen',
           paragraphs: [
             'U kunt cookies en lokale opslag doorgaans beheren, blokkeren of verwijderen via de instellingen van uw browser. Houd er wel rekening mee dat het uitschakelen van strikt noodzakelijke technische mechanismen de goede werking van een website kan beïnvloeden.',
+          ],
+        },
+      ],
+    },
+    terms: {
+      navLabel: 'Algemene voorwaarden',
+      eyebrow: 'Algemene voorwaarden',
+      title: 'Algemene voorwaarden voor het gebruik van de website',
+      intro:
+        'Deze voorwaarden leggen de basisregels vast voor het gebruik van deze website en de informatie die Nutrivisi online publiceert. Concrete opdrachten worden afzonderlijk geregeld via offerte, overeenkomst of schriftelijke bevestiging.',
+      seoTitle: 'Algemene voorwaarden | Nutrivisi',
+      seoDescription:
+        'Lees de algemene voorwaarden voor het gebruik van de Nutrivisi-website en de online informatie.',
+      updatedAt: companyFacts.updatedNl,
+      summary: [
+        { label: 'Toepassing', value: 'Gebruik van nutrivisi.be en online informatie' },
+        { label: 'Uitgever', value: `${companyFacts.company} (${companyFacts.brand})` },
+        { label: 'Recht', value: 'Belgisch recht' },
+        { label: 'Contact', value: companyFacts.emailDisplay },
+      ],
+      sections: [
+        {
+          title: '1. Toepassingsgebied',
+          paragraphs: [
+            'Door deze website te gebruiken, aanvaardt u deze algemene voorwaarden voor zover ze betrekking hebben op het gebruik van de website en de online inhoud.',
+            'Voor adviesopdrachten, begeleiding, audits, opleidingen of andere professionele diensten gelden de voorwaarden die in de offerte, overeenkomst of schriftelijke bevestiging van de opdracht zijn opgenomen. Bij tegenstrijdigheid heeft die specifieke afspraak voorrang.',
+          ],
+        },
+        {
+          title: '2. Informatie op de website',
+          paragraphs: [
+            'De informatie op deze website wordt met zorg opgesteld, maar is algemeen van aard. Ze vormt geen bindend advies, geen contractueel aanbod en geen vervanging voor een analyse van een concrete situatie.',
+            'Nutrivisi kan de inhoud van de website aanpassen, aanvullen of verwijderen wanneer dat nodig is.',
+          ],
+        },
+        {
+          title: '3. Correct gebruik',
+          bullets: [
+            'U gebruikt de website op een normale, rechtmatige manier en onderneemt geen acties die de beschikbaarheid, beveiliging of integriteit van de website kunnen verstoren.',
+            'U probeert geen ongeoorloofde toegang te krijgen tot formulieren, systemen, code, infrastructuur of gegevens die niet publiek voor u bestemd zijn.',
+          ],
+        },
+        {
+          title: '4. Intellectuele eigendom',
+          paragraphs: [
+            'De teksten, beelden, logo’s, vormgeving en andere elementen op deze website zijn beschermd voor zover de wet dat voorziet. Zonder voorafgaande schriftelijke toestemming mag u de inhoud niet integraal of substantieel kopiëren, publiceren of commercieel hergebruiken.',
+          ],
+        },
+        {
+          title: '5. Aansprakelijkheid',
+          paragraphs: [
+            'Nutrivisi streeft naar een veilige en correcte website, maar garandeert niet dat de site altijd foutloos of ononderbroken beschikbaar is.',
+            'Voor zover wettelijk toegestaan, is Nutrivisi niet aansprakelijk voor indirecte schade, verlies van gegevens, winstderving of schade die voortvloeit uit het gebruik van algemene informatie op deze website.',
+          ],
+        },
+        {
+          title: '6. Toepasselijk recht en contact',
+          paragraphs: [
+            `Op deze voorwaarden is Belgisch recht van toepassing. Voor vragen over deze voorwaarden kunt u contact opnemen via ${companyFacts.email}.`,
           ],
         },
       ],
@@ -359,7 +420,7 @@ export const LEGAL_PAGE_CONTENT = {
           title: '7. Utilisation du site, e-mail et ressources externes',
           paragraphs: [
             'Le module de contact du site envoie votre message directement à Nutrivisi via l’environnement serveur sécurisé du site. Votre navigateur n’a donc pas besoin d’ouvrir votre propre application e-mail.',
-            'Le site utilise Vercel Web Analytics afin de consulter des statistiques agrégées et respectueuses de la vie privée sur l’utilisation du site. Ces analytics fonctionnent sans cookies et servent à améliorer le site sur les plans technique et éditorial.',
+            'Après votre accord, le site peut charger Vercel Web Analytics afin de consulter des statistiques agrégées et respectueuses de la vie privée sur l’utilisation du site. Ces analytics fonctionnent sans cookies et servent à améliorer le site sur les plans technique et éditorial.',
           ],
         },
         {
@@ -381,8 +442,8 @@ export const LEGAL_PAGE_CONTENT = {
         'Consultez la politique de Nutrivisi concernant les cookies, le stockage technique et les ressources externes sur nutrivisi.be.',
       updatedAt: companyFacts.updatedFr,
       summary: [
-        { label: 'Statut actuel', value: 'Vercel Web Analytics actif sans cookies' },
-        { label: 'Bannière de consentement', value: 'Non déployée tant qu’aucun cookie non essentiel n’est activé' },
+        { label: 'Statut actuel', value: 'Stockage nécessaire actif ; analytics uniquement après accord' },
+        { label: 'Bannière de consentement', value: 'Présente pour le choix relatif à Vercel Web Analytics' },
         { label: 'Services externes', value: 'Pas de service externe de police ou de publicité dans le front-end public' },
         { label: 'Contact', value: companyFacts.emailDisplay },
       ],
@@ -397,8 +458,8 @@ export const LEGAL_PAGE_CONTENT = {
           title: '2. Que fait actuellement ce site ?',
           paragraphs: [
             'D’après la configuration actuelle, nutrivisi.be n’utilise pas de cookies publicitaires ou de suivi à des fins marketing.',
-            'Le site utilise Vercel Web Analytics pour des statistiques agrégées sur les pages vues, les référents, les appareils, les navigateurs et les données générales de localisation. Ces analytics n’utilisent pas de cookies.',
-            'C’est pourquoi nous n’affichons pas actuellement de bannière de consentement détaillée. Si des cookies non essentiels ou des technologies de suivi comparables sont ajoutés ultérieurement, cette politique sera adaptée et un mécanisme de consentement approprié sera mis en place au préalable.',
+            'Le site peut utiliser Vercel Web Analytics pour des statistiques agrégées sur les pages vues, les référents, les appareils, les navigateurs et les données générales de localisation. Ces analytics n’utilisent pas de cookies et ne sont chargés qu’après votre accord dans la bannière.',
+            'Votre choix est conservé localement dans votre navigateur en tant que préférence nécessaire, afin que le site puisse le respecter. Vous pouvez modifier cette préférence via les paramètres cookies du site ou la supprimer dans les paramètres de votre navigateur.',
           ],
         },
         {
@@ -411,14 +472,73 @@ export const LEGAL_PAGE_CONTENT = {
         {
           title: '4. Services externes',
           paragraphs: [
-            'Le site public ne charge actuellement aucun service externe de police ou de publicité dans le navigateur. Vercel Web Analytics est chargé via l’environnement d’hébergement Vercel pour des statistiques d’utilisation agrégées.',
-            'Si cela devait évoluer ultérieurement, cette politique serait mise à jour et, lorsque nécessaire, un mécanisme de consentement approprié serait mis en place au préalable.',
+            'Le site public ne charge actuellement aucun service externe de police ou de publicité dans le navigateur. Vercel Web Analytics est chargé via l’environnement d’hébergement Vercel pour des statistiques d’utilisation agrégées lorsque vous donnez votre accord.',
+            'Si d’autres cookies non essentiels ou technologies comparables devaient être ajoutés ultérieurement, cette politique serait mise à jour et un mécanisme de consentement approprié serait mis en place au préalable.',
           ],
         },
         {
           title: '5. Paramètres de votre navigateur',
           paragraphs: [
             'Vous pouvez généralement gérer, bloquer ou supprimer les cookies et le stockage local via les paramètres de votre navigateur. Gardez toutefois à l’esprit que la désactivation de mécanismes strictement nécessaires peut perturber le bon fonctionnement d’un site web.',
+          ],
+        },
+      ],
+    },
+    terms: {
+      navLabel: 'Conditions générales',
+      eyebrow: 'Conditions générales',
+      title: 'Conditions générales d’utilisation du site',
+      intro:
+        'Ces conditions fixent les règles de base applicables à l’utilisation du site et des informations publiées en ligne par Nutrivisi. Les missions concrètes sont réglées séparément par offre, contrat ou confirmation écrite.',
+      seoTitle: 'Conditions générales | Nutrivisi',
+      seoDescription:
+        'Consultez les conditions générales d’utilisation du site Nutrivisi et des informations publiées en ligne.',
+      updatedAt: companyFacts.updatedFr,
+      summary: [
+        { label: 'Application', value: 'Utilisation de nutrivisi.be et des informations en ligne' },
+        { label: 'Éditeur', value: `${companyFacts.company} (${companyFacts.brand})` },
+        { label: 'Droit', value: 'Droit belge' },
+        { label: 'Contact', value: companyFacts.emailDisplay },
+      ],
+      sections: [
+        {
+          title: '1. Champ d’application',
+          paragraphs: [
+            'En utilisant ce site, vous acceptez les présentes conditions générales dans la mesure où elles concernent l’utilisation du site et de son contenu en ligne.',
+            'Pour les missions de conseil, d’accompagnement, d’audit, de formation ou d’autres services professionnels, les conditions reprises dans l’offre, le contrat ou la confirmation écrite de mission s’appliquent. En cas de contradiction, cet accord spécifique prévaut.',
+          ],
+        },
+        {
+          title: '2. Informations publiées sur le site',
+          paragraphs: [
+            'Les informations publiées sur ce site sont préparées avec soin, mais restent générales. Elles ne constituent ni un conseil contraignant, ni une offre contractuelle, ni un remplacement d’une analyse d’une situation concrète.',
+            'Nutrivisi peut modifier, compléter ou retirer le contenu du site lorsque cela s’avère nécessaire.',
+          ],
+        },
+        {
+          title: '3. Utilisation correcte',
+          bullets: [
+            'Vous utilisez le site de manière normale et licite, sans action susceptible de perturber sa disponibilité, sa sécurité ou son intégrité.',
+            'Vous ne tentez pas d’obtenir un accès non autorisé aux formulaires, systèmes, codes, infrastructures ou données qui ne vous sont pas destinés publiquement.',
+          ],
+        },
+        {
+          title: '4. Propriété intellectuelle',
+          paragraphs: [
+            'Les textes, images, logos, éléments graphiques et autres contenus du site sont protégés dans la mesure prévue par la loi. Sans autorisation écrite préalable, vous ne pouvez pas copier, publier ou réutiliser commercialement tout ou partie substantielle du contenu.',
+          ],
+        },
+        {
+          title: '5. Responsabilité',
+          paragraphs: [
+            'Nutrivisi s’efforce de proposer un site sûr et correct, mais ne garantit pas que le site sera toujours disponible sans erreur ni interruption.',
+            'Dans la mesure autorisée par la loi, Nutrivisi n’est pas responsable des dommages indirects, pertes de données, pertes de profit ou dommages résultant de l’utilisation d’informations générales publiées sur ce site.',
+          ],
+        },
+        {
+          title: '6. Droit applicable et contact',
+          paragraphs: [
+            `Les présentes conditions sont régies par le droit belge. Pour toute question, vous pouvez écrire à ${companyFacts.email}.`,
           ],
         },
       ],

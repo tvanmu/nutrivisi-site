@@ -844,7 +844,7 @@ const translations = {
       privacyNoteLink: 'privacybeleid',
       privacyNoteTail: 'voor meer informatie.',
     },
-    footer: { tagline: 'Praktische begeleiding in voedselveiligheid en kwaliteit.', privacy: 'Privacybeleid', cookies: 'Cookies', legal: 'Juridische info' },
+    footer: { tagline: 'Praktische begeleiding in voedselveiligheid en kwaliteit.', privacy: 'Privacybeleid', cookies: 'Cookies', terms: 'Algemene voorwaarden', legal: 'Juridische info' },
   },
   FR: {
     nav: { tag: 'La sécurité alimentaire simplifiée', home: 'Accueil', services: 'Services', method: 'Méthode', radar: 'Veille', insights: 'Savoir', why: 'Pourquoi nous', contact: 'Contact', cta: 'Contact' },
@@ -1007,7 +1007,7 @@ const translations = {
       privacyNoteLink: 'politique de confidentialité',
       privacyNoteTail: 'pour en savoir plus.',
     },
-    footer: { tagline: 'Accompagnement pratique en sécurité et qualité alimentaire.', privacy: 'Politique de confidentialité', cookies: 'Cookies', legal: 'Mentions légales' },
+    footer: { tagline: 'Accompagnement pratique en sécurité et qualité alimentaire.', privacy: 'Politique de confidentialité', cookies: 'Cookies', terms: 'Conditions générales', legal: 'Mentions légales' },
   },
 };
 
@@ -1132,6 +1132,7 @@ export default function NutrivisiSite({ lang = 'NL' }) {
   const legalPaths = {
     privacy: getLegalPath(lang, 'privacy'),
     cookies: getLegalPath(lang, 'cookies'),
+    terms: getLegalPath(lang, 'terms'),
     legal: getLegalPath(lang, 'legal'),
   };
 
@@ -2236,6 +2237,7 @@ export default function NutrivisiSite({ lang = 'NL' }) {
                     <a href="#waarom" onClick={(e) => { e.preventDefault(); scrollToSection('waarom'); }} className="text-teal-100/64 transition-colors hover:text-[#5CC0D5]">{t.nav.why}</a>
                     <Link to={legalPaths.privacy} className="text-teal-100/64 transition-colors hover:text-[#5CC0D5]">{t.footer.privacy}</Link>
                     <Link to={legalPaths.cookies} className="text-teal-100/64 transition-colors hover:text-[#5CC0D5]">{t.footer.cookies}</Link>
+                    <Link to={legalPaths.terms} className="text-teal-100/64 transition-colors hover:text-[#5CC0D5]">{t.footer.terms}</Link>
                     <Link to={legalPaths.legal} className="text-teal-100/64 transition-colors hover:text-[#5CC0D5]">{t.footer.legal}</Link>
                   </div>
                 </div>
