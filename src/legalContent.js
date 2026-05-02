@@ -207,7 +207,7 @@ export const LEGAL_PAGE_CONTENT = {
           paragraphs: [
             'Op basis van de huidige configuratie gebruikt nutrivisi.be geen advertentiecookies of trackingcookies voor marketingdoeleinden.',
             'De site kan Vercel Web Analytics gebruiken voor geaggregeerde statistieken over paginaweergaven, verwijzers, apparaten, browsers en algemene locatiegegevens. Deze analytics gebruiken geen cookies en worden pas geladen nadat u analytics toestaat in de banner.',
-            'Uw keuze wordt lokaal in uw browser bewaard als noodzakelijke voorkeur, zodat de website uw keuze kan respecteren. U kunt die voorkeur aanpassen via de cookie-instellingen op de website of verwijderen via uw browserinstellingen.',
+            'Uw keuze wordt lokaal in uw browser bewaard als noodzakelijke voorkeur, zodat de website uw keuze kan respecteren. U kunt die voorkeur verwijderen via uw browserinstellingen door de lokale websitegegevens voor nutrivisi.be te wissen.',
           ],
         },
         {
@@ -459,7 +459,7 @@ export const LEGAL_PAGE_CONTENT = {
           paragraphs: [
             'D’après la configuration actuelle, nutrivisi.be n’utilise pas de cookies publicitaires ou de suivi à des fins marketing.',
             'Le site peut utiliser Vercel Web Analytics pour des statistiques agrégées sur les pages vues, les référents, les appareils, les navigateurs et les données générales de localisation. Ces analytics n’utilisent pas de cookies et ne sont chargés qu’après votre accord dans la bannière.',
-            'Votre choix est conservé localement dans votre navigateur en tant que préférence nécessaire, afin que le site puisse le respecter. Vous pouvez modifier cette préférence via les paramètres cookies du site ou la supprimer dans les paramètres de votre navigateur.',
+            'Votre choix est conservé localement dans votre navigateur en tant que préférence nécessaire, afin que le site puisse le respecter. Vous pouvez supprimer cette préférence dans les paramètres de votre navigateur en effaçant les données locales du site nutrivisi.be.',
           ],
         },
         {

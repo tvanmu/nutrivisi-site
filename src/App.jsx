@@ -14,7 +14,6 @@ const COOKIE_BANNER_COPY = {
     accept: 'Analytics toestaan',
     decline: 'Alleen noodzakelijk',
     policy: 'Cookiebeleid',
-    settings: 'Cookie-instellingen',
   },
   FR: {
     title: 'Préférences cookies',
@@ -22,7 +21,6 @@ const COOKIE_BANNER_COPY = {
     accept: 'Autoriser les analytics',
     decline: 'Nécessaires uniquement',
     policy: 'Politique cookies',
-    settings: 'Paramètres cookies',
   },
 };
 
@@ -149,7 +147,6 @@ function ConsentAndAnalytics() {
       return 'declined';
     }
   });
-  const [settingsOpen, setSettingsOpen] = useState(false);
 
   const saveChoice = (nextChoice) => {
     try {
@@ -158,26 +155,13 @@ function ConsentAndAnalytics() {
       // If storage is blocked, keep analytics disabled for this session.
     }
     setChoice(nextChoice);
-    setSettingsOpen(false);
   };
-
-  const showBanner = settingsOpen || choice === null;
 
   return (
     <>
       {choice === 'accepted' ? <Analytics /> : null}
 
-      {choice !== null && !showBanner ? (
-        <button
-          type="button"
-          onClick={() => setSettingsOpen(true)}
-          className="fixed bottom-4 left-4 z-[80] rounded-full border border-[#5CC0D5]/28 bg-[#073B4C]/92 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.14em] text-teal-50/78 shadow-[0_18px_50px_-30px_rgba(0,0,0,0.9)] backdrop-blur-xl transition hover:border-[#F0A018]/50 hover:text-[#F0A018]"
-        >
-          {copy.settings}
-        </button>
-      ) : null}
-
-      {showBanner ? (
+      {choice === null ? (
         <section
           className="fixed inset-x-3 bottom-3 z-[90] mx-auto max-w-5xl rounded-[1.4rem] border border-[#5CC0D5]/24 bg-[#073B4C]/96 p-4 text-teal-50 shadow-[0_28px_90px_-38px_rgba(0,0,0,0.95)] backdrop-blur-2xl sm:bottom-5 sm:p-5"
           role="dialog"
